@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="js/nav.js"></script>
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -38,6 +39,9 @@
 <!-- GSAP + Iconify -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+<link rel="stylesheet" href="css/nav.css" />
+<script src="js/nav.js"></script>
 
 <style>
     body {
@@ -243,18 +247,39 @@
 <div class="orb orb--orange" style="width:420px;height:420px;bottom:-180px;left:20vw;"></div>
 
 <nav class="sitenav" id="main-nav">
-    <a class="sitenav__brand" href="index.html">
-        <div class="w-10 h-10 rounded bg-unad-teal text-white flex items-center justify-center font-bold font-display shadow-md mr-1">MV</div>
-        <div>Med. Veterinaria <small>Programa académico</small></div>
-    </a>
-    <div class="sitenav__right">
-        <ul class="sitenav__links hidden sm:flex">
-            <li><a href="index.html" aria-current="page">Inicio</a></li>
-            <li><a href="malla-academica.html">Malla académica</a></li>
-            <li><a href="condicion-3.html">Condición 3</a></li>
-        </ul>
-        <button class="theme-toggle" id="theme-btn" type="button" aria-label="Cambiar a modo oscuro">🌙</button>
+  <a class="sitenav__brand" href="index.html">
+    <div class="sitenav__logo">MV</div>
+    <div class="sitenav__brand-text">
+      <span>Medicina Veterinaria</span>
+      <small>Programa académico</small>
     </div>
+  </a>
+  <div class="sitenav__right">
+    <button class="sitenav__burger" id="nav-burger"
+            aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="sitenav__links" id="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="malla-academica.html">Malla académica</a></li>
+      <li class="sitenav__dropdown">
+        <button class="sitenav__link" type="button"
+                aria-haspopup="true" aria-expanded="false">
+          Condiciones
+        </button>
+        <ul class="sitenav__dropdown-menu">
+          <li><a href="condicion-1.html">Condición 1 · Denominación</a></li>
+          <li><a href="condicion-2.html">Condición 2</a></li>
+          <li><a href="condicion-3.html">Condición 3 · Consistencia Curricular</a></li>
+          <li><a href="condicion-4.html">Condición 4 · Actividades Académicas</a></li>
+          <li><a href="condicion-5.html">Condición 5 · Investigación</a></li>
+          <li><a href="condicion-6.html">Condición 6</a></li>
+          <li><a href="condicion-7.html">Condición 7 · Profesores</a></li>
+          <li><a href="condicion-8.html">Condición 8</a></li>
+        </ul>
+      </li>
+    </ul>
+    <button class="theme-toggle" id="theme-btn" type="button"
+            aria-label="Cambiar tema">🌙</button>
+  </div>
 </nav>
 
 <main class="page-wrap">
