@@ -8,9 +8,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="js/nav.js"></script>
 
-<!-- Tailwind CSS -->
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem('unad-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
     tailwind.config = {
@@ -19,12 +28,8 @@
             extend: {
                 colors: {
                     unad: {
-                        teal: '#00445B',
-                        navy: '#01333F',
-                        green: '#035B3B',
-                        orange: '#D26714',
-                        base: '#EAEAEA',
-                        darkbg: '#0a1922'
+                        teal: '#00445B', navy: '#01333F', green: '#035B3B',
+                        orange: '#D26714', base: '#EAEAEA', darkbg: '#0a1922'
                     }
                 },
                 fontFamily: {
@@ -36,160 +41,80 @@
     }
 </script>
 
-<!-- GSAP & Observer -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
-
-<!-- Iconify for Animated Icons -->
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 <link rel="stylesheet" href="css/nav.css" />
-<script src="js/nav.js"></script>
+<script src="js/nav.js" defer></script>
 
 <style>
     body {
-        background-color: #EAEAEA;
-        color: #01333F;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+        background-color: #EAEAEA; color: #01333F;
+        margin: 0; padding: 0; overflow: hidden;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
-    
-    .dark body {
-        background-color: #0a1922;
-        color: #EAEAEA;
-    }
+    .dark body { background-color: #0a1922; color: #EAEAEA; }
 
-    /* Textura de lienzo sutil */
     body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
+        content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
         background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
-        opacity: 0.04;
-        mix-blend-mode: multiply;
+        opacity: 0.04; mix-blend-mode: multiply;
     }
-    .dark body::before {
-        opacity: 0.02;
-        mix-blend-mode: screen;
-    }
+    .dark body::before { opacity: 0.02; mix-blend-mode: screen; }
 
-    /* Orbes Ambientales Animados */
-    .orb {
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(140px);
-        z-index: 0;
-        opacity: 0.6;
-        pointer-events: none;
-    }
-    .orb--navy {
-        background: #00445B;
-        animation: float1 20s ease-in-out infinite;
-    }
-    .orb--orange {
-        background: #D26714;
-        animation: float2 25s ease-in-out infinite reverse;
-        opacity: 0.4;
-    }
-
+    .orb { position: fixed; border-radius: 50%; filter: blur(140px); z-index: 0; opacity: 0.6; pointer-events: none; }
+    .orb--navy { background: #00445B; animation: float1 20s ease-in-out infinite; }
+    .orb--orange { background: #D26714; animation: float2 25s ease-in-out infinite reverse; opacity: 0.4; }
     @keyframes float1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(5vw, 5vh) scale(1.1); } }
     @keyframes float2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-5vw, -5vh) scale(1.1); } }
 
-    /* Estructura UI base */
     .sitenav {
-        position: fixed;
-        top: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 92%;
-        max-width: 1500px;
-        z-index: 50;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.75rem 1.5rem;
-        border-radius: 1rem;
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        position: fixed; top: 1rem; left: 50%; transform: translateX(-50%);
+        width: 92%; max-width: 1500px; z-index: 50;
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0.75rem 1.5rem; border-radius: 1rem;
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
         background: rgba(255, 255, 255, 0.85);
         border: 1px solid rgba(255, 255, 255, 0.5);
         box-shadow: 0 4px 20px rgba(1, 51, 63, 0.05);
         transition: all 0.3s ease;
     }
-    .dark .sitenav {
-        background: rgba(1, 51, 63, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .sitenav__brand {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-        color: #01333F;
-        text-decoration: none;
-    }
+    .dark .sitenav { background: rgba(1, 51, 63, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
+    .sitenav__brand { display: flex; align-items: center; gap: 0.75rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #01333F; text-decoration: none; }
     .dark .sitenav__brand { color: #ffffff; }
-    
-    .sitenav__brand small {
-        display: block;
-        font-size: 0.75rem;
-        font-weight: 500;
-        color: #00445B;
-    }
+    .sitenav__brand small { display: block; font-size: 0.75rem; font-weight: 500; color: #00445B; }
     .dark .sitenav__brand small { color: #D26714; }
-
     .sitenav__right { display: flex; align-items: center; gap: 1.5rem; }
     .sitenav__links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; font-size: 0.875rem; font-weight: 600; }
     .sitenav__links a { color: #01333F; text-decoration: none; transition: color 0.2s; }
     .dark .sitenav__links a { color: #EAEAEA; }
     .sitenav__links a:hover { color: #D26714; }
     .sitenav__links a[aria-current="page"] { color: #D26714; border-bottom: 2px solid #D26714; padding-bottom: 2px; }
-
-    .theme-toggle {
-        background: none; border: none; cursor: pointer; font-size: 1.25rem;
-        display: flex; align-items: center; justify-content: center;
-        width: 36px; height: 36px; border-radius: 50%;
-        background-color: rgba(0,0,0,0.05); transition: background-color 0.2s;
-    }
+    .theme-toggle { background: none; border: none; cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(0,0,0,0.05); transition: background-color 0.2s; }
     .dark .theme-toggle { background-color: rgba(255,255,255,0.1); }
 
-    /* Slider Container & Glass Panels */
     .slider-container { position: relative; width: 100vw; height: 100vh; z-index: 10; }
-    .slide {
-        position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
-        visibility: hidden; display: flex; flex-direction: column;
-        justify-content: center; align-items: center; padding: 5rem 2rem 2rem 2rem;
-    }
+    .slide { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5rem 2rem 2rem 2rem; }
 
     .glass-panel {
-        width: 100%;
-        max-width: 95vw;
-        height: 86vh;
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        background: rgba(255, 255, 255, 0.78);
+        width: 100%; max-width: 95vw; height: 86vh;
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('assets/Fondo_1.png');
+        background-size: cover, cover; background-position: center center, center center; background-repeat: no-repeat, no-repeat;
         border: 1px solid rgba(255, 255, 255, 0.6);
         box-shadow: 0 10px 40px rgba(1, 51, 63, 0.08);
-        border-radius: 1.5rem;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
+        border-radius: 1.5rem; padding: 2rem;
+        display: flex; flex-direction: column;
         transition: all 0.3s ease;
     }
     .dark .glass-panel {
-        background: rgba(1, 51, 63, 0.65);
+        background-image: linear-gradient(rgba(1, 51, 63, 0.55), rgba(1, 51, 63, 0.55)), url('assets/Fondo_1.png');
+        background-size: cover, cover; background-position: center center, center center; background-repeat: no-repeat, no-repeat;
         border: 1px solid rgba(255, 255, 255, 0.12);
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
 
-    /* Scrollbars internos */
     .custom-scroll { overflow-y: auto; overflow-x: hidden; padding-right: 10px; }
     .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
     .custom-scroll::-webkit-scrollbar-track { background: rgba(0,68,91,0.05); border-radius: 10px; }
@@ -197,21 +122,47 @@
     .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
     .dark .custom-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
 
-    /* Side Nav (Dots) */
     .sidenav-dots {
         position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
-        z-index: 50; display: flex; flex-direction: column; align-items: center; gap: 6px;
+        z-index: 50; display: flex; flex-direction: column; align-items: center; gap: 4px;
         background: rgba(255,255,255,0.5); backdrop-filter: blur(8px);
         padding: 10px 6px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3);
-        max-height: 80vh; overflow-y: auto;
     }
     .dark .sidenav-dots { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
     .nav-btn { background: none; border: none; cursor: pointer; color: inherit; padding: 2px; display: flex; align-items: center; justify-content: center; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: #00445B; opacity: 0.3; transition: all 0.3s; cursor: pointer; }
+
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #00445B; opacity: 0.3; transition: all 0.3s; }
     .dark .dot { background: #EAEAEA; }
     .dot.active { opacity: 1; height: 18px; border-radius: 4px; background: #D26714; }
 
-    /* Tablas Estilizadas */
+    .dot-wrapper { position: relative; min-height: 18px; padding: 3px 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
+    .dot-wrapper:hover .dot { transform: scale(1.6); opacity: 0.85; }
+    .dot-wrapper:hover .dot.active { transform: none; }
+
+    .dot-wrapper::after {
+        content: attr(data-title);
+        position: absolute; right: calc(100% + 14px); top: 50%;
+        transform: translateY(-50%) translateX(6px) scale(0.96);
+        background: #01333F; color: #ffffff; padding: 6px 12px; border-radius: 8px;
+        font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif;
+        letter-spacing: 0.02em; white-space: nowrap;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.22s ease, transform 0.22s ease;
+        box-shadow: 0 6px 18px rgba(1,51,63,0.30); z-index: 100;
+    }
+    .dot-wrapper::before {
+        content: ''; position: absolute; right: calc(100% + 8px); top: 50%;
+        transform: translateY(-50%) translateX(6px);
+        width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+        border-left: 6px solid #01333F;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.22s ease, transform 0.22s ease; z-index: 100;
+    }
+    .dot-wrapper:hover::after { opacity: 1; transform: translateY(-50%) translateX(0) scale(1); }
+    .dot-wrapper:hover::before { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .dark .dot-wrapper::after { background: #D26714; }
+    .dark .dot-wrapper::before { border-left-color: #D26714; }
+
     .styled-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; }
     .styled-table th { background-color: #00445B; color: white; padding: 12px; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; position: sticky; top: 0; z-index: 10; }
     .styled-table td { padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.1); vertical-align: middle; }
@@ -219,12 +170,39 @@
     .styled-table tr:hover td { background-color: rgba(0,68,91,0.03); }
     .dark .styled-table tr:hover td { background-color: rgba(255,255,255,0.03); }
 
-    /* Tarjetas Interactivas con Efectos */
     .hover-card { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s; }
     .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -8px rgba(0, 68, 91, 0.15); border-color: #D26714; }
+
+    #image-modal {
+        position: fixed; inset: 0; z-index: 9999;
+        background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+        display: flex; justify-content: center; align-items: center;
+        opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    #image-modal.active { opacity: 1; pointer-events: auto; }
+    #image-modal img {
+        max-width: 95vw; max-height: 95vh; border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        transform: scale(0.95); transition: transform 0.3s ease;
+        object-fit: contain;
+    }
+    #image-modal.active img { transform: scale(1); }
+    .modal-close {
+        position: absolute; top: 1.5rem; right: 2rem;
+        color: white; font-size: 3rem; line-height: 1;
+        background: transparent; border: none; cursor: pointer;
+        opacity: 0.8; transition: opacity 0.2s;
+    }
+    .modal-close:hover { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
 </style>
 </head>
 <body>
+
+<!-- Lightbox Modal -->
+<div id="image-modal">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar imagen">&times;</button>
+    <img id="modal-image" src="" alt="Imagen ampliada">
+</div>
 
 <div class="orb orb--navy" style="width:480px;height:480px;top:-160px;left:-140px;"></div>
 <div class="orb orb--orange" style="width:420px;height:420px;bottom:-180px;right:10vw;"></div>
@@ -232,22 +210,15 @@
 <nav class="sitenav" id="main-nav">
   <a class="sitenav__brand" href="index.html">
     <div class="sitenav__logo">MV</div>
-    <div class="sitenav__brand-text">
-      <span>Medicina Veterinaria</span>
-      <small>Programa académico</small>
-    </div>
+    <div class="sitenav__brand-text"><span>Medicina Veterinaria</span><small>Programa académico</small></div>
   </a>
   <div class="sitenav__right">
-    <button class="sitenav__burger" id="nav-burger"
-            aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <button class="sitenav__burger" id="nav-burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <ul class="sitenav__links" id="nav-links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="malla-academica.html">Malla académica</a></li>
       <li class="sitenav__dropdown">
-        <button class="sitenav__link" type="button"
-                aria-haspopup="true" aria-expanded="false">
-          Condiciones
-        </button>
+        <button class="sitenav__link" type="button" aria-haspopup="true" aria-expanded="false">Condiciones</button>
         <ul class="sitenav__dropdown-menu">
           <li><a href="condicion-1.html">Condición 1 · Denominación</a></li>
           <li><a href="condicion-2.html">Condición 2</a></li>
@@ -255,13 +226,12 @@
           <li><a href="condicion-4.html">Condición 4 · Actividades Académicas</a></li>
           <li><a href="condicion-5.html">Condición 5 · Investigación</a></li>
           <li><a href="condicion-6.html">Condición 6</a></li>
-          <li><a href="condicion-7.html">Condición 7 · Profesores</a></li>
+          <li><a href="condicion-7.html" aria-current="page">Condición 7 · Profesores</a></li>
           <li><a href="condicion-8.html">Condición 8</a></li>
         </ul>
       </li>
     </ul>
-    <button class="theme-toggle" id="theme-btn" type="button"
-            aria-label="Cambiar tema">🌙</button>
+    <button class="theme-toggle" id="theme-btn" type="button" aria-label="Cambiar tema">🌙</button>
   </div>
 </nav>
 
@@ -277,14 +247,14 @@
 
 <main class="slider-container" id="slider">
 
-    <!-- Diapositiva 1: Portada y Contexto -->
-    <section class="slide">
+    <!-- Diapositiva 1: Portada -->
+    <section class="slide" data-title="Portada">
         <div class="glass-panel items-center justify-center text-center">
             <span class="gsap-reveal px-4 py-1.5 rounded-full bg-unad-orange text-white text-xs font-bold uppercase tracking-wider mb-6 flex items-center gap-2 shadow-sm">
                 <span class="iconify animate-pulse" data-icon="lucide:users" data-width="16"></span> Sección independiente
             </span>
             <h1 class="gsap-reveal text-4xl md:text-6xl font-display font-bold text-unad-teal dark:text-white mb-8">Condición 7. Profesores</h1>
-            
+
             <div class="gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl text-left bg-white/60 dark:bg-black/40 p-8 rounded-2xl border border-unad-teal/10 shadow-sm w-full">
                 <div class="flex items-start gap-4">
                     <span class="iconify text-unad-teal mt-1 shrink-0" data-icon="lucide:graduation-cap" data-width="24"></span>
@@ -313,7 +283,7 @@
     </section>
 
     <!-- Diapositiva 2: Políticas Institucionales -->
-    <section class="slide">
+    <section class="slide" data-title="Políticas Institucionales">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -321,41 +291,43 @@
                     Políticas Institucionales y Reglamento Docente
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full max-w-5xl">
-                    <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-teal shadow-sm">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:gavel" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Estatuto Docente</h3>
-                            <p class="text-xs text-gray-600 dark:text-gray-300">Acuerdo 009 de 2006: Define tipos de vinculación (Carrera, Ocasional y Cátedra), derechos, deberes y evaluación.</p>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-teal shadow-sm">
+                            <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:gavel" data-width="24"></span>
+                            <div>
+                                <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Estatuto Docente</h3>
+                                <p class="text-xs text-gray-600 dark:text-gray-300">Acuerdo 009 de 2006: Define tipos de vinculación (Carrera, Ocasional y Cátedra), derechos, deberes y evaluación.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-teal shadow-sm">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:book-open" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Estatuto Académico</h3>
-                            <p class="text-xs text-gray-600 dark:text-gray-300">Acuerdo 029 de 2020: Establece los roles y responsabilidades de todos los actores académicos del programa.</p>
+                        <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-teal shadow-sm">
+                            <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:book-open" data-width="24"></span>
+                            <div>
+                                <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Estatuto Académico</h3>
+                                <p class="text-xs text-gray-600 dark:text-gray-300">Acuerdo 029 de 2020: Establece los roles y responsabilidades de todos los actores académicos del programa.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-teal shadow-sm">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:file-check" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Reglamento Académico</h3>
-                            <p class="text-xs text-gray-600 dark:text-gray-300">Acuerdo 015 de 2006: Regula la selección y funciones del personal académico de manera rigurosa.</p>
+                        <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-teal shadow-sm">
+                            <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:file-check" data-width="24"></span>
+                            <div>
+                                <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Reglamento Académico</h3>
+                                <p class="text-xs text-gray-600 dark:text-gray-300">Acuerdo 015 de 2006: Regula la selección y funciones del personal académico de manera rigurosa.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-orange shadow-sm md:col-span-2 lg:col-span-1">
-                        <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:users" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Acompañamiento Docente</h3>
-                            <p class="text-xs text-gray-600 dark:text-gray-300">Documento que detalla cómo el docente atiende las funciones sustantivas según su vinculación y formación integral.</p>
+                        <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-orange shadow-sm md:col-span-2 lg:col-span-1">
+                            <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:users" data-width="24"></span>
+                            <div>
+                                <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Acompañamiento Docente</h3>
+                                <p class="text-xs text-gray-600 dark:text-gray-300">Documento que detalla cómo el docente atiende las funciones sustantivas según su vinculación y formación integral.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-green shadow-sm md:col-span-2 lg:col-span-2">
-                        <span class="iconify text-unad-green shrink-0 mt-1" data-icon="lucide:settings" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Gestión Centralizada</h3>
-                            <p class="text-xs text-gray-600 dark:text-gray-300">La Vicerrectoría Académica (VIACI) y la Gerencia de Talento Humano administran la plataforma docente, asegurando la mejora continua institucional.</p>
+                        <div class="hover-card flex items-start gap-3 bg-white/70 dark:bg-black/50 p-5 rounded-2xl border-l-4 border-unad-green shadow-sm md:col-span-2 lg:col-span-2">
+                            <span class="iconify text-unad-green shrink-0 mt-1" data-icon="lucide:settings" data-width="24"></span>
+                            <div>
+                                <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Gestión Centralizada</h3>
+                                <p class="text-xs text-gray-600 dark:text-gray-300">La Vicerrectoría Académica (VIACI) y la Gerencia de Talento Humano administran la plataforma docente, asegurando la mejora continua institucional.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -374,7 +346,7 @@
     </section>
 
     <!-- Diapositiva 3: Roles Profesorales -->
-    <section class="slide">
+    <section class="slide" data-title="Roles Profesorales">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -382,32 +354,34 @@
                     Roles Profesorales en el Programa
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-6">
-                <p class="text-center text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">La UNAD define roles específicos para responder a las necesidades particulares de nuestro modelo híbrido (presencial-virtual):</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
-                    <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-t-4 border-unad-teal hover-card shadow-sm flex flex-col items-center text-center gap-3 h-full">
-                        <span class="iconify text-unad-teal" data-icon="lucide:briefcase" data-width="32"></span>
-                        <h3 class="font-bold text-unad-teal dark:text-white">1. Docente Director de Curso</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">Diseña contenidos, ruta metodológica y actividades académicas. Es el perfil más calificado en el área disciplinar respectiva.</p>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-t-4 border-unad-orange hover-card shadow-sm flex flex-col items-center text-center gap-3 h-full">
-                        <span class="iconify text-unad-orange" data-icon="lucide:laptop-2" data-width="32"></span>
-                        <h3 class="font-bold text-unad-orange">2. Docente Tutor</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">Realiza acompañamiento sincrónico y asincrónico, seguimiento académico permanente y estrategias para la permanencia estudiantil.</p>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-t-4 border-unad-green hover-card shadow-sm flex flex-col items-center text-center gap-3 h-full">
-                        <span class="iconify text-unad-green" data-icon="lucide:microscope" data-width="32"></span>
-                        <h3 class="font-bold text-unad-green dark:text-emerald-400">3. Tutor Componente Práctico</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">Ejecuta actividades <em>in situ</em> (laboratorios, clínicas, campo) esenciales para el desarrollo de habilidades aplicadas (el saber hacer).</p>
-                    </div>
-                </div>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-5xl mx-auto flex flex-col gap-6">
+                    <p class="text-center text-sm md:text-base text-gray-700 dark:text-gray-300">La UNAD define roles específicos para responder a las necesidades particulares de nuestro modelo híbrido (presencial-virtual):</p>
 
-                <div class="bg-unad-teal text-white p-5 rounded-2xl shadow-md border border-white/20 max-w-4xl mx-auto w-full text-center hover-card">
-                    <h4 class="font-bold text-xs uppercase tracking-widest text-unad-orange mb-1 flex items-center justify-center gap-2">
-                        <span class="iconify" data-icon="lucide:check-circle" data-width="16"></span> Conclusión
-                    </h4>
-                    <p class="text-sm md:text-base font-medium">Esta estructura garantiza un acompañamiento integral y flexible, asegurando la calidad educativa para los estudiantes de Medicina Veterinaria en todo el país.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-t-4 border-unad-teal hover-card shadow-sm flex flex-col items-center text-center gap-3 h-full">
+                            <span class="iconify text-unad-teal" data-icon="lucide:briefcase" data-width="32"></span>
+                            <h3 class="font-bold text-unad-teal dark:text-white">1. Docente Director de Curso</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">Diseña contenidos, ruta metodológica y actividades académicas. Es el perfil más calificado en el área disciplinar respectiva.</p>
+                        </div>
+                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-t-4 border-unad-orange hover-card shadow-sm flex flex-col items-center text-center gap-3 h-full">
+                            <span class="iconify text-unad-orange" data-icon="lucide:laptop-2" data-width="32"></span>
+                            <h3 class="font-bold text-unad-orange">2. Docente Tutor</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">Realiza acompañamiento sincrónico y asincrónico, seguimiento académico permanente y estrategias para la permanencia estudiantil.</p>
+                        </div>
+                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-t-4 border-unad-green hover-card shadow-sm flex flex-col items-center text-center gap-3 h-full">
+                            <span class="iconify text-unad-green" data-icon="lucide:microscope" data-width="32"></span>
+                            <h3 class="font-bold text-unad-green dark:text-emerald-400">3. Tutor Componente Práctico</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">Ejecuta actividades <em>in situ</em> (laboratorios, clínicas, campo) esenciales para el desarrollo de habilidades aplicadas (el saber hacer).</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-unad-teal text-white p-5 rounded-2xl shadow-md border border-white/20 text-center hover-card">
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-unad-orange mb-1 flex items-center justify-center gap-2">
+                            <span class="iconify" data-icon="lucide:check-circle" data-width="16"></span> Conclusión
+                        </h4>
+                        <p class="text-sm md:text-base font-medium">Esta estructura garantiza un acompañamiento integral y flexible, asegurando la calidad educativa para los estudiantes de Medicina Veterinaria en todo el país.</p>
+                    </div>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
@@ -424,7 +398,7 @@
     </section>
 
     <!-- Diapositiva 4: Modalidades y Requisitos -->
-    <section class="slide">
+    <section class="slide" data-title="Modalidades y Requisitos">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -432,51 +406,51 @@
                     Modalidades de Vinculación y Requisitos
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
-                    <!-- Columna Izquierda -->
-                    <div class="bg-white/60 dark:bg-black/40 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-6 hover-card">
-                        <div class="flex items-center gap-3 mb-5 border-b border-gray-200 dark:border-gray-700 pb-3">
-                            <span class="iconify text-unad-orange" data-icon="lucide:network" data-width="28"></span>
-                            <h3 class="font-bold text-lg text-unad-navy dark:text-white">Tipos de Vinculación</h3>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white/60 dark:bg-black/40 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-6 hover-card">
+                            <div class="flex items-center gap-3 mb-5 border-b border-gray-200 dark:border-gray-700 pb-3">
+                                <span class="iconify text-unad-orange" data-icon="lucide:network" data-width="28"></span>
+                                <h3 class="font-bold text-lg text-unad-navy dark:text-white">Tipos de Vinculación</h3>
+                            </div>
+                            <p class="text-xs text-gray-500 font-bold uppercase mb-4">Según Acuerdo 009 de 2006:</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="iconify text-unad-teal mt-0.5 shrink-0" data-icon="lucide:medal" data-width="20"></span>
+                                    <div><span class="font-bold text-sm block dark:text-gray-200">Carrera Docente</span><span class="text-xs text-gray-600 dark:text-gray-400">Ingreso exclusivo por concurso público de méritos.</span></div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="iconify text-unad-teal mt-0.5 shrink-0" data-icon="lucide:file-text" data-width="20"></span>
+                                    <div><span class="font-bold text-sm block dark:text-gray-200">Ocasional</span><span class="text-xs text-gray-600 dark:text-gray-400">Vinculación administrativa directa mediante resolución.</span></div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="iconify text-unad-teal mt-0.5 shrink-0" data-icon="lucide:clock" data-width="20"></span>
+                                    <div><span class="font-bold text-sm block dark:text-gray-200">Hora Cátedra</span><span class="text-xs text-gray-600 dark:text-gray-400">Vinculación por periodos específicos mediante resolución.</span></div>
+                                </li>
+                            </ul>
                         </div>
-                        <p class="text-xs text-gray-500 font-bold uppercase mb-4">Según Acuerdo 009 de 2006:</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="iconify text-unad-teal mt-0.5 shrink-0" data-icon="lucide:medal" data-width="20"></span>
-                                <div><span class="font-bold text-sm block dark:text-gray-200">Carrera Docente</span><span class="text-xs text-gray-600 dark:text-gray-400">Ingreso exclusivo por concurso público de méritos.</span></div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="iconify text-unad-teal mt-0.5 shrink-0" data-icon="lucide:file-text" data-width="20"></span>
-                                <div><span class="font-bold text-sm block dark:text-gray-200">Ocasional</span><span class="text-xs text-gray-600 dark:text-gray-400">Vinculación administrativa directa mediante resolución.</span></div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="iconify text-unad-teal mt-0.5 shrink-0" data-icon="lucide:clock" data-width="20"></span>
-                                <div><span class="font-bold text-sm block dark:text-gray-200">Hora Cátedra</span><span class="text-xs text-gray-600 dark:text-gray-400">Vinculación por periodos específicos mediante resolución.</span></div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Columna Derecha -->
-                    <div class="bg-white/60 dark:bg-black/40 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-6 hover-card">
-                        <div class="flex items-center gap-3 mb-5 border-b border-gray-200 dark:border-gray-700 pb-3">
-                            <span class="iconify text-unad-green" data-icon="lucide:clipboard-check" data-width="28"></span>
-                            <h3 class="font-bold text-lg text-unad-navy dark:text-white">Requisitos para la Docencia</h3>
+                        <div class="bg-white/60 dark:bg-black/40 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-6 hover-card">
+                            <div class="flex items-center gap-3 mb-5 border-b border-gray-200 dark:border-gray-700 pb-3">
+                                <span class="iconify text-unad-green" data-icon="lucide:clipboard-check" data-width="28"></span>
+                                <h3 class="font-bold text-lg text-unad-navy dark:text-white">Requisitos para la Docencia</h3>
+                            </div>
+                            <p class="text-xs text-gray-500 font-bold uppercase mb-4">Perfil exigido institucionalmente:</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="iconify text-unad-green mt-0.5 shrink-0" data-icon="lucide:graduation-cap" data-width="20"></span>
+                                    <div><span class="font-bold text-sm block dark:text-gray-200">Título Profesional</span><span class="text-xs text-gray-600 dark:text-gray-400">Título universitario acorde a las áreas disciplinares del programa.</span></div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="iconify text-unad-green mt-0.5 shrink-0" data-icon="lucide:award" data-width="20"></span>
+                                    <div><span class="font-bold text-sm block dark:text-gray-200">Formación Posgradual</span><span class="text-xs text-gray-600 dark:text-gray-400">Nivel mínimo de Especialización, Maestría o Doctorado.</span></div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="iconify text-unad-green mt-0.5 shrink-0" data-icon="lucide:laptop" data-width="20"></span>
+                                    <div><span class="font-bold text-sm block dark:text-gray-200">Componente Pedagógico</span><span class="text-xs text-gray-600 dark:text-gray-400">Aprobación obligatoria del Diplomado de Formación de Formadores.</span></div>
+                                </li>
+                            </ul>
                         </div>
-                        <p class="text-xs text-gray-500 font-bold uppercase mb-4">Perfil exigido institucionalmente:</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="iconify text-unad-green mt-0.5 shrink-0" data-icon="lucide:graduation-cap" data-width="20"></span>
-                                <div><span class="font-bold text-sm block dark:text-gray-200">Título Profesional</span><span class="text-xs text-gray-600 dark:text-gray-400">Título universitario acorde a las áreas disciplinares del programa.</span></div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="iconify text-unad-green mt-0.5 shrink-0" data-icon="lucide:award" data-width="20"></span>
-                                <div><span class="font-bold text-sm block dark:text-gray-200">Formación Posgradual</span><span class="text-xs text-gray-600 dark:text-gray-400">Nivel mínimo de Especialización, Maestría o Doctorado.</span></div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="iconify text-unad-green mt-0.5 shrink-0" data-icon="lucide:laptop" data-width="20"></span>
-                                <div><span class="font-bold text-sm block dark:text-gray-200">Componente Pedagógico</span><span class="text-xs text-gray-600 dark:text-gray-400">Aprobación obligatoria del Diplomado de Formación de Formadores.</span></div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -494,7 +468,7 @@
     </section>
 
     <!-- Diapositiva 5: Tabla Salarial -->
-    <section class="slide">
+    <section class="slide" data-title="Tabla Salarial">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -502,48 +476,50 @@
                     Tabla 1. Remuneración salarial por nivel académico
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center">
-                <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 max-w-4xl mx-auto text-center">La asignación salarial en la UNAD se determina de manera equitativa por el nivel de formación formal alcanzado (Doctorado, Maestría, Especialista, Profesional) y se actualiza de manera anual garantizando estabilidad económica.</p>
-                
-                <div class="bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm w-full max-w-5xl mx-auto">
-                    <div class="overflow-x-auto">
-                        <table class="styled-table w-full text-xs md:text-sm">
-                            <thead>
-                                <tr>
-                                    <th>Nivel / Año</th>
-                                    <th>2018</th>
-                                    <th>2019</th>
-                                    <th>2020</th>
-                                    <th>2021</th>
-                                    <th>2022</th>
-                                    <th>2023</th>
-                                    <th>2024</th>
-                                    <th>2025</th>
-                                    <th>2026</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-800 dark:text-gray-200">
-                                <tr>
-                                    <td class="font-bold text-unad-teal dark:text-unad-orange">Doctorado</td>
-                                    <td>5.760.000</td><td>5.962.000</td><td>5.962.000</td><td>6.312.000</td><td>6.607.000</td><td>7.542.000</td><td>8.241.900</td><td>8.670.000</td><td class="font-bold bg-unad-teal/5 dark:bg-unad-teal/20">9.112.000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-unad-teal dark:text-unad-orange">Magister</td>
-                                    <td>4.800.000</td><td>4.968.000</td><td>4.968.000</td><td>5.260.000</td><td>5.556.000</td><td>6.285.000</td><td>6.868.300</td><td>7.225.000</td><td class="font-bold bg-unad-teal/5 dark:bg-unad-teal/20">7.593.000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-unad-teal dark:text-unad-orange">Especialista</td>
-                                    <td>3.840.000</td><td>3.974.000</td><td>3.974.000</td><td>4.209.000</td><td>4.446.000</td><td>5.030.000</td><td>5.496.800</td><td>5.782.000</td><td class="font-bold bg-unad-teal/5 dark:bg-unad-teal/20">6.077.000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-unad-teal dark:text-unad-orange">Profesional</td>
-                                    <td>2.880.000</td><td>2.981.000</td><td>2.981.000</td><td>3.156.000</td><td>3.333.000</td><td>3.771.000</td><td>4.121.000</td><td>4.335.000</td><td class="font-bold bg-unad-teal/5 dark:bg-unad-teal/20">4.556.000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-5xl mx-auto flex flex-col gap-4">
+                    <p class="text-sm text-gray-700 dark:text-gray-300 text-center">La asignación salarial en la UNAD se determina de manera equitativa por el nivel de formación formal alcanzado (Doctorado, Maestría, Especialista, Profesional) y se actualiza de manera anual garantizando estabilidad económica.</p>
+
+                    <div class="bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm">
+                        <div class="overflow-x-auto">
+                            <table class="styled-table w-full text-xs md:text-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Nivel / Año</th>
+                                        <th>2018</th>
+                                        <th>2019</th>
+                                        <th>2020</th>
+                                        <th>2021</th>
+                                        <th>2022</th>
+                                        <th>2023</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>2026</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-800 dark:text-gray-200">
+                                    <tr>
+                                        <td class="font-bold text-unad-teal dark:text-unad-orange">Doctorado</td>
+                                        <td>5.760.000</td><td>5.962.000</td><td>5.962.000</td><td>6.312.000</td><td>6.607.000</td><td>7.542.000</td><td>8.241.900</td><td>8.670.000</td><td class="font-bold bg-unad-teal/5 dark:bg-unad-teal/20">9.112.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-unad-teal dark:text-unad-orange">Magister</td>
+                                        <td>4.800.000</td><td>4.968.000</td><td>4.968.000</td><td>5.260.000</td><td>5.556.000</td><td>6.285.000</td><td>6.868.300</td><td>7.225.000</td><td class="font-bold bg-unad-teal/5 dark:bg-unad-teal/20">7.593.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-unad-teal dark:text-unad-orange">Especialista</td>
+                                        <td>3.840.000</td><td>3.974.000</td><td>3.974.000</td><td>4.209.000</td><td>4.446.000</td><td>5.030.000</td><td>5.496.800</td><td>5.782.000</td><td class="font-bold bg-unad-teal/5 dark:bg-unad-teal/20">6.077.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-unad-teal dark:text-unad-orange">Profesional</td>
+                                        <td>2.880.000</td><td>2.981.000</td><td>2.981.000</td><td>3.156.000</td><td>3.333.000</td><td>3.771.000</td><td>4.121.000</td><td>4.335.000</td><td class="font-bold bg-unad-teal/5 dark:bg-unad-teal/20">4.556.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <p class="text-[10px] text-gray-500 text-right w-full">Fuente: Gerencia de Talento Humano -- UNAD 2025- 2026</p>
                 </div>
-                <p class="text-[10px] text-gray-500 mt-2 max-w-5xl mx-auto text-right w-full">Fuente: Gerencia de Talento Humano -- UNAD 2025- 2026</p>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
@@ -559,7 +535,7 @@
     </section>
 
     <!-- Diapositiva 6: Distribución del Tiempo -->
-    <section class="slide">
+    <section class="slide" data-title="Distribución del Tiempo">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -567,38 +543,40 @@
                     Distribución del Tiempo y Carga Académica
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-teal shadow-sm flex items-start gap-4 h-full">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:calendar-days" data-width="28"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Plan de Trabajo</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300">La asignación de actividades se formaliza mediante un <strong>plan de trabajo individual</strong> concertado y evaluado para cada periodo académico regular.</p>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-teal shadow-sm flex items-start gap-4 h-full">
+                            <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:calendar-days" data-width="28"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Plan de Trabajo</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">La asignación de actividades se formaliza mediante un <strong>plan de trabajo individual</strong> concertado y evaluado para cada periodo académico regular.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-orange shadow-sm flex items-start gap-4 h-full">
-                        <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:hourglass" data-width="28"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Carga por Periodo (16 Semanas)</h3>
-                            <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1 mt-2 list-disc pl-4">
-                                <li><strong>Tiempo Completo:</strong> 720 horas (40h/sem)</li>
-                                <li><strong>Medio Tiempo:</strong> 360 horas (20h/sem)</li>
-                                <li><strong>Hora Cátedra:</strong> Hasta 240 horas (15h/sem)</li>
-                            </ul>
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-orange shadow-sm flex items-start gap-4 h-full">
+                            <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:hourglass" data-width="28"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Carga por Periodo (16 Semanas)</h3>
+                                <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1 mt-2 list-disc pl-4">
+                                    <li><strong>Tiempo Completo:</strong> 720 horas (40h/sem)</li>
+                                    <li><strong>Medio Tiempo:</strong> 360 horas (20h/sem)</li>
+                                    <li><strong>Hora Cátedra:</strong> Hasta 240 horas (15h/sem)</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-green shadow-sm flex items-start gap-4 h-full">
-                        <span class="iconify text-unad-green shrink-0 mt-1" data-icon="lucide:monitor-smartphone" data-width="28"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Gestión Tecnológica</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300">Toda la distribución, registro y seguimiento se realiza transparentemente a través del aplicativo interno <strong>SOCA (Sistema de Oferta y Contratación Académica)</strong>.</p>
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-green shadow-sm flex items-start gap-4 h-full">
+                            <span class="iconify text-unad-green shrink-0 mt-1" data-icon="lucide:monitor-smartphone" data-width="28"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Gestión Tecnológica</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">Toda la distribución, registro y seguimiento se realiza transparentemente a través del aplicativo interno <strong>SOCA (Sistema de Oferta y Contratación Académica)</strong>.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-teal shadow-sm flex items-start gap-4 h-full">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:layers" data-width="28"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Funciones Sustantivas</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300">El tiempo se equilibra estratégicamente entre las labores de <strong>Docencia, Investigación, Proyección Social e Internacionalización</strong> del programa.</p>
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-teal shadow-sm flex items-start gap-4 h-full">
+                            <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:layers" data-width="28"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Funciones Sustantivas</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">El tiempo se equilibra estratégicamente entre las labores de <strong>Docencia, Investigación, Proyección Social e Internacionalización</strong> del programa.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -617,7 +595,7 @@
     </section>
 
     <!-- Diapositiva 7: Formación TIC -->
-    <section class="slide">
+    <section class="slide" data-title="Formación TIC">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -625,27 +603,29 @@
                     Formación y Cualificación Docente en TIC
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-teal shadow-sm flex flex-col items-start gap-3 h-full">
-                        <span class="iconify text-unad-teal shrink-0" data-icon="lucide:shield-check" data-width="28"></span>
-                        <h3 class="font-bold text-base text-unad-navy dark:text-white">Política Institucional</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">La cualificación permanente en el uso de TIC es estratégica para los procesos de acreditación y pilar fundamental del modelo educativo híbrido.</p>
-                    </div>
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-orange shadow-sm flex flex-col items-start gap-3 h-full">
-                        <span class="iconify text-unad-orange shrink-0" data-icon="lucide:library" data-width="28"></span>
-                        <h3 class="font-bold text-base text-unad-navy dark:text-white">Formación de Formadores</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">Programa macro conformado por un conjunto de <strong>14 diplomados</strong> diseñados para fortalecer competencias pedagógicas, tecnológicas y comunicativas.</p>
-                    </div>
-                    <div class="hover-card bg-unad-teal/10 dark:bg-unad-teal/20 p-6 rounded-2xl border border-unad-teal/30 shadow-sm flex flex-col items-start gap-3 h-full md:col-span-2 lg:col-span-1">
-                        <span class="iconify text-unad-teal shrink-0" data-icon="lucide:award" data-width="28"></span>
-                        <h3 class="font-bold text-base text-unad-teal dark:text-unad-orange">Requisito Obligatorio</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">Para el ingreso, todos los docentes deben cursar y aprobar el <strong>Diplomado e-Mediador en Ambientes Virtuales de Aprendizaje (AVA)</strong>.</p>
-                    </div>
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-green shadow-sm flex flex-col items-start gap-3 h-full">
-                        <span class="iconify text-unad-green shrink-0" data-icon="lucide:trending-up" data-width="28"></span>
-                        <h3 class="font-bold text-base text-unad-navy dark:text-white">Fortalecimiento Continuo</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">Acceso abierto y constante a diplomados especializados en áreas como Internacionalización del Currículo para mantener la actualización docente.</p>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-teal shadow-sm flex flex-col items-start gap-3 h-full">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:shield-check" data-width="28"></span>
+                            <h3 class="font-bold text-base text-unad-navy dark:text-white">Política Institucional</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">La cualificación permanente en el uso de TIC es estratégica para los procesos de acreditación y pilar fundamental del modelo educativo híbrido.</p>
+                        </div>
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-orange shadow-sm flex flex-col items-start gap-3 h-full">
+                            <span class="iconify text-unad-orange shrink-0" data-icon="lucide:library" data-width="28"></span>
+                            <h3 class="font-bold text-base text-unad-navy dark:text-white">Formación de Formadores</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">Programa macro conformado por un conjunto de <strong>14 diplomados</strong> diseñados para fortalecer competencias pedagógicas, tecnológicas y comunicativas.</p>
+                        </div>
+                        <div class="hover-card bg-unad-teal/10 dark:bg-unad-teal/20 p-6 rounded-2xl border border-unad-teal/30 shadow-sm flex flex-col items-start gap-3 h-full">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:award" data-width="28"></span>
+                            <h3 class="font-bold text-base text-unad-teal dark:text-unad-orange">Requisito Obligatorio</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">Para el ingreso, todos los docentes deben cursar y aprobar el <strong>Diplomado e-Mediador en Ambientes Virtuales de Aprendizaje (AVA)</strong>.</p>
+                        </div>
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-green shadow-sm flex flex-col items-start gap-3 h-full">
+                            <span class="iconify text-unad-green shrink-0" data-icon="lucide:trending-up" data-width="28"></span>
+                            <h3 class="font-bold text-base text-unad-navy dark:text-white">Fortalecimiento Continuo</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">Acceso abierto y constante a diplomados especializados en áreas como Internacionalización del Currículo para mantener la actualización docente.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -662,8 +642,8 @@
         </div>
     </section>
 
-    <!-- Diapositiva 8: Plan de Cualificación a 7 años -->
-    <section class="slide">
+    <!-- Diapositiva 8: Plan de Cualificación -->
+    <section class="slide" data-title="Plan de Cualificación">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -671,33 +651,35 @@
                     Plan de Cualificación Profesoral
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
-                    <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-teal hover-card flex flex-col items-start gap-4 justify-center">
-                        <span class="iconify text-unad-teal" data-icon="lucide:compass" data-width="32"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-1">Objetivo Central</h3>
-                            <p class="text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300">Fortalecer de forma equilibrada las competencias disciplinares, pedagógicas e investigativas del cuerpo docente del programa.</p>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-teal hover-card flex flex-col items-start gap-4 justify-center">
+                            <span class="iconify text-unad-teal" data-icon="lucide:compass" data-width="32"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-1">Objetivo Central</h3>
+                                <p class="text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300">Fortalecer de forma equilibrada las competencias disciplinares, pedagógicas e investigativas del cuerpo docente del programa.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-orange hover-card flex flex-col items-start gap-4 justify-center">
-                        <span class="iconify text-unad-orange" data-icon="lucide:git-merge" data-width="32"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-1">Estrategias y Acciones</h3>
-                            <ul class="text-sm md:text-base text-gray-700 dark:text-gray-300 space-y-1 list-disc pl-4">
-                                <li>Participación activa en programas de Maestría y Doctorado.</li>
-                                <li>Ejecución de diplomados institucionales.</li>
-                                <li>Curso MOOC de inducción docente.</li>
-                            </ul>
+                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-orange hover-card flex flex-col items-start gap-4 justify-center">
+                            <span class="iconify text-unad-orange" data-icon="lucide:git-merge" data-width="32"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-1">Estrategias y Acciones</h3>
+                                <ul class="text-sm md:text-base text-gray-700 dark:text-gray-300 space-y-1 list-disc pl-4">
+                                    <li>Participación activa en programas de Maestría y Doctorado.</li>
+                                    <li>Ejecución de diplomados institucionales.</li>
+                                    <li>Curso MOOC de inducción docente.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bg-unad-teal text-white p-6 rounded-2xl border border-white/20 shadow-md hover-card flex flex-col items-start gap-3 justify-center md:col-span-2">
-                        <span class="iconify text-unad-orange" data-icon="lucide:calendar-check" data-width="32"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-orange mb-1 uppercase tracking-wide">Proyección y Articulación Institucional</h3>
-                            <p class="text-sm md:text-base leading-relaxed">
-                                La UNAD ha consolidado un plan de cualificación estructurado y proyectado a <strong>7 años</strong> específico para los docentes de Medicina Veterinaria. Este plan se fundamenta en las seis dimensiones del <strong>Modelo Heutagógico Unadista (MHU) 5.0</strong> y se articula directamente con la Gerencia de Talento Humano.
-                            </p>
+                        <div class="bg-unad-teal text-white p-6 rounded-2xl border border-white/20 shadow-md hover-card flex flex-col items-start gap-3 justify-center md:col-span-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:calendar-check" data-width="32"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-orange mb-1 uppercase tracking-wide">Proyección y Articulación Institucional</h3>
+                                <p class="text-sm md:text-base leading-relaxed">
+                                    La UNAD ha consolidado un plan de cualificación estructurado y proyectado a <strong>7 años</strong> específico para los docentes de Medicina Veterinaria. Este plan se fundamenta en las seis dimensiones del <strong>Modelo Heutagógico Unadista (MHU) 5.0</strong> y se articula directamente con la Gerencia de Talento Humano.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -716,37 +698,49 @@
     </section>
 
     <!-- Diapositiva 9: Evaluación del Desempeño -->
-    <section class="slide">
+    <section class="slide" data-title="Evaluación del Desempeño">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
                     <span class="iconify text-unad-teal animate-spin" data-icon="lucide:bar-chart-3" data-width="32" style="animation-duration: 15s;"></span>
                     Seguimiento y Evaluación del Desempeño
                 </h2>
+                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Clic en la imagen para ampliar</span>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col md:flex-row gap-8 pr-2 items-center justify-center">
-                <div class="w-full md:w-1/2 flex flex-col gap-4 text-gray-800 dark:text-gray-200">
-                    <p class="text-sm mb-2 border-l-4 border-unad-orange pl-3 bg-unad-orange/10 p-2 rounded-r-lg font-medium">Proceso regido por los <strong>Acuerdos 003 y 013 de 2011</strong> y gestionado mediante el Módulo MED.</p>
-                    
-                    <div class="bg-white/60 dark:bg-black/40 p-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                        <h3 class="font-bold text-unad-teal dark:text-unad-orange mb-3 border-b border-gray-200 dark:border-gray-700 pb-2 text-sm uppercase tracking-wide">Tres Momentos de Evaluación</h3>
-                        <ol class="list-decimal pl-5 space-y-3 text-sm">
-                            <li><strong>Autoevaluación:</strong> El docente registra evidencias y autoevalúa el cumplimiento de su plan de trabajo.</li>
-                            <li><strong>Heteroevaluación:</strong> Valoración directa por parte de los estudiantes (encuestas en plataforma).</li>
-                            <li><strong>Coevaluación / Valoración Institucional:</strong> Realizada por pares académicos y directivos (Decanos, Directores).</li>
-                        </ol>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 w-full items-center">
+
+                    <!-- Contenido (3/5) -->
+                    <div class="lg:col-span-3 flex flex-col gap-4 text-gray-800 dark:text-gray-200">
+                        <p class="text-sm mb-1 border-l-4 border-unad-orange pl-3 bg-unad-orange/10 p-2 rounded-r-lg font-medium">Proceso regido por los <strong>Acuerdos 003 y 013 de 2011</strong> y gestionado mediante el Módulo MED.</p>
+
+                        <div class="bg-white/60 dark:bg-black/40 p-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                            <h3 class="font-bold text-unad-teal dark:text-unad-orange mb-3 border-b border-gray-200 dark:border-gray-700 pb-2 text-sm uppercase tracking-wide">Tres Momentos de Evaluación</h3>
+                            <ol class="list-decimal pl-5 space-y-2 text-sm">
+                                <li><strong>Autoevaluación:</strong> El docente registra evidencias y autoevalúa el cumplimiento de su plan de trabajo.</li>
+                                <li><strong>Heteroevaluación:</strong> Valoración directa por parte de los estudiantes (encuestas en plataforma).</li>
+                                <li><strong>Coevaluación / Valoración Institucional:</strong> Realizada por pares académicos y directivos (Decanos, Directores).</li>
+                            </ol>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-unad-teal/10 p-3 rounded-lg text-sm border border-unad-teal/20">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:brain-circuit" data-width="24"></span>
+                            <p><strong>Competencias Evaluadas:</strong> Cognitiva, comunicativa, metodológica, pedagógico-didáctica, socioafectiva y tecnológica.</p>
+                        </div>
                     </div>
 
-                    <div class="flex items-center gap-3 bg-unad-teal/10 p-3 rounded-lg text-sm border border-unad-teal/20">
-                        <span class="iconify text-unad-teal shrink-0" data-icon="lucide:brain-circuit" data-width="24"></span>
-                        <p><strong>Competencias Evaluadas:</strong> Cognitiva, comunicativa, metodológica, pedagógico-didáctica, socioafectiva y tecnológica.</p>
+                    <!-- Imagen (2/5) -->
+                    <div class="lg:col-span-2 flex flex-col items-center justify-center">
+                        <a href="Evaluacion_MED.png"
+                           class="lightbox-trigger block w-full rounded-2xl overflow-hidden shadow-xl border-2 border-unad-teal/25 hover-card cursor-zoom-in bg-white/70 dark:bg-black/40 p-3"
+                           title="Ampliar imagen">
+                            <img src="Evaluacion_MED.png"
+                                 alt="Plataforma Módulo de Evaluación Docente (MED)"
+                                 class="w-full h-auto max-h-[62vh] object-contain rounded-lg">
+                        </a>
+                        <p class="text-[10px] text-gray-500 mt-2 text-center">Figura 3. Valoración del Módulo de Evaluación Docente MED, 2026</p>
                     </div>
-                </div>
-                <div class="w-full md:w-1/2 flex flex-col items-center justify-center text-center">
-                    <a href="Evaluacion_MED.png" target="_blank" rel="noopener" class="block w-full rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in" title="Abrir imagen en tamaño completo">
-                        <img src="Evaluacion_MED.png" alt="Plataforma Módulo de Evaluación Docente (MED)" class="w-full h-auto object-cover max-h-[250px]">
-                    </a>
-                    <p class="text-[10px] text-gray-500 mt-2">Figura 3. Valoración del Módulo de Evaluación Docente MED, 2026</p>
+
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
@@ -762,8 +756,8 @@
         </div>
     </section>
 
-    <!-- Diapositiva 10: Planes de Mejora y Producción -->
-    <section class="slide">
+    <!-- Diapositiva 10: Producción Intelectual -->
+    <section class="slide" data-title="Producción y Mejoras">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -771,24 +765,26 @@
                     Producción Intelectual y Planes de Mejora
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-6">
-                <p class="text-center text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">La evaluación profesoral no es punitiva; es un insumo institucional clave para la renovación de contratos, el crecimiento profesional y el diseño de estrategias de fortalecimiento colectivo.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
-                    <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-teal hover-card shadow-sm flex flex-col items-start gap-3 h-full">
-                        <span class="iconify text-unad-teal" data-icon="lucide:book-marked" data-width="28"></span>
-                        <h3 class="font-bold text-unad-teal dark:text-white">Producción Intelectual</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">En la valoración se ponderan no solo las tareas directas sino la producción académica generada en docencia, grupos de investigación y extensión social.</p>
-                    </div>
-                    <div class="bg-unad-orange/10 dark:bg-unad-orange/20 p-6 rounded-2xl border border-unad-orange/30 hover-card shadow-sm flex flex-col items-start gap-3 h-full">
-                        <span class="iconify text-unad-orange" data-icon="lucide:trending-down" data-width="28"></span>
-                        <h3 class="font-bold text-unad-orange">Planes de Mejoramiento</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">Todo profesor que obtenga una valoración inferior a <strong>4.0</strong> está obligado estatutariamente a formular e implementar un plan de mejora tutorizado para el siguiente periodo.</p>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-green hover-card shadow-sm flex flex-col items-start gap-3 h-full md:col-span-2 lg:col-span-1">
-                        <span class="iconify text-unad-green" data-icon="lucide:award" data-width="28"></span>
-                        <h3 class="font-bold text-unad-green dark:text-emerald-400">Resultados de Excelencia</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">El desempeño histórico del cuerpo profesoral en el periodo consolidado (2018-2021) alcanzó un promedio institucional sobresaliente de <strong>4.6 sobre 5.0</strong>.</p>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-5xl mx-auto flex flex-col gap-6">
+                    <p class="text-center text-sm md:text-base text-gray-700 dark:text-gray-300">La evaluación profesoral no es punitiva; es un insumo institucional clave para la renovación de contratos, el crecimiento profesional y el diseño de estrategias de fortalecimiento colectivo.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-teal hover-card shadow-sm flex flex-col items-start gap-3 h-full">
+                            <span class="iconify text-unad-teal" data-icon="lucide:book-marked" data-width="28"></span>
+                            <h3 class="font-bold text-unad-teal dark:text-white">Producción Intelectual</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">En la valoración se ponderan no solo las tareas directas sino la producción académica generada en docencia, grupos de investigación y extensión social.</p>
+                        </div>
+                        <div class="bg-unad-orange/10 dark:bg-unad-orange/20 p-6 rounded-2xl border border-unad-orange/30 hover-card shadow-sm flex flex-col items-start gap-3 h-full">
+                            <span class="iconify text-unad-orange" data-icon="lucide:trending-down" data-width="28"></span>
+                            <h3 class="font-bold text-unad-orange">Planes de Mejoramiento</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">Todo profesor que obtenga una valoración inferior a <strong>4.0</strong> está obligado estatutariamente a formular e implementar un plan de mejora tutorizado para el siguiente periodo.</p>
+                        </div>
+                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-green hover-card shadow-sm flex flex-col items-start gap-3 h-full md:col-span-2 lg:col-span-1">
+                            <span class="iconify text-unad-green" data-icon="lucide:award" data-width="28"></span>
+                            <h3 class="font-bold text-unad-green dark:text-emerald-400">Resultados de Excelencia</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">El desempeño histórico del cuerpo profesoral en el periodo consolidado (2018-2021) alcanzó un promedio institucional sobresaliente de <strong>4.6 sobre 5.0</strong>.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -806,35 +802,47 @@
     </section>
 
     <!-- Diapositiva 11: Composición Planta Docente -->
-    <section class="slide">
+    <section class="slide" data-title="Composición de la Planta">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:pie-chart" data-width="32"></span>
                     Composición y Cualificación de la Planta Docente
                 </h2>
+                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Clic en la imagen para ampliar</span>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col md:flex-row gap-8 pr-2 items-center justify-center">
-                <div class="w-full md:w-1/2 flex flex-col gap-5 text-gray-800 dark:text-gray-200">
-                    <p class="text-sm md:text-base font-medium">El cuerpo docente asignado (corte 2026) muestra un alto nivel de cualificación académica, aportando a la madurez institucional:</p>
-                    
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="bg-unad-navy text-white p-3 rounded-lg text-center shadow flex flex-col justify-center h-20 hover-card"><span class="text-2xl font-bold font-display">18%</span><span class="text-xs">Doctorado</span></div>
-                        <div class="bg-unad-teal text-white p-3 rounded-lg text-center shadow flex flex-col justify-center h-20 hover-card"><span class="text-2xl font-bold font-display">54%</span><span class="text-xs">Maestría</span></div>
-                        <div class="bg-unad-green text-white p-3 rounded-lg text-center shadow flex flex-col justify-center h-20 hover-card"><span class="text-2xl font-bold font-display">22%</span><span class="text-xs">Especialización</span></div>
-                        <div class="bg-unad-orange text-white p-3 rounded-lg text-center shadow flex flex-col justify-center h-20 hover-card"><span class="text-2xl font-bold font-display">6%</span><span class="text-xs">Profesional</span></div>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 w-full items-center">
+
+                    <!-- Contenido (3/5) -->
+                    <div class="lg:col-span-3 flex flex-col gap-4 text-gray-800 dark:text-gray-200">
+                        <p class="text-sm md:text-base font-medium">El cuerpo docente asignado (corte 2026) muestra un alto nivel de cualificación académica, aportando a la madurez institucional:</p>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-unad-navy text-white p-4 rounded-lg text-center shadow flex flex-col justify-center h-24 hover-card"><span class="text-3xl font-bold font-display">18%</span><span class="text-xs uppercase tracking-wider">Doctorado</span></div>
+                            <div class="bg-unad-teal text-white p-4 rounded-lg text-center shadow flex flex-col justify-center h-24 hover-card"><span class="text-3xl font-bold font-display">54%</span><span class="text-xs uppercase tracking-wider">Maestría</span></div>
+                            <div class="bg-unad-green text-white p-4 rounded-lg text-center shadow flex flex-col justify-center h-24 hover-card"><span class="text-3xl font-bold font-display">22%</span><span class="text-xs uppercase tracking-wider">Especialización</span></div>
+                            <div class="bg-unad-orange text-white p-4 rounded-lg text-center shadow flex flex-col justify-center h-24 hover-card"><span class="text-3xl font-bold font-display">6%</span><span class="text-xs uppercase tracking-wider">Profesional</span></div>
+                        </div>
+
+                        <div class="bg-white/60 dark:bg-black/40 p-4 rounded-xl border-l-4 border-unad-teal shadow-sm text-sm">
+                            <p class="mb-2"><span class="font-bold text-unad-teal dark:text-unad-orange">Pertinencia Disciplinar:</span> Los posgrados se concentran específicamente en Ciencias Veterinarias, Ciencias Animales, Salud Pública, Biotecnología y Sostenibilidad.</p>
+                            <p><span class="font-bold text-unad-teal dark:text-unad-orange">Experiencia Consolidada:</span> La planta docente registra una antigüedad promedio institucional de <strong>6.6 años</strong>.</p>
+                        </div>
                     </div>
 
-                    <div class="bg-white/60 dark:bg-black/40 p-4 rounded-xl border-l-4 border-unad-teal shadow-sm text-sm">
-                        <p class="mb-2"><span class="font-bold text-unad-teal dark:text-unad-orange">Pertinencia Disciplinar:</span> Los posgrados se concentran específicamente en Ciencias Veterinarias, Ciencias Animales, Salud Pública, Biotecnología y Sostenibilidad.</p>
-                        <p><span class="font-bold text-unad-teal dark:text-unad-orange">Experiencia Consolidada:</span> La planta docente registra una antigüedad promedio institucional de <strong>6.6 años</strong>.</p>
+                    <!-- Imagen (2/5) -->
+                    <div class="lg:col-span-2 flex flex-col items-center justify-center">
+                        <a href="Nivel_Formacion.png"
+                           class="lightbox-trigger block w-full rounded-2xl overflow-hidden shadow-xl border-2 border-unad-teal/25 hover-card cursor-zoom-in bg-white/70 dark:bg-black/40 p-3"
+                           title="Ampliar imagen">
+                            <img src="Nivel_Formacion.png"
+                                 alt="Gráfico Nivel de Formación de los profesores"
+                                 class="w-full h-auto max-h-[62vh] object-contain rounded-lg">
+                        </a>
+                        <p class="text-[10px] text-gray-500 mt-2 text-center">Figura 4. Nivel de formación de los profesores (Medicina Veterinaria 2026)</p>
                     </div>
-                </div>
-                <div class="w-full md:w-1/2 flex flex-col items-center justify-center text-center">
-                    <a href="Nivel_Formacion.png" target="_blank" rel="noopener" class="block w-full max-w-sm mx-auto rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in" title="Abrir gráfico en tamaño completo">
-                        <img src="Nivel_Formacion.png" alt="Gráfico Nivel de Formación" class="w-full h-auto object-cover">
-                    </a>
-                    <p class="text-[10px] text-gray-500 mt-2">Figura 4. Nivel de formación de los profesores (Medicina Veterinaria 2026)</p>
+
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
@@ -851,7 +859,7 @@
     </section>
 
     <!-- Diapositiva 12: Estrategias de Permanencia -->
-    <section class="slide">
+    <section class="slide" data-title="Estrategias de Permanencia">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -859,34 +867,36 @@
                     Estrategias para la Permanencia y Vinculación
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-teal shadow-sm flex items-start gap-4 h-full">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:heart-handshake" data-width="28"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Centro COACH</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300">Dependencia creada para acompañar, orientar la cualificación y procurar el desarrollo integral y socioafectivo del talento humano unadista.</p>
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
+                <div class="w-full max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-teal shadow-sm flex items-start gap-4 h-full">
+                            <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:heart-handshake" data-width="28"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Centro COACH</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">Dependencia creada para acompañar, orientar la cualificación y procurar el desarrollo integral y socioafectivo del talento humano unadista.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-orange shadow-sm flex items-start gap-4 h-full">
-                        <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:coins" data-width="28"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Apoyo Económico</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300">La Escuela ECAPMA cuenta con el respaldo directivo y el presupuesto asegurado plurianual para garantizar la continuidad de la vinculación docente.</p>
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-orange shadow-sm flex items-start gap-4 h-full">
+                            <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:coins" data-width="28"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Apoyo Económico</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">La Escuela ECAPMA cuenta con el respaldo directivo y el presupuesto asegurado plurianual para garantizar la continuidad de la vinculación docente.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-green shadow-sm flex items-start gap-4 h-full">
-                        <span class="iconify text-unad-green shrink-0 mt-1" data-icon="lucide:map-pin" data-width="28"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Proyección Territorial</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300">Política de vincular planta docente adicional con perfil técnico (MV, MVZ) arraigada en las diferentes regiones para suplir las necesidades del NIP localmente.</p>
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-green shadow-sm flex items-start gap-4 h-full">
+                            <span class="iconify text-unad-green shrink-0 mt-1" data-icon="lucide:map-pin" data-width="28"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Proyección Territorial</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">Política de vincular planta docente adicional con perfil técnico (MV, MVZ) arraigada en las diferentes regiones para suplir las necesidades del NIP localmente.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-navy dark:border-gray-400 shadow-sm flex items-start gap-4 h-full">
-                        <span class="iconify text-unad-navy dark:text-white shrink-0 mt-1" data-icon="lucide:scale" data-width="28"></span>
-                        <div>
-                            <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Seguridad Normativa</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300">Las políticas de permanencia y estabilidad se rigen de manera estricta por el Estatuto Docente y el Plan de Desarrollo Institucional 2023-2032.</p>
+                        <div class="hover-card bg-white/70 dark:bg-black/50 p-6 rounded-2xl border-l-4 border-unad-navy dark:border-gray-400 shadow-sm flex items-start gap-4 h-full">
+                            <span class="iconify text-unad-navy dark:text-white shrink-0 mt-1" data-icon="lucide:scale" data-width="28"></span>
+                            <div>
+                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-2">Seguridad Normativa</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">Las políticas de permanencia y estabilidad se rigen de manera estricta por el Estatuto Docente y el Plan de Desarrollo Institucional 2023-2032.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -904,19 +914,110 @@
         </div>
     </section>
 
+    <!-- Diapositiva 13: Cierre — Continuar a la siguiente condición -->
+    <section class="slide" data-title="Cierre">
+        <div class="glass-panel items-center justify-center text-center">
+            <div class="flex-1 flex flex-col items-center justify-center gap-8 w-full max-w-4xl mx-auto px-4">
+
+                <span class="gsap-reveal inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-unad-teal to-unad-navy text-white shadow-xl">
+                    <span class="iconify animate-pulse" data-icon="lucide:circle-check-big" data-width="44"></span>
+                </span>
+
+                <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
+                    <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
+                    Fin de la Condición 7
+                </span>
+
+                <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
+                    Ha finalizado la revisión de la <span class="text-unad-orange">Condición 7</span>
+                </h2>
+
+                <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+                    Profesores · Programa de Medicina Veterinaria · UNAD
+                </p>
+
+                <a href="condicion-8.html"
+                   class="gsap-reveal group inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-2xl
+                          bg-gradient-to-r from-unad-orange to-unad-teal text-white
+                          font-display font-bold text-base md:text-lg shadow-xl
+                          hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02]
+                          transition-all duration-300">
+                    <span class="iconify shrink-0" data-icon="lucide:circle-check-big" data-width="24"></span>
+                    <span class="tracking-wide">Continuar a la Condición 8</span>
+                    <span class="iconify shrink-0 group-hover:translate-x-1.5 transition-transform duration-300" data-icon="lucide:arrow-right" data-width="22"></span>
+                </a>
+
+                <div class="gsap-reveal flex flex-wrap items-center justify-center gap-3 mt-2 text-xs">
+                    <a href="index.html"
+                       class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15
+                              bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base
+                              hover:bg-unad-teal hover:text-white hover:border-unad-teal
+                              transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:home" data-width="15"></span>
+                        Volver al inicio
+                    </a>
+                    <a href="malla-academica.html"
+                       class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15
+                              bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base
+                              hover:bg-unad-teal hover:text-white hover:border-unad-teal
+                              transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:grid-3x3" data-width="15"></span>
+                        Ver malla académica
+                    </a>
+                    <button type="button" id="restart-btn"
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-orange/40
+                                   bg-unad-orange/10 text-unad-orange
+                                   hover:bg-unad-orange hover:text-white hover:border-unad-orange
+                                   transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:rotate-ccw" data-width="15"></span>
+                        Repetir presentación
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const isEmbed = urlParams.get('embed') === '1';
-    
+
     if (isEmbed) {
         const nav = document.getElementById('main-nav');
         const sideNav = document.getElementById('side-nav');
         if (nav) nav.style.display = 'none';
         if (sideNav) sideNav.style.display = 'none';
-        document.querySelectorAll('.slide').forEach(s => {
-            s.style.paddingTop = '1.5rem';
+        document.querySelectorAll('.slide').forEach(s => { s.style.paddingTop = '1.5rem'; });
+    }
+
+    /* ============================================================
+       MODAL LIGHTBOX PARA IMÁGENES
+    ============================================================ */
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalClose = document.getElementById('modal-close');
+
+    if (imageModal) {
+        document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = trigger.getAttribute('href') || trigger.querySelector('img').src;
+                modalImage.src = imgSrc;
+                imageModal.classList.add('active');
+            });
+        });
+
+        function closeModal() {
+            imageModal.classList.remove('active');
+            setTimeout(() => { modalImage.src = ''; }, 300);
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imageModal.classList.contains('active')) closeModal();
         });
     }
 
@@ -928,11 +1029,17 @@
     let isAnimating = false;
 
     if (!isEmbed && dotContainer) {
-        slides.forEach((_, i) => {
+        slides.forEach((slide, i) => {
+            const title = slide.getAttribute('data-title') || ('Diapositiva ' + (i + 1));
+            const wrapper = document.createElement('div');
+            wrapper.className = 'dot-wrapper';
+            wrapper.setAttribute('data-title', title);
+            wrapper.setAttribute('aria-label', 'Ir a: ' + title);
+            wrapper.addEventListener('click', () => gotoSlide(i, i > currentIndex ? 1 : -1));
             const dot = document.createElement('div');
             dot.className = 'dot';
-            dot.addEventListener('click', () => gotoSlide(i, i > currentIndex ? 1 : -1));
-            dotContainer.appendChild(dot);
+            wrapper.appendChild(dot);
+            dotContainer.appendChild(wrapper);
         });
     }
     const dots = document.querySelectorAll('.dot');
@@ -961,17 +1068,14 @@
     }
 
     function gotoSlide(index, direction) {
+        if (imageModal && imageModal.classList.contains('active')) return;
         if (isAnimating || index < 0 || index >= slides.length || index === currentIndex) return;
         isAnimating = true;
-
         const currentSlide = slides[currentIndex];
         const nextSlide = slides[index];
-
         const yPercentOut = direction === 1 ? -100 : 100;
         const yPercentIn = direction === 1 ? 100 : -100;
-
         gsap.set(nextSlide, { yPercent: yPercentIn, autoAlpha: 1 });
-
         const tl = gsap.timeline({
             defaults: { duration: 0.7, ease: "power4.inOut" },
             onComplete: () => {
@@ -981,18 +1085,14 @@
                 isAnimating = false;
             }
         });
-
         tl.to(currentSlide, { yPercent: yPercentOut })
           .to(nextSlide, { yPercent: 0 }, "<");
-
         animateElementsIn(nextSlide);
     }
 
     Observer.create({
         type: "wheel,touch,pointer",
-        wheelSpeed: -1,
-        tolerance: 40,
-        preventDefault: false,
+        wheelSpeed: -1, tolerance: 40, preventDefault: false,
         onDown: () => gotoSlide(currentIndex - 1, -1),
         onUp: () => gotoSlide(currentIndex + 1, 1),
     });
@@ -1001,24 +1101,25 @@
         el.addEventListener('wheel', (e) => {
             const isAtTop = el.scrollTop === 0;
             const isAtBottom = Math.abs((el.scrollHeight - el.scrollTop) - el.clientHeight) < 2;
-
-            if ((e.deltaY < 0 && !isAtTop) || (e.deltaY > 0 && !isAtBottom)) {
-                e.stopPropagation();
-            }
+            if ((e.deltaY < 0 && !isAtTop) || (e.deltaY > 0 && !isAtBottom)) { e.stopPropagation(); }
         }, {passive: false});
-        
-        el.addEventListener('touchmove', (e) => {
-            e.stopPropagation(); 
-        }, {passive: false});
+        el.addEventListener('touchmove', (e) => { e.stopPropagation(); }, {passive: false});
     });
 
     window.addEventListener('keydown', (e) => {
+        if (imageModal && imageModal.classList.contains('active')) return;
         if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
             e.preventDefault();
             gotoSlide(currentIndex + 1, 1);
         } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
             e.preventDefault();
             gotoSlide(currentIndex - 1, -1);
+        } else if (e.key === 'Home') {
+            e.preventDefault();
+            gotoSlide(0, -1);
+        } else if (e.key === 'End') {
+            e.preventDefault();
+            gotoSlide(slides.length - 1, 1);
         }
     });
 
@@ -1028,6 +1129,36 @@
         if(btnUp) btnUp.addEventListener('click', () => gotoSlide(currentIndex - 1, -1));
         if(btnDown) btnDown.addEventListener('click', () => gotoSlide(currentIndex + 1, 1));
     }
+
+    const restartBtn = document.getElementById('restart-btn');
+    if (restartBtn) {
+        restartBtn.addEventListener('click', () => { gotoSlide(0, -1); });
+    }
+
+    (function () {
+        const root = document.documentElement;
+        const btn  = document.getElementById('theme-btn') || document.getElementById('themeToggle');
+        if (!btn) return;
+        if (btn.dataset.themeBound === '1') return;
+        btn.dataset.themeBound = '1';
+
+        function syncButton() {
+            const isDark = root.classList.contains('dark');
+            btn.textContent = isDark ? '☀️' : '🌙';
+            btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        }
+        const saved = localStorage.getItem('unad-theme');
+        if (saved === 'dark') { root.classList.add('dark'); root.classList.remove('light'); }
+        else if (saved === 'light') { root.classList.remove('dark'); root.classList.add('light'); }
+        syncButton();
+        btn.addEventListener('click', () => {
+            const willBeDark = !root.classList.contains('dark');
+            root.classList.toggle('dark', willBeDark);
+            root.classList.toggle('light', !willBeDark);
+            localStorage.setItem('unad-theme', willBeDark ? 'dark' : 'light');
+            syncButton();
+        });
+    })();
 </script>
 </body>
 </html>
