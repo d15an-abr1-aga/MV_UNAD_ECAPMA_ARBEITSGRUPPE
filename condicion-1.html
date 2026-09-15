@@ -8,7 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/nav.css" />
+
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem('unad-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      }
+    } catch (e) {}
+  })();
+</script>
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -174,7 +184,13 @@
         height: 86vh;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        background: rgba(255, 255, 255, 0.78);
+        /* Fondo: imagen con velo MUY suave para que se vea */
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+            url('assets/Fondo_1.png');
+        background-size: cover, cover;
+        background-position: center center, center center;
+        background-repeat: no-repeat, no-repeat;
         border: 1px solid rgba(255, 255, 255, 0.6);
         box-shadow: 0 10px 40px rgba(1, 51, 63, 0.08);
         border-radius: 1.5rem;
@@ -184,7 +200,12 @@
         transition: all 0.3s ease;
     }
     .dark .glass-panel {
-        background: rgba(1, 51, 63, 0.65);
+        background-image:
+            linear-gradient(rgba(1, 51, 63, 0.55), rgba(1, 51, 63, 0.55)),
+            url('assets/Fondo_1.png');
+        background-size: cover, cover;
+        background-position: center center, center center;
+        background-repeat: no-repeat, no-repeat;
         border: 1px solid rgba(255, 255, 255, 0.12);
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
@@ -719,41 +740,74 @@
     </section>
 
     <!-- Diapositiva 8: Reconocimiento Global (Parte 2) -->
-    <section class="slide" data-title="Reconocimiento (2/2)">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:trending-up" data-width="32"></span>
-                    Reconocimiento Global e Impacto (2/2)
-                </h2>
+<section class="slide" data-title="Reconocimiento (2/2)">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:trending-up" data-width="32"></span>
+                Reconocimiento Global e Impacto (2/2)
+            </h2>
+            <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Clic en la imagen para ampliar</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-4 pr-2">
+
+            <!-- Imagen grande, clicable al lightbox -->
+            <div class="flex justify-center">
+                <a href="DiagrameEnfoque.png"
+                   class="lightbox-trigger block w-full max-w-5xl rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in"
+                   title="Ampliar imagen">
+                    <img src="DiagrameEnfoque.png"
+                         alt="Diagrama de Enfoque Global: Una Sola Salud (One Health) en Medicina Veterinaria UNAD"
+                         class="w-full h-auto max-h-[40vh] object-contain bg-white/60 dark:bg-black/30">
+                </a>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col md:flex-row gap-8 pr-2 items-center justify-center">
-                <div class="w-full md:w-3/5 text-sm md:text-base space-y-3 text-gray-800 dark:text-gray-200">
-                    <ul class="list-disc pl-5 space-y-3">
-                        <li>Los médicos veterinarios contribuyen a la <strong>prevención de zoonosis, vigilancia epidemiológica, inocuidad alimentaria, control de la resistencia antimicrobiana y gestión de riesgos sanitarios</strong>.</li>
-                        <li>La disciplina aporta directamente al cumplimiento de los <strong>Objetivos de Desarrollo Sostenible (ODS)</strong>, especialmente en salud y bienestar, hambre cero y producción responsable.</li>
-                        <li>El programa de <strong>Medicina Veterinaria de la UNAD</strong> está alineado con estándares internacionales, fortaleciendo la calidad académica y la cooperación global.</li>
-                        <li>La denominación refleja una formación orientada a la solución de los desafíos <strong>sanitarios, ambientales, sociales y productivos</strong> del mundo contemporáneo.</li>
-                    </ul>
+
+            <!-- 4 tarjetas dinámicas en 2x2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="bg-white/60 dark:bg-black/40 p-4 rounded-2xl border-l-4 border-unad-teal hover-card shadow-sm flex items-start gap-3">
+                    <span class="iconify text-unad-teal shrink-0 mt-0.5" data-icon="lucide:shield-check" data-width="22"></span>
+                    <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Los médicos veterinarios contribuyen a la <strong>prevención de zoonosis, vigilancia epidemiológica, inocuidad alimentaria, control de la resistencia antimicrobiana y gestión de riesgos sanitarios</strong>.
+                    </p>
                 </div>
-                <div class="w-full md:w-2/5 flex items-center justify-center">
-                    <a href="DiagrameEnfoque.png" lass="lightbox-trigger block w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in" title="Ampliar imagen">
-                        <img src="DiagrameEnfoque.png" alt="Gráfico Reconocimiento Global" class="w-full h-auto object-cover">
-                    </a>
+
+                <div class="bg-white/60 dark:bg-black/40 p-4 rounded-2xl border-l-4 border-unad-orange hover-card shadow-sm flex items-start gap-3">
+                    <span class="iconify text-unad-orange shrink-0 mt-0.5" data-icon="lucide:globe" data-width="22"></span>
+                    <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                        La disciplina aporta directamente al cumplimiento de los <strong>Objetivos de Desarrollo Sostenible (ODS)</strong>, especialmente en salud y bienestar, hambre cero y producción responsable.
+                    </p>
+                </div>
+
+                <div class="bg-white/60 dark:bg-black/40 p-4 rounded-2xl border-l-4 border-unad-green hover-card shadow-sm flex items-start gap-3">
+                    <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:award" data-width="22"></span>
+                    <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                        El programa de <strong>Medicina Veterinaria de la UNAD</strong> está alineado con estándares internacionales, fortaleciendo la calidad académica y la cooperación global.
+                    </p>
+                </div>
+
+                <div class="bg-white/60 dark:bg-black/40 p-4 rounded-2xl border-l-4 border-unad-navy dark:border-gray-400 hover-card shadow-sm flex items-start gap-3">
+                    <span class="iconify text-unad-navy dark:text-white shrink-0 mt-0.5" data-icon="lucide:compass" data-width="22"></span>
+                    <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                        La denominación refleja una formación orientada a la solución de los desafíos <strong>sanitarios, ambientales, sociales y productivos</strong> del mundo contemporáneo.
+                    </p>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Sintonía de la denominación con tendencias globales.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Integración del modelo One Health y ODS.</p>
-                </div>
+
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Sintonía de la denominación con tendencias globales.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Integración del modelo One Health y ODS.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Diapositiva 9: Tradición Nacional de la Denominación -->
     <section class="slide" data-title="Tradición Nacional">
@@ -982,38 +1036,68 @@
     </section>
 
     <!-- Diapositiva 13: Núcleos Problémicos - Introducción -->
-    <section class="slide" data-title="Núcleos Problémicos (NP)">
-        <div class="glass-panel items-center justify-center text-center">
-            <span class="gsap-reveal px-4 py-1.5 rounded-full bg-unad-teal text-white text-xs font-bold uppercase tracking-wider mb-6 flex items-center gap-2 shadow-sm mx-auto">
-                <span class="iconify animate-bounce" data-icon="lucide:layers" data-width="16"></span> Estructura Curricular
-            </span>
-            <h2 class="gsap-reveal text-3xl md:text-5xl font-display font-bold text-unad-navy dark:text-white mb-6">Núcleos Problémicos (NP) del Programa</h2>
-            
-            <div class="flex-1 overflow-y-auto custom-scroll w-full flex items-center justify-center pr-2">
-                <div class="flex flex-col md:flex-row gap-6 max-w-5xl items-center justify-center gsap-reveal w-full">
-                    <div class="w-full md:w-1/2 text-sm md:text-base text-gray-800 dark:text-gray-200 bg-white/60 dark:bg-black/40 p-6 rounded-2xl border border-unad-teal/20 shadow-sm leading-relaxed text-left">
-                        A partir del análisis del estudio de mercado, de las necesidades del sector veterinario y agropecuario, de las tendencias nacionales en salud animal y de la experiencia institucional de la UNAD, se definieron dos (2) Núcleos Problémicos (NP) que orientan la formación del programa y articulan de manera coherente la denominación, el perfil del egresado, los contenidos curriculares y los campos de actuación profesional.
-                    </div>
-                    <div class="w-full md:w-1/2 flex items-center justify-center">
-                        <a href="Núcleos Problémicos (NP) del Programa.png" class="lightbox-trigger block w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in" title="Ampliar imagen">
-                            <img src="Núcleos Problémicos (NP) del Programa.png" alt="Núcleos Problémicos del Programa" class="w-full h-auto object-cover">
-                        </a>
-                    </div>
-                </div>
+<section class="slide" data-title="Núcleos Problémicos (NP)">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:layers" data-width="32"></span>
+                Núcleos Problémicos (NP) del Programa
+            </h2>
+            <span class="px-3 py-1 rounded-full bg-unad-orange text-white text-xs font-bold uppercase tracking-wider shadow-sm">Estructura Curricular</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-4 pr-2">
+            <!-- Imagen dominante -->
+            <div class="flex justify-center">
+                <a href="Núcleos Problémicos (NP) del Programa.png"
+                   class="lightbox-trigger block w-full max-w-5xl rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in"
+                   title="Ampliar imagen">
+                    <img src="Núcleos Problémicos (NP) del Programa.png"
+                         alt="Núcleos Problémicos del Programa"
+                         class="w-full h-auto max-h-[46vh] object-contain bg-white/60 dark:bg-black/30">
+                </a>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-8 w-full shrink-0 gsap-reveal max-w-4xl mx-auto">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg text-left">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia de la estructura curricular y los RAPs.</p>
+            <!-- Texto dinámico en 3 tarjetas -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card shadow-sm flex items-start gap-3">
+                    <span class="iconify text-unad-teal shrink-0 mt-0.5" data-icon="lucide:search" data-width="24"></span>
+                    <div>
+                        <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1 uppercase tracking-wide">Origen</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Análisis del estudio de mercado, necesidades del sector veterinario y agropecuario, tendencias nacionales en salud animal y experiencia institucional de la UNAD.</p>
+                    </div>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg text-left">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Definición clara de 2 NPs que engloban los 6 RAPs.</p>
+
+                <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-orange hover-card shadow-sm flex items-start gap-3">
+                    <span class="iconify text-unad-orange shrink-0 mt-0.5" data-icon="lucide:layers" data-width="24"></span>
+                    <div>
+                        <h3 class="font-bold text-unad-orange text-sm mb-1 uppercase tracking-wide">Resultado</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Se definieron <strong>dos (2) Núcleos Problémicos (NP)</strong> que orientan la formación del programa.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-green hover-card shadow-sm flex items-start gap-3">
+                    <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:git-branch" data-width="24"></span>
+                    <div>
+                        <h3 class="font-bold text-unad-green text-sm mb-1 uppercase tracking-wide">Función articuladora</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Articulan la denominación, el perfil del egresado, los contenidos curriculares y los campos de actuación profesional.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia de la estructura curricular y los RAPs.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Definición clara de 2 NPs que engloban los 6 RAPs.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Diapositiva 14: NP 1 y RAPs 1-2 -->
     <section class="slide" data-title="NP 1 y RAPs (1/2)">
@@ -1396,6 +1480,76 @@
         </div>
     </section>
 
+    <!-- Diapositiva 22: Cierre — Continuar a la siguiente condición -->
+<section class="slide" data-title="Cierre">
+    <div class="glass-panel items-center justify-center text-center">
+        <div class="flex-1 flex flex-col items-center justify-center gap-8 w-full max-w-4xl mx-auto px-4">
+
+            <!-- Ícono de cierre -->
+            <span class="gsap-reveal inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-unad-teal to-unad-navy text-white shadow-xl">
+                <span class="iconify animate-pulse" data-icon="lucide:circle-check-big" data-width="44"></span>
+            </span>
+
+            <!-- Badge -->
+            <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
+                <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
+                Fin de la Condición 1
+            </span>
+
+            <!-- Título -->
+            <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
+                Ha finalizado la revisión de la <span class="text-unad-orange">Condición 1</span>
+            </h2>
+
+            <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+                Denominación del Programa · Programa de Medicina Veterinaria · UNAD
+            </p>
+
+            <!-- Botón principal CTA -->
+            <a href="condicion-2.html"
+               class="gsap-reveal group inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-2xl
+                      bg-gradient-to-r from-unad-orange to-unad-teal text-white
+                      font-display font-bold text-base md:text-lg shadow-xl
+                      hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02]
+                      transition-all duration-300">
+                <span class="iconify shrink-0" data-icon="lucide:circle-check-big" data-width="24"></span>
+                <span class="tracking-wide">Continuar a la Condición 2</span>
+                <span class="iconify shrink-0 group-hover:translate-x-1.5 transition-transform duration-300" data-icon="lucide:arrow-right" data-width="22"></span>
+            </a>
+
+            <!-- Navegación secundaria -->
+            <div class="gsap-reveal flex flex-wrap items-center justify-center gap-3 mt-2 text-xs">
+                <a href="index.html"
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15
+                          bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base
+                          hover:bg-unad-teal hover:text-white hover:border-unad-teal
+                          transition-all duration-200 font-semibold">
+                    <span class="iconify" data-icon="lucide:home" data-width="15"></span>
+                    Volver al inicio
+                </a>
+                <a href="malla-academica.html"
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15
+                          bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base
+                          hover:bg-unad-teal hover:text-white hover:border-unad-teal
+                          transition-all duration-200 font-semibold">
+                    <span class="iconify" data-icon="lucide:grid-3x3" data-width="15"></span>
+                    Ver malla académica
+                </a>
+                <button type="button" id="restart-btn"
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-orange/40
+                               bg-unad-orange/10 text-unad-orange
+                               hover:bg-unad-orange hover:text-white hover:border-unad-orange
+                               transition-all duration-200 font-semibold">
+                    <span class="iconify" data-icon="lucide:rotate-ccw" data-width="15"></span>
+                    Repetir presentación
+                    
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 </main>
 
 <script>
@@ -1592,6 +1746,49 @@
         if(btnUp) btnUp.addEventListener('click', () => gotoSlide(currentIndex - 1, -1));
         if(btnDown) btnDown.addEventListener('click', () => gotoSlide(currentIndex + 1, 1));
     }
+
+    /* --- Botón "Repetir presentación" (solo en la última diapositiva) --- */
+    const restartBtn = document.getElementById('restart-btn');
+    if (restartBtn) {
+        restartBtn.addEventListener('click', () => {
+            gotoSlide(0, -1);
+        });
+    }
+
+        /* ============================================================
+       TEMA CLARO / OSCURO — UNAD (unificado, anti-duplicados)
+       ============================================================ */
+    (function () {
+        const root = document.documentElement;
+        const btn  = document.getElementById('theme-btn') || document.getElementById('themeToggle');
+        if (!btn) return;
+
+        // Evita que otro script (nav.js) vuelva a engancharlo
+        if (btn.dataset.themeBound === '1') return;
+        btn.dataset.themeBound = '1';
+
+        function syncButton() {
+            const isDark = root.classList.contains('dark');
+            btn.textContent = isDark ? '☀️' : '🌙';
+            btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        }
+
+        // Estado inicial (refuerzo por si el script del head no corrió)
+        const saved = localStorage.getItem('unad-theme');
+        if (saved === 'dark') { root.classList.add('dark'); root.classList.remove('light'); }
+        else if (saved === 'light') { root.classList.remove('dark'); root.classList.add('light'); }
+        syncButton();
+
+        // Toggle real
+        btn.addEventListener('click', () => {
+            const willBeDark = !root.classList.contains('dark');
+            root.classList.toggle('dark', willBeDark);
+            root.classList.toggle('light', !willBeDark);
+            localStorage.setItem('unad-theme', willBeDark ? 'dark' : 'light');
+            syncButton();
+        });
+    })();
+
 </script>
 </body>
 </html>
