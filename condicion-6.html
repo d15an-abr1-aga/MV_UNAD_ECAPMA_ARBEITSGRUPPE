@@ -1,438 +1,1474 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="light">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Condición 1 · Programa académico</title>
-<meta name="description" content="Condición 1 del programa." />
-<link rel="preconnect" href="https://googleapis.com">
-<link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css" />
-<link rel="stylesheet" href="css/condicion.css" />
+<title>Condición 6 · Relación con el Sector Externo</title>
+<meta name="description" content="Condición 6: Relación con el sector externo del programa de Medicina Veterinaria - UNAD" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem('unad-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    unad: {
+                        teal: '#00445B', navy: '#01333F', green: '#035B3B',
+                        orange: '#D26714', base: '#EAEAEA', darkbg: '#0a1922'
+                    }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    display: ['Montserrat', 'sans-serif'],
+                }
+            }
+        }
+    }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 <link rel="stylesheet" href="css/nav.css" />
-<script src="js/nav.js"></script>
+<script src="js/nav.js" defer></script>
 
 <style>
-  /* === CONTENEDOR TIPO TARJETA === */
-  .cond-body {
-    position: relative;
-    height: 60vh; 
-    width: 100%;
-    max-width: 900px;
-    margin: 2rem auto;
-    overflow: hidden; 
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    background: #ffffff;
-  }
+    body { background-color: #EAEAEA; color: #01333F; margin: 0; padding: 0; overflow: hidden; transition: background-color 0.3s ease, color 0.3s ease; }
+    .dark body { background-color: #0a1922; color: #EAEAEA; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+        opacity: 0.04; mix-blend-mode: multiply; }
+    .dark body::before { opacity: 0.02; mix-blend-mode: screen; }
 
-  .slides-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+    .orb { position: fixed; border-radius: 50%; filter: blur(140px); z-index: 0; opacity: 0.6; pointer-events: none; }
+    .orb--navy { background: #00445B; animation: float1 20s ease-in-out infinite; }
+    .orb--orange { background: #D26714; animation: float2 25s ease-in-out infinite reverse; opacity: 0.4; }
+    @keyframes float1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(5vw, 5vh) scale(1.1); } }
+    @keyframes float2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-5vw, -5vh) scale(1.1); } }
 
-  /* === ESTILO DE CADA BLOQUE DE INFORMACIÓN === */
-  .slide-block {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 3.5rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: flex-start;
-    
-    /* Animación vertical nativa */
-    opacity: 0;
-    transform: translateY(100%);
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
-    pointer-events: none;
-  }
+    .sitenav { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); width: 92%; max-width: 1500px; z-index: 50;
+        display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; border-radius: 1rem;
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 20px rgba(1, 51, 63, 0.05); transition: all 0.3s ease; }
+    .dark .sitenav { background: rgba(1, 51, 63, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
+    .sitenav__brand { display: flex; align-items: center; gap: 0.75rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #01333F; text-decoration: none; }
+    .dark .sitenav__brand { color: #ffffff; }
+    .sitenav__brand small { display: block; font-size: 0.75rem; font-weight: 500; color: #00445B; }
+    .dark .sitenav__brand small { color: #D26714; }
+    .sitenav__right { display: flex; align-items: center; gap: 1.5rem; }
+    .sitenav__links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; font-size: 0.875rem; font-weight: 600; }
+    .sitenav__links a { color: #01333F; text-decoration: none; transition: color 0.2s; }
+    .dark .sitenav__links a { color: #EAEAEA; }
+    .sitenav__links a:hover { color: #D26714; }
+    .sitenav__links a[aria-current="page"] { color: #D26714; border-bottom: 2px solid #D26714; padding-bottom: 2px; }
+    .theme-toggle { background: none; border: none; cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(0,0,0,0.05); transition: background-color 0.2s; }
+    .dark .theme-toggle { background-color: rgba(255,255,255,0.1); }
 
-  /* Bloque actual visible */
-  .slide-block.active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+    .slider-container { position: relative; width: 100vw; height: 100vh; z-index: 10; }
+    .slide { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5rem 2rem 2rem 2rem; }
 
-  /* Bloque que ya subió */
-  .slide-block.exit {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
+    .glass-panel {
+        width: 100%; max-width: 97vw; height: 88vh;
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('assets/Fondo_1.png');
+        background-size: cover, cover; background-position: center center, center center; background-repeat: no-repeat, no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 10px 40px rgba(1, 51, 63, 0.08);
+        border-radius: 1.5rem; padding: 2rem;
+        display: flex; flex-direction: column;
+        transition: all 0.3s ease;
+    }
+    .dark .glass-panel {
+        background-image: linear-gradient(rgba(1, 51, 63, 0.55), rgba(1, 51, 63, 0.55)), url('assets/Fondo_1.png');
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
 
-  /* === TIPOGRAFÍAS INTERNAS === */
-  .slide-block h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 1.2rem;
-    line-height: 1.3;
-  }
+    .custom-scroll { overflow-y: auto; overflow-x: hidden; padding-right: 10px; }
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: rgba(0,68,91,0.05); border-radius: 10px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: rgba(0,68,91,0.2); border-radius: 10px; }
+    .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+    .dark .custom-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
 
-  .slide-block h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-top: 0.8rem;
-    margin-bottom: 0.4rem;
-  }
+    .sidenav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 50;
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+        background: rgba(255,255,255,0.5); backdrop-filter: blur(8px); padding: 10px 6px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); }
+    .dark .sidenav-dots { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+    .nav-btn { background: none; border: none; cursor: pointer; color: inherit; padding: 2px; display: flex; align-items: center; justify-content: center; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #00445B; opacity: 0.3; transition: all 0.3s; }
+    .dark .dot { background: #EAEAEA; }
+    .dot.active { opacity: 1; height: 18px; border-radius: 4px; background: #D26714; }
+    .dot-wrapper { position: relative; min-height: 18px; padding: 3px 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
+    .dot-wrapper:hover .dot { transform: scale(1.6); opacity: 0.85; }
+    .dot-wrapper:hover .dot.active { transform: none; }
+    .dot-wrapper::after { content: attr(data-title); position: absolute; right: calc(100% + 14px); top: 50%;
+        transform: translateY(-50%) translateX(6px) scale(0.96);
+        background: #01333F; color: #ffffff; padding: 6px 12px; border-radius: 8px;
+        font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif; letter-spacing: 0.02em; white-space: nowrap;
+        opacity: 0; pointer-events: none; transition: opacity 0.22s ease, transform 0.22s ease;
+        box-shadow: 0 6px 18px rgba(1,51,63,0.30); z-index: 100; }
+    .dot-wrapper::before { content: ''; position: absolute; right: calc(100% + 8px); top: 50%; transform: translateY(-50%) translateX(6px);
+        width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 6px solid #01333F;
+        opacity: 0; pointer-events: none; transition: opacity 0.22s ease, transform 0.22s ease; z-index: 100; }
+    .dot-wrapper:hover::after { opacity: 1; transform: translateY(-50%) translateX(0) scale(1); }
+    .dot-wrapper:hover::before { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .dark .dot-wrapper::after { background: #D26714; }
+    .dark .dot-wrapper::before { border-left-color: #D26714; }
 
-  .slide-block p, .slide-block li {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #334155;
-  }
+    .styled-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    .styled-table th { background-color: #00445B; color: white; padding: 12px 14px; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.04em; position: sticky; top: 0; z-index: 10; }
+    .styled-table td { padding: 12px 14px; border-bottom: 1px solid rgba(0,0,0,0.1); vertical-align: top; }
+    .dark .styled-table td { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .styled-table tr:hover td { background-color: rgba(0,68,91,0.04); }
+    .dark .styled-table tr:hover td { background-color: rgba(255,255,255,0.04); }
+    .styled-table tr:last-child td { border-bottom: none; }
 
-  .slide-block ul {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
+    .hover-card { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s; }
+    .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -8px rgba(0, 68, 91, 0.15); border-color: #D26714; }
 
-  .slide-block table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .slide-block th {
-    background-color: #0f172a;
-    color: #ffffff;
-    font-weight: 600;
-    padding: 10px;
-    text-align: left;
-  }
-
-  .slide-block td {
-    padding: 10px;
-    border-bottom: 1px solid #e2e8f0;
-    color: #334155;
-  }
-
-  /* === BOTONES DE NAVEGACIÓN ▲/▼ === */
-  .slide-controls {
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    display: flex;
-    gap: 0.5rem;
-    z-index: 10;
-  }
-
-  .slide-btn {
-    background: #0f172a;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, opacity 0.2s;
-  }
-
-  .slide-btn:hover { background: #334155; }
-  .slide-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    #image-modal { position: fixed; inset: 0; z-index: 9999; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+        display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    #image-modal.active { opacity: 1; pointer-events: auto; }
+    #image-modal img { max-width: 95vw; max-height: 95vh; border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); transform: scale(0.95); transition: transform 0.3s ease; object-fit: contain; }
+    #image-modal.active img { transform: scale(1); }
+    .modal-close { position: absolute; top: 1.5rem; right: 2rem; color: white; font-size: 3rem; line-height: 1;
+        background: transparent; border: none; cursor: pointer; opacity: 0.8; transition: opacity 0.2s; }
+    .modal-close:hover { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
 
 /* ============================================================
-   SOLUCIÓN GLOBAL ADAPTATIVA (VERSIÓN EQUILIBRADA)
-   Reemplaza el bloque anterior por este en cada archivo.
+   SOLUCIÓN GLOBAL: centrado vertical del contenido en cada slide
    ============================================================ */
 
-/* 1. ARREGLO DEL SCROLL INTERNO (La clave para que no se corte el texto) */
+/* El contenedor flexible dentro del panel ocupa todo el alto disponible
+   y CENTRA verticalmente cualquier bloque interior (tabla, grid, imagen). */
 .glass-panel .flex-1 {
-    min-height: 0 !important; 
+    min-height: 0 !important;
     overflow-y: auto !important;
     padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* 2. ADAPTACIÓN PARA PANTALLAS DE 15 PULGADAS (Altura menor a 900px) */
+/* Wrapper de tabla: siempre centrado, con ancho máximo cómodo */
+.table-wrap {
+    width: 100%;
+    background: rgba(255,255,255,0.85);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(1,51,63,0.05);
+    overflow: hidden;
+}
+.dark .table-wrap { background: rgba(0,0,0,0.45); border-color: rgba(255,255,255,0.08); }
+
+/* Wrappers de grid: centrados verticalmente y siempre al 100% del ancho del panel */
+.grid-wrap {
+    width: 100%;
+    display: grid;
+    align-items: stretch;
+}
+
 @media (max-height: 900px) {
-    /* Dar un poco más de altura útil al panel y reducir padding */
-    .glass-panel {
-        height: 92vh !important;
-        padding: 1.25rem !important;
-    }
-    .slide {
-        padding-top: 3.5rem !important; /* Un poco menos de espacio arriba */
-        padding-bottom: 1rem !important;
-    }
-    
-    /* --- TIPOGRAFÍA EQUILIBRADA (Más grande que antes) --- */
+    .glass-panel { height: 93vh !important; padding: 1.25rem !important; }
+    .slide { padding-top: 3.5rem !important; padding-bottom: 1rem !important; }
     h1, .text-6xl { font-size: 2.5rem !important; line-height: 1.2 !important; }
     h2, .text-3xl { font-size: 1.8rem !important; }
     h3, .text-2xl { font-size: 1.4rem !important; }
-    p, li, .text-base { font-size: 0.95rem !important; line-height: 1.4 !important; } /* Letra legible */
+    p, li, .text-base { font-size: 0.95rem !important; line-height: 1.4 !important; }
     .text-sm { font-size: 0.85rem !important; }
     .text-xs { font-size: 0.75rem !important; }
-    
-    /* --- ESPACIOS (Mantenemos los gaps y paddings pequeños para ganar espacio) --- */
     .gap-8 { gap: 1rem !important; }
     .gap-6 { gap: 0.75rem !important; }
     .gap-4 { gap: 0.5rem !important; }
     .p-8 { padding: 1rem !important; }
-    .p-6 { padding: 0.75rem !important; }
-    .p-5 { padding: 0.5rem !important; }
+    .p-6 { padding: 0.85rem !important; }
+    .p-5 { padding: 0.6rem !important; }
     .p-4 { padding: 0.5rem !important; }
-    
-    /* Hacer que los iconos sean un poco más pequeños */
+    .styled-table th, .styled-table td { padding: 8px 10px !important; font-size: 0.8rem !important; }
     .iconify { transform: scale(0.9); }
 }
 
-/* 3. ADAPTACIÓN EXTREMA (Portátiles muy pequeños o tablets) */
 @media (max-height: 700px) {
     .glass-panel { height: 95vh !important; padding: 1rem !important; }
     h1, .text-6xl { font-size: 2.0rem !important; }
     h2, .text-3xl { font-size: 1.5rem !important; }
     h3, .text-2xl { font-size: 1.2rem !important; }
-    p, li, .text-base { font-size: 0.85rem !important; } /* Letra un poco más pequeña pero legible */
+    p, li, .text-base { font-size: 0.85rem !important; }
     .gap-6, .gap-8 { gap: 0.5rem !important; }
 }
 
-/* 4. IMÁGENES: Siempre contenidas, sin deformar y sin empujar el texto */
-.glass-panel img, .slide-block img {
-    max-height: 45vh; 
-    width: auto;
-    object-fit: contain !important;
-    margin-left: auto;
-    margin-right: auto;
-}
-@media (min-height: 900px) {
-    .glass-panel img { max-height: 55vh; } 
-}
+.glass-panel img { max-height: 55vh; width: auto; object-fit: contain !important; margin-left: auto; margin-right: auto; }
 
-/* 5. TABLAS: Que no rompan el layout y tengan scroll propio */
-.styled-table, .styled-table-dense {
-    width: 100%;
-    font-size: 0.8rem !important; /* Un poco más grandes que antes */
-}
-.styled-table th, .styled-table td {
-    padding: 8px 10px !important; /* Más espacio interno */
-}
+.grid { min-height: 0; }
 
-/* 6. ARREGLO ESPECÍFICO PARA LA CONDICIÓN 6 */
-.slide-block {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    justify-content: flex-start !important; 
-    padding: 2rem !important;
-}
-
-/* 7. Evitar que los contenedores con grid se desborden */
-.grid {
-    min-height: 0;
-}
-
-/* ============================================================
-   SOLUCIÓN 1.5: BARRA SUPERIOR "ULTRA SLIM"
-   ============================================================ */
-.sitenav {
-    padding: 0.25rem 0.75rem !important; /* Aún más delgada */
-    top: 0.25rem !important; /* Se pega más al borde superior */
-    max-width: 1100px !important; /* Un poco menos de ancho para que no se estire tanto */
-    width: 95% !important;
-    opacity: 0.85;
-    border-radius: 0.75rem !important; /* Bordes un poco más cerrados */
-    box-shadow: 0 2px 10px rgba(1, 51, 63, 0.05) !important; /* Sombra más sutil */
-    transition: opacity 0.3s ease, top 0.3s ease, background 0.3s ease !important;
-}
-
-/* Al pasar el mouse, se vuelve totalmente visible y baja un poquito */
-.sitenav:hover {
-    opacity: 1;
-    top: 0.5rem !important;
-}
-
-/* Reducir aún más los tamaños de letra, iconos y espacios */
+.sitenav { padding: 0.25rem 0.75rem !important; top: 0.25rem !important; max-width: 1100px !important; width: 95% !important;
+    opacity: 0.85; border-radius: 0.75rem !important; box-shadow: 0 2px 10px rgba(1, 51, 63, 0.05) !important;
+    transition: opacity 0.3s ease, top 0.3s ease, background 0.3s ease !important; }
+.sitenav:hover { opacity: 1; top: 0.5rem !important; }
 .sitenav__links { gap: 0.75rem !important; font-size: 0.65rem !important; line-height: 1.2 !important; }
 .sitenav__brand { font-size: 0.75rem !important; gap: 0.4rem !important; line-height: 1.2 !important; }
 .sitenav__brand small { font-size: 0.55rem !important; }
-.sitenav__logo { 
-    width: 22px !important; 
-    height: 22px !important; 
-    font-size: 0.65rem !important; 
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 0.35rem !important;
-}
+.sitenav__logo { width: 22px !important; height: 22px !important; font-size: 0.65rem !important; display: flex; align-items: center; justify-content: center; border-radius: 0.35rem !important; }
 .theme-toggle { width: 22px !important; height: 22px !important; font-size: 0.85rem !important; }
 
+.table-x-scroll { overflow-x: auto; }
+.table-x-scroll::-webkit-scrollbar { height: 6px; }
+.table-x-scroll::-webkit-scrollbar-thumb { background: rgba(0,68,91,0.25); border-radius: 10px; }
+
+.mini-card { display: flex; gap: 0.75rem; align-items: flex-start; padding: 1rem 1.15rem; border-radius: 1rem; background: rgba(255,255,255,0.85); border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 3px rgba(1,51,63,0.05); }
+.dark .mini-card { background: rgba(0,0,0,0.45); border-color: rgba(255,255,255,0.08); }
+
+.img-frame { position: relative; border-radius: 1.25rem; overflow: hidden; background: rgba(255,255,255,0.7); padding: 0.6rem; border: 2px solid rgba(0,68,91,0.2); box-shadow: 0 12px 32px -10px rgba(1,51,63,0.25); }
+.dark .img-frame { background: rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.12); }
 </style>
 </head>
 <body>
 
-<div class="orb orb--navy"   style="width:480px;height:480px;top:-160px;left:-140px;"></div>
+<div id="image-modal">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar imagen">&times;</button>
+    <img id="modal-image" src="" alt="Imagen ampliada">
+</div>
+
+<div class="orb orb--navy" style="width:480px;height:480px;top:-160px;left:-140px;"></div>
 <div class="orb orb--orange" style="width:420px;height:420px;bottom:-180px;right:10vw;"></div>
 
 <nav class="sitenav" id="main-nav">
   <a class="sitenav__brand" href="index.html">
     <div class="sitenav__logo">MV</div>
-    <div class="sitenav__brand-text">
-      <span>Medicina Veterinaria</span>
-      <small>Programa académico</small>
-    </div>
+    <div class="sitenav__brand-text"><span>Medicina Veterinaria</span><small>Programa académico</small></div>
   </a>
   <div class="sitenav__right">
-    <button class="sitenav__burger" id="nav-burger"
-            aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <button class="sitenav__burger" id="nav-burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <ul class="sitenav__links" id="nav-links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="malla-academica.html">Malla académica</a></li>
       <li class="sitenav__dropdown">
-        <button class="sitenav__link" type="button"
-                aria-haspopup="true" aria-expanded="false">
-          Condiciones
-        </button>
+        <button class="sitenav__link" type="button" aria-haspopup="true" aria-expanded="false">Condiciones</button>
         <ul class="sitenav__dropdown-menu">
           <li><a href="condicion-1.html">Condición 1 · Denominación</a></li>
           <li><a href="condicion-2.html">Condición 2</a></li>
           <li><a href="condicion-3.html">Condición 3 · Consistencia Curricular</a></li>
           <li><a href="condicion-4.html">Condición 4 · Actividades Académicas</a></li>
           <li><a href="condicion-5.html">Condición 5 · Investigación</a></li>
-          <li><a href="condicion-6.html">Condición 6</a></li>
+          <li><a href="condicion-6.html" aria-current="page">Condición 6 · Sector Externo</a></li>
           <li><a href="condicion-7.html">Condición 7 · Profesores</a></li>
           <li><a href="condicion-8.html">Condición 8</a></li>
         </ul>
       </li>
     </ul>
-    <button class="theme-toggle" id="theme-btn" type="button"
-            aria-label="Cambiar tema">🌙</button>
+    <button class="theme-toggle" id="theme-btn" type="button" aria-label="Cambiar tema">🌙</button>
   </div>
 </nav>
 
-<header class="cond-hero">
-  <p class="cond-hero__eyebrow">Presentación Académica</p>
-  <h1>Teledetección y Ecosistemas</h1>
-</header>
+<aside class="sidenav-dots" id="side-nav">
+    <button class="nav-btn" id="btn-up" aria-label="Subir">
+        <span class="iconify text-unad-teal dark:text-white" data-icon="lucide:chevron-up" data-width="18"></span>
+    </button>
+    <div id="dot-container" class="flex flex-col gap-1.5 py-1"></div>
+    <button class="nav-btn" id="btn-down" aria-label="Bajar">
+        <span class="iconify text-unad-teal dark:text-white" data-icon="lucide:chevron-down" data-width="18"></span>
+    </button>
+</aside>
 
-<main class="cond-body" id="presentation-viewport">
-  <div class="slides-container">
+<main class="slider-container" id="slider">
 
-    <!-- Bloque 1 -->
-    <div class="slide-block active">
-      <h2>Resistencia, Resiliencia y Tiempo de Recuperación</h2>
-      <p>Análisis de pastizales en respuesta a patrones de sequía en Mongolia Interior mediante teledetección multiescalar (1998 - 2020).</p>
-    </div>
+    <!-- 1. Portada -->
+    <section class="slide" data-title="Portada">
+        <div class="glass-panel items-center justify-center text-center">
+            <span class="gsap-reveal px-4 py-1.5 rounded-full bg-unad-orange text-white text-xs font-bold uppercase tracking-wider mb-6 flex items-center gap-2 shadow-sm">
+                <span class="iconify animate-pulse" data-icon="lucide:sparkles" data-width="16"></span> Sección de Acreditación
+            </span>
+            <h1 class="gsap-reveal text-4xl md:text-6xl font-display font-bold text-unad-teal dark:text-white mb-8">Condición 6. Relación con el Sector Externo</h1>
 
-    <!-- Bloque 2 -->
-    <div class="slide-block">
-      <h2>El Objetivo de la Investigación</h2>
-      <p>Investigar la estabilidad de los pastizales analizando su respuesta ante diferentes patrones de sequía.</p>
-      <ul>
-        <li><strong>1. Tipos de Pastizales:</strong> Estepa de pradera templada (TMS), estepa típica templada (TTS) y estepa desértica templada (TDS).</li>
-        <li><strong>2. Patrones de Sequía:</strong> Se categorizaron seis patrones distintos combinando intensidad y duración.</li>
-        <li><strong>3. Evaluación de Estabilidad:</strong> Análisis de resistencia, resiliencia y tiempo de recuperación.</li>
-      </ul>
-    </div>
+            <div class="gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl text-left bg-white/60 dark:bg-black/40 p-8 rounded-2xl border border-unad-teal/10 shadow-sm w-full">
+                <div class="flex items-start gap-4">
+                    <span class="iconify text-unad-teal mt-1 shrink-0" data-icon="lucide:graduation-cap" data-width="24"></span>
+                    <div>
+                        <span class="block text-xs font-bold text-gray-500 uppercase">Programa:</span>
+                        <span class="font-semibold text-base dark:text-gray-200">Medicina Veterinaria (ECAPMA - UNAD)</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="iconify text-unad-orange mt-1 shrink-0" data-icon="lucide:network" data-width="24"></span>
+                    <div>
+                        <span class="block text-xs font-bold text-gray-500 uppercase">Componente:</span>
+                        <span class="font-semibold text-base dark:text-gray-200">Vinculación con el entorno</span>
+                    </div>
+                </div>
+                <div class="col-span-1 md:col-span-2 flex items-start gap-4 mt-2">
+                    <span class="iconify text-unad-green mt-1 shrink-0" data-icon="lucide:target" data-width="24"></span>
+                    <div>
+                        <span class="block text-xs font-bold text-gray-500 uppercase">Objetivo del Componente:</span>
+                        <span class="font-medium text-base dark:text-gray-200 leading-relaxed">Demostrar un plan de vinculación con el sector externo, mecanismos concretos, participación de profesores y estudiantes, prácticas respaldadas y evidencia trazable de resultados e impacto.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bloque 3 -->
-    <div class="slide-block">
-      <h2>¿Cómo se hizo? Metodología</h2>
-      <p>Integración de datos satelitales y meteorológicos de alta resolución:</p>
-      <ul>
-        <li><strong>Detección de Sequías (SPEI):</strong> Índice mensual calculado a partir de datos de precipitación y evapotranspiración (resolución de 1 km).</li>
-        <li><strong>Monitoreo de Vegetación (NDVI):</strong> Sensor VEGETATION (satélite SPOT-4). Aplicación de <em>detrending</em> para aislar anomalías climáticas.</li>
-        <li><strong>Clasificación de Ecosistemas:</strong> Algoritmo Random Forest sobre imágenes Sentinel-2.</li>
-      </ul>
-    </div>
+    <!-- 2. Verificación del par -->
+    <section class="slide" data-title="Verificación del Par">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:file-check" data-width="32"></span>
+                    Qué verificará el par académico
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Condición 6</span>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La condición se demuestra con un <strong>plan de vinculación</strong>, mecanismos concretos, articulación de profesores y estudiantes, prácticas respaldadas y evidencia de resultados.</p>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="table-wrap shadow-sm">
+                    <table class="styled-table">
+                        <thead><tr><th style="width:26%;">Eje de verificación</th><th>Demostración esperada</th></tr></thead>
+                        <tbody class="text-gray-800 dark:text-gray-200">
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Plan de vinculación</td><td>Medios, actividades y resultados esperados con sectores productivo, social, cultural, tecnológico, público y privado.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Coherencia con modalidad</td><td>La vinculación responde al nivel profesional, a la modalidad híbrida y a la presencia territorial de la institución.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Participación académica</td><td>Profesores y estudiantes se articulan con la dinámica social, productiva y cultural del contexto.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Prácticas y pasantías</td><td>Existen acuerdos y escenarios suficientes, pertinentes y trazables para las actividades que lo requieran.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Seguimiento</td><td>La ejecución se registra mediante indicadores, fuentes propias, evaluación de resultados y mejora continua.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Marco normativo</td><td>Decreto 1075 de 2015, modificado por el Decreto 1330 de 2019, art. 2.5.3.2.3.2.7; Resolución 21795 de 2020, arts. 32 y 33. La Nota Orientadora del MEN concentra la evaluación en el plan de vinculación y en los acuerdos que respaldan prácticas o pasantías.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Pertinencia, operación y trazabilidad de la relación del programa con su entorno.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Condición 6; plan estratégico; mecanismos de vinculación; matrices de convenios y prácticas; instrumentos de seguimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bloque 4 -->
-    <div class="slide-block">
-      <h2>Cálculo de Indicadores</h2>
-      <ul>
-        <li><strong>Resistencia (Ω):</strong> Capacidad de mantener su estado original. Diferencia de anomalías del NDVI antes y durante el evento.</li>
-        <li><strong>Resiliencia (Δ):</strong> Capacidad de retornar a la normalidad. Diferencia entre el NDVI posterior y el valor mínimo registrado.</li>
-        <li><strong>Tiempo de Recuperación (T):</strong> Meses requeridos para que la vegetación alcance nuevamente su promedio histórico.</li>
-      </ul>
-    </div>
+    <!-- 3. Modelo de relacionamiento (imagen + cards) -->
+    <section class="slide" data-title="Modelo de Relacionamiento">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:share-2" data-width="30"></span>
+                    Modelo de relacionamiento con el sector externo
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">De la intención a la evidencia</span>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La relación con el entorno conecta <strong>formación, investigación, proyección social e internacionalización</strong> con actores y necesidades reales. Toda presentación debe responder: <em>qué se hace, quién participa, con quién, qué cambia y cómo se verifica</em>.</p>
 
-    <!-- Bloque 5 -->
-    <div class="slide-block">
-      <h2>Ficha Técnica: Sensor VEGETATION</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Parámetro</th>
-            <th>Especificación Técnica</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Plataforma</td><td>Satélite SPOT-4 (dataset SPOT-VGT)</td></tr>
-          <tr><td>Resolución Espacial</td><td>Aproximadamente 1 km</td></tr>
-          <tr><td>Resolución Temporal</td><td>Escala mensual (Periodo 1998–2020)</td></tr>
-          <tr><td>Bandas Espectrales</td><td>Rojo y NIR (para derivación de NDVI)</td></tr>
-        </tbody>
-      </table>
-    </div>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <a href="ModeloRelacionamiento.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="ModeloRelacionamiento.png" alt="Vinculación con el sector externo: de la intención a la evidencia" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-7 flex flex-col gap-3 justify-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:link" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Mecanismos</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Prácticas y pasantías, proyectos comunitarios, investigación aplicada, educación continua, cooperación académica y participación en redes.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:users" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Actores externos</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Comunidades, productores, organizaciones, empresas, gremios, entidades públicas y privadas, instituciones académicas y centros de investigación.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:clipboard-check" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Resultado + evidencia</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Cada interacción debe producir un resultado identificable y una evidencia trazable: aprendizaje, transferencia, mejora, producto, acta, registro o evaluación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Que el relacionamiento no sea declarativo: debe observarse mecanismo, participante, actor, resultado y evidencia.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Apartado 6.4; matriz de mecanismos de vinculación propuesta para la Condición 6.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bloque 6 -->
-    <div class="slide-block">
-      <h2>Ventajas y Limitaciones</h2>
-      <h3>Ventajas:</h3>
-      <p>✓ Continuidad histórica de 22 años, estandarización pixel a pixel con el índice SPEI y capacidad multifuente combinada con Sentinel-2.</p>
-      <h3>Limitaciones:</h3>
-      <p>✕ Resolución temporal mensual, grano espacial grueso e incapacidad de detectar factores humanos o del suelo directamente.</p>
-    </div>
+    <!-- 4. Políticas institucionales → acciones (grid de 5 cards) -->
+    <section class="slide" data-title="Políticas → Acciones">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:scale" data-width="30" style="animation-duration: 12s;"></span>
+                    De las políticas institucionales a acciones específicas
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Los marcos institucionales se traducen en actividades propias de <strong>Medicina Veterinaria</strong>.</p>
 
-    <!-- Bloque 7 -->
-    <div class="slide-block">
-      <h2>Hallazgos Principales</h2>
-      <ul>
-        <li><strong>Estepa Desértica (TDS):</strong> Mayor resistencia, pero menor resiliencia y mayor tiempo de recuperación.</li>
-        <li><strong>Estepa de Pradera (TMS):</strong> Más resiliente y de rápida recuperación (2.6 meses de media), pero menos resistente.</li>
-        <li><strong>Capacidad General:</strong> La mayoría regresa a su estado normal en un máximo de 5 meses.</li>
-      </ul>
-    </div>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-stretch w-full">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-teal" data-icon="lucide:map" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">PAPS 4.0</h3>
+                        </div>
+                        <p class="text-xs uppercase tracking-wider font-bold text-unad-teal mb-1">Desarrollo regional e interacción con territorios</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Acciones sobre salud y bienestar animal, salud pública veterinaria, educación sanitaria y sistemas pecuarios.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:heart-handshake" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Estatuto de Proyección Social</h3>
+                        </div>
+                        <p class="text-xs uppercase tracking-wider font-bold text-unad-orange mb-1">Proyección social y extensión</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Proyectos con comunidades, asistencia técnica, transferencia de conocimiento y fortalecimiento de capacidades.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-green" data-icon="lucide:flask-conical" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Estatuto de Investigación / SIGI</h3>
+                        </div>
+                        <p class="text-xs uppercase tracking-wider font-bold text-unad-green mb-1">Investigación e innovación</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Proyectos aplicados con actores externos en problemas sanitarios, productivos y ambientales.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-teal" data-icon="lucide:globe-2" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Política de Internacionalización / UNAD Global</h3>
+                        </div>
+                        <p class="text-xs uppercase tracking-wider font-bold text-unad-teal mb-1">Cooperación académica</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Clases espejo, expertos, movilidad, redes y proyectos colaborativos.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col xl:col-span-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:target" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Plan de Desarrollo 2023-2034 / SIG</h3>
+                        </div>
+                        <p class="text-xs uppercase tracking-wider font-bold text-unad-orange mb-1">Planeación y calidad</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Seguimiento, mejora continua y articulación con sector productivo, entidades y organizaciones.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Que la política institucional tenga aplicación concreta en el programa y evidencia verificable.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">PAPS 4.0; Estatuto de Proyección Social; Estatuto de Investigación; Política de Internacionalización; Plan de Desarrollo; SIG.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bloque 8 -->
-    <div class="slide-block">
-      <h2>El "Trade-off" Ecológico</h2>
-      <p>Se confirmó un contundente <strong>intercambio negativo</strong> entre resistencia y resiliencia.</p>
-      <p>Los ecosistemas adaptados para aguantar la sequía de forma estricta (TDS) son inherentemente más lentos para recuperarse una vez que finaliza el evento climático. No se pueden maximizar ambas variables al mismo tiempo.</p>
-    </div>
+    <!-- 5. Sistemas institucionales (imagen + cards) -->
+    <section class="slide" data-title="Sistemas Institucionales">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:layout-grid" data-width="30"></span>
+                    Sistemas institucionales: arquitectura de apoyo
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La condición utiliza dispositivos institucionales diferenciados según su <strong>función y pertinencia</strong> para Medicina Veterinaria.</p>
 
-    <!-- Bloque 9 -->
-    <div class="slide-block">
-      <h2>Discusión y Conclusiones</h2>
-      <p>La estabilidad es una respuesta dinámica vinculada al patrón de sequía. La alta resistencia de la TDS se debe a sus especies dominantes adaptadas, pero corre riesgo de colapso severo si eventos extremos superan su umbral por su baja resiliencia.</p>
-      <p>Es prioritario integrar factores no climáticos como las <strong>actividades humanas</strong> (pastoreo) y las <strong>propiedades del suelo</strong> (pH y carbono orgánico).</p>
-    </div>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-6 flex items-center justify-center">
+                        <a href="SistemasInstitucionales.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="SistemasInstitucionales.png" alt="Sistemas institucionales de apoyo al relacionamiento" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-6 flex flex-col gap-3 justify-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:graduation-cap" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">SINEP · aplicación limitada</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Reservado a articulación con educación media, orientación vocacional o ETDH cuando corresponda.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:network" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">SISSU · SINEC · SIDER · OIR · Redes · UNAD Global</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Aplicación directa o complementaria según el tipo de actividad del programa.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:map-pin" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">OIR · soporte territorial</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Aporta lectura territorial y análisis de información; <strong>no</strong> se presenta como autoridad de vigilancia sanitaria.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Que los sistemas institucionales se utilicen con su función real y no como una lista genérica.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Matriz de aplicabilidad 6.2.2-6.2.7; soportes VIDER y VINTER.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bloque 10 -->
-    <div class="slide-block">
-      <h2>Sustentación y Recursos</h2>
-      <p>Investigación publicada originalmente en <em>Remote Sensing</em> (Yu, H., et al., 2025).</p>
-      <p><a href="#" style="font-weight: bold; color: #0f172a;">[ VER GRABACIÓN DE LA PRESENTACIÓN ]</a></p>
-      <br>
-      <p><small>Curso de Teledetección Fase Analítica</small></p>
-    </div>
+    <!-- 6. Aplicabilidad de sistemas UNAD (tabla compacta 7 filas) -->
+    <section class="slide" data-title="Aplicabilidad Sistemas UNAD">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:table" data-width="30"></span>
+                    Aplicabilidad de los sistemas UNAD al programa
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La matriz traduce cada sistema en un <strong>uso disciplinar</strong> y una evidencia específica.</p>
 
-  </div>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="table-wrap shadow-sm">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th style="width:22%;">Sistema / red</th>
+                                <th style="width:16%;">Aplicabilidad</th>
+                                <th>Uso en Medicina Veterinaria</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-800 dark:text-gray-200">
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">SISSU</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs uppercase">Directa</span></td><td>Aprendizaje-servicio y acción solidaria articulada curricularmente.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">SINEP</td><td><span class="px-2 py-0.5 rounded-full bg-unad-orange/15 text-unad-orange font-bold text-xs uppercase">Limitada</span></td><td>Articulación con educación media, orientación vocacional o ETDH cuando corresponda.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">SINEC</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs uppercase">Directa</span></td><td>Educación continua para profesionales, productores, técnicos, funcionarios y comunidades.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">SIDER</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs uppercase">Directa</span></td><td>Priorización territorial, proyectos y alianzas para problemáticas veterinarias regionales.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">OIR</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs uppercase">Soporte</span></td><td>Caracterización, análisis de información, identificación de riesgos y lectura territorial; no sustituye autoridades sanitarias.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Redes de Liderazgo</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs uppercase">Complementaria</span></td><td>Interacción con organizaciones de base y liderazgos territoriales.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">UNAD Global</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs uppercase">Directa</span></td><td>Internacionalización curricular, movilidad, redes y cooperación académica.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Aplicabilidad real de cada dispositivo institucional y articulación con actividades del programa.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Matriz de aplicabilidad; registros de actividades, proyectos y productos asociados a cada sistema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="slide-controls">
-    <button class="slide-btn" id="go-prev" aria-label="Anterior">▲</button>
-    <button class="slide-btn" id="go-next" aria-label="Siguiente">▼</button>
-  </div>
+    <!-- 7. Mecanismos de vinculación (tabla 5x5) -->
+    <section class="slide" data-title="Mecanismos de Vinculación">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:users" data-width="30" style="animation-duration: 14s;"></span>
+                    Mecanismos de vinculación de profesores y estudiantes
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La condición evidencia <strong>participación académica</strong> en contextos reales con resultados documentados.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="table-wrap shadow-sm table-x-scroll">
+                    <table class="styled-table" style="min-width:1000px;">
+                        <thead>
+                            <tr>
+                                <th style="width:15%;">Mecanismo</th>
+                                <th style="width:17%;">Participantes</th>
+                                <th style="width:20%;">Actor externo</th>
+                                <th style="width:20%;">Resultado</th>
+                                <th>Evidencia</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-800 dark:text-gray-200">
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Prácticas y pasantías</td><td>Estudiantes + docentes supervisores</td><td>Clínicas/hospitales, laboratorios, entidades sanitarias, sistemas pecuarios</td><td>Desarrollo de competencias y retroalimentación</td><td>Convenio, plan, cupos, registros y evaluación.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">SISSU / proyectos comunitarios</td><td>Estudiantes + docentes</td><td>Comunidades y organizaciones territoriales</td><td>Aprendizaje-servicio y educación sanitaria</td><td>Ruta SISSU, actas, productos y evaluación.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Investigación aplicada / semilleros</td><td>Estudiantes + docentes investigadores</td><td>Empresas, gremios, entidades públicas y centros de investigación</td><td>Conocimiento aplicado y solución de problemas</td><td>Proyecto avalado, alianza y productos.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">SINEC / educación continua</td><td>Docentes; estudiantes cuando aplique</td><td>Profesionales, productores, técnicos, funcionarios y comunidades</td><td>Actualización y transferencia</td><td>Diagnóstico, oferta, asistencia, certificados y satisfacción.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Internacionalización</td><td>Estudiantes + docentes</td><td>IES, centros, redes y expertos internacionales</td><td>Intercambio académico y cooperación</td><td>Convenios/cartas, actas y productos de movilidad o clase espejo.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Participación efectiva de profesores y estudiantes, articulada con formación e investigación.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Matriz de mecanismos de vinculación 6.4; registros de participación y productos asociados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Matriz maestra (3 cards) — AHORA CENTRADO -->
+    <section class="slide" data-title="Matriz Maestra de Escenarios">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:file-spreadsheet" data-width="30"></span>
+                    Matriz maestra de convenios y escenarios
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Trazabilidad</span>
+            </div>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch w-full">
+                    <div class="bg-white/85 dark:bg-black/50 p-6 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card flex flex-col">
+                        <span class="iconify text-unad-teal mb-3" data-icon="lucide:clipboard-list" data-width="40"></span>
+                        <h3 class="font-display font-bold text-lg text-unad-navy dark:text-white mb-3">Contenido de la matriz</h3>
+                        <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed flex-1">Entidad, localización, campo veterinario, curso y RAP/RAC, actividad, capacidad/cupos, estado documental, vigencia, supervisor, evidencia y fecha de corte.</p>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-6 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card flex flex-col">
+                        <span class="iconify text-unad-orange mb-3" data-icon="lucide:folder-tree" data-width="40"></span>
+                        <h3 class="font-display font-bold text-lg text-unad-navy dark:text-white mb-3">Estados de gestión</h3>
+                        <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed flex-1">Manifestación de interés → carta de intención → convenio en trámite → convenio suscrito, vigente y operativo.</p>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-6 rounded-2xl border-t-4 border-unad-green shadow-sm hover-card flex flex-col">
+                        <span class="iconify text-unad-green mb-3" data-icon="lucide:shield-check" data-width="40"></span>
+                        <h3 class="font-display font-bold text-lg text-unad-navy dark:text-white mb-3">Condiciones clínicas y sanitarias</h3>
+                        <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed flex-1">Supervisión profesional/docente, bioseguridad, bienestar animal y articulación con autoridades competentes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Suficiencia y calidad de los escenarios para el número y naturaleza de las prácticas previstas.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Matriz maestra de convenios; P-10-7; P-7-6; planes de trabajo y evaluación de escenarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Proyección social (grid de 6 cards) -->
+    <section class="slide" data-title="Proyección Social">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:heart-handshake" data-width="30"></span>
+                    Proyección social y trabajo comunitario
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Acciones territoriales concentradas en problemáticas veterinarias, con supervisión y evidencia.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-stretch w-full">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-teal" data-icon="lucide:paw-print" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Salud y bienestar animal</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Educación, prevención, manejo responsable y bienestar en animales de compañía y producción.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:shield-check" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Salud pública veterinaria</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Educación sobre zoonosis, bioseguridad, inocuidad y prevención de riesgos sanitarios.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-green" data-icon="lucide:tractor" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Sistemas pecuarios</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Acompañamiento técnico, buenas prácticas, bienestar, producción sostenible y fortalecimiento de capacidades.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-teal" data-icon="lucide:messages-square" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Apropiación social</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Talleres, diálogo de saberes, materiales educativos y transferencia de conocimiento.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:map-pin" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Lectura territorial</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Diagnósticos, caracterizaciones y análisis que orientan proyectos y acciones de SISSU/SIDER/OIR.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-green" data-icon="lucide:clipboard-check" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Condición operativa</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Brigadas, campañas y actividades con componente clínico o sanitario se desarrollan bajo supervisión, protocolos de bioseguridad, bienestar animal y marco jurídico aplicable.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Pertinencia disciplinar, participación comunitaria, seguridad y trazabilidad de resultados.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Proyectos SISSU/SIDER/OIR; actas; registros; protocolos; materiales de educación; informes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Internacionalización (imagen + 6 cards) -->
+    <section class="slide" data-title="Internacionalización">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:globe" data-width="30" style="animation-duration: 12s;"></span>
+                    Internacionalización y cooperación académica
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La dimensión internacional se articula con <strong>UNAD Global</strong> y con la formación disciplinar veterinaria.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <a href="Internacionalizacion.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="Internacionalizacion.png" alt="Internacionalización y cooperación académica del programa" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 content-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:book-open" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Internacionalización curricular</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Clases espejo, contenidos comparados, expertos internacionales y referentes globales en Una Salud.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:plane" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Movilidad e interacción</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Movilidad física o virtual, estancias, pasantías académicas y participación en eventos.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:handshake" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Cooperación</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Redes, proyectos colaborativos y relaciones con IES, centros y organismos internacionales.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:languages" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Lengua extranjera</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Lectura de literatura científica, protocolos y participación en actividades académicas internacionales.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:file-check" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Evidencia</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Convenios/cartas, actas, certificados, productos de movilidad, actividades curriculares y productos colaborativos.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green sm:col-span-2">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:info" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Precisión institucional</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Los antecedentes de ECAPMA o de otros programas son capacidad institucional. Solo se atribuye una actividad o alianza al Programa de Medicina Veterinaria cuando existe evidencia específica de su participación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia de la internacionalización con el currículo, el campo veterinario y la modalidad.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Política de Internacionalización; UNAD Global; procedimientos de movilidad y cooperación; registros específicos del programa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Medición (imagen + 3 cards) -->
+    <section class="slide" data-title="Medición: Actividad · Resultado · Impacto">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:activity" data-width="30"></span>
+                    Medición: actividad, resultado e impacto
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">El seguimiento diferencia lo que <strong>se ejecuta</strong>, lo que <strong>cambia</strong> y el <strong>impacto atribuible</strong> razonablemente al programa.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <a href="Medicion.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="Medicion.png" alt="Medición: actividad, resultado e impacto" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-7 flex flex-col gap-3 justify-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:play-circle" data-width="28"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Actividad</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Registra <strong>ejecución</strong>: jornadas, proyectos, participantes y productos.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:trending-up" data-width="28"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Resultado</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Documenta <strong>cambios</strong> en conocimientos, prácticas, satisfacción, adopción de recomendaciones o continuidad de alianzas.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:bar-chart-3" data-width="28"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Impacto</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Exige <strong>cambio sostenido y verificable</strong>, línea base, seguimiento y triangulación de fuentes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Capacidad de distinguir ejecución, resultado e impacto y de utilizar fuentes propias.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Matriz 6.4.4; instrumentos antes/después; encuestas; actas; informes y productos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Matriz de indicadores (grid de 6 cards) -->
+    <section class="slide" data-title="Matriz de Indicadores">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:bar-chart-3" data-width="30"></span>
+                    Matriz de indicadores y fuentes propias
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La medición se conecta con dimensiones <strong>comunitarias, académicas, sectoriales, investigativas y territoriales</strong>.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-stretch w-full">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-teal" data-icon="lucide:users" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Comunidad · actividad</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicador</p>
+                        <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Jornadas, proyectos, participantes</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Fuente propia</p>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Registros, actas, listas e informes.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:trending-up" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Comunidad · resultado</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicador</p>
+                        <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Cambios en conocimiento/prácticas, satisfacción, adopción</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Fuente propia</p>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Instrumentos antes/después, seguimiento y encuestas.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-green" data-icon="lucide:building-2" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Sector productivo / sanitario</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicador</p>
+                        <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Entidades vinculadas, acciones implementadas, continuidad</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Fuente propia</p>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Planes de trabajo, actas y evaluación del aliado.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-teal" data-icon="lucide:graduation-cap" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Académico</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicador</p>
+                        <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Participación, productos de aprendizaje y RAP/RAC fortalecidos</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Fuente propia</p>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Registros académicos, rúbricas y productos.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:flask-conical" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Investigación</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicador</p>
+                        <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Proyectos/productos con actor externo; apropiación/transferencia</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Fuente propia</p>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">SIGI, actas, productos e informes.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-green" data-icon="lucide:map" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Territorial · impacto</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicador</p>
+                        <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Cambio sostenido y verificable asociado a la intervención</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Fuente propia</p>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Línea base/final, seguimiento longitudinal y triangulación.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Existencia de fuentes propias y capacidad de producir información para autoevaluación y mejoramiento.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Matriz 6.4.4; SIAC; registros y productos institucionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. Graduados -->
+    <section class="slide" data-title="Graduados y Sector">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:user-check" data-width="30"></span>
+                    Graduados y retroalimentación del sector
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Programa nuevo</span>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-4">Al ser un programa nuevo, la condición presenta el <strong>mecanismo de seguimiento</strong> y no atribuye resultados laborales que aún no existen.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:clipboard-check" data-width="26"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1.5">Seguimiento institucional</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">El seguimiento a graduados se articula con el procedimiento institucional <strong>P-7-8</strong> y con el sistema institucional de graduados.</p>
+                        </div>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:repeat" data-width="26"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1.5">Retroalimentación futura</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Una vez existan cohortes, la retroalimentación de graduados y empleadores se usará para revisar pertinencia curricular, necesidades de actualización y educación continua.</p>
+                        </div>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:database" data-width="26"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1.5">Fuentes externas como contexto</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Las fuentes <strong>OLE</strong> y <strong>OCUPACOL</strong> contextualizan tendencias ocupacionales; no constituyen línea base de empleabilidad del nuevo programa.</p>
+                        </div>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-navy dark:border-l-gray-400">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-navy dark:text-white" data-icon="lucide:alert-triangle" data-width="26"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1.5">No atribuir resultados inexistentes</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">No se presentan porcentajes de empleabilidad ni distribución laboral sin metodología y fuente propia del programa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+                    <p class="text-xs font-bold text-unad-orange uppercase tracking-wider mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="16"></span> Mensaje central</p>
+                    <p class="text-sm md:text-base text-gray-100 leading-relaxed italic">En un registro nuevo, la solidez está en mostrar un mecanismo institucional operativo para el futuro seguimiento y una lectura responsable de las fuentes externas.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Mecanismo previsto para seguimiento de graduados y uso correcto de información laboral externa.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Procedimiento P-7-8; sistema institucional de graduados; OLE/OCUPACOL como contexto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Plan Estratégico (imagen + 4 cards) -->
+    <section class="slide" data-title="Plan a 7 años">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:compass" data-width="30" style="animation-duration: 12s;"></span>
+                    Plan Estratégico de Relacionamiento a 7 años
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">4 líneas</span>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">El plan se organiza en <strong>cuatro líneas</strong> y mantiene el seguimiento de resultados e impacto como dimensión transversal.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-4 flex items-center justify-center">
+                        <a href="PlanEstrategico7Anos.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="PlanEstrategico7Anos.png" alt="Plan Estratégico de Relacionamiento a siete años" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 content-center">
+                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card flex flex-col">
+                            <span class="iconify text-unad-teal mb-2" data-icon="lucide:building-2" data-width="32"></span>
+                            <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 uppercase tracking-wide">Línea 1</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Articulación productiva/sanitaria y escenarios de práctica.</p>
+                        </div>
+                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card flex flex-col">
+                            <span class="iconify text-unad-orange mb-2" data-icon="lucide:heart-handshake" data-width="32"></span>
+                            <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 uppercase tracking-wide">Línea 2</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Proyección social y trabajo comunitario.</p>
+                        </div>
+                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-green shadow-sm hover-card flex flex-col">
+                            <span class="iconify text-unad-green mb-2" data-icon="lucide:globe" data-width="32"></span>
+                            <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 uppercase tracking-wide">Línea 3</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Internacionalización y cooperación académica.</p>
+                        </div>
+                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-navy dark:border-t-gray-400 shadow-sm hover-card flex flex-col">
+                            <span class="iconify text-unad-navy dark:text-white mb-2" data-icon="lucide:graduation-cap" data-width="32"></span>
+                            <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 uppercase tracking-wide">Línea 4</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Graduados y educación continua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Existencia de una arquitectura de planeación clara para siete años.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Plan 6.7; matriz de cuatro líneas; mecanismos y fuentes de verificación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. Indicadores por línea (grid 4 cards) -->
+    <section class="slide" data-title="Indicadores por Línea">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:list-ordered" data-width="30"></span>
+                    Indicadores por línea del plan
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Los indicadores permiten seguir operación, pertinencia, participación y retroalimentación <strong>sin confundir actividad con impacto</strong>.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch w-full">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-teal" data-icon="lucide:building-2" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">1. Sector productivo y sanitario</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">Prácticas/pasantías, alianzas, proyectos con sector</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Convenios vigentes/operativos; cobertura y evaluación de escenarios; proyectos colaborativos.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:heart-handshake" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">2. Proyección social y trabajo comunitario</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">SISSU, SIDER, OIR, redes y proyectos comunitarios</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Participación, resultados comunitarios, continuidad y seguimiento.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-green" data-icon="lucide:globe" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">3. Internacionalización y cooperación</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">UNAD Global, clases espejo, movilidad, expertos y redes</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Actividades, alianzas, productos de cooperación y movilidad.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-navy dark:border-l-gray-400 flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-navy dark:text-white" data-icon="lucide:graduation-cap" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">4. Graduados y educación continua</h3>
+                        </div>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">SINEC, graduados y empleadores</p>
+                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Oferta basada en necesidades, participación y retroalimentación.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Seguimiento efectivo y trazable de las cuatro líneas del plan a siete años.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Plan 6.7; matriz de indicadores por línea; fuentes de verificación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16. Recursos (grid 6 cards) -->
+    <section class="slide" data-title="Recursos y Sostenibilidad">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:wallet" data-width="30" style="animation-duration: 14s;"></span>
+                    Recursos y sostenibilidad del relacionamiento
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La condición identifica <strong>conceptos de gasto y fuentes de financiación</strong>; la consistencia financiera se articula con la proyección institucional del programa.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-stretch w-full">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:file-signature" data-width="24"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Gestión y formalización de convenios</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300">Recursos institucionales.</p>
+                        </div>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:stethoscope" data-width="24"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Prácticas y pasantías</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300">Recursos institucionales y convenios.</p>
+                        </div>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:heart-handshake" data-width="24"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Extensión y trabajo comunitario</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300">Recursos institucionales y cooperación.</p>
+                        </div>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:plane" data-width="24"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Movilidad e internacionalización</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300">Recursos institucionales y cooperación externa.</p>
+                        </div>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                        <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:book-open" data-width="24"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Educación continua y eventos</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300">Recursos propios y alianzas estratégicas.</p>
+                        </div>
+                    </div>
+                    <div class="bg-unad-navy text-white rounded-2xl p-5 shadow-md flex flex-col xl:col-span-1">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="iconify text-unad-orange" data-icon="lucide:link" data-width="24"></span>
+                            <h3 class="font-display font-bold text-sm text-white">Coherencia financiera</h3>
+                        </div>
+                        <p class="text-xs text-gray-200 leading-relaxed flex-1">La proyección de recursos de la Condición 6 se integra con la Condición 2. En esta condición se presentan conceptos, mecanismos y fuentes; no se introducen cifras financieras distintas a las aprobadas institucionalmente para el programa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Suficiencia de recursos para ejecutar el plan de vinculación a siete años.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Formato 6.2; proyección financiera institucional; convenios/cooperación; correspondencia con la Condición 2.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. Matriz de evidencias (10 filas) -->
+    <section class="slide" data-title="Matriz de Evidencias">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:file-check-2" data-width="30"></span>
+                    Matriz de evidencias para la visita de pares
+                </h2>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Síntesis de soportes que permiten responder de manera directa a los criterios de la Condición 6.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="table-wrap shadow-sm">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th style="width:32%;">Aspecto presentado</th>
+                                <th>Soporte principal</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-800 dark:text-gray-200">
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Plan de vinculación</td><td>Plan estratégico 6.7; cuatro líneas, mecanismos, indicadores y fuentes.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Políticas institucionales</td><td>PAPS 4.0; Estatutos; Plan de Desarrollo; Política de Internacionalización; SIG.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Sistemas de proyección social</td><td>SISSU, SINEC, SIDER, OIR, Redes de Liderazgo, UNAD Global; SINEP cuando corresponda.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Participación profesores/estudiantes</td><td>Prácticas, proyectos, SISSU, investigación aplicada, educación continua e internacionalización.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Prácticas/pasantías</td><td>Matriz maestra de escenarios, convenios, cupos, planes de trabajo, supervisión y evaluación.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Trabajo comunitario</td><td>Proyectos, actas, registros, protocolos, productos educativos y seguimiento.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Internacionalización</td><td>Política, convenios/cartas, actas, movilidad, clases espejo y redes.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Impacto</td><td>Matriz 6.4.4; línea base, instrumentos, encuestas, informes y productos.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Graduados</td><td>Procedimiento P-7-8 y sistema institucional; fuentes externas usadas solo como contexto.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Recursos</td><td>Formato 6.2 y correspondencia con la proyección financiera institucional.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Existencia y disponibilidad de soportes para la verificación integral de la Condición 6.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Conjunto de soportes institucionales y del programa listados en la matriz de evidencias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. Cierre -->
+    <section class="slide" data-title="Cierre">
+        <div class="glass-panel items-center justify-center text-center">
+            <div class="flex-1 flex flex-col items-center justify-center gap-6 w-full max-w-4xl mx-auto px-4">
+                <span class="gsap-reveal inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-unad-teal to-unad-navy text-white shadow-xl">
+                    <span class="iconify animate-pulse" data-icon="lucide:circle-check-big" data-width="44"></span>
+                </span>
+                <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
+                    <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
+                    Fin de la Condición 6
+                </span>
+                <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
+                    Ha finalizado la revisión de la <span class="text-unad-orange">Condición 6</span>
+                </h2>
+                <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed italic">
+                    "La fortaleza de la Condición 6 está en demostrar una cadena verificable: <strong>política → mecanismo → participantes → actor externo → resultado → evidencia → seguimiento y mejora</strong>."
+                </p>
+                <a href="condicion-7.html" class="gsap-reveal group inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-2xl bg-gradient-to-r from-unad-orange to-unad-teal text-white font-display font-bold text-base md:text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <span class="iconify shrink-0" data-icon="lucide:circle-check-big" data-width="24"></span>
+                    <span class="tracking-wide">Continuar a la Condición 7</span>
+                    <span class="iconify shrink-0 group-hover:translate-x-1.5 transition-transform duration-300" data-icon="lucide:arrow-right" data-width="22"></span>
+                </a>
+                <div class="gsap-reveal flex flex-wrap items-center justify-center gap-3 mt-2 text-xs">
+                    <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15 bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base hover:bg-unad-teal hover:text-white hover:border-unad-teal transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:home" data-width="15"></span>
+                        Volver al inicio
+                    </a>
+                    <a href="malla-academica.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15 bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base hover:bg-unad-teal hover:text-white hover:border-unad-teal transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:grid-3x3" data-width="15"></span>
+                        Ver malla académica
+                    </a>
+                    <button type="button" id="restart-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 text-unad-orange hover:bg-unad-orange hover:text-white hover:border-unad-orange transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:rotate-ccw" data-width="15"></span>
+                        Repetir presentación
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
-<script src="js/embed-mode.js"></script>
-<script src="js/theme.js"></script>
-
 <script>
-  const blocks = document.querySelectorAll('.slide-block');
-  const btnP = document.getElementById('go-prev');
-  const btnN = document.getElementById('go-next');
-  const viewport = document.getElementById('presentation-viewport');
+    const urlParams = new URLSearchParams(window.location.search);
+    const isEmbed = urlParams.get('embed') === '1';
+
+    if (isEmbed) {
+        const nav = document.getElementById('main-nav');
+        const sideNav = document.getElementById('side-nav');
+        if (nav) nav.style.display = 'none';
+        if (sideNav) sideNav.style.display = 'none';
+        document.querySelectorAll('.slide').forEach(s => { s.style.paddingTop = '1.5rem'; });
+    }
+
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalClose = document.getElementById('modal-close');
+
+    if (imageModal) {
+        document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = trigger.getAttribute('href') || trigger.querySelector('img').src;
+                modalImage.src = imgSrc;
+                imageModal.classList.add('active');
+            });
+        });
+        function closeModal() { imageModal.classList.remove('active'); setTimeout(() => { modalImage.src = ''; }, 300); }
+        modalClose.addEventListener('click', closeModal);
+        imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && imageModal.classList.contains('active')) closeModal(); });
+    }
+
+    gsap.registerPlugin(Observer);
+
+    const slides = document.querySelectorAll('.slide');
+    const dotContainer = document.getElementById('dot-container');
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    if (!isEmbed && dotContainer) {
+        slides.forEach((slide, i) => {
+            const title = slide.getAttribute('data-title') || ('Diapositiva ' + (i + 1));
+            const wrapper = document.createElement('div');
+            wrapper.className = 'dot-wrapper';
+            wrapper.setAttribute('data-title', title);
+            wrapper.setAttribute('aria-label', 'Ir a: ' + title);
+            wrapper.addEventListener('click', () => gotoSlide(i, i > currentIndex ? 1 : -1));
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            wrapper.appendChild(dot);
+            dotContainer.appendChild(wrapper);
+        });
+    }
+    const dots = document.querySelectorAll('.dot');
+
+    function updateDots() {
+        if(isEmbed) return;
+        dots.forEach((dot, i) => {
+            if (i === currentIndex) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    }
+
+    gsap.set(slides, { yPercent: 100, autoAlpha: 0 });
+    gsap.set(slides[0], { yPercent: 0, autoAlpha: 1 });
+    updateDots();
+    animateElementsIn(slides[0]);
+
+    function animateElementsIn(slide) {
+        const elements = slide.querySelectorAll('.gsap-reveal');
+        if(elements.length > 0) {
+            gsap.fromTo(elements,
+                { y: 30, autoAlpha: 0 },
+                { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.06, ease: "power3.out", overwrite: "auto", delay: 0.05 }
+            );
+        }
+    }
+
+    function gotoSlide(index, direction) {
+        if (imageModal && imageModal.classList.contains('active')) return;
+        if (isAnimating || index < 0 || index >= slides.length || index === currentIndex) return;
+        isAnimating = true;
+        const currentSlide = slides[currentIndex];
+        const nextSlide = slides[index];
+        const yPercentOut = direction === 1 ? -100 : 100;
+        const yPercentIn = direction === 1 ? 100 : -100;
+        gsap.set(nextSlide, { yPercent: yPercentIn, autoAlpha: 1 });
+        const tl = gsap.timeline({
+            defaults: { duration: 0.7, ease: "power4.inOut" },
+            onComplete: () => {
+                gsap.set(currentSlide, { autoAlpha: 0 });
+                currentIndex = index;
+                updateDots();
+                isAnimating = false;
+            }
+        });
+        tl.to(currentSlide, { yPercent: yPercentOut }).to(nextSlide, { yPercent: 0 }, "<");
+        animateElementsIn(nextSlide);
+    }
+
+    Observer.create({
+        type: "wheel,touch,pointer",
+        wheelSpeed: -1, tolerance: 40, preventDefault: false,
+        onDown: () => gotoSlide(currentIndex - 1, -1),
+        onUp: () => gotoSlide(currentIndex + 1, 1),
+    });
+
+    document.querySelectorAll('.custom-scroll').forEach(el => {
+        el.addEventListener('wheel', (e) => {
+            const isAtTop = el.scrollTop === 0;
+            const isAtBottom = Math.abs((el.scrollHeight - el.scrollTop) - el.clientHeight) < 2;
+            if ((e.deltaY < 0 && !isAtTop) || (e.deltaY > 0 && !isAtBottom)) { e.stopPropagation(); }
+        }, {passive: false});
+        el.addEventListener('touchmove', (e) => { e.stopPropagation(); }, {passive: false});
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (['ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); gotoSlide(currentIndex + 1, 1); }
+        else if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); gotoSlide(currentIndex - 1, -1); }
+    });
+
+    if(!isEmbed) {
+        const btnUp = document.getElementById('btn-up');
+        const btnDown = document.getElementById('btn-down');
+        if(btnUp) btnUp.addEventListener('click', () => gotoSlide(currentIndex - 1, -1));
+        if(btnDown) btnDown.addEventListener('click', () => gotoSlide(currentIndex + 1, 1));
+    }
+
+    const restartBtn = document.getElementById('restart-btn');
+    if (restartBtn) restartBtn.addEventListener('click', () => { gotoSlide(0, -1); });
+
+    (function () {
+        const root = document.documentElement;
+        const btn  = document.getElementById('theme-btn') || document.getElementById('themeToggle');
+        if (!btn) return;
+        if (btn.dataset.themeBound === '1') return;
+        btn.dataset.themeBound = '1';
+
+        function syncButton() {
+            const isDark = root.classList.contains('dark');
+            btn.textContent = isDark ? '☀️' : '🌙';
+            btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        }
+        const saved = localStorage.getItem('unad-theme');
+        if (saved === 'dark') { root.classList.add('dark'); root.classList.remove('light'); }
+        else if (saved === 'light') { root.classList.remove('dark'); root.classList.add('light'); }
+        syncButton();
+        btn.addEventListener('click', () => {
+            const willBeDark = !root.classList.contains('dark');
+            root.classList.toggle('dark', willBeDark);
+            root.classList.toggle('light', !willBeDark);
+            localStorage.setItem('unad-theme', willBeDark ? 'dark' : 'light');
+            syncButton();
+        });
+    })();
+</script>
+</body>
+</html>

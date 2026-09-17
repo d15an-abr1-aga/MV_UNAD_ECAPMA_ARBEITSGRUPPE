@@ -324,6 +324,135 @@
     }
     .modal-close:hover { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
 
+    /* ============================================================
+   TARJETAS DE PERFIL — integradas al design system (bento)
+   ============================================================ */
+
+/* Contenedor general de la tarjeta */
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Cuadro de la foto: cuadrado perfecto, imagen siempre llena */
+.profile-card__photo {
+    position: relative !important;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: #E5E7EB;
+    display: block;
+}
+.dark .profile-card__photo { background: rgba(0,0,0,0.35); }
+
+/* Placeholder de silueta cuando la imagen no carga */
+.profile-card__photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239AA5AE' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 42% 42%;
+    opacity: 0.45;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* El <a> ocupa TODO el contenedor absolutamente */
+.profile-card__photo > a {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10;
+}
+
+/* La imagen dentro del <a> se estira para llenar todo el cuadro */
+.profile-card__photo > a > img,
+.profile-card__photo img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    z-index: 2;
+}
+
+/* Badge "Líder del Programa" */
+.profile-card__badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, #FBBF24 0%, #D26714 100%);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(210,103,20,0.45);
+    white-space: nowrap;
+}
+
+/* ============================================================
+   VARIANTE LÍDER — Viviana destaca con sombra naranja y anillo
+   ============================================================ */
+.profile-card--leader {
+    position: relative;
+    background: linear-gradient(180deg, #FFFBF5 0%, #FFFFFF 100%) !important;
+    box-shadow:
+        0 14px 32px -10px rgba(210,103,20,0.35),
+        0 4px 12px -4px rgba(210,103,20,0.20) !important;
+    border-top-color: #D26714 !important;
+    z-index: 5;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s ease;
+}
+.dark .profile-card--leader {
+    background: linear-gradient(180deg, rgba(210,103,20,0.16) 0%, rgba(0,0,0,0.5) 100%) !important;
+    box-shadow:
+        0 14px 32px -10px rgba(210,103,20,0.45),
+        0 4px 12px -4px rgba(0,0,0,0.4) !important;
+}
+
+/* Hover más intenso para la líder */
+.profile-card--leader:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 22px 44px -12px rgba(210,103,20,0.5),
+        0 6px 16px -4px rgba(210,103,20,0.30) !important;
+}
+
+/* Anillo interior sutil naranja alrededor de la tarjeta */
+.profile-card--leader::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1.5px solid rgba(210,103,20,0.35);
+    pointer-events: none;
+    z-index: 6;
+}
+
+/* La foto de la líder tiene un anillo interior naranja que la resalta */
+.profile-card--leader .profile-card__photo {
+    box-shadow: 0 0 0 2px rgba(210,103,20,0.55);
+}
+
     /* 1. Arregla el colapso de Flexbox para que el scroll interno funcione */
 .flex-1, .lg\:col-span-3, .lg\:col-span-2 {
     min-height: 0 !important;
@@ -572,128 +701,238 @@
     </section>
 
     <!-- Diapositiva 2: Equipo Curricular 1/2 (Perfiles 1 al 5) -->
-    <section class="slide" data-title="Equipo Curricular (1/2)">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:users" data-width="32"></span>
-                    1. Equipo curricular (1/2)
-                </h2>
-                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Perfiles 1 al 5</span>
-            </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-6 w-full">
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-teal shadow-md transition-transform hover:scale-105">
-                            <a href="docente1.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente1.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+<section class="slide" data-title="Equipo Curricular (1/2)">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:users" data-width="32"></span>
+                1. Equipo curricular (1/2)
+            </h2>
+            <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Líder + Perfiles 1 al 4</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col justify-center">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 items-stretch w-full">
+
+                <!-- LÍDER · Viviana Vanadia Villamil Reyes (DESTACADA) -->
+                <article class="profile-card profile-card--leader hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-orange shadow-md overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <span class="profile-card__badge">
+                                <span class="iconify" data-icon="lucide:star" data-width="10"></span>
+                                Líder del Programa
+                            </span>
+                            <a href="docente3.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente3.png" alt="Viviana Vanadia Villamil Reyes" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Danilo Bonilla Trujillo</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(perfil)</p>
                     </div>
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-teal shadow-md transition-transform hover:scale-105">
-                            <a href="docente2.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente2.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Viviana Vanadia Villamil Reyes</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            Médica Veterinaria, <strong>MSc. Salud Animal</strong> de la Universidad Nacional de Colombia. Línea de profundización en <strong>Virología Animal</strong>. Lidera la formulación del programa y aporta la experticia disciplinar en enfermedades virales de interés veterinario y zoonótico.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Ximena María Guzmán Perlaza -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente2.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente2.png" alt="Ximena Maria Guzman Perlaza" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Ximena Maria Guzman Perlaza</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(perfil)</p>
                     </div>
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-orange shadow-md transition-transform hover:scale-105">
-                            <a href="docente3.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente3.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Ximena María Guzmán Perlaza</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            Médica Veterinaria Zootecnista · Esp. Pedagogía para el Desarrollo del Aprendizaje Autónomo · MSc. Ciencias Pecuarias (Ecofisiología y Ganadería Ecológica) · Diplomada Gestor de Curso en Ambientes Virtuales.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Danilo Bonilla Trujillo -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente1.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente1.png" alt="Danilo Bonilla Trujillo" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Viviana Vanadia Villamil Reyes</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(fotos y perfil por whatsapp)</p>
                     </div>
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-teal shadow-md transition-transform hover:scale-105">
-                            <a href="docente4.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente4.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Danilo Bonilla Trujillo</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            Médico Veterinario Zootecnista · Esp. Pedagogía para el Desarrollo del Aprendizaje Autónomo · MSc. Ciencias Pecuarias (Ecofisiología y Ganadería Ecológica) · Diplomado Gestor de Curso en Ambientes Virtuales.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- David Leonardo Sanabria García -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente5.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente5.png" alt="David Leonardo Sanabria García" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Heisson Sneider Tellez Gamba</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(fotos y perfil por whatsapp)</p>
                     </div>
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-teal shadow-md transition-transform hover:scale-105">
-                            <a href="docente5.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente5.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">David Leonardo Sanabria García</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            Médico Veterinario Zootecnista de la UPTC · Agrónomo · Estudiante de la Maestría en Geoinformación del Territorio (UNAD).
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Heisson Sneider Téllez Gamba -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente4.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente4.png" alt="Heisson Sneider Tellez Gamba" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">David Leonardo Sanabria García</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(fotos y perfil por whatsapp)</p>
                     </div>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Evaluar idoneidad y trayectoria del equipo formulador del programa.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Hojas de vida (CvLAC) y soportes de experiencia disciplinar.</p>
-                </div>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Heisson Sneider Téllez Gamba</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            (Fotografía y perfil en actualización por el equipo formulador.)
+                        </p>
+                    </div>
+                </article>
+
             </div>
         </div>
-    </section>
+
+        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Evaluar idoneidad y trayectoria del equipo formulador del programa.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Hojas de vida (CvLAC) y soportes de experiencia disciplinar.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Diapositiva 3: Equipo Curricular 2/2 (Perfiles 6 al 10) -->
-    <section class="slide" data-title="Equipo Curricular (2/2)">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:users" data-width="32"></span>
-                    1. Equipo curricular (2/2)
-                </h2>
-                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Perfiles 6 al 10</span>
-            </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-6 w-full">
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-teal shadow-md transition-transform hover:scale-105">
-                            <a href="docente6.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente6.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+<section class="slide" data-title="Equipo Curricular (2/2)">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:users" data-width="32"></span>
+                1. Equipo curricular (2/2)
+            </h2>
+            <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Perfiles 5 al 10</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col justify-center">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 items-stretch w-full">
+
+                <!-- Lourdes Elvira Rodríguez Guzmán -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente6.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente6.png" alt="Lourdes Elvira Rodríguez Guzmán" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Perfil Académico 6</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(fotos y perfil por whatsapp)</p>
                     </div>
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-teal shadow-md transition-transform hover:scale-105">
-                            <a href="docente7.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente7.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Lourdes Elvira Rodríguez Guzmán</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            Médica Veterinaria Zootecnista · Esp. Docencia Universitaria · MSc. Educación · MSc. Producción Animal Tropical (Salud Animal) · Doctorado en Proyectos.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Perfil Académico 6 -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente7.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente7.png" alt="Perfil Académico 6" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Perfil Académico 7</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">Médico Veterinario egresado de la Universidad de Pamplona, especialista en Mejoramiento Genético de la Universidad Nacional Abierta y a Distancia UNAD y Magíster (C) en Epidemiología de la Fundación Universitaria del Área Andina.</p>
                     </div>
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-green shadow-md transition-transform hover:scale-105">
-                            <a href="docente8.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente8.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Perfil Académico 6</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            Médico Veterinario egresado de la Universidad de Pamplona · Esp. Mejoramiento Genético (UNAD) · Magíster (C) en Epidemiología (Fundación Universitaria del Área Andina).
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Paola Alvarado -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente8.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente8.png" alt="Paola Alvarado" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Perfil Académico 8</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(fotos y perfil por whatsapp)</p>
                     </div>
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-teal shadow-md transition-transform hover:scale-105">
-                            <a href="docente9.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente9.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Paola Alvarado</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            Médica Veterinaria · Maestría en Producción Animal, línea de investigación en Fisiología de la Reproducción, con énfasis en ovinos.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Angela P. Jiménez Mora -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente9.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente9.png" alt="Angela P. Jiménez Mora" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Perfil Académico 9</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(fotos y perfil por whatsapp)</p>
                     </div>
-                    <div class="hover-card flex flex-col items-center bg-white/70 dark:bg-black/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden border-4 border-unad-teal shadow-md transition-transform hover:scale-105">
-                            <a href="docente10.png" class="lightbox-trigger block w-full h-full" title="Ampliar foto"><img src="docente10.png" alt="Foto Perfil" class="w-full h-full object-cover"></a>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Angela P. Jiménez Mora</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            MV Universidad Nacional de Colombia · MSc. Ciencias – Biotecnología (Enfermedades Infecciosas) · Diplomado Epidemiología Clínica y Salud Pública (Javeriana) · Certified Cat-friendly Practitioner · WSAVA · Research Intern, University of Wisconsin–Madison.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Perfil Académico 9 -->
+                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
+                    <div class="p-3 pb-2">
+                        <div class="profile-card__photo">
+                            <a href="docente10.png" class="lightbox-trigger absolute inset-0 z-10" title="Ampliar foto">
+                                <img src="docente10.png" alt="Perfil Académico 9" class="w-full h-full object-cover object-center block">
+                            </a>
                         </div>
-                        <h3 class="font-bold text-sm text-unad-navy dark:text-white mb-1">Perfil Académico 10</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 italic">(fotos y perfil por whatsapp)</p>
                     </div>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Evaluar idoneidad y trayectoria del equipo formulador del programa.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Hojas de vida (CvLAC) y soportes de experiencia disciplinar.</p>
-                </div>
+                    <div class="px-4 pb-4 flex flex-col flex-1">
+                        <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 leading-snug">Perfil Académico 9</h3>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
+                            (perfil)
+                        </p>
+                    </div>
+                </article>
+
             </div>
         </div>
-    </section>
+
+        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Evaluar idoneidad y trayectoria del equipo formulador del programa.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Hojas de vida (CvLAC) y soportes de experiencia disciplinar.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Diapositiva 4: Naturaleza de la Denominación (Parte 1) -->
     <section class="slide" data-title="Naturaleza (1/2)">
