@@ -1,76 +1,1284 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="light">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Condición 2 · Programa académico</title>
-<meta name="description" content="Condición 2 del programa." />
+<title>Condición 2 · Justificación</title>
+<meta name="description" content="Condición 2: Justificación del programa de Medicina Veterinaria - UNAD" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css" />
-<link rel="stylesheet" href="css/condicion.css" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem('unad-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    unad: {
+                        teal: '#00445B', navy: '#01333F', green: '#035B3B',
+                        orange: '#D26714', base: '#EAEAEA', darkbg: '#0a1922'
+                    }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    display: ['Montserrat', 'sans-serif'],
+                }
+            }
+        }
+    }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+<link rel="stylesheet" href="css/nav.css" />
+<script src="js/nav.js" defer></script>
+
+<style>
+    body { background-color: #EAEAEA; color: #01333F; margin: 0; padding: 0; overflow: hidden; transition: background-color 0.3s ease, color 0.3s ease; }
+    .dark body { background-color: #0a1922; color: #EAEAEA; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+        opacity: 0.04; mix-blend-mode: multiply; }
+    .dark body::before { opacity: 0.02; mix-blend-mode: screen; }
+
+    .orb { position: fixed; border-radius: 50%; filter: blur(140px); z-index: 0; opacity: 0.6; pointer-events: none; }
+    .orb--navy { background: #00445B; animation: float1 20s ease-in-out infinite; }
+    .orb--orange { background: #D26714; animation: float2 25s ease-in-out infinite reverse; opacity: 0.4; }
+    @keyframes float1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(5vw, 5vh) scale(1.1); } }
+    @keyframes float2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-5vw, -5vh) scale(1.1); } }
+
+    .sitenav { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); width: 92%; max-width: 1500px; z-index: 50;
+        display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; border-radius: 1rem;
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 20px rgba(1, 51, 63, 0.05); transition: all 0.3s ease; }
+    .dark .sitenav { background: rgba(1, 51, 63, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
+    .sitenav__brand { display: flex; align-items: center; gap: 0.75rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #01333F; text-decoration: none; }
+    .dark .sitenav__brand { color: #ffffff; }
+    .sitenav__brand small { display: block; font-size: 0.75rem; font-weight: 500; color: #00445B; }
+    .dark .sitenav__brand small { color: #D26714; }
+    .sitenav__right { display: flex; align-items: center; gap: 1.5rem; }
+    .sitenav__links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; font-size: 0.875rem; font-weight: 600; }
+    .sitenav__links a { color: #01333F; text-decoration: none; transition: color 0.2s; }
+    .dark .sitenav__links a { color: #EAEAEA; }
+    .sitenav__links a:hover { color: #D26714; }
+    .sitenav__links a[aria-current="page"] { color: #D26714; border-bottom: 2px solid #D26714; padding-bottom: 2px; }
+    .theme-toggle { background: none; border: none; cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(0,0,0,0.05); transition: background-color 0.2s; }
+    .dark .theme-toggle { background-color: rgba(255,255,255,0.1); }
+
+    .slider-container { position: relative; width: 100vw; height: 100vh; z-index: 10; }
+    .slide { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5rem 2rem 2rem 2rem; }
+
+    .glass-panel {
+        width: 100%; max-width: 95vw; height: 86vh;
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('assets/Fondo_1.png');
+        background-size: cover, cover; background-position: center center, center center; background-repeat: no-repeat, no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 10px 40px rgba(1, 51, 63, 0.08);
+        border-radius: 1.5rem; padding: 2rem;
+        display: flex; flex-direction: column;
+        transition: all 0.3s ease;
+    }
+    .dark .glass-panel {
+        background-image: linear-gradient(rgba(1, 51, 63, 0.55), rgba(1, 51, 63, 0.55)), url('assets/Fondo_1.png');
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .custom-scroll { overflow-y: auto; overflow-x: hidden; padding-right: 10px; }
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: rgba(0,68,91,0.05); border-radius: 10px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: rgba(0,68,91,0.2); border-radius: 10px; }
+    .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+    .dark .custom-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
+
+    .sidenav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 50;
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+        background: rgba(255,255,255,0.5); backdrop-filter: blur(8px); padding: 10px 6px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); }
+    .dark .sidenav-dots { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+    .nav-btn { background: none; border: none; cursor: pointer; color: inherit; padding: 2px; display: flex; align-items: center; justify-content: center; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #00445B; opacity: 0.3; transition: all 0.3s; }
+    .dark .dot { background: #EAEAEA; }
+    .dot.active { opacity: 1; height: 18px; border-radius: 4px; background: #D26714; }
+    .dot-wrapper { position: relative; min-height: 18px; padding: 3px 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
+    .dot-wrapper:hover .dot { transform: scale(1.6); opacity: 0.85; }
+    .dot-wrapper:hover .dot.active { transform: none; }
+    .dot-wrapper::after { content: attr(data-title); position: absolute; right: calc(100% + 14px); top: 50%;
+        transform: translateY(-50%) translateX(6px) scale(0.96);
+        background: #01333F; color: #ffffff; padding: 6px 12px; border-radius: 8px;
+        font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif; letter-spacing: 0.02em; white-space: nowrap;
+        opacity: 0; pointer-events: none; transition: opacity 0.22s ease, transform 0.22s ease;
+        box-shadow: 0 6px 18px rgba(1,51,63,0.30); z-index: 100; }
+    .dot-wrapper::before { content: ''; position: absolute; right: calc(100% + 8px); top: 50%; transform: translateY(-50%) translateX(6px);
+        width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 6px solid #01333F;
+        opacity: 0; pointer-events: none; transition: opacity 0.22s ease, transform 0.22s ease; z-index: 100; }
+    .dot-wrapper:hover::after { opacity: 1; transform: translateY(-50%) translateX(0) scale(1); }
+    .dot-wrapper:hover::before { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .dark .dot-wrapper::after { background: #D26714; }
+    .dark .dot-wrapper::before { border-left-color: #D26714; }
+
+    .styled-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; }
+    .styled-table th { background-color: #00445B; color: white; padding: 12px; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; position: sticky; top: 0; z-index: 10; }
+    .styled-table td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.1); vertical-align: top; }
+    .dark .styled-table td { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .styled-table tr:hover td { background-color: rgba(0,68,91,0.03); }
+    .dark .styled-table tr:hover td { background-color: rgba(255,255,255,0.03); }
+    .styled-table tr:last-child td { border-bottom: none; }
+
+    .hover-card { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s; }
+    .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -8px rgba(0, 68, 91, 0.15); border-color: #D26714; }
+
+    #image-modal { position: fixed; inset: 0; z-index: 9999; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+        display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    #image-modal.active { opacity: 1; pointer-events: auto; }
+    #image-modal img { max-width: 95vw; max-height: 95vh; border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); transform: scale(0.95); transition: transform 0.3s ease; object-fit: contain; }
+    #image-modal.active img { transform: scale(1); }
+    .modal-close { position: absolute; top: 1.5rem; right: 2rem; color: white; font-size: 3rem; line-height: 1;
+        background: transparent; border: none; cursor: pointer; opacity: 0.8; transition: opacity 0.2s; }
+    .modal-close:hover { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+    /* ============================================================
+       SOLUCIÓN GLOBAL: centrado vertical + horizontal del contenido
+       ============================================================ */
+    /* CONTENEDOR FLEX DEL PANEL — con "safe center" para no cortar al desbordar */
+    .glass-panel .flex-1 {
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: safe center;   /* ← CLAVE: centra si cabe, alinea arriba si no cabe */
+    }
+
+    /* Mini tarjetas */
+    .mini-card { display: flex; gap: 0.75rem; align-items: flex-start; padding: 1rem 1.15rem; border-radius: 1rem;
+        background: rgba(255,255,255,0.85); border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 3px rgba(1,51,63,0.05); }
+    .dark .mini-card { background: rgba(0,0,0,0.45); border-color: rgba(255,255,255,0.08); }
+
+    /* MARCO DE IMAGEN — altura FIJA + imagen contenida siempre */
+    .img-frame {
+        position: relative;
+        border-radius: 1.25rem;
+        overflow: hidden;
+        background: rgba(255,255,255,0.7);
+        padding: 0.6rem;
+        border: 2px solid rgba(0,68,91,0.2);
+        box-shadow: 0 12px 32px -10px rgba(1,51,63,0.25);
+        height: 50vh;              /* ← ALTURA FIJA (antes no tenía) */
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .dark .img-frame {
+        background: rgba(0,0,0,0.4);
+        border-color: rgba(255,255,255,0.12);
+    }
+
+    /* LA IMAGEN SE AJUSTA AL MARCO — posición absoluta + contain */
+    .img-frame img {
+        position: absolute !important;
+        top: 0.6rem !important;
+        left: 0.6rem !important;
+        width: calc(100% - 1.2rem) !important;
+        height: calc(100% - 1.2rem) !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 !important;
+        border-radius: 0.65rem;
+    }
+
+    /* Wrapper de tabla */
+    .table-wrap { width: 100%; background: rgba(255,255,255,0.85); border-radius: 0.75rem;
+        border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 1px 3px rgba(1,51,63,0.05); overflow: hidden; }
+    .dark .table-wrap { background: rgba(0,0,0,0.45); border-color: rgba(255,255,255,0.08); }
+
+    /* Números grandes */
+    .stat-num { font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 1; }
+
+    @media (max-height: 900px) {
+        .glass-panel { height: 92vh !important; padding: 1.25rem !important; }
+        .slide { padding-top: 3.5rem !important; padding-bottom: 1rem !important; }
+        h1, .text-6xl { font-size: 2.5rem !important; line-height: 1.2 !important; }
+        h2, .text-3xl { font-size: 1.8rem !important; }
+        h3, .text-2xl { font-size: 1.4rem !important; }
+        p, li, .text-base { font-size: 0.95rem !important; line-height: 1.4 !important; }
+        .text-sm { font-size: 0.85rem !important; }
+        .text-xs { font-size: 0.75rem !important; }
+        .gap-8 { gap: 1rem !important; }
+        .gap-6 { gap: 0.75rem !important; }
+        .gap-4 { gap: 0.5rem !important; }
+        .p-8 { padding: 1rem !important; }
+        .p-6 { padding: 0.85rem !important; }
+        .p-5 { padding: 0.6rem !important; }
+        .p-4 { padding: 0.5rem !important; }
+        .styled-table th, .styled-table td { padding: 8px 10px !important; font-size: 0.8rem !important; }
+        .iconify { transform: scale(0.9); }
+    }
+
+    @media (max-height: 700px) {
+        .glass-panel { height: 95vh !important; padding: 1rem !important; }
+        h1, .text-6xl { font-size: 2.0rem !important; }
+        h2, .text-3xl { font-size: 1.5rem !important; }
+        h3, .text-2xl { font-size: 1.2rem !important; }
+        p, li, .text-base { font-size: 0.85rem !important; }
+        .gap-6, .gap-8 { gap: 0.5rem !important; }
+    }
+
+    .grid { min-height: 0; }
+
+    .sitenav { padding: 0.25rem 0.75rem !important; top: 0.25rem !important; max-width: 1100px !important; width: 95% !important;
+        opacity: 0.85; border-radius: 0.75rem !important; box-shadow: 0 2px 10px rgba(1, 51, 63, 0.05) !important;
+        transition: opacity 0.3s ease, top 0.3s ease, background 0.3s ease !important; }
+    .sitenav:hover { opacity: 1; top: 0.5rem !important; }
+    .sitenav__links { gap: 0.75rem !important; font-size: 0.65rem !important; line-height: 1.2 !important; }
+    .sitenav__brand { font-size: 0.75rem !important; gap: 0.4rem !important; line-height: 1.2 !important; }
+    .sitenav__brand small { font-size: 0.55rem !important; }
+    .sitenav__logo { width: 22px !important; height: 22px !important; font-size: 0.65rem !important; display: flex; align-items: center; justify-content: center; border-radius: 0.35rem !important; }
+    .theme-toggle { width: 22px !important; height: 22px !important; font-size: 0.85rem !important; }
+
+    .table-x-scroll { overflow-x: auto; }
+    .table-x-scroll::-webkit-scrollbar { height: 6px; }
+    .table-x-scroll::-webkit-scrollbar-thumb { background: rgba(0,68,91,0.25); border-radius: 10px; }
+</style>
 </head>
 <body>
 
-<div class="orb orb--navy"   style="width:480px;height:480px;top:-160px;left:-140px;"></div>
+<div id="image-modal">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar imagen">&times;</button>
+    <img id="modal-image" src="" alt="Imagen ampliada">
+</div>
+
+<div class="orb orb--navy" style="width:480px;height:480px;top:-160px;left:-140px;"></div>
 <div class="orb orb--orange" style="width:420px;height:420px;bottom:-180px;right:10vw;"></div>
 
 <nav class="sitenav" id="main-nav">
   <a class="sitenav__brand" href="index.html">
     <div class="sitenav__logo">MV</div>
-    <div class="sitenav__brand-text">
-      <span>Medicina Veterinaria</span>
-      <small>Programa académico</small>
-    </div>
+    <div class="sitenav__brand-text"><span>Medicina Veterinaria</span><small>Programa académico</small></div>
   </a>
   <div class="sitenav__right">
-    <button class="sitenav__burger" id="nav-burger"
-            aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <button class="sitenav__burger" id="nav-burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <ul class="sitenav__links" id="nav-links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="malla-academica.html">Malla académica</a></li>
       <li class="sitenav__dropdown">
-        <button class="sitenav__link" type="button"
-                aria-haspopup="true" aria-expanded="false">
-          Condiciones
-        </button>
+        <button class="sitenav__link" type="button" aria-haspopup="true" aria-expanded="false">Condiciones</button>
         <ul class="sitenav__dropdown-menu">
           <li><a href="condicion-1.html">Condición 1 · Denominación</a></li>
-          <li><a href="condicion-2.html">Condición 2</a></li>
+          <li><a href="condicion-2.html" aria-current="page">Condición 2 · Justificación</a></li>
           <li><a href="condicion-3.html">Condición 3 · Consistencia Curricular</a></li>
           <li><a href="condicion-4.html">Condición 4 · Actividades Académicas</a></li>
           <li><a href="condicion-5.html">Condición 5 · Investigación</a></li>
-          <li><a href="condicion-6.html">Condición 6</a></li>
+          <li><a href="condicion-6.html">Condición 6 · Sector Externo</a></li>
           <li><a href="condicion-7.html">Condición 7 · Profesores</a></li>
           <li><a href="condicion-8.html">Condición 8</a></li>
         </ul>
       </li>
     </ul>
-    <button class="theme-toggle" id="theme-btn" type="button"
-            aria-label="Cambiar tema">🌙</button>
+    <button class="theme-toggle" id="theme-btn" type="button" aria-label="Cambiar tema">🌙</button>
   </div>
 </nav>
 
-<header class="cond-hero">
-  <p class="cond-hero__eyebrow">Sección independiente</p>
-  <h1>Condición 2</h1>
-  <p>Esta página es completamente independiente: tiene su propia URL y se puede insertar sola en Canva o Genially usando el enlace de embed (ver README).</p>
-</header>
+<aside class="sidenav-dots" id="side-nav">
+    <button class="nav-btn" id="btn-up" aria-label="Subir">
+        <span class="iconify text-unad-teal dark:text-white" data-icon="lucide:chevron-up" data-width="18"></span>
+    </button>
+    <div id="dot-container" class="flex flex-col gap-1.5 py-1"></div>
+    <button class="nav-btn" id="btn-down" aria-label="Bajar">
+        <span class="iconify text-unad-teal dark:text-white" data-icon="lucide:chevron-down" data-width="18"></span>
+    </button>
+</aside>
 
-<main class="cond-body">
-  <div class="cond-body__placeholder">
-    Aquí va el contenido de la <strong>Condición 2</strong>. Cuéntame qué debe llevar
-    (texto, tabla, checklist, imagen, video) y lo reemplazo por el diseño final —
-    este bloque es solo un marcador de posición.
-    <br><br>
-    Enlace normal: <code>condicion-2.html</code><br>
-    Enlace para insertar (embed, sin menú): <code>condicion-2.html?embed=1</code>
-  </div>
+<main class="slider-container" id="slider">
+
+    <!-- 1. Portada -->
+    <section class="slide" data-title="Portada">
+        <div class="glass-panel items-center justify-center text-center">
+            <span class="gsap-reveal px-4 py-1.5 rounded-full bg-unad-orange text-white text-xs font-bold uppercase tracking-wider mb-6 flex items-center gap-2 shadow-sm">
+                <span class="iconify animate-pulse" data-icon="lucide:sparkles" data-width="16"></span> Sección de Acreditación
+            </span>
+            <h1 class="gsap-reveal text-4xl md:text-6xl font-display font-bold text-unad-teal dark:text-white mb-8">Condición 2. Justificación</h1>
+
+            <div class="gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl text-left bg-white/60 dark:bg-black/40 p-8 rounded-2xl border border-unad-teal/10 shadow-sm w-full">
+                <div class="flex items-start gap-4">
+                    <span class="iconify text-unad-teal mt-1 shrink-0" data-icon="lucide:graduation-cap" data-width="24"></span>
+                    <div>
+                        <span class="block text-xs font-bold text-gray-500 uppercase">Programa:</span>
+                        <span class="font-semibold text-base dark:text-gray-200">Medicina Veterinaria (ECAPMA · UNAD)</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="iconify text-unad-orange mt-1 shrink-0" data-icon="lucide:compass" data-width="24"></span>
+                    <div>
+                        <span class="block text-xs font-bold text-gray-500 uppercase">Componente:</span>
+                        <span class="font-semibold text-base dark:text-gray-200">Justificación y pertinencia</span>
+                    </div>
+                </div>
+                <div class="col-span-1 md:col-span-2 flex items-start gap-4 mt-2">
+                    <span class="iconify text-unad-green mt-1 shrink-0" data-icon="lucide:target" data-width="24"></span>
+                    <div>
+                        <span class="block text-xs font-bold text-gray-500 uppercase">Objetivo del Componente:</span>
+                        <span class="font-medium text-base dark:text-gray-200 leading-relaxed">Demostrar la pertinencia y viabilidad de la creación del programa de Medicina Veterinaria en modalidad híbrida, evidenciando la necesidad del entorno, la oportunidad de mercado y la respuesta institucional frente a los retos del país.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Contexto internacional + situación Colombia -->
+    <section class="slide" data-title="Contexto y Situación">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:globe" data-width="32"></span>
+                    Estado de la oferta de educación veterinaria
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Panorama</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <a href="ContextoInternacional.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="ContextoInternacional.png" alt="Comparativo internacional vs Colombia en formación veterinaria" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-7 flex flex-col gap-3 justify-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="iconify text-unad-teal" data-icon="lucide:globe-2" data-width="26"></span>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Contexto internacional</h3>
+                            </div>
+                            <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                                <li>• La Medicina Veterinaria es una profesión estratégica para la salud animal, seguridad alimentaria, control de zoonosis y sostenibilidad.</li>
+                                <li>• Predomina el enfoque <strong>One Health</strong>, que integra la salud humana, animal y ambiental.</li>
+                                <li>• Programas con duración promedio de <strong>5 a 6 años</strong>, con fuerte énfasis en investigación y práctica de campo.</li>
+                                <li>• Avance hacia <strong>modelos híbridos y digitales</strong>, con simuladores, plataformas virtuales y recursos interactivos.</li>
+                            </ul>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="iconify text-unad-orange" data-icon="lucide:map-pin" data-width="26"></span>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Situación en Colombia</h3>
+                            </div>
+                            <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                                <li>• Existen <strong>15 programas activos</strong> de Medicina Veterinaria.</li>
+                                <li>• El <strong>100 % de la oferta es presencial</strong>.</li>
+                                <li>• Mayoría concentrada en Bogotá, Medellín, Cali, Bucaramanga y Pamplona.</li>
+                                <li>• Persiste una <strong>brecha entre oferta educativa y necesidades rurales</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Pertinencia del programa frente al estado actual de la oferta nacional e internacional.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Documento maestro; datos del SNIES; tendencias internacionales de educación veterinaria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Oportunidad y pertinencia -->
+    <section class="slide" data-title="Oportunidad y Pertinencia">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:target" data-width="32"></span>
+                    Oportunidad y pertinencia
+                </h2>
+                <span class="bg-unad-orange text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Brecha territorial</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch w-full">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <span class="iconify text-unad-teal mb-3" data-icon="lucide:map-pin-off" data-width="32"></span>
+                        <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-2">Acceso limitado en regiones apartadas</h3>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Limitado acceso a la formación veterinaria para estudiantes de regiones apartadas.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                        <span class="iconify text-unad-orange mb-3" data-icon="lucide:shuffle" data-width="32"></span>
+                        <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-2">Modelos más flexibles</h3>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Necesidad de modelos educativos más flexibles que respondan a las dinámicas territoriales.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                        <span class="iconify text-unad-green mb-3" data-icon="lucide:rocket" data-width="32"></span>
+                        <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-2">Ampliación de cobertura</h3>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Oportunidad para ampliar la cobertura mediante estrategias innovadoras que combinen virtualidad, prácticas y trabajo en campo.</p>
+                    </div>
+                </div>
+
+                <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+                    <p class="text-xs font-bold text-unad-orange uppercase tracking-wider mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="16"></span> Mensaje clave</p>
+                    <p class="text-sm md:text-base text-gray-100 leading-relaxed italic">"La formación veterinaria mundial avanza hacia modelos flexibles e integrales, mientras que en Colombia la oferta sigue siendo exclusivamente presencial y concentrada en centros urbanos, evidenciando una oportunidad para ampliar el acceso y la cobertura educativa."</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Justificación clara de la oportunidad de ampliación de cobertura educativa.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Análisis comparativo internacional; caracterización de la oferta nacional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Brecha crítica -->
+    <section class="slide" data-title="Brecha Crítica">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:alert-triangle" data-width="32"></span>
+                    Brecha crítica en la formación veterinaria
+                </h2>
+                <span class="bg-unad-orange text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Paradoja territorial</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-3 content-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                            <span class="iconify text-unad-orange mb-2" data-icon="lucide:map-pin-off" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Retos en zonas rurales</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Los mayores retos (sanidad animal, producción pecuaria, vigilancia epidemiológica y control de zoonosis) se concentran donde el acceso a la formación es más limitado.</p>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                            <span class="iconify text-unad-teal mb-2" data-icon="lucide:scale" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Paradoja territorial</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Las regiones que <strong>más necesitan</strong> médicos veterinarios son las que enfrentan <strong>mayores barreras</strong> para acceder a programas de formación.</p>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                            <span class="iconify text-unad-green mb-2" data-icon="lucide:wallet" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Barreras económicas</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Costos de desplazamiento, sostenimiento y permanencia que excluyen a muchos estudiantes de origen rural.</p>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-navy dark:border-l-gray-400 flex-col">
+                            <span class="iconify text-unad-navy dark:text-white mb-2" data-icon="lucide:trending-down" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Limitaciones de la oferta</h3>
+                            <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Restricciones en cobertura, accesibilidad y pertinencia territorial.</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <a href="BrechaRuralColombia.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="BrechaRuralColombia.png" alt="Brecha crítica de la formación veterinaria en Colombia" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+                    <p class="text-xs font-bold text-unad-orange uppercase tracking-wider mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="16"></span> Oportunidad de transformación</p>
+                    <p class="text-sm md:text-base text-gray-100 leading-relaxed italic">"Las regiones que más necesitan médicos veterinarios son las que tienen menos acceso a estudiarlos. La educación veterinaria requiere modelos más flexibles, inclusivos y conectados con las realidades del territorio. La propuesta de la UNAD surge como una alternativa innovadora para ampliar el acceso, fortalecer el desarrollo rural y formar profesionales donde más se necesitan."</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia de la justificación con las brechas reales del entorno rural colombiano.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Diagnósticos territoriales; análisis del SNIES; caracterización de estudiantes potenciales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Distribución de la oferta nacional -->
+    <section class="slide" data-title="Distribución Oferta Nacional">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:map" data-width="32" style="animation-duration: 14s;"></span>
+                    Distribución de la oferta nacional
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">15 programas · 100 % presencial</span>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Los 15 programas activos se concentran en las principales ciudades, dejando desatendidas las regiones con mayor vocación agropecuaria.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-6 flex items-center justify-center">
+                        <a href="MapaProgramasColombia.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="MapaProgramasColombia.png" alt="Mapa de distribución de programas de Medicina Veterinaria en Colombia" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-6 flex flex-col gap-3 justify-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:building-2" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Oferta consolidada</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">15 programas (<strong>5 oficiales y 10 privados</strong>), lo que evidencia una oferta consolidada pero con oportunidades de innovación y ampliación del acceso.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:alert-triangle" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Tres desafíos principales</h3>
+                                <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 leading-relaxed">
+                                    <li>1. Centralización de la oferta en ciudades principales.</li>
+                                    <li>2. Barreras económicas y geográficas para estudiantes rurales.</li>
+                                    <li>3. Desarticulación entre la formación y las necesidades de los territorios.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:trending-up" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Demanda insatisfecha</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">La demanda por estudiar Medicina Veterinaria permanece insatisfecha en zonas con vocación agropecuaria, donde se requieren más profesionales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Claridad en la identificación de la oportunidad territorial y del mercado educativo.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Fuente: elaboración propia con datos del SNIES (febrero 2026).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Tabla SNIES — 15 programas -->
+    <section class="slide" data-title="Oferta Nacional SNIES">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:table" data-width="32"></span>
+                    Oferta nacional de Medicina Veterinaria (SNIES)
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">15 instituciones</span>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Todas las instituciones ofertan el programa en <strong>modalidad presencial</strong>, concentradas en ciudades capitales y del centro del país.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="table-wrap shadow-sm">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th style="width:30%;">Institución</th>
+                                <th style="width:12%;">Estado</th>
+                                <th style="width:22%;">Reconocimiento MEN</th>
+                                <th style="width:12%;">Modalidad</th>
+                                <th>Municipio</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-800 dark:text-gray-200">
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Universidad Nacional de Colombia</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs">Acreditación alta calidad</span></td><td>Presencial</td><td>Bogotá, D.C.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Universidad de Antioquia</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs">Acreditación alta calidad</span></td><td>Presencial</td><td>Medellín</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Universidad de Nariño</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Pasto</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Universidad de Pamplona</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs">Acreditación alta calidad</span></td><td>Presencial</td><td>Pamplona</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Universidad de La Salle</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs">Acreditación alta calidad</span></td><td>Presencial</td><td>Bogotá, D.C.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Universidad Santiago de Cali</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Santiago de Cali</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Universidad Antonio Nariño</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Bogotá / Popayán</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">UDCA</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs">Acreditación alta calidad</span></td><td>Presencial</td><td>Bogotá, D.C.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Fundación Universitaria Juan de Castellanos</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Tunja</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">UNIAGRARIA</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Bogotá, D.C.</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">UNISARC</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Santa Rosa de Cabal</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Corporación Universitaria Lasallista</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Caldas</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">UDES</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Bucaramanga</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Universidad Industrial de Santander</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-teal/15 text-unad-teal font-bold text-xs">Registro calificado</span></td><td>Presencial</td><td>Málaga, Santander</td></tr>
+                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Corporación Universitaria Remington</td><td>Activa</td><td><span class="px-2 py-0.5 rounded-full bg-unad-green/15 text-unad-green font-bold text-xs">Acreditación alta calidad</span></td><td>Presencial</td><td>Medellín, Montería, Ibagué, Río Negro</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Verificación de la oferta nacional existente y de la diferenciación propuesta.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Elaboración propia con datos del SNIES (febrero 2026).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Propuesta diferenciadora UNAD -->
+    <section class="slide" data-title="Propuesta Diferenciadora">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:award" data-width="32"></span>
+                    Propuesta diferenciadora UNAD
+                </h2>
+                <span class="bg-unad-orange text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Alternativa innovadora</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch w-full">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
+                        <span class="iconify text-unad-teal mb-3" data-icon="lucide:stethoscope" data-width="30"></span>
+                        <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-2">Formación centrada</h3>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Formación centrada en salud animal, salud pública y epidemiología.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
+                        <span class="iconify text-unad-green mb-3" data-icon="lucide:globe-2" data-width="30"></span>
+                        <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-2">Enfoque One Health</h3>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Integración de la salud humana, animal y ambiental en una sola mirada.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
+                        <span class="iconify text-unad-orange mb-3" data-icon="lucide:laptop" data-width="30"></span>
+                        <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-2">Modalidad híbrida</h3>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Modalidad presencial-virtual que amplía el acceso y favorece la permanencia estudiantil.</p>
+                    </div>
+                </div>
+
+                <p class="gsap-reveal text-sm font-bold text-unad-navy dark:text-white text-center mt-4 mb-2">Respuesta a retos actuales</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="bg-white/85 dark:bg-black/50 p-4 rounded-xl border-l-4 border-unad-orange hover-card shadow-sm flex items-center gap-3">
+                        <span class="iconify text-unad-orange shrink-0" data-icon="lucide:bug" data-width="22"></span>
+                        <p class="text-xs font-semibold text-gray-800 dark:text-gray-200">Zoonosis</p>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-4 rounded-xl border-l-4 border-unad-teal hover-card shadow-sm flex items-center gap-3">
+                        <span class="iconify text-unad-teal shrink-0" data-icon="lucide:utensils" data-width="22"></span>
+                        <p class="text-xs font-semibold text-gray-800 dark:text-gray-200">Seguridad alimentaria</p>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-4 rounded-xl border-l-4 border-unad-green hover-card shadow-sm flex items-center gap-3">
+                        <span class="iconify text-unad-green shrink-0" data-icon="lucide:cloud-sun" data-width="22"></span>
+                        <p class="text-xs font-semibold text-gray-800 dark:text-gray-200">Cambio climático</p>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-4 rounded-xl border-l-4 border-unad-navy dark:border-l-gray-400 hover-card shadow-sm flex items-center gap-3">
+                        <span class="iconify text-unad-navy dark:text-white shrink-0" data-icon="lucide:sprout" data-width="22"></span>
+                        <p class="text-xs font-semibold text-gray-800 dark:text-gray-200">Desarrollo sostenible de territorios rurales</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Claridad en la propuesta diferenciadora frente a la oferta nacional.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Documento maestro; lineamientos institucionales de modalidad híbrida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Estudio de mercado (cifras clave) -->
+    <section class="slide" data-title="Estudio de Mercado">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:bar-chart-3" data-width="32"></span>
+                    Estudio de mercado: oportunidad clara
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Demanda creciente</span>
+            </div>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La demanda por programas de Medicina Veterinaria es creciente y sostenida, especialmente en regiones con vocación agropecuaria donde la oferta educativa es limitada.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <a href="EstudioMercado.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="EstudioMercado.png" alt="Estudio de mercado: cifras clave de demanda" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-2 gap-3 content-center">
+                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card flex flex-col items-center text-center">
+                            <span class="stat-num text-4xl md:text-5xl text-unad-teal mb-2">82%</span>
+                            <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">de los aspirantes potenciales viven en municipios rurales (categorías 4, 5 y 6).</p>
+                        </div>
+                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card flex flex-col items-center text-center">
+                            <span class="stat-num text-4xl md:text-5xl text-unad-orange mb-2">74%</span>
+                            <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">considera que la modalidad híbrida es la única opción viable para acceder al programa.</p>
+                        </div>
+                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-green shadow-sm hover-card flex flex-col items-center text-center">
+                            <span class="stat-num text-4xl md:text-5xl text-unad-green mb-2">40%</span>
+                            <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">manifiesta interés en salud pública veterinaria.</p>
+                        </div>
+                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-navy dark:border-t-gray-400 shadow-sm hover-card flex flex-col items-center text-center">
+                            <span class="stat-num text-4xl md:text-5xl text-unad-navy dark:text-white mb-2">35%</span>
+                            <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">tiene interés en medicina de grandes animales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+                    <p class="text-xs font-bold text-unad-orange uppercase tracking-wider mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="16"></span> Mensaje clave</p>
+                    <p class="text-sm md:text-base text-gray-100 leading-relaxed italic">La demanda existe, está creciendo y se concentra en territorios rurales donde la oferta es insuficiente. La modalidad híbrida de la UNAD responde directamente a esta necesidad, ampliando el acceso a una formación veterinaria pertinente, flexible y de alta calidad.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Sustento cuantitativo de la demanda insatisfecha y del interés en la modalidad híbrida.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Estudio de mercado institucional; encuestas a aspirantes potenciales; análisis de tendencias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Oportunidades de desarrollo -->
+    <section class="slide" data-title="Oportunidades de Desarrollo">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:rocket" data-width="32" style="animation-duration: 14s;"></span>
+                    Oportunidades de desarrollo del programa
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">3 dimensiones</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-7 grid grid-cols-1 gap-3 content-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:trending-up" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Impacto socioeconómico</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Fortalece los sistemas productivos pecuarios y la seguridad alimentaria.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:cpu" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Innovación y transformación tecnológica</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Integra simuladores clínicos, laboratorios virtuales, analítica de datos e inteligencia artificial. Potencia competencias clínicas, epidemiológicas y de toma de decisiones basadas en evidencia. Contribuye al cierre de brechas tecnológicas en zonas rurales y dispersas.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:users" data-width="26"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Impacto social y territorial</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Promueve el bienestar animal y una cultura de respeto hacia los animales como seres sintientes. Fortalece la educación sanitaria y la prevención de enfermedades en las comunidades. Integra saberes tradicionales y conocimiento científico para generar soluciones pertinentes y sostenibles.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <a href="ImpactoPrograma.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="ImpactoPrograma.png" alt="Oportunidades de desarrollo generadas por el programa" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+                    <p class="text-xs font-bold text-unad-orange uppercase tracking-wider mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="16"></span> Mensaje clave</p>
+                    <p class="text-sm md:text-base text-gray-100 leading-relaxed italic">El programa de Medicina Veterinaria de la UNAD no solo forma profesionales; impulsa el desarrollo rural, la innovación tecnológica, la salud pública y la sostenibilidad de los territorios.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Solidez en la justificación de las oportunidades de desarrollo e impacto del programa.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Documento maestro; proyecciones de impacto institucional; articulación con el Plan de Desarrollo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Desafíos del país + respuesta UNAD -->
+    <section class="slide" data-title="Desafíos y Respuesta UNAD">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:shield-check" data-width="32"></span>
+                    Desafíos del país y respuesta de la UNAD
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Alineación estratégica</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="iconify text-unad-orange" data-icon="lucide:alert-triangle" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Principales retos del país</h3>
+                        </div>
+                        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                            <li>• Incremento de enfermedades zoonóticas y riesgos para la salud pública.</li>
+                            <li>• Escasez de médicos veterinarios en zonas rurales.</li>
+                            <li>• Baja tecnificación de los sistemas productivos agropecuarios.</li>
+                            <li>• Necesidad de garantizar la inocuidad y seguridad alimentaria.</li>
+                            <li>• Impactos del cambio climático sobre la salud y producción animal.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="iconify text-unad-teal" data-icon="lucide:check-circle-2" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">La respuesta de la UNAD</h3>
+                        </div>
+                        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                            <li>• Formación integral en salud animal, diagnóstico y atención veterinaria.</li>
+                            <li>• Enfoque <strong>One Health</strong>, integrando salud animal, humana y ambiental.</li>
+                            <li>• Capacitación en epidemiología, vigilancia, prevención y control de zoonosis.</li>
+                            <li>• Fortalecimiento de sistemas productivos sostenibles y eficientes.</li>
+                            <li>• Formación ética, responsable y comprometida con el territorio.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-unad-navy text-white p-5 rounded-2xl shadow-md hover-card md:col-span-2">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="iconify text-unad-orange" data-icon="lucide:star" data-width="26"></span>
+                            <h3 class="font-display font-bold text-base text-white">Diferencial UNAD</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div class="flex items-start gap-2">
+                                <span class="iconify shrink-0 text-unad-orange mt-0.5" data-icon="lucide:map-pin" data-width="18"></span>
+                                <p class="text-xs text-gray-100 leading-relaxed">Aprendizaje conectado con las realidades del territorio.</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="iconify shrink-0 text-unad-orange mt-0.5" data-icon="lucide:users" data-width="18"></span>
+                                <p class="text-xs text-gray-100 leading-relaxed">Interacción directa con comunidades y problemáticas reales.</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="iconify shrink-0 text-unad-orange mt-0.5" data-icon="lucide:leaf" data-width="18"></span>
+                                <p class="text-xs text-gray-100 leading-relaxed">Desarrollo de soluciones sostenibles para la salud animal, la salud pública y la producción agropecuaria.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-unad-teal to-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+                    <p class="text-xs font-bold text-unad-orange uppercase tracking-wider mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="16"></span> Mensaje central</p>
+                    <p class="text-sm md:text-base text-gray-100 leading-relaxed italic">La UNAD forma médicos veterinarios capaces de responder a los grandes desafíos del país: zoonosis, seguridad alimentaria, sostenibilidad productiva y desarrollo rural desde el enfoque One Health.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Alineación del programa con las necesidades estratégicas del país.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Diagnósticos nacionales; políticas públicas; articulación con el enfoque One Health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Necesidades del país y articulación curricular -->
+    <section class="slide" data-title="Necesidades y Currículo">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:activity" data-width="32"></span>
+                    Necesidades del país y articulación curricular
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">One Health</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <a href="EnfoqueOneHealth.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                            <img src="EnfoqueOneHealth.png" alt="Enfoque One Health y núcleos problémicos del programa" class="w-full h-auto object-contain rounded-xl">
+                        </a>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-1 gap-3 content-center">
+                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:list-checks" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Principales necesidades que atiende</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Prevención y control de enfermedades animales y zoonóticas · Fortalecimiento de la producción animal sostenible · Garantía de la inocuidad y seguridad alimentaria · Protección de la salud pública veterinaria · Desarrollo rural y sostenibilidad.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:stethoscope" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">NP1. Procesos de salud-enfermedad, diagnóstico y atención veterinaria</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Diagnóstico, prevención y tratamiento de enfermedades · Aplicación del método clínico veterinario · Bienestar animal y toma de decisiones basada en evidencia.</p>
+                            </div>
+                        </div>
+                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
+                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:globe" data-width="24"></span>
+                            <div>
+                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">NP2. Salud poblacional, bienestar y sostenibilidad de sistemas pecuarios</h3>
+                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Epidemiología y control de zoonosis · Salud pública y sanidad animal · Producción animal sostenible y eficiente desde el enfoque One Health.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia entre las necesidades del país y la propuesta curricular de los NP.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Estructura curricular NIP-NP; matriz de articulación con necesidades del entorno.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Oportunidades laborales y viabilidad financiera -->
+    <section class="slide" data-title="Oportunidades y Viabilidad">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:briefcase" data-width="32"></span>
+                    Oportunidades laborales y viabilidad financiera
+                </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Amplio campo laboral</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                    <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="iconify text-unad-teal" data-icon="lucide:stethoscope" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Campo laboral</h3>
+                        </div>
+                        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                            <li>• Clínica y atención de animales de compañía.</li>
+                            <li>• Producción pecuaria y desarrollo rural.</li>
+                            <li>• Industria alimentaria e inocuidad de alimentos.</li>
+                            <li>• Salud pública, epidemiología y control de zoonosis.</li>
+                            <li>• Conservación ambiental y manejo de fauna silvestre.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="iconify text-unad-orange" data-icon="lucide:trending-up" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Tendencias de crecimiento</h3>
+                        </div>
+                        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                            <li>• Expansión de servicios para animales de compañía.</li>
+                            <li>• Mayor demanda de especialistas en regulación sanitaria e inocuidad alimentaria.</li>
+                            <li>• Creciente necesidad de profesionales en sostenibilidad y producción responsable.</li>
+                            <li>• Fortalecimiento del enfoque One Health y la salud pública veterinaria.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-green shadow-sm hover-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="iconify text-unad-green" data-icon="lucide:wallet" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Viabilidad financiera</h3>
+                        </div>
+                        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                            <li>• Demanda creciente y sostenida, especialmente en regiones con baja oferta educativa.</li>
+                            <li>• Respaldo de la infraestructura académica, tecnológica y administrativa de la UNAD.</li>
+                            <li>• Modalidad híbrida que optimiza recursos, reduce costos y amplía la cobertura.</li>
+                            <li>• Inversión en prácticas, simuladores y convenios para garantizar la calidad formativa.</li>
+                            <li>• Mayor permanencia estudiantil al disminuir costos de traslado y sostenimiento.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Sustento de la demanda laboral y viabilidad financiera del programa.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Estudios de mercado; análisis financiero; proyección presupuestal institucional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. Características distintivas y modalidad -->
+    <section class="slide" data-title="Características y Modalidad">
+        <div class="glass-panel">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:award" data-width="32" style="animation-duration: 12s;"></span>
+                    Características distintivas y modalidad
+                </h2>
+                <span class="bg-unad-orange text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Única en el país</span>
+            </div>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="iconify text-unad-teal" data-icon="lucide:star" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Características distintivas</h3>
+                        </div>
+                        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                            <li>• Modalidad híbrida (presencial-virtual), única en el contexto nacional.</li>
+                            <li>• Formación basada en el enfoque One Health.</li>
+                            <li>• Fuerte orientación territorial y aprendizaje contextualizado.</li>
+                            <li>• Integración efectiva entre teoría, simulación y práctica real.</li>
+                            <li>• Alianzas con el sector productivo, instituciones públicas y comunidades.</li>
+                            <li>• Inclusión educativa para estudiantes de zonas rurales y apartadas.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="iconify text-unad-orange" data-icon="lucide:laptop" data-width="26"></span>
+                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Justificación de la modalidad híbrida</h3>
+                        </div>
+                        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1.5 leading-relaxed">
+                            <li>• Garantizar la formación práctica requerida por la profesión.</li>
+                            <li>• Reducir barreras geográficas, económicas y sociales.</li>
+                            <li>• Combinar flexibilidad virtual con prácticas presenciales supervisadas.</li>
+                            <li>• Incorporar simuladores, laboratorios virtuales e innovación tecnológica.</li>
+                            <li>• Formar profesionales vinculados a las necesidades de sus territorios.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+                    <p class="text-xs font-bold text-unad-orange uppercase tracking-wider mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="16"></span> Mensaje central</p>
+                    <p class="text-sm md:text-base text-gray-100 leading-relaxed italic">La modalidad híbrida de la UNAD responde directamente a la necesidad territorial del país, ampliando el acceso a una formación veterinaria pertinente, flexible y de alta calidad.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Claridad en la propuesta diferenciadora y en la justificación de la modalidad.</p>
+                </div>
+                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                    <p class="text-xs text-gray-700 dark:text-gray-300">Documento maestro; modelo pedagógico UNAD; lineamientos de modalidad híbrida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Cierre -->
+    <section class="slide" data-title="Cierre">
+        <div class="glass-panel items-center justify-center text-center">
+            <div class="flex-1 flex flex-col items-center justify-center gap-6 w-full max-w-4xl mx-auto px-4">
+                <span class="gsap-reveal inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-unad-teal to-unad-navy text-white shadow-xl">
+                    <span class="iconify animate-pulse" data-icon="lucide:circle-check-big" data-width="44"></span>
+                </span>
+                <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
+                    <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
+                    Fin de la Condición 2
+                </span>
+                <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
+                    Ha finalizado la revisión de la <span class="text-unad-orange">Condición 2</span>
+                </h2>
+                <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed italic">
+                    "La demanda existe, está creciendo y se concentra en territorios rurales donde la oferta es insuficiente. La modalidad híbrida de la UNAD responde directamente a esta necesidad."
+                </p>
+                <a href="condicion-3.html" class="gsap-reveal group inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-2xl bg-gradient-to-r from-unad-orange to-unad-teal text-white font-display font-bold text-base md:text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <span class="iconify shrink-0" data-icon="lucide:circle-check-big" data-width="24"></span>
+                    <span class="tracking-wide">Continuar a la Condición 3</span>
+                    <span class="iconify shrink-0 group-hover:translate-x-1.5 transition-transform duration-300" data-icon="lucide:arrow-right" data-width="22"></span>
+                </a>
+                <div class="gsap-reveal flex flex-wrap items-center justify-center gap-3 mt-2 text-xs">
+                    <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15 bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base hover:bg-unad-teal hover:text-white hover:border-unad-teal transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:home" data-width="15"></span>
+                        Volver al inicio
+                    </a>
+                    <a href="malla-academica.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15 bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base hover:bg-unad-teal hover:text-white hover:border-unad-teal transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:grid-3x3" data-width="15"></span>
+                        Ver malla académica
+                    </a>
+                    <button type="button" id="restart-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 text-unad-orange hover:bg-unad-orange hover:text-white hover:border-unad-orange transition-all duration-200 font-semibold">
+                        <span class="iconify" data-icon="lucide:rotate-ccw" data-width="15"></span>
+                        Repetir presentación
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
-<script src="js/embed-mode.js"></script>
-<script src="js/theme.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const isEmbed = urlParams.get('embed') === '1';
+
+    if (isEmbed) {
+        const nav = document.getElementById('main-nav');
+        const sideNav = document.getElementById('side-nav');
+        if (nav) nav.style.display = 'none';
+        if (sideNav) sideNav.style.display = 'none';
+        document.querySelectorAll('.slide').forEach(s => { s.style.paddingTop = '1.5rem'; });
+    }
+
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalClose = document.getElementById('modal-close');
+
+    if (imageModal) {
+        document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = trigger.getAttribute('href') || trigger.querySelector('img').src;
+                modalImage.src = imgSrc;
+                imageModal.classList.add('active');
+            });
+        });
+        function closeModal() { imageModal.classList.remove('active'); setTimeout(() => { modalImage.src = ''; }, 300); }
+        modalClose.addEventListener('click', closeModal);
+        imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && imageModal.classList.contains('active')) closeModal(); });
+    }
+
+    gsap.registerPlugin(Observer);
+
+    const slides = document.querySelectorAll('.slide');
+    const dotContainer = document.getElementById('dot-container');
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    if (!isEmbed && dotContainer) {
+        slides.forEach((slide, i) => {
+            const title = slide.getAttribute('data-title') || ('Diapositiva ' + (i + 1));
+            const wrapper = document.createElement('div');
+            wrapper.className = 'dot-wrapper';
+            wrapper.setAttribute('data-title', title);
+            wrapper.setAttribute('aria-label', 'Ir a: ' + title);
+            wrapper.addEventListener('click', () => gotoSlide(i, i > currentIndex ? 1 : -1));
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            wrapper.appendChild(dot);
+            dotContainer.appendChild(wrapper);
+        });
+    }
+    const dots = document.querySelectorAll('.dot');
+
+    function updateDots() {
+        if(isEmbed) return;
+        dots.forEach((dot, i) => {
+            if (i === currentIndex) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    }
+
+    gsap.set(slides, { yPercent: 100, autoAlpha: 0 });
+    gsap.set(slides[0], { yPercent: 0, autoAlpha: 1 });
+    updateDots();
+    animateElementsIn(slides[0]);
+
+    function animateElementsIn(slide) {
+        const elements = slide.querySelectorAll('.gsap-reveal');
+        if(elements.length > 0) {
+            gsap.fromTo(elements,
+                { y: 30, autoAlpha: 0 },
+                { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.06, ease: "power3.out", overwrite: "auto", delay: 0.05 }
+            );
+        }
+    }
+
+    function gotoSlide(index, direction) {
+        if (imageModal && imageModal.classList.contains('active')) return;
+        if (isAnimating || index < 0 || index >= slides.length || index === currentIndex) return;
+        isAnimating = true;
+        const currentSlide = slides[currentIndex];
+        const nextSlide = slides[index];
+        const yPercentOut = direction === 1 ? -100 : 100;
+        const yPercentIn = direction === 1 ? 100 : -100;
+        gsap.set(nextSlide, { yPercent: yPercentIn, autoAlpha: 1 });
+        const tl = gsap.timeline({
+            defaults: { duration: 0.7, ease: "power4.inOut" },
+            onComplete: () => {
+                gsap.set(currentSlide, { autoAlpha: 0 });
+                currentIndex = index;
+                updateDots();
+                isAnimating = false;
+            }
+        });
+        tl.to(currentSlide, { yPercent: yPercentOut }).to(nextSlide, { yPercent: 0 }, "<");
+        animateElementsIn(nextSlide);
+    }
+
+    Observer.create({
+        type: "wheel,touch,pointer",
+        wheelSpeed: -1, tolerance: 40, preventDefault: false,
+        onDown: () => gotoSlide(currentIndex - 1, -1),
+        onUp: () => gotoSlide(currentIndex + 1, 1),
+    });
+
+    document.querySelectorAll('.custom-scroll').forEach(el => {
+        el.addEventListener('wheel', (e) => {
+            const isAtTop = el.scrollTop === 0;
+            const isAtBottom = Math.abs((el.scrollHeight - el.scrollTop) - el.clientHeight) < 2;
+            if ((e.deltaY < 0 && !isAtTop) || (e.deltaY > 0 && !isAtBottom)) { e.stopPropagation(); }
+        }, {passive: false});
+        el.addEventListener('touchmove', (e) => { e.stopPropagation(); }, {passive: false});
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (['ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); gotoSlide(currentIndex + 1, 1); }
+        else if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); gotoSlide(currentIndex - 1, -1); }
+    });
+
+    if(!isEmbed) {
+        const btnUp = document.getElementById('btn-up');
+        const btnDown = document.getElementById('btn-down');
+        if(btnUp) btnUp.addEventListener('click', () => gotoSlide(currentIndex - 1, -1));
+        if(btnDown) btnDown.addEventListener('click', () => gotoSlide(currentIndex + 1, 1));
+    }
+
+    const restartBtn = document.getElementById('restart-btn');
+    if (restartBtn) restartBtn.addEventListener('click', () => { gotoSlide(0, -1); });
+
+    (function () {
+        const root = document.documentElement;
+        const btn  = document.getElementById('theme-btn') || document.getElementById('themeToggle');
+        if (!btn) return;
+        if (btn.dataset.themeBound === '1') return;
+        btn.dataset.themeBound = '1';
+
+        function syncButton() {
+            const isDark = root.classList.contains('dark');
+            btn.textContent = isDark ? '☀️' : '🌙';
+            btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        }
+        const saved = localStorage.getItem('unad-theme');
+        if (saved === 'dark') { root.classList.add('dark'); root.classList.remove('light'); }
+        else if (saved === 'light') { root.classList.remove('dark'); root.classList.add('light'); }
+        syncButton();
+        btn.addEventListener('click', () => {
+            const willBeDark = !root.classList.contains('dark');
+            root.classList.toggle('dark', willBeDark);
+            root.classList.toggle('light', !willBeDark);
+            localStorage.setItem('unad-theme', willBeDark ? 'dark' : 'light');
+            syncButton();
+        });
+    })();
+</script>
 </body>
 </html>
