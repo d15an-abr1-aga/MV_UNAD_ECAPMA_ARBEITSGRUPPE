@@ -189,6 +189,129 @@
     #image-modal.active img { transform: scale(1); }
     .modal-close { position: absolute; top: 1.5rem; right: 2rem; color: white; font-size: 3rem; line-height: 1; background: transparent; border: none; cursor: pointer; opacity: 0.8; transition: opacity 0.2s; }
     .modal-close:hover { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+/* ============================================================
+   SOLUCIÓN GLOBAL ADAPTATIVA (VERSIÓN EQUILIBRADA)
+   Reemplaza el bloque anterior por este en cada archivo.
+   ============================================================ */
+
+/* 1. ARREGLO DEL SCROLL INTERNO (La clave para que no se corte el texto) */
+.glass-panel .flex-1 {
+    min-height: 0 !important; 
+    overflow-y: auto !important;
+    padding-bottom: 1rem;
+}
+
+/* 2. ADAPTACIÓN PARA PANTALLAS DE 15 PULGADAS (Altura menor a 900px) */
+@media (max-height: 900px) {
+    /* Dar un poco más de altura útil al panel y reducir padding */
+    .glass-panel {
+        height: 92vh !important;
+        padding: 1.25rem !important;
+    }
+    .slide {
+        padding-top: 3.5rem !important; /* Un poco menos de espacio arriba */
+        padding-bottom: 1rem !important;
+    }
+    
+    /* --- TIPOGRAFÍA EQUILIBRADA (Más grande que antes) --- */
+    h1, .text-6xl { font-size: 2.5rem !important; line-height: 1.2 !important; }
+    h2, .text-3xl { font-size: 1.8rem !important; }
+    h3, .text-2xl { font-size: 1.4rem !important; }
+    p, li, .text-base { font-size: 0.95rem !important; line-height: 1.4 !important; } /* Letra legible */
+    .text-sm { font-size: 0.85rem !important; }
+    .text-xs { font-size: 0.75rem !important; }
+    
+    /* --- ESPACIOS (Mantenemos los gaps y paddings pequeños para ganar espacio) --- */
+    .gap-8 { gap: 1rem !important; }
+    .gap-6 { gap: 0.75rem !important; }
+    .gap-4 { gap: 0.5rem !important; }
+    .p-8 { padding: 1rem !important; }
+    .p-6 { padding: 0.75rem !important; }
+    .p-5 { padding: 0.5rem !important; }
+    .p-4 { padding: 0.5rem !important; }
+    
+    /* Hacer que los iconos sean un poco más pequeños */
+    .iconify { transform: scale(0.9); }
+}
+
+/* 3. ADAPTACIÓN EXTREMA (Portátiles muy pequeños o tablets) */
+@media (max-height: 700px) {
+    .glass-panel { height: 95vh !important; padding: 1rem !important; }
+    h1, .text-6xl { font-size: 2.0rem !important; }
+    h2, .text-3xl { font-size: 1.5rem !important; }
+    h3, .text-2xl { font-size: 1.2rem !important; }
+    p, li, .text-base { font-size: 0.85rem !important; } /* Letra un poco más pequeña pero legible */
+    .gap-6, .gap-8 { gap: 0.5rem !important; }
+}
+
+/* 4. IMÁGENES: Siempre contenidas, sin deformar y sin empujar el texto */
+.glass-panel img, .slide-block img {
+    max-height: 45vh; 
+    width: auto;
+    object-fit: contain !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-height: 900px) {
+    .glass-panel img { max-height: 55vh; } 
+}
+
+/* 5. TABLAS: Que no rompan el layout y tengan scroll propio */
+.styled-table, .styled-table-dense {
+    width: 100%;
+    font-size: 0.8rem !important; /* Un poco más grandes que antes */
+}
+.styled-table th, .styled-table td {
+    padding: 8px 10px !important; /* Más espacio interno */
+}
+
+/* 6. ARREGLO ESPECÍFICO PARA LA CONDICIÓN 6 */
+.slide-block {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    justify-content: flex-start !important; 
+    padding: 2rem !important;
+}
+
+/* 7. Evitar que los contenedores con grid se desborden */
+.grid {
+    min-height: 0;
+}
+
+/* ============================================================
+   SOLUCIÓN 1.5: BARRA SUPERIOR "ULTRA SLIM"
+   ============================================================ */
+.sitenav {
+    padding: 0.25rem 0.75rem !important; /* Aún más delgada */
+    top: 0.25rem !important; /* Se pega más al borde superior */
+    max-width: 1100px !important; /* Un poco menos de ancho para que no se estire tanto */
+    width: 95% !important;
+    opacity: 0.85;
+    border-radius: 0.75rem !important; /* Bordes un poco más cerrados */
+    box-shadow: 0 2px 10px rgba(1, 51, 63, 0.05) !important; /* Sombra más sutil */
+    transition: opacity 0.3s ease, top 0.3s ease, background 0.3s ease !important;
+}
+
+/* Al pasar el mouse, se vuelve totalmente visible y baja un poquito */
+.sitenav:hover {
+    opacity: 1;
+    top: 0.5rem !important;
+}
+
+/* Reducir aún más los tamaños de letra, iconos y espacios */
+.sitenav__links { gap: 0.75rem !important; font-size: 0.65rem !important; line-height: 1.2 !important; }
+.sitenav__brand { font-size: 0.75rem !important; gap: 0.4rem !important; line-height: 1.2 !important; }
+.sitenav__brand small { font-size: 0.55rem !important; }
+.sitenav__logo { 
+    width: 22px !important; 
+    height: 22px !important; 
+    font-size: 0.65rem !important; 
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 0.35rem !important;
+}
+.theme-toggle { width: 22px !important; height: 22px !important; font-size: 0.85rem !important; }
+
 </style>
 </head>
 <body>
