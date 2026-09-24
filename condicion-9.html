@@ -1726,69 +1726,104 @@
         </div>
     </section>
 
-    <!-- Diapositiva 22: Cierre -->
-    <section class="slide" data-title="Cierre">
-        <div class="glass-panel items-center justify-center text-center">
-            <div class="flex-1 flex flex-col items-center justify-center gap-8 w-full max-w-4xl mx-auto px-4">
+    <!-- Diapositiva final: Cierre global del recorrido de condiciones -->
+<section class="slide" data-title="Cierre final">
+    <div class="glass-panel items-center justify-center text-center">
+        <div class="flex-1 flex flex-col items-center justify-center gap-7 w-full max-w-4xl mx-auto px-4">
 
-                <span class="gsap-reveal inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-unad-teal to-unad-navy text-white shadow-xl">
-                    <span class="iconify animate-pulse" data-icon="lucide:circle-check-big" data-width="44"></span>
-                </span>
+            <!-- Ícono de cierre -->
+            <span class="gsap-reveal inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-unad-teal to-unad-navy text-white shadow-xl">
+                <span class="iconify animate-pulse" data-icon="lucide:party-popper" data-width="48"></span>
+            </span>
 
-                <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
-                    <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
-                    Fin de la Condición 6
-                </span>
+            <!-- Badge -->
+            <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
+                <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
+                Fin del recorrido de condiciones
+            </span>
 
-                <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
-                    Ha finalizado la revisión de la <span class="text-unad-orange">Condición 6</span>
-                </h2>
+            <!-- Título principal -->
+            <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
+                Has completado las <span class="text-unad-orange">condiciones de acreditación</span>
+            </h2>
 
-                <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
-                    Infraestructura Institucional · Programa de Medicina Veterinaria · UNAD
-                </p>
+            <!-- Subtítulo -->
+            <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+                Programa de <strong>Medicina Veterinaria</strong> · ECAPMA · UNAD
+            </p>
 
-                <a href="condicion-7.html"
-                   class="gsap-reveal group inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-2xl
-                          bg-gradient-to-r from-unad-orange to-unad-teal text-white
-                          font-display font-bold text-base md:text-lg shadow-xl
-                          hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02]
-                          transition-all duration-300">
-                    <span class="iconify shrink-0" data-icon="lucide:circle-check-big" data-width="24"></span>
-                    <span class="tracking-wide">Continuar a la Condición 7</span>
-                    <span class="iconify shrink-0 group-hover:translate-x-1.5 transition-transform duration-300" data-icon="lucide:arrow-right" data-width="22"></span>
-                </a>
-
-                <div class="gsap-reveal flex flex-wrap items-center justify-center gap-3 mt-2 text-xs">
-                    <a href="index.html"
-                       class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15
-                              bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base
-                              hover:bg-unad-teal hover:text-white hover:border-unad-teal
-                              transition-all duration-200 font-semibold">
-                        <span class="iconify" data-icon="lucide:home" data-width="15"></span>
-                        Volver al inicio
-                    </a>
-                    <a href="malla-academica.html"
-                       class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15
-                              bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base
-                              hover:bg-unad-teal hover:text-white hover:border-unad-teal
-                              transition-all duration-200 font-semibold">
-                        <span class="iconify" data-icon="lucide:grid-3x3" data-width="15"></span>
-                        Ver malla académica
-                    </a>
-                    <button type="button" id="restart-btn"
-                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-orange/40
-                                   bg-unad-orange/10 text-unad-orange
-                                   hover:bg-unad-orange hover:text-white hover:border-unad-orange
-                                   transition-all duration-200 font-semibold">
-                        <span class="iconify" data-icon="lucide:rotate-ccw" data-width="15"></span>
-                        Repetir presentación
-                    </button>
+            <!-- Resumen breve del recorrido -->
+            <div class="gsap-reveal grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-3xl mt-2">
+                <div class="bg-white/70 dark:bg-black/40 rounded-xl border-l-4 border-unad-teal p-3 shadow-sm">
+                    <span class="iconify text-unad-teal mx-auto mb-1" data-icon="lucide:list-checks" data-width="20"></span>
+                    <p class="text-[11px] font-bold uppercase tracking-wider text-unad-teal">Condiciones</p>
+                    <p class="text-[11px] text-gray-600 dark:text-gray-400">Revisadas y documentadas</p>
                 </div>
-
+                <div class="bg-white/70 dark:bg-black/40 rounded-xl border-l-4 border-unad-orange p-3 shadow-sm">
+                    <span class="iconify text-unad-orange mx-auto mb-1" data-icon="lucide:file-check-2" data-width="20"></span>
+                    <p class="text-[11px] font-bold uppercase tracking-wider text-unad-orange">Evidencias</p>
+                    <p class="text-[11px] text-gray-600 dark:text-gray-400">Sustentos verificados</p>
+                </div>
+                <div class="bg-white/70 dark:bg-black/40 rounded-xl border-l-4 border-unad-green p-3 shadow-sm">
+                    <span class="iconify text-unad-green mx-auto mb-1" data-icon="lucide:award" data-width="20"></span>
+                    <p class="text-[11px] font-bold uppercase tracking-wider text-unad-green">Calidad</p>
+                    <p class="text-[11px] text-gray-600 dark:text-gray-400">Criterios del par</p>
+                </div>
+                <div class="bg-white/70 dark:bg-black/40 rounded-xl border-l-4 border-unad-navy dark:border-gray-400 p-3 shadow-sm">
+                    <span class="iconify text-unad-navy dark:text-white mx-auto mb-1" data-icon="lucide:target" data-width="20"></span>
+                    <p class="text-[11px] font-bold uppercase tracking-wider text-unad-navy dark:text-white">Mejora</p>
+                    <p class="text-[11px] text-gray-600 dark:text-gray-400">Ruta continua</p>
+                </div>
             </div>
+
+            <!-- Botón principal: volver al inicio del recorrido -->
+            <a href="index.html"
+               class="gsap-reveal group inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-2xl
+                      bg-gradient-to-r from-unad-orange to-unad-teal text-white
+                      font-display font-bold text-base md:text-lg shadow-xl
+                      hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02]
+                      transition-all duration-300">
+                <span class="iconify shrink-0" data-icon="lucide:home" data-width="22"></span>
+                <span class="tracking-wide">Volver al inicio del recorrido</span>
+                <span class="iconify shrink-0 group-hover:translate-x-1.5 transition-transform duration-300" data-icon="lucide:arrow-right" data-width="22"></span>
+            </a>
+
+            <!-- Accesos secundarios -->
+            <div class="gsap-reveal flex flex-wrap items-center justify-center gap-3 mt-1 text-xs">
+                <a href="malla-academica.html"
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15
+                          bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base
+                          hover:bg-unad-teal hover:text-white hover:border-unad-teal
+                          transition-all duration-200 font-semibold">
+                    <span class="iconify" data-icon="lucide:grid-3x3" data-width="15"></span>
+                    Ver malla académica
+                </a>
+                <a href="condicion-1.html"
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15
+                          bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base
+                          hover:bg-unad-teal hover:text-white hover:border-unad-teal
+                          transition-all duration-200 font-semibold">
+                    <span class="iconify" data-icon="lucide:rotate-ccw" data-width="15"></span>
+                    Repasar desde la Condición 1
+                </a>
+                <button type="button" id="restart-btn"
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-orange/40
+                               bg-unad-orange/10 text-unad-orange
+                               hover:bg-unad-orange hover:text-white hover:border-unad-orange
+                               transition-all duration-200 font-semibold">
+                    <span class="iconify" data-icon="lucide:play" data-width="15"></span>
+                    Repetir esta presentación
+                </button>
+            </div>
+
+            <!-- Pie institucional -->
+            <p class="gsap-reveal text-[10px] uppercase tracking-[0.25em] text-gray-400 dark:text-gray-500 mt-4">
+                UNAD · ECAPMA · Medicina Veterinaria · Autoevaluación con fines de acreditación
+            </p>
+
         </div>
-    </section>
+    </div>
+</section>
 
 </main>
 
