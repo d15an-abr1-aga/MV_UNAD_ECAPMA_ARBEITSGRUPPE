@@ -1316,42 +1316,69 @@
     <!-- Diapositiva 10: Programas Activos en Colombia (SNIES) -->
     <section class="slide" data-title="Programas SNIES">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
                 <h2 class="text-2xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:list-ordered" data-width="28"></span>
                     Programas Activos de Medicina Veterinaria en Colombia (SNIES)
                 </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">15 instituciones</span>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700">
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700">
                 <table class="styled-table w-full text-xs">
                     <thead>
                         <tr>
-                            <th>NOMBRE INSTITUCIÓN</th>
-                            <th>ESTADO</th>
-                            <th>RECONOCIMIENTO DEL MINISTERIO</th>
-                            <th>MODALIDAD</th>
-                            <th>MUNICIPIO OFERTA</th>
+                            <th style="width:22%;">NOMBRE INSTITUCIÓN</th>
+                            <th style="width:8%;">ESTADO</th>
+                            <th style="width:16%;">RECONOCIMIENTO DEL MINISTERIO</th>
+                            <th style="width:9%;">MODALIDAD</th>
+                            <th style="width:16%;">MUNICIPIO OFERTA PROGRAMA</th>
+                            <th style="width:9%;" class="text-center">Nº CRÉDITOS</th>
+                            <th style="width:9%;" class="text-center">Nº PERÍODOS DURACIÓN</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-800 dark:text-gray-200">
-                        <tr><td>UNIVERSIDAD NACIONAL DE COLOMBIA</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Bogotá, D.C.</td></tr>
-                        <tr><td>UNIVERSIDAD DE ANTIOQUIA</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Medellín</td></tr>
-                        <tr><td>UNIVERSIDAD DE NARIÑO</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Pasto</td></tr>
-                        <tr><td>UNIVERSIDAD DE PAMPLONA</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Pamplona</td></tr>
-                        <tr><td>UNIVERSIDAD DE LA SALLE</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Bogotá, D.C.</td></tr>
-                        <tr><td>UNIVERSIDAD SANTIAGO DE CALI</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Santiago de Cali</td></tr>
-                        <tr><td>UNIVERSIDAD ANTONIO NARIÑO</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Bogotá, D.C. / Popayán</td></tr>
-                        <tr><td>UNIVERSIDAD DE CIENCIAS APLICADAS Y AMBIENTALES - UDCA</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Bogotá, D.C.</td></tr>
-                        <tr><td>FUNDACION UNIVERSITARIA JUAN DE CASTELLANOS</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Tunja</td></tr>
-                        <tr><td>FUNDACION UNIVERSITARIA AGRARIA DE COLOMBIA -UNIAGRARIA-</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Bogotá, D.C.</td></tr>
-                        <tr><td>CORPORACION UNIVERSITARIA DE SANTA ROSA DE CABAL-UNISARC-</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Santa Rosa de Cabal</td></tr>
-                        <tr><td>CORPORACION UNIVERSITARIA LASALLISTA</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Caldas</td></tr>
-                        <tr><td>UNIVERSIDAD DE SANTANDER - UDES</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Bucaramanga</td></tr>
-                        <tr><td>UNIVERSIDAD INDUSTRIAL DE SANTANDER</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Málaga, Santander</td></tr>
-                        <tr><td>CORPORACION UNIVERSITARIA REMINGTON</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Medellín, Montería. Ibagué, Rio Negro</td></tr>
+                        <tr><td class="border-l-4 border-unad-teal pl-3">UNIVERSIDAD NACIONAL DE COLOMBIA</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Bogotá, D.C.</td><td class="text-center font-bold">209</td><td class="text-center font-bold">12</td></tr>
+                        <tr><td class="border-l-4 border-unad-orange pl-3">UNIVERSIDAD DE ANTIOQUIA</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Medellín</td><td class="text-center font-bold">200</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-teal pl-3">UNIVERSIDAD DE NARIÑO</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Pasto</td><td class="text-center font-bold">200</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-green pl-3">UNIVERSIDAD DE PAMPLONA</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Pamplona</td><td class="text-center font-bold">200</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-orange pl-3">UNIVERSIDAD DE LA SALLE</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Bogotá, D.C.</td><td class="text-center font-bold">182</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-teal pl-3">UNIVERSIDAD SANTIAGO DE CALI</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Santiago de Cali</td><td class="text-center font-bold">180</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-green pl-3">UNIVERSIDAD ANTONIO NARIÑO</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Bogotá, D.C. / Popayán</td><td class="text-center font-bold">180</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-orange pl-3">UNIVERSIDAD DE CIENCIAS APLICADAS Y AMBIENTALES - UDCA</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Bogotá, D.C.</td><td class="text-center font-bold">170</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-teal pl-3">FUNDACIÓN UNIVERSITARIA JUAN DE CASTELLANOS</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Tunja</td><td class="text-center font-bold">169</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-green pl-3">FUNDACIÓN UNIVERSITARIA AGRARIA DE COLOMBIA - UNIAGRARIA -</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Bogotá, D.C.</td><td class="text-center font-bold">166</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-orange pl-3">CORPORACIÓN UNIVERSITARIA DE SANTA ROSA DE CABAL - UNISARC -</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Santa Rosa de Cabal</td><td class="text-center font-bold">166</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-teal pl-3">CORPORACIÓN UNIVERSITARIA LASALLISTA</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Caldas</td><td class="text-center font-bold">164</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-green pl-3">UNIVERSIDAD DE SANTANDER - UDES</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Bucaramanga</td><td class="text-center font-bold">163</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-orange pl-3">UNIVERSIDAD INDUSTRIAL DE SANTANDER</td><td>Activa</td><td>Registro calificado</td><td>Presencial</td><td>Málaga, Santander</td><td class="text-center font-bold">156</td><td class="text-center font-bold">10</td></tr>
+                        <tr><td class="border-l-4 border-unad-teal pl-3">CORPORACIÓN UNIVERSITARIA REMINGTON</td><td>Activa</td><td>Acreditación de alta calidad</td><td>Presencial</td><td>Medellín, Montería, Ibagué, Río Negro</td><td class="text-center font-bold">128</td><td class="text-center font-bold">8</td></tr>
+
+                        <!-- Fila destacada UNAD -->
+                        <tr class="bg-unad-orange/10 dark:bg-unad-orange/20 border-t-2 border-unad-orange">
+                            <td class="border-l-4 border-unad-orange pl-3 font-bold text-unad-orange">UNIVERSIDAD NACIONAL ABIERTA Y A DISTANCIA (UNAD)</td>
+                            <td class="font-bold text-unad-orange">En trámite</td>
+                            <td class="font-bold text-unad-orange">Propuesta nueva</td>
+                            <td class="font-bold text-unad-orange">Virtual</td>
+                            <td class="font-bold text-unad-orange">Nacional</td>
+                            <td class="text-center font-bold text-unad-orange text-sm">174</td>
+                            <td class="text-center font-bold text-unad-orange text-sm">10</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+
+            <!-- Fuente y criterios -->
+            <div class="gsap-reveal mt-3 shrink-0 flex items-center justify-between gap-3 px-1">
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 italic flex items-center gap-1.5">
+                    <span class="iconify" data-icon="lucide:book-open" data-width="13"></span>
+                    <strong class="not-italic">Fuente:</strong> SNIES (2026). Sistema Nacional de Información de la Educación Superior.
+                </p>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 italic">
+                    Consulta: febrero 2026.
+                </p>
+            </div>
+
             <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
