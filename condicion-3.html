@@ -422,7 +422,7 @@
         </div>
     </section>
 
-    <!-- Diapositiva 2: Propósito y Perfil de Ingreso -->
+   <!-- Diapositiva 2: Propósito y Perfil de Ingreso -->
     <section class="slide" data-title="Propósito e Ingreso">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
@@ -431,41 +431,60 @@
                     Propósito y Perfil de Ingreso
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col md:flex-row items-stretch justify-center gap-6 w-full max-w-6xl mx-auto py-2">
-                <div class="w-full md:w-1/2 relative group h-full">
-                    <div class="absolute inset-0 bg-gradient-to-r from-unad-teal to-unad-navy rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300 opacity-20 dark:opacity-40"></div>
-                    <div class="relative bg-white/90 dark:bg-black/70 p-8 rounded-2xl border border-white/40 shadow-xl backdrop-blur-md h-full flex flex-col">
-                        <div class="w-16 h-16 bg-unad-teal/10 rounded-2xl flex items-center justify-center mb-6 border border-unad-teal/20 shadow-sm">
-                            <span class="iconify text-unad-teal" data-icon="lucide:crosshair" data-width="36"></span>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-6xl mx-auto py-1">
+
+                <!-- PROPÓSITO DE FORMACIÓN -->
+                <div class="relative group h-full">
+                    <div class="absolute inset-0 bg-gradient-to-r from-unad-teal to-unad-navy rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300 opacity-20 dark:opacity-40"></div>
+                    <div class="relative bg-white/90 dark:bg-black/70 p-5 rounded-2xl border border-white/40 shadow-xl backdrop-blur-md h-full flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-11 h-11 bg-unad-teal/10 rounded-xl flex items-center justify-center border border-unad-teal/20 shadow-sm shrink-0">
+                                <span class="iconify text-unad-teal" data-icon="lucide:crosshair" data-width="24"></span>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-unad-navy dark:text-white">Propósito de Formación</h3>
                         </div>
-                        <h3 class="font-display font-bold text-3xl text-unad-navy dark:text-white mb-4">Propósito de Formación</h3>
-                        <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-5">Formar Médicos Veterinarios con sólida fundamentación científica, clínica, sanitaria, ética y humanística, capaces de comprender e intervenir las dinámicas que afectan la salud y el bienestar animal, la salud pública veterinaria y la sostenibilidad de los sistemas productivos y los territorios.</p>
-                        <p class="text-base text-gray-800 dark:text-gray-200 leading-relaxed font-medium bg-gradient-to-r from-unad-teal/10 to-transparent p-4 rounded-xl border-l-4 border-unad-teal mt-auto">
-                            El programa desarrolla capacidades mediante la toma de decisiones basada en evidencia y el abordaje desde el enfoque <strong>Una sola Salud (One Health)</strong>.
+
+                        <p class="text-[12.5px] text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+                            Formar Médicos Veterinarios con sólida fundamentación científica, clínica, sanitaria, ética y humanística, capaces de comprender e intervenir las dinámicas que afectan la salud y el bienestar animal, la salud pública veterinaria y la sostenibilidad de los sistemas productivos y los territorios. El programa desarrolla capacidades para la promoción, prevención, diagnóstico, tratamiento y gestión de problemáticas sanitarias, mediante la toma de decisiones basada en evidencia, la investigación, la innovación, el uso pertinente de tecnologías y la actuación responsable desde el enfoque Una sola Salud (One Health), contribuyendo al desarrollo sostenible y a la transformación de las realidades sociales, ambientales y productivas de los contextos en los que se desempeñan.
                         </p>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/2 relative group h-full">
-                    <div class="absolute inset-0 bg-gradient-to-l from-unad-orange to-red-500 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300 opacity-20 dark:opacity-30"></div>
-                    <div class="relative bg-white/90 dark:bg-black/70 p-8 rounded-2xl border border-white/40 shadow-xl backdrop-blur-md h-full flex flex-col">
-                        <div class="w-16 h-16 bg-unad-orange/10 rounded-2xl flex items-center justify-center mb-6 border border-unad-orange/20 shadow-sm">
-                            <span class="iconify text-unad-orange" data-icon="lucide:user-plus" data-width="36"></span>
-                        </div>
-                        <h3 class="font-display font-bold text-3xl text-unad-navy dark:text-white mb-4">Perfil de Ingreso</h3>
-                        <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-6">El aspirante manifiesta profundo interés por las ciencias biológicas, salud animal, producción pecuaria sostenible y la interacción integral humano-animal-ambiente.</p>
-                        <div class="space-y-4 mt-auto">
-                            <div class="flex items-start gap-3 bg-white dark:bg-gray-800/80 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-1 transition-transform">
-                                <div class="bg-unad-orange/20 p-2 rounded-lg shrink-0 mt-0.5"><span class="iconify text-unad-orange" data-icon="lucide:check" data-width="18"></span></div>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 font-medium">Competencias básicas en ciencias naturales, matemáticas, comunicación y herramientas digitales.</p>
-                            </div>
-                            <div class="flex items-start gap-3 bg-white dark:bg-gray-800/80 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-1 transition-transform">
-                                <div class="bg-unad-orange/20 p-2 rounded-lg shrink-0 mt-0.5"><span class="iconify text-unad-orange" data-icon="lucide:check" data-width="18"></span></div>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 font-medium">Disposición para el aprendizaje autónomo, pensamiento crítico, investigación y trabajo colaborativo.</p>
-                            </div>
+
+                        <div class="mt-auto text-[12px] text-gray-800 dark:text-gray-200 leading-snug font-medium bg-gradient-to-r from-unad-teal/10 to-transparent p-3 rounded-lg border-l-4 border-unad-teal">
+                            El programa desarrolla capacidades mediante la toma de decisiones basada en evidencia y el abordaje desde el enfoque <strong>Una sola Salud (One Health)</strong>.
                         </div>
                     </div>
                 </div>
+
+                <!-- PERFIL DE INGRESO -->
+                <div class="relative group h-full">
+                    <div class="absolute inset-0 bg-gradient-to-l from-unad-orange to-red-500 rounded-2xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300 opacity-20 dark:opacity-30"></div>
+                    <div class="relative bg-white/90 dark:bg-black/70 p-5 rounded-2xl border border-white/40 shadow-xl backdrop-blur-md h-full flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-11 h-11 bg-unad-orange/10 rounded-xl flex items-center justify-center border border-unad-orange/20 shadow-sm shrink-0">
+                                <span class="iconify text-unad-orange" data-icon="lucide:user-plus" data-width="24"></span>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-unad-navy dark:text-white">Perfil de Ingreso</h3>
+                        </div>
+
+                        <p class="text-[12.5px] text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+                            El aspirante al programa de Medicina Veterinaria manifiesta interés por las ciencias biológicas, la salud y el bienestar animal, la producción pecuaria sostenible, la salud pública veterinaria y la interacción entre animales, seres humanos y ambiente. Cuenta con competencias básicas en ciencias naturales, matemáticas, comunicación y herramientas digitales, y demuestra disposición para el aprendizaje autónomo, el pensamiento crítico, la investigación, el trabajo colaborativo y el desarrollo de actividades prácticas propias de la formación veterinaria.
+                        </p>
+
+                        <div class="space-y-2 mt-auto">
+                            <div class="flex items-start gap-2.5 bg-white dark:bg-gray-800/80 p-2.5 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-0.5 transition-transform">
+                                <div class="bg-unad-orange/20 p-1.5 rounded-md shrink-0 mt-0.5"><span class="iconify text-unad-orange" data-icon="lucide:check" data-width="14"></span></div>
+                                <p class="text-[11.5px] text-gray-700 dark:text-gray-300 font-medium leading-snug">Competencias básicas en ciencias naturales, matemáticas, comunicación y herramientas digitales.</p>
+                            </div>
+                            <div class="flex items-start gap-2.5 bg-white dark:bg-gray-800/80 p-2.5 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-0.5 transition-transform">
+                                <div class="bg-unad-orange/20 p-1.5 rounded-md shrink-0 mt-0.5"><span class="iconify text-unad-orange" data-icon="lucide:check" data-width="14"></span></div>
+                                <p class="text-[11.5px] text-gray-700 dark:text-gray-300 font-medium leading-snug">Disposición para el aprendizaje autónomo, pensamiento crítico, investigación y trabajo colaborativo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -488,53 +507,113 @@
                     Perfil de Formación y de Egreso
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col items-center justify-center gap-8 w-full max-w-6xl mx-auto py-2">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full h-full">
-                    <div class="bg-gradient-to-br from-white/95 to-white/60 dark:from-gray-900/95 dark:to-gray-900/60 p-8 rounded-3xl border border-unad-teal/20 shadow-2xl backdrop-blur-xl relative overflow-hidden group flex flex-col">
+
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal w-full max-w-7xl mx-auto py-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+
+                    <!-- PERFIL DE FORMACIÓN -->
+                    <div class="bg-gradient-to-br from-white/95 to-white/60 dark:from-gray-900/95 dark:to-gray-900/60 p-5 rounded-3xl border border-unad-teal/20 shadow-xl backdrop-blur-xl relative overflow-hidden group flex flex-col">
                         <div class="absolute -right-12 -top-12 w-48 h-48 bg-unad-teal/10 rounded-full blur-3xl group-hover:bg-unad-teal/20 transition-colors duration-500"></div>
-                        <div class="flex items-center gap-4 mb-6 relative z-10">
-                            <div class="p-4 bg-gradient-to-br from-unad-teal to-blue-700 rounded-2xl shadow-lg text-white">
-                                <span class="iconify" data-icon="lucide:book-open" data-width="32"></span>
+                        <div class="flex items-center gap-3 mb-4 relative z-10">
+                            <div class="p-2.5 bg-gradient-to-br from-unad-teal to-blue-700 rounded-xl shadow-lg text-white">
+                                <span class="iconify" data-icon="lucide:book-open" data-width="24"></span>
                             </div>
-                            <h3 class="font-display font-bold text-3xl text-unad-navy dark:text-white">Perfil de Formación</h3>
+                            <h3 class="font-display font-bold text-xl text-unad-navy dark:text-white">Perfil de Formación</h3>
                         </div>
-                        <div class="space-y-5 relative z-10 mt-auto mb-auto">
-                            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Durante su proceso formativo, el estudiante integra los fundamentos de las ciencias básicas, biomédicas y sociohumanísticas con los conocimientos clínicos, diagnósticos, terapéuticos, quirúrgicos, epidemiológicos y de salud pública veterinaria.</p>
-                            <div class="flex items-center gap-4">
-                                <div class="h-px flex-1 bg-gradient-to-r from-unad-teal/50 to-transparent"></div>
-                                <span class="iconify text-unad-teal/50" data-icon="lucide:arrow-down" data-width="22"></span>
-                                <div class="h-px flex-1 bg-gradient-to-l from-unad-teal/50 to-transparent"></div>
+
+                        <div class="space-y-4 relative z-10">
+                            <!-- Bloque 1 -->
+                            <div class="flex items-start gap-3 bg-unad-teal/5 border-l-3 border-unad-teal/40 p-3 rounded-r-lg">
+                                <span class="iconify text-unad-teal shrink-0 mt-0.5" data-icon="lucide:layers" data-width="18"></span>
+                                <div>
+                                    <p class="text-[11px] font-bold uppercase tracking-wide text-unad-teal mb-0.5">Integración disciplinar</p>
+                                    <p class="text-[12.5px] text-gray-700 dark:text-gray-300 leading-snug">El estudiante integra los fundamentos de las <strong>ciencias básicas, biomédicas y sociohumanísticas</strong> con los conocimientos clínicos, diagnósticos, terapéuticos, quirúrgicos, epidemiológicos y de salud pública veterinaria.</p>
+                                </div>
                             </div>
-                            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Desarrolla progresivamente capacidades para el razonamiento clínico, la toma de decisiones basada en evidencia y competencias para la gestión sanitaria, la promoción del bienestar animal y el abordaje integral desde el enfoque One Health.</p>
+
+                            <!-- Bloque 2 -->
+                            <div class="flex items-start gap-3 bg-unad-teal/5 border-l-3 border-unad-teal/40 p-3 rounded-r-lg">
+                                <span class="iconify text-unad-teal shrink-0 mt-0.5" data-icon="lucide:trending-up" data-width="18"></span>
+                                <div>
+                                    <p class="text-[11px] font-bold uppercase tracking-wide text-unad-teal mb-0.5">Desarrollo progresivo de capacidades</p>
+                                    <p class="text-[12.5px] text-gray-700 dark:text-gray-300 leading-snug">Diagnóstico clínico · decisiones basadas en evidencia · investigación · innovación · uso pertinente de tecnologías.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 3 -->
+                            <div class="flex items-start gap-3 bg-unad-teal/5 border-l-3 border-unad-teal/40 p-3 rounded-r-lg">
+                                <span class="iconify text-unad-teal shrink-0 mt-0.5" data-icon="lucide:shield-plus" data-width="18"></span>
+                                <div>
+                                    <p class="text-[11px] font-bold uppercase tracking-wide text-unad-teal mb-0.5">Competencias transversales</p>
+                                    <p class="text-[12.5px] text-gray-700 dark:text-gray-300 leading-snug">Gestión sanitaria · promoción de la salud y bienestar animal · bioseguridad · abordaje integral de problemáticas sanitarias, productivas, ambientales y sociales desde el enfoque <strong>Una Sola Salud (One Health)</strong>.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-bl from-white/95 to-white/60 dark:from-gray-900/95 dark:to-gray-900/60 p-8 rounded-3xl border border-unad-green/20 shadow-2xl backdrop-blur-xl relative overflow-hidden group flex flex-col">
+                    <!-- PERFIL DE EGRESO -->
+                    <div class="bg-gradient-to-bl from-white/95 to-white/60 dark:from-gray-900/95 dark:to-gray-900/60 p-5 rounded-3xl border border-unad-green/20 shadow-xl backdrop-blur-xl relative overflow-hidden group flex flex-col">
                         <div class="absolute -left-12 -bottom-12 w-48 h-48 bg-unad-green/10 rounded-full blur-3xl group-hover:bg-unad-green/20 transition-colors duration-500"></div>
-                        <div class="flex items-center gap-4 mb-6 relative z-10">
-                            <div class="p-4 bg-gradient-to-br from-unad-green to-emerald-700 rounded-2xl shadow-lg text-white">
-                                <span class="iconify" data-icon="lucide:award" data-width="32"></span>
+                        <div class="flex items-center gap-3 mb-4 relative z-10">
+                            <div class="p-2.5 bg-gradient-to-br from-unad-green to-emerald-700 rounded-xl shadow-lg text-white">
+                                <span class="iconify" data-icon="lucide:award" data-width="24"></span>
                             </div>
-                            <h3 class="font-display font-bold text-3xl text-unad-navy dark:text-white">Perfil de Egreso</h3>
+                            <h3 class="font-display font-bold text-xl text-unad-navy dark:text-white">Perfil de Egreso</h3>
                         </div>
-                        <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-medium">El egresado es un profesional con sólida formación científica, tecnológica, ética y humanística, capaz de prevenir, diagnosticar, tratar, controlar y hacer seguimiento a problemas de salud animal.</p>
-                        <ul class="space-y-3 relative z-10 mt-auto">
-                            <li class="flex items-center gap-4 bg-unad-green/5 hover:bg-unad-green/15 transition-all p-4 rounded-xl border border-unad-green/10 hover:shadow-sm hover:-translate-y-0.5">
-                                <div class="bg-white dark:bg-black/50 p-2.5 rounded-full shadow-sm shrink-0"><span class="iconify text-unad-green" data-icon="lucide:leaf" data-width="22"></span></div>
-                                <span class="text-sm text-gray-800 dark:text-gray-200 font-semibold">Sistemas de producción, bioseguridad e inocuidad.</span>
-                            </li>
-                            <li class="flex items-center gap-4 bg-unad-green/5 hover:bg-unad-green/15 transition-all p-4 rounded-xl border border-unad-green/10 hover:shadow-sm hover:-translate-y-0.5">
-                                <div class="bg-white dark:bg-black/50 p-2.5 rounded-full shadow-sm shrink-0"><span class="iconify text-unad-green" data-icon="lucide:globe" data-width="22"></span></div>
-                                <span class="text-sm text-gray-800 dark:text-gray-200 font-semibold">Análisis integral One Health (salud animal-humana-ambiental).</span>
-                            </li>
-                            <li class="flex items-center gap-4 bg-unad-green/5 hover:bg-unad-green/15 transition-all p-4 rounded-xl border border-unad-green/10 hover:shadow-sm hover:-translate-y-0.5">
-                                <div class="bg-white dark:bg-black/50 p-2.5 rounded-full shadow-sm shrink-0"><span class="iconify text-unad-green" data-icon="lucide:users" data-width="22"></span></div>
-                                <span class="text-sm text-gray-800 dark:text-gray-200 font-semibold">Pensamiento crítico, responsabilidad ética y social.</span>
-                            </li>
-                        </ul>
+
+                        <div class="space-y-3 relative z-10">
+
+                            <!-- Bloque 1: Identidad -->
+                            <div class="flex items-start gap-3 bg-unad-green/5 border-l-3 border-unad-green/40 p-3 rounded-r-lg">
+                                <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:user-check" data-width="18"></span>
+                                <div>
+                                    <p class="text-[11px] font-bold uppercase tracking-wide text-unad-green mb-0.5">Identidad profesional</p>
+                                    <p class="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">Profesional con sólida formación <strong>científica, tecnológica, ética y humanística</strong>, capaz de prevenir, diagnosticar, tratar, controlar y hacer seguimiento a problemas que afectan la salud y el bienestar animal en contextos clínicos, productivos, sociales y ambientales.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 2: Sistemas productivos -->
+                            <div class="flex items-start gap-3 bg-unad-green/5 border-l-3 border-unad-green/40 p-3 rounded-r-lg">
+                                <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:tractor" data-width="18"></span>
+                                <div>
+                                    <p class="text-[11px] font-bold uppercase tracking-wide text-unad-green mb-0.5">Sistemas de producción animal</p>
+                                    <p class="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">Fortalece la producción mediante <strong>bioseguridad, inocuidad de los alimentos de origen animal, bienestar animal, gestión sanitaria</strong> y uso sostenible de los recursos naturales.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 3: One Health -->
+                            <div class="flex items-start gap-3 bg-unad-green/5 border-l-3 border-unad-green/40 p-3 rounded-r-lg">
+                                <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:globe-2" data-width="18"></span>
+                                <div>
+                                    <p class="text-[11px] font-bold uppercase tracking-wide text-unad-green mb-0.5">Enfoque Una Salud (One Health)</p>
+                                    <p class="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">Analiza interacciones <strong>animal-humano-ambiente</strong> y contribuye a la prevención y control de zoonosis, vigilancia epidemiológica, gestión del riesgo y protección de la salud pública veterinaria.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 4: Toma de decisiones -->
+                            <div class="flex items-start gap-3 bg-unad-green/5 border-l-3 border-unad-green/40 p-3 rounded-r-lg">
+                                <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:brain" data-width="18"></span>
+                                <div>
+                                    <p class="text-[11px] font-bold uppercase tracking-wide text-unad-green mb-0.5">Toma de decisiones</p>
+                                    <p class="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">Emplea <strong>evidencia científica, herramientas tecnológicas y criterios profesionales</strong> para evaluar situaciones, tomar decisiones fundamentadas y atender problemáticas sanitarias, productivas y ambientales en distintos territorios.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 5: Sello profesional -->
+                            <div class="flex items-start gap-3 bg-unad-green/5 border-l-3 border-unad-green/40 p-3 rounded-r-lg">
+                                <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:heart-handshake" data-width="18"></span>
+                                <div>
+                                    <p class="text-[11px] font-bold uppercase tracking-wide text-unad-green mb-0.5">Sello profesional</p>
+                                    <p class="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">Pensamiento crítico · autonomía · responsabilidad ética · trabajo interdisciplinario · compromiso social, contribuyendo al <strong>desarrollo sostenible</strong> de comunidades, sistemas productivos y ecosistemas.</p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
             </div>
+
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -548,7 +627,7 @@
         </div>
     </section>
 
-    <!-- Diapositiva 4: Perfil Ocupacional -->
+<!-- Diapositiva 4: Perfil Ocupacional -->
     <section class="slide" data-title="Perfil Ocupacional">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
@@ -558,32 +637,82 @@
                 </h2>
                 <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Campos de acción</span>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center items-center">
-                <div class="bg-gradient-to-r from-unad-navy to-unad-teal text-white p-10 rounded-2xl shadow-lg border border-white/20 max-w-6xl w-full hover-card">
-                    <h3 class="font-bold text-base mb-5 flex items-center gap-3 border-b border-white/20 pb-4 uppercase tracking-wider text-unad-orange">
-                        <span class="iconify" data-icon="lucide:building-2" data-width="26"></span> Campos de Acción del Médico Veterinario UNAD
-                    </h3>
-                    <p class="font-medium text-lg leading-relaxed mb-8">Podrá desempeñarse en organizaciones públicas, privadas, comunitarias y del sector solidario, desarrollando actividades relacionadas con la salud y el bienestar animal, la producción animal sostenible, la salud pública veterinaria y la gestión sanitaria.</p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="bg-black/20 p-6 rounded-xl border border-white/10 flex flex-col">
-                            <span class="iconify text-unad-orange mb-3" data-icon="lucide:stethoscope" data-width="32"></span>
-                            <h4 class="font-bold text-lg mb-2 text-white">Clínica y Sanidad</h4>
-                            <p class="text-sm text-gray-200 leading-relaxed">Promoción, prevención, diagnóstico, tratamiento y control de enfermedades animales. Implementación de bioseguridad y gestión sanitaria.</p>
+            <!-- Contenedor con centrado vertical real -->
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+                <div class="min-h-full flex flex-col justify-center gap-4 py-1">
+
+                    <!-- Introducción -->
+                    <div class="bg-gradient-to-r from-unad-navy to-unad-teal text-white px-5 py-3 rounded-xl shadow-md border border-white/20 hover-card flex items-start gap-3 w-full">
+                        <span class="iconify shrink-0 mt-0.5" data-icon="lucide:building-2" data-width="24"></span>
+                        <p class="text-[13px] leading-relaxed font-medium">
+                            El Médico Veterinario egresado de la <strong>UNAD</strong> podrá desempeñarse en <strong>organizaciones públicas, privadas, comunitarias y del sector solidario</strong>, desarrollando actividades relacionadas con la salud y el bienestar animal, la producción animal sostenible, la salud pública veterinaria, la gestión sanitaria y la protección de la relación <strong>animal-humano-ambiente</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Grid de bloques temáticos -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 w-full">
+
+                        <!-- Bloque 1: Clínica -->
+                        <div class="bg-gradient-to-br from-unad-teal/10 to-white/70 dark:from-unad-teal/20 dark:to-black/40 p-4 rounded-xl border-l-4 border-unad-teal shadow-sm hover-card flex flex-col">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="iconify text-unad-teal" data-icon="lucide:stethoscope" data-width="22"></span>
+                                <h4 class="font-bold text-[12px] uppercase tracking-wide text-unad-teal leading-tight">Clínica y Bienestar Animal</h4>
+                            </div>
+                            <p class="text-[12px] text-gray-800 dark:text-gray-200 leading-snug">
+                                Promoción, prevención, diagnóstico, tratamiento, control y seguimiento de enfermedades que afectan a los animales.
+                            </p>
                         </div>
-                        <div class="bg-black/20 p-6 rounded-xl border border-white/10 flex flex-col">
-                            <span class="iconify text-unad-orange mb-3" data-icon="lucide:shield-check" data-width="32"></span>
-                            <h4 class="font-bold text-lg mb-2 text-white">Salud Pública (One Health)</h4>
-                            <p class="text-sm text-gray-200 leading-relaxed">Prevención y control de zoonosis, vigilancia epidemiológica e inocuidad alimentaria en interacción humano-animal-ambiente.</p>
+
+                        <!-- Bloque 2: Programas sanitarios -->
+                        <div class="bg-gradient-to-br from-unad-navy/10 to-white/70 dark:from-unad-navy/20 dark:to-black/40 p-4 rounded-xl border-l-4 border-unad-navy dark:border-gray-400 shadow-sm hover-card flex flex-col">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="iconify text-unad-navy dark:text-white" data-icon="lucide:clipboard-list" data-width="22"></span>
+                                <h4 class="font-bold text-[12px] uppercase tracking-wide text-unad-navy dark:text-white leading-tight">Programas Sanitarios</h4>
+                            </div>
+                            <p class="text-[12px] text-gray-800 dark:text-gray-200 leading-snug">
+                                Implementación y evaluación de programas de <strong>bioseguridad, bienestar animal, gestión sanitaria, inocuidad alimentaria</strong> y vigilancia epidemiológica.
+                            </p>
                         </div>
-                        <div class="bg-black/20 p-6 rounded-xl border border-white/10 flex flex-col">
-                            <span class="iconify text-unad-orange mb-3" data-icon="lucide:flask-conical" data-width="32"></span>
-                            <h4 class="font-bold text-lg mb-2 text-white">Desarrollo e Investigación</h4>
-                            <p class="text-sm text-gray-200 leading-relaxed">Producción pecuaria, asistencia técnica, laboratorios diagnósticos, investigación aplicada, extensión rural y gestión ambiental.</p>
+
+                        <!-- Bloque 3: One Health -->
+                        <div class="bg-gradient-to-br from-unad-green/10 to-white/70 dark:from-unad-green/20 dark:to-black/40 p-4 rounded-xl border-l-4 border-unad-green shadow-sm hover-card flex flex-col">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="iconify text-unad-green" data-icon="lucide:globe-2" data-width="22"></span>
+                                <h4 class="font-bold text-[12px] uppercase tracking-wide text-unad-green leading-tight">Salud Pública · One Health</h4>
+                            </div>
+                            <p class="text-[12px] text-gray-800 dark:text-gray-200 leading-snug">
+                                Prevención y control de zoonosis, gestión del riesgo sanitario y fortalecimiento de la salud pública veterinaria desde el enfoque <strong>Una Salud</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Bloque 4: Sectores de desempeño -->
+                        <div class="bg-gradient-to-br from-unad-orange/10 to-white/70 dark:from-unad-orange/20 dark:to-black/40 p-4 rounded-xl border-l-4 border-unad-orange shadow-sm hover-card flex flex-col">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="iconify text-unad-orange" data-icon="lucide:factory" data-width="22"></span>
+                                <h4 class="font-bold text-[12px] uppercase tracking-wide text-unad-orange leading-tight">Sectores de Desempeño</h4>
+                            </div>
+                            <p class="text-[12px] text-gray-800 dark:text-gray-200 leading-snug">
+                                Producción pecuaria, asistencia técnica, desarrollo rural, gestión ambiental, laboratorios de apoyo diagnóstico, programas sanitarios, educación, investigación aplicada y extensión.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Franja de cierre: Enfoque profesional -->
+                    <div class="bg-gradient-to-r from-unad-teal to-unad-navy text-white px-5 py-3 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center gap-3 w-full">
+                        <span class="iconify shrink-0" data-icon="lucide:lightbulb" data-width="24"></span>
+                        <div class="flex-1 text-left">
+                            <span class="font-bold text-[10px] uppercase tracking-widest block mb-0.5 opacity-90">Sello Profesional</span>
+                            <p class="text-[12.5px] leading-snug font-medium">
+                                Emplea <strong>evidencia científica, herramientas tecnológicas y criterios profesionales</strong> para analizar situaciones de su campo de actuación, tomar decisiones fundamentadas y contribuir al mejoramiento de las condiciones <strong>sanitarias, productivas, ambientales y sociales</strong> de los territorios.
+                            </p>
                         </div>
                     </div>
+
                 </div>
             </div>
+
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -596,7 +725,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Diapositiva 5: NIP -->
     <section class="slide" data-title="NIP">
         <div class="glass-panel">
@@ -605,27 +734,58 @@
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:anchor" data-width="32"></span>
                     Núcleo Integrador de Problema (NIP)
                 </h2>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Eje articulador</span>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center items-center gap-6">
-                <div class="bg-white/70 dark:bg-black/40 border-t-4 border-unad-teal p-8 rounded-2xl shadow-sm hover-card max-w-5xl w-full text-center">
-                    <span class="iconify text-unad-teal mx-auto mb-3" data-icon="lucide:anchor" data-width="40"></span>
-                    <p class="font-bold text-lg md:text-xl text-unad-navy dark:text-white leading-relaxed italic">"Gestión integral de la salud, el bienestar y la producción animal para contribuir a la salud pública, la seguridad alimentaria, la sostenibilidad de los territorios y la conservación de los ecosistemas, mediante la comprensión de las interacciones entre los animales, los seres humanos y el ambiente desde el enfoque Una sola salud (One Health)"</p>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-6xl w-full">
-                    <div class="bg-white/60 dark:bg-black/40 p-6 rounded-xl border-l-4 border-unad-orange shadow-sm hover-card flex flex-col">
-                        <span class="text-sm font-bold text-unad-orange uppercase tracking-wider mb-3 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-triangle" data-width="18"></span> Manifestaciones del Problema</span>
-                        <ul class="text-base text-gray-700 dark:text-gray-300 space-y-3 list-disc pl-5 mt-2">
-                            <li>Necesidad de optimizar la salud, bienestar y productividad animal garantizando seguridad alimentaria y sostenibilidad territorial.</li>
-                            <li>Necesidad de prevenir y controlar enfermedades animales y zoonóticas mediante vigilancia y gestión sanitaria bajo el enfoque Una Salud.</li>
-                        </ul>
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+                <div class="min-h-full flex flex-col justify-center gap-4 py-1">
+
+                    <!-- NIP destacado -->
+                    <div class="bg-gradient-to-r from-unad-teal to-unad-navy text-white px-6 py-5 rounded-2xl shadow-lg border border-white/20 hover-card flex items-start gap-4 w-full">
+                        <span class="iconify shrink-0 mt-1" data-icon="lucide:anchor" data-width="36"></span>
+                        <div class="flex-1 text-left">
+                            <span class="font-bold text-[11px] uppercase tracking-widest block mb-2 opacity-90">Núcleo Integrador del Problema</span>
+                            <p class="text-[15px] md:text-base font-semibold italic leading-relaxed">
+                                "Gestión integral de la salud y el bienestar animal, la salud pública veterinaria y la sostenibilidad de los sistemas pecuarios y los ecosistemas en la interfaz animal-humano-ambiente."
+                            </p>
+                        </div>
                     </div>
-                    <div class="bg-unad-teal text-white p-6 rounded-xl shadow-md border border-white/20 hover-card flex flex-col justify-center">
-                        <span class="text-sm font-bold text-unad-orange uppercase tracking-wider mb-3 flex items-center gap-2"><span class="iconify" data-icon="lucide:help-circle" data-width="18"></span> Pregunta Generadora</span>
-                        <p class="text-base font-medium italic leading-relaxed">¿Cómo abordar integralmente las problemáticas sanitarias, productivas, ambientales y sociales que emergen en la interacción entre animales, seres humanos y ambiente, para promover la salud y el bienestar animal, fortalecer la salud pública veterinaria y contribuir al desarrollo sostenible de los territorios desde el enfoque Una Salud (One Health)?</p>
+
+                    <!-- Grid de 2 columnas -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+
+                        <!-- Manifestaciones del problema -->
+                        <div class="bg-gradient-to-br from-unad-orange/10 to-white/70 dark:from-unad-orange/20 dark:to-black/40 p-5 rounded-xl border-l-4 border-unad-orange shadow-sm hover-card flex flex-col">
+                            <span class="text-[11px] font-bold text-unad-orange uppercase tracking-widest mb-3 flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:alert-triangle" data-width="18"></span> Manifestaciones del Problema
+                            </span>
+                            <ul class="text-[12.5px] text-gray-800 dark:text-gray-200 space-y-2 leading-snug">
+                                <li class="flex items-start gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-unad-orange shrink-0 mt-1.5"></span>
+                                    <span>Necesidad de optimizar la salud, bienestar y productividad animal garantizando seguridad alimentaria y sostenibilidad territorial.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-unad-orange shrink-0 mt-1.5"></span>
+                                    <span>Necesidad de prevenir y controlar enfermedades animales y zoonóticas mediante vigilancia y gestión sanitaria bajo el enfoque Una Salud.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Pregunta generadora (AJUSTADA) -->
+                        <div class="bg-gradient-to-br from-unad-teal/10 to-white/70 dark:from-unad-teal/20 dark:to-black/40 p-5 rounded-xl border-l-4 border-unad-teal shadow-sm hover-card flex flex-col">
+                            <span class="text-[11px] font-bold text-unad-teal uppercase tracking-widest mb-3 flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:help-circle" data-width="18"></span> Pregunta Generadora
+                            </span>
+                            <p class="text-[12.5px] text-gray-800 dark:text-gray-200 italic leading-snug font-medium">
+                                ¿Cómo puede el médico veterinario intervenir integralmente los procesos de salud-enfermedad y bienestar animal, y los riesgos sanitarios asociados a los sistemas pecuarios y a la interfaz animal-humano-ambiente, para proteger la salud pública, contribuir a la inocuidad de los alimentos de origen animal y favorecer la sostenibilidad de los territorios?
+                            </p>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
+
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -649,44 +809,71 @@
                 </h2>
                 <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">2 NP · 4 Competencias</span>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl w-full">
-                    <!-- NP 1 -->
-                    <div class="bg-white/70 dark:bg-black/40 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover-card flex flex-col h-full">
-                        <div class="bg-unad-teal text-white p-5 flex items-start gap-4">
-                            <span class="iconify shrink-0 mt-1" data-icon="lucide:stethoscope" data-width="30"></span>
-                            <h3 class="font-bold text-lg leading-snug">NP 1. Salud animal: fundamentos biológicos, diagnóstico y atención veterinaria</h3>
-                        </div>
-                        <div class="p-6 flex flex-col gap-5">
-                            <div>
-                                <span class="text-sm font-bold text-unad-teal uppercase block mb-2 tracking-wider">Competencia 1</span>
-                                <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">Analiza los procesos biológicos, fisiológicos, inmunológicos y patológicos que intervienen en la salud y la enfermedad animal para interpretar sus manifestaciones y sustentar la toma de decisiones.</p>
+
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+                <div class="min-h-full flex items-center justify-center">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-6xl w-full">
+
+                        <!-- NP 1 -->
+                        <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover-card flex flex-col">
+                            <div class="bg-gradient-to-r from-unad-teal to-unad-navy text-white px-5 py-4 flex items-start gap-3">
+                                <span class="iconify shrink-0 mt-0.5" data-icon="lucide:stethoscope" data-width="28"></span>
+                                <div>
+                                    <p class="text-[10px] font-bold uppercase tracking-widest text-white/85 mb-0.5">Núcleo Problémico 1</p>
+                                    <h3 class="font-display font-bold text-base leading-snug">Procesos de salud-enfermedad, diagnóstico y atención veterinaria</h3>
+                                </div>
                             </div>
-                            <div class="border-t border-gray-200 dark:border-gray-700 pt-5">
-                                <span class="text-sm font-bold text-unad-teal uppercase block mb-2 tracking-wider">Competencia 2</span>
-                                <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">Evalúa el estado de salud animal mediante el método clínico, integrando anamnesis, examen clínico, ayudas diagnósticas y evidencia para sustentar la prevención, diagnóstico y tratamiento ético.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- NP 2 -->
-                    <div class="bg-white/70 dark:bg-black/40 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover-card flex flex-col h-full">
-                        <div class="bg-unad-green text-white p-5 flex items-start gap-4">
-                            <span class="iconify shrink-0 mt-1" data-icon="lucide:globe" data-width="30"></span>
-                            <h3 class="font-bold text-lg leading-snug">NP 2. Salud poblacional, producción y sostenibilidad (One Health)</h3>
-                        </div>
-                        <div class="p-6 flex flex-col gap-5">
-                            <div>
-                                <span class="text-sm font-bold text-unad-green uppercase block mb-2 tracking-wider">Competencia 3</span>
-                                <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">Analiza factores epidemiológicos, sanitarios y ambientales de enfermedades animales y zoonóticas para sustentar prevención, vigilancia y control orientadas a sanidad y salud pública.</p>
-                            </div>
-                            <div class="border-t border-gray-200 dark:border-gray-700 pt-5">
-                                <span class="text-sm font-bold text-unad-green uppercase block mb-2 tracking-wider">Competencia 4</span>
-                                <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">Integra factores productivos, nutricionales, genéticos, reproductivos y de bienestar para sustentar acciones de sostenibilidad y eficiencia en sistemas de producción (One Health).</p>
+                            <div class="p-5 flex flex-col gap-4 flex-1">
+
+                                <div class="bg-unad-teal/5 border-l-3 border-unad-teal/50 p-3 rounded-r-lg">
+                                    <span class="text-[11px] font-bold text-unad-teal uppercase tracking-widest block mb-1">Competencia 1</span>
+                                    <p class="text-[12.5px] text-gray-800 dark:text-gray-200 leading-snug">
+                                        Comprende los procesos biológicos, fisiológicos, inmunológicos y patológicos que intervienen en la salud y la enfermedad animal, interpretando sus manifestaciones y sustentando la toma de decisiones en la práctica veterinaria.
+                                    </p>
+                                </div>
+
+                                <div class="bg-unad-teal/5 border-l-3 border-unad-teal/50 p-3 rounded-r-lg">
+                                    <span class="text-[11px] font-bold text-unad-teal uppercase tracking-widest block mb-1">Competencia 2</span>
+                                    <p class="text-[12.5px] text-gray-800 dark:text-gray-200 leading-snug">
+                                        Interpreta el estado de salud animal mediante la aplicación del método clínico veterinario, integrando información proveniente de la anamnesis, el examen clínico, las ayudas diagnósticas y la evidencia científica para sustentar decisiones orientadas a la prevención, diagnóstico, tratamiento y seguimiento de enfermedades, en concordancia con principios éticos, normativos y de bienestar animal.
+                                    </p>
+                                </div>
+
                             </div>
                         </div>
+
+                        <!-- NP 2 -->
+                        <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover-card flex flex-col">
+                            <div class="bg-gradient-to-r from-unad-green to-emerald-700 text-white px-5 py-4 flex items-start gap-3">
+                                <span class="iconify shrink-0 mt-0.5" data-icon="lucide:globe" data-width="28"></span>
+                                <div>
+                                    <p class="text-[10px] font-bold uppercase tracking-widest text-white/85 mb-0.5">Núcleo Problémico 2</p>
+                                    <h3 class="font-display font-bold text-base leading-snug">Salud poblacional, bienestar y sostenibilidad de los sistemas pecuarios</h3>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col gap-4 flex-1">
+
+                                <div class="bg-unad-green/5 border-l-3 border-unad-green/50 p-3 rounded-r-lg">
+                                    <span class="text-[11px] font-bold text-unad-green uppercase tracking-widest block mb-1">Competencia 3</span>
+                                    <p class="text-[12.5px] text-gray-800 dark:text-gray-200 leading-snug">
+                                        Establece los factores epidemiológicos, sanitarios y ambientales asociados a la ocurrencia y transmisión de enfermedades animales y zoonóticas para sustentar acciones de prevención, vigilancia y control orientadas al fortalecimiento de la sanidad animal y la protección de la salud pública.
+                                    </p>
+                                </div>
+
+                                <div class="bg-unad-green/5 border-l-3 border-unad-green/50 p-3 rounded-r-lg">
+                                    <span class="text-[11px] font-bold text-unad-green uppercase tracking-widest block mb-1">Competencia 4</span>
+                                    <p class="text-[12.5px] text-gray-800 dark:text-gray-200 leading-snug">
+                                        Integra factores sanitarios, nutricionales, genéticos, reproductivos y de bienestar animal para evaluar condiciones de salud en poblaciones animales y sustentar decisiones veterinarias orientadas al bienestar, la prevención de riesgos y la sostenibilidad de los sistemas pecuarios, en articulación con el enfoque <strong>Una Salud (One Health)</strong>.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
+
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -703,105 +890,190 @@
     <!-- Diapositiva 7: Alineación Competencias / RAPs -->
     <section class="slide" data-title="Alineación Curricular">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
                     <span class="iconify text-unad-teal animate-spin" data-icon="lucide:git-merge" data-width="30" style="animation-duration: 15s;"></span>
                     Alineación: Competencias, RAPs y Red Curricular
                 </h2>
-                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">4 Competencias · 6 RAPs</span>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">4 Competencias · 5 RAPs</span>
             </div>
 
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 w-full">
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+                <div class="min-h-full flex flex-col justify-center gap-2 py-1">
 
-                    <!-- Competencia 1 -->
-                    <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover-card overflow-hidden flex flex-col">
-                        <div class="bg-unad-teal text-white px-5 py-4 flex items-start gap-3">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:microscope" data-width="26"></span>
+                    <!-- Encabezado de columnas -->
+                    <div class="grid grid-cols-12 gap-2 px-2">
+                        <div class="col-span-3 flex items-center gap-1.5 text-unad-teal dark:text-teal-300">
+                            <span class="iconify" data-icon="lucide:award" data-width="14"></span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest">Competencias del Egresado</span>
+                        </div>
+                        <div class="col-span-4 flex items-center gap-1.5 text-unad-navy dark:text-blue-300">
+                            <span class="iconify" data-icon="lucide:target" data-width="14"></span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest">Resultados de Aprendizaje (RAP)</span>
+                        </div>
+                        <div class="col-span-5 flex items-center gap-1.5 text-unad-orange">
+                            <span class="iconify" data-icon="lucide:library" data-width="14"></span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest">Red Curricular · Conglomerado de Cursos</span>
+                        </div>
+                    </div>
+
+                    <!-- ============ COMPETENCIA 1 · TEAL ============ -->
+                    <div class="grid grid-cols-12 gap-2 bg-white/75 dark:bg-black/45 rounded-xl border-l-4 border-unad-teal shadow-sm hover-card overflow-hidden">
+                        <!-- Competencia -->
+                        <div class="col-span-3 bg-gradient-to-br from-unad-teal to-blue-700 text-white p-3 flex flex-col justify-center">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="bg-white/25 w-6 h-6 rounded-full flex items-center justify-center font-bold text-[11px] shrink-0">1</span>
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-white/85">Competencia</span>
+                            </div>
+                            <h3 class="font-display font-bold text-[12px] leading-snug">Procesos biológicos, fisiológicos, inmunológicos y patológicos</h3>
+                        </div>
+
+                        <!-- RAPs -->
+                        <div class="col-span-4 p-3 flex flex-col gap-2 justify-center border-r border-dashed border-gray-300 dark:border-gray-600">
                             <div>
-                                <p class="text-xs font-bold uppercase tracking-wider text-white/85">Competencia 1</p>
-                                <h3 class="font-display font-bold text-base leading-snug">Procesos biológicos, fisiológicos, inmunológicos y patológicos</h3>
+                                <div class="flex items-center gap-1.5 mb-0.5">
+                                    <span class="text-[9px] font-bold uppercase tracking-widest text-white bg-unad-teal px-1.5 py-[1px] rounded-full">RAP 1</span>
+                                    <span class="text-[10px] font-bold text-unad-teal">Identificar</span>
+                                </div>
+                                <p class="text-[10.5px] text-gray-800 dark:text-gray-200 leading-snug">Identificar la organización estructural y funcional de los organismos animales para interpretar los procesos biológicos, fisiológicos e inmunológicos asociados al mantenimiento de la salud animal.</p>
+                            </div>
+                            <div class="border-t border-gray-200 dark:border-gray-700 pt-2">
+                                <div class="flex items-center gap-1.5 mb-0.5">
+                                    <span class="text-[9px] font-bold uppercase tracking-widest text-white bg-unad-teal px-1.5 py-[1px] rounded-full">RAP 2</span>
+                                    <span class="text-[10px] font-bold text-unad-teal">Clasificar</span>
+                                </div>
+                                <p class="text-[10.5px] text-gray-800 dark:text-gray-200 leading-snug">Clasificar los agentes etiológicos, mecanismos fisiopatológicos e inmunológicos involucrados en la presentación de enfermedades animales para interpretar sus manifestaciones clínicas, diagnósticas y epidemiológicas.</p>
                             </div>
                         </div>
-                        <div class="p-5 flex flex-col gap-4 flex-1">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-teal dark:text-unad-orange block mb-1.5">RAP 1</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Analizar la organización estructural y funcional para interpretar procesos biológicos y fisiológicos.</p>
+
+                        <!-- Red curricular -->
+                        <div class="col-span-5 p-3 flex flex-col justify-center">
+                            <div class="mb-1.5">
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-unad-teal">RAP 1 · Cursos</span>
                             </div>
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-teal dark:text-unad-orange block mb-1.5">RAP 2</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Analizar mecanismos etiológicos e inmunológicos en la presentación de enfermedades.</p>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Introducción a la Medicina Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Anatomía Veterinaria Comparada</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Biología del Desarrollo y Fisiología Animal</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Inmunología Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Genética y Genómica Aplicada a la Medicina Veterinaria</span>
                             </div>
-                            <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <span class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 block mb-1.5">Red Curricular</span>
-                                <p class="text-xs text-gray-600 dark:text-gray-400 italic leading-relaxed">Introducción a MV, Anatomía, Fisiología, Inmunología, Genética, Microbiología, Virología, Parasitología, Patología.</p>
+                            <div class="border-t border-gray-200 dark:border-gray-700 pt-1.5">
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-unad-teal block mb-1">RAP 2 · Cursos</span>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Microbiología Veterinaria</span>
+                                    <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Virología Veterinaria</span>
+                                    <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Parasitología Veterinaria</span>
+                                    <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Patología General y Sistémica</span>
+                                    <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Patología Diagnóstica y de Laboratorio Clínico</span>
+                                    <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Toxicología Veterinaria</span>
+                                    <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-teal/10 border border-unad-teal/25 text-unad-teal dark:text-teal-300 font-medium">Epidemiología y Salud Pública Veterinaria</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Competencia 2 -->
-                    <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover-card overflow-hidden flex flex-col">
-                        <div class="bg-unad-navy text-white px-5 py-4 flex items-start gap-3">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:stethoscope" data-width="26"></span>
-                            <div>
-                                <p class="text-xs font-bold uppercase tracking-wider text-white/85">Competencia 2</p>
-                                <h3 class="font-display font-bold text-base leading-snug">Método clínico, diagnóstico y tratamiento ético</h3>
+                    <!-- ============ COMPETENCIA 2 · NAVY ============ -->
+                    <div class="grid grid-cols-12 gap-2 bg-white/75 dark:bg-black/45 rounded-xl border-l-4 border-unad-navy shadow-sm hover-card overflow-hidden">
+                        <div class="col-span-3 bg-gradient-to-br from-unad-navy to-blue-900 text-white p-3 flex flex-col justify-center">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="bg-white/25 w-6 h-6 rounded-full flex items-center justify-center font-bold text-[11px] shrink-0">2</span>
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-white/85">Competencia</span>
                             </div>
+                            <h3 class="font-display font-bold text-[12px] leading-snug">Método clínico, diagnóstico y tratamiento ético</h3>
                         </div>
-                        <div class="p-5 flex flex-col gap-4 flex-1">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-teal dark:text-unad-orange block mb-1.5">RAP 3</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Evaluar información clínica (anamnesis, examen, ayudas) para sustentar hipótesis diagnósticas.</p>
+
+                        <div class="col-span-4 p-3 flex flex-col justify-center border-r border-dashed border-gray-300 dark:border-gray-600">
+                            <div class="flex items-center gap-1.5 mb-0.5">
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-white bg-unad-navy px-1.5 py-[1px] rounded-full">RAP 3</span>
+                                <span class="text-[10px] font-bold text-unad-navy dark:text-blue-300">Analizar</span>
                             </div>
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-teal dark:text-unad-orange block mb-1.5">RAP 4</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Integrar evidencia clínica para prevención, diagnóstico, tratamiento y seguimiento.</p>
-                            </div>
-                            <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <span class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 block mb-1.5">Red Curricular</span>
-                                <p class="text-xs text-gray-600 dark:text-gray-400 italic leading-relaxed">Semiología, Imagenología, Farmacología, Toxicología, Medicina Interna (Pequeños, Equinos, Rumiantes), Cirugía, Rotaciones Clínicas.</p>
+                            <p class="text-[10.5px] text-gray-800 dark:text-gray-200 leading-snug">Analizar información obtenida mediante la anamnesis, el examen clínico y las ayudas diagnósticas para fundamentar decisiones relacionadas con la salud y el bienestar animal en diferentes contextos de la práctica veterinaria.</p>
+                        </div>
+
+                        <div class="col-span-5 p-3 flex flex-col justify-center">
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-unad-navy dark:text-blue-300 block mb-1.5">RAP 3 · Cursos</span>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Semiología y Competencias Clínicas Veterinarias</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Imagenología Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Patología Diagnóstica y de Laboratorio Clínico</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Farmacología Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Toxicología Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Medicina Interna de Pequeños Animales</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Medicina Interna en Equinos</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Medicina Interna de Rumiantes</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Medicina de Urgencias y Cuidados Intensivos</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Medicina de Fauna Silvestre y Exótica</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Cirugía, Anestesiología y Manejo del Dolor</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Rotación Clínica de Pequeños Animales</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Rotación Clínica en Medicina y Cirugía Equina</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-navy/10 border border-unad-navy/25 text-unad-navy dark:text-blue-300 font-medium">Rotación de Profundización</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Competencia 3 -->
-                    <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover-card overflow-hidden flex flex-col">
-                        <div class="bg-unad-green text-white px-5 py-4 flex items-start gap-3">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:globe" data-width="26"></span>
-                            <div>
-                                <p class="text-xs font-bold uppercase tracking-wider text-white/85">Competencia 3</p>
-                                <h3 class="font-display font-bold text-base leading-snug">Epidemiología, sanidad y salud pública</h3>
+                    <!-- ============ COMPETENCIA 3 · GREEN ============ -->
+                    <div class="grid grid-cols-12 gap-2 bg-white/75 dark:bg-black/45 rounded-xl border-l-4 border-unad-green shadow-sm hover-card overflow-hidden">
+                        <div class="col-span-3 bg-gradient-to-br from-unad-green to-emerald-700 text-white p-3 flex flex-col justify-center">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="bg-white/25 w-6 h-6 rounded-full flex items-center justify-center font-bold text-[11px] shrink-0">3</span>
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-white/85">Competencia</span>
                             </div>
+                            <h3 class="font-display font-bold text-[12px] leading-snug">Epidemiología, sanidad y salud pública veterinaria</h3>
                         </div>
-                        <div class="p-5 flex flex-col gap-4 flex-1">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-green block mb-1.5">RAP 5</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Interpretar información epidemiológica para identificar riesgos de enfermedades y zoonosis (One Health).</p>
+
+                        <div class="col-span-4 p-3 flex flex-col justify-center border-r border-dashed border-gray-300 dark:border-gray-600">
+                            <div class="flex items-center gap-1.5 mb-0.5">
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-white bg-unad-green px-1.5 py-[1px] rounded-full">RAP 4</span>
+                                <span class="text-[10px] font-bold text-unad-green">Argumentar</span>
                             </div>
-                            <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <span class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 block mb-1.5">Red Curricular</span>
-                                <p class="text-xs text-gray-600 dark:text-gray-400 italic leading-relaxed">Epidemiología, Enfoque One Health, Bioética, Legislación, Rotación Vigilancia Sanitaria.</p>
+                            <p class="text-[10.5px] text-gray-800 dark:text-gray-200 leading-snug">Argumentar la relación entre factores epidemiológicos, sanitarios y ambientales y la ocurrencia y transmisión de enfermedades animales y zoonóticas, para sustentar acciones de prevención, vigilancia y control en salud pública veterinaria.</p>
+                        </div>
+
+                        <div class="col-span-5 p-3 flex flex-col justify-center">
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-unad-green block mb-1.5">RAP 4 · Cursos</span>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-green/10 border border-unad-green/25 text-unad-green dark:text-emerald-300 font-medium">Epidemiología y Salud Pública Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-green/10 border border-unad-green/25 text-unad-green dark:text-emerald-300 font-medium">Fundamentos del Enfoque One Health</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-green/10 border border-unad-green/25 text-unad-green dark:text-emerald-300 font-medium">Microbiología Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-green/10 border border-unad-green/25 text-unad-green dark:text-emerald-300 font-medium">Virología Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-green/10 border border-unad-green/25 text-unad-green dark:text-emerald-300 font-medium">Parasitología Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-green/10 border border-unad-green/25 text-unad-green dark:text-emerald-300 font-medium">Inmunología Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-green/10 border border-unad-green/25 text-unad-green dark:text-emerald-300 font-medium">Bioética y Legislación Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-green/10 border border-unad-green/25 text-unad-green dark:text-emerald-300 font-medium">Rotación One Health y Vigilancia Sanitaria</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Competencia 4 -->
-                    <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover-card overflow-hidden flex flex-col">
-                        <div class="bg-unad-orange text-white px-5 py-4 flex items-start gap-3">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:leaf" data-width="26"></span>
-                            <div>
-                                <p class="text-xs font-bold uppercase tracking-wider text-white/85">Competencia 4</p>
-                                <h3 class="font-display font-bold text-base leading-snug">Producción sostenible y bienestar animal</h3>
+                    <!-- ============ COMPETENCIA 4 · ORANGE ============ -->
+                    <div class="grid grid-cols-12 gap-2 bg-white/75 dark:bg-black/45 rounded-xl border-l-4 border-unad-orange shadow-sm hover-card overflow-hidden">
+                        <div class="col-span-3 bg-gradient-to-br from-unad-orange to-orange-600 text-white p-3 flex flex-col justify-center">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="bg-white/25 w-6 h-6 rounded-full flex items-center justify-center font-bold text-[11px] shrink-0">4</span>
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-white/85">Competencia</span>
                             </div>
+                            <h3 class="font-display font-bold text-[12px] leading-snug">Producción sostenible y bienestar animal</h3>
                         </div>
-                        <div class="p-5 flex flex-col gap-4 flex-1">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-orange block mb-1.5">RAP 6</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Evaluar factores nutricionales, genéticos, reproductivos y de bienestar para la sostenibilidad de sistemas.</p>
+
+                        <div class="col-span-4 p-3 flex flex-col justify-center border-r border-dashed border-gray-300 dark:border-gray-600">
+                            <div class="flex items-center gap-1.5 mb-0.5">
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-white bg-unad-orange px-1.5 py-[1px] rounded-full">RAP 5</span>
+                                <span class="text-[10px] font-bold text-unad-orange">Evaluar</span>
                             </div>
-                            <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <span class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 block mb-1.5">Red Curricular</span>
-                                <p class="text-xs text-gray-600 dark:text-gray-400 italic leading-relaxed">Nutrición, Biotecnologías, Etología, Producción Aviar/Porcina, Rotaciones de Producción.</p>
+                            <p class="text-[10.5px] text-gray-800 dark:text-gray-200 leading-snug">Evaluar condiciones de salud en poblaciones animales mediante la integración de factores sanitarios, nutricionales, genéticos, reproductivos y de bienestar animal para sustentar decisiones orientadas al bienestar, la prevención de riesgos y la sostenibilidad de los sistemas pecuarios.</p>
+                        </div>
+
+                        <div class="col-span-5 p-3 flex flex-col justify-center">
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-unad-orange block mb-1.5">RAP 5 · Cursos</span>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-orange/10 border border-unad-orange/25 text-unad-orange font-medium">Nutrición Clínica</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-orange/10 border border-unad-orange/25 text-unad-orange font-medium">Genética y Genómica Aplicada a la Medicina Veterinaria</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-orange/10 border border-unad-orange/25 text-unad-orange font-medium">Biotecnologías y Manejo Reproductivo</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-orange/10 border border-unad-orange/25 text-unad-orange font-medium">Etología y Bienestar Animal</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-orange/10 border border-unad-orange/25 text-unad-orange font-medium">Medicina y Producción Aviar</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-orange/10 border border-unad-orange/25 text-unad-orange font-medium">Medicina y Producción Porcina</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-orange/10 border border-unad-orange/25 text-unad-orange font-medium">Rotación Sistemas de Producción Animal</span>
+                                <span class="text-[9.5px] px-1.5 py-[2px] rounded-full bg-unad-orange/10 border border-unad-orange/25 text-unad-orange font-medium">Rotación Reproducción y Biotecnología Veterinaria</span>
                             </div>
                         </div>
                     </div>
@@ -830,7 +1102,7 @@
                     <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:layout-list" data-width="26"></span>
                     Detalle del Plan de Estudios (I a X Período)
                 </h2>
-                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">174 Créditos · 8.057 h</span>
+                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">174 Créditos · 7.939 h</span>
             </div>
 
             <div class="flex-1 overflow-auto custom-scroll gsap-reveal bg-white/85 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700">
@@ -874,7 +1146,7 @@
                         <tr><td class="td-left">Herramientas digitales para la gestión del conocimiento</td><td class="x-mark">X</td><td></td><td>3</td><td>M</td><td>32</td><td>112</td><td>144</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
 
                         <tr class="period-row"><td colspan="12">Período académico III</td></tr>
-                        <tr><td class="td-left">Inmunología</td><td class="x-mark">X</td><td></td><td>3</td><td>P</td><td>32</td><td>112</td><td>144</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Inmunología Veterinaria</td><td class="x-mark">X</td><td></td><td>3</td><td>P</td><td>32</td><td>112</td><td>144</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Nutrición clínica</td><td class="x-mark">X</td><td></td><td>2</td><td>P</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Genética y Genómica Aplicada a la Medicina Veterinaria</td><td class="x-mark">X</td><td></td><td>3</td><td>M</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Estadística Descriptiva Aplicada a las Ciencias Agrarias</td><td class="x-mark">X</td><td></td><td>3</td><td>T</td><td>32</td><td>112</td><td>144</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
@@ -886,7 +1158,7 @@
                         <tr class="period-row"><td colspan="12">Período académico IV</td></tr>
                         <tr><td class="td-left">Patología diagnóstica y de laboratorio clínico</td><td class="x-mark">X</td><td></td><td>3</td><td>P</td><td>32</td><td>112</td><td>144</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Microbiología veterinaria</td><td class="x-mark">X</td><td></td><td>2</td><td>P</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
-                        <tr><td class="td-left">Virología animal</td><td class="x-mark">X</td><td></td><td>2</td><td>P</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Virología Veterinaria</td><td class="x-mark">X</td><td></td><td>2</td><td>P</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Parasitología veterinaria</td><td class="x-mark">X</td><td></td><td>2</td><td>P</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Diseño experimental</td><td class="x-mark">X</td><td></td><td>2</td><td>T</td><td>32</td><td>64</td><td>96</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
                         <tr><td class="td-left">Etología y bienestar animal</td><td class="x-mark">X</td><td></td><td>2</td><td>P</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
@@ -905,7 +1177,7 @@
                         <tr class="period-row"><td colspan="12">Período académico VI</td></tr>
                         <tr><td class="td-left">Inglés A1</td><td class="x-mark">X</td><td></td><td>3</td><td>M</td><td>32</td><td>112</td><td>144</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
                         <tr><td class="td-left">Imagenología Veterinaria</td><td class="x-mark">X</td><td></td><td>3</td><td>P</td><td>32</td><td>112</td><td>144</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
-                        <tr><td class="td-left">Cirugía, anestesiología y manejo del dolor</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>39</td><td>157</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Cirugía, anestesiología y manejo del dolor</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>157</td><td>39</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Medicina interna de rumiantes</td><td class="x-mark">X</td><td></td><td>3</td><td>P</td><td>32</td><td>112</td><td>144</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Electiva disciplinar común (DC)</td><td></td><td class="x-mark">X</td><td>3</td><td>M</td><td>32</td><td>112</td><td>144</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
                         <tr><td class="td-left">Electiva disciplinar común (DC)</td><td></td><td class="x-mark">X</td><td>2</td><td>M</td><td>32</td><td>64</td><td>96</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
@@ -921,24 +1193,24 @@
                         <tr><td class="td-left">Medicina y producción porcina</td><td class="x-mark">X</td><td></td><td>2</td><td>P</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
 
                         <tr class="period-row"><td colspan="12">Período académico VIII</td></tr>
-                        <tr><td class="td-left">Rotación Clínica de pequeños animales</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>39</td><td>157</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
-                        <tr><td class="td-left">Rotación Clínica en Medicina y cirugía equina</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>39</td><td>157</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Rotación Clínica de pequeños animales</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>157</td><td>39</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Rotación Clínica en Medicina y cirugía equina</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>157</td><td>39</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Medicina de fauna silvestre y exótica</td><td class="x-mark">X</td><td></td><td>2</td><td>P</td><td>32</td><td>64</td><td>96</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Mercadeo agropecuario</td><td class="x-mark">X</td><td></td><td>2</td><td>T</td><td>32</td><td>64</td><td>96</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
                         <tr><td class="td-left">Inglés B1</td><td class="x-mark">X</td><td></td><td>3</td><td>M</td><td>32</td><td>64</td><td>96</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
                         <tr><td class="td-left">Electiva disciplinar específica (DE)</td><td></td><td class="x-mark">X</td><td>3</td><td>P</td><td>32</td><td>112</td><td>144</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
 
                         <tr class="period-row"><td colspan="12">Período académico IX</td></tr>
-                        <tr><td class="td-left">Rotación sistemas de producción animal</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>39</td><td>157</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
-                        <tr><td class="td-left">Rotación Reproducción y biotecnología veterinaria</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>39</td><td>157</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Rotación sistemas de producción animal</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>157</td><td>39</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Rotación Reproducción y biotecnología veterinaria</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>157</td><td>39</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Electiva campo de formación complementaria (FC)</td><td></td><td class="x-mark">X</td><td>1</td><td>M</td><td>32</td><td>16</td><td>48</td><td></td><td></td><td></td><td class="x-mark">X</td></tr>
                         <tr><td class="td-left">Sociología rural</td><td class="x-mark">X</td><td></td><td>2</td><td>T</td><td>32</td><td>64</td><td>96</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
                         <tr><td class="td-left">Inglés B2</td><td class="x-mark">X</td><td></td><td>3</td><td>T</td><td>32</td><td>64</td><td>96</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
                         <tr><td class="td-left">Electiva disciplinar específica (DE)</td><td></td><td class="x-mark">X</td><td>3</td><td>M</td><td>32</td><td>112</td><td>144</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
 
                         <tr class="period-row"><td colspan="12">Período académico X</td></tr>
-                        <tr><td class="td-left">Rotación One Health y Vigilancia Sanitaria</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>39</td><td>157</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
-                        <tr><td class="td-left">Rotación de profundización</td><td class="x-mark">X</td><td></td><td>4</td><td>M</td><td>39</td><td>157</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Rotación One Health y Vigilancia Sanitaria</td><td class="x-mark">X</td><td></td><td>4</td><td>P</td><td>157</td><td>39</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
+                        <tr><td class="td-left">Rotación de profundización</td><td class="x-mark">X</td><td></td><td>4</td><td>M</td><td>76</td><td>120</td><td>196</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Electiva disciplinar específica (DE)</td><td></td><td class="x-mark">X</td><td>3</td><td>M</td><td>32</td><td>112</td><td>144</td><td></td><td class="x-mark">X</td><td></td><td></td></tr>
                         <tr><td class="td-left">Electiva Interdisciplinar Básica Común (IBC)</td><td></td><td class="x-mark">X</td><td>3</td><td>M</td><td>32</td><td>64</td><td>96</td><td class="x-mark">X</td><td></td><td></td><td></td></tr>
 
@@ -946,13 +1218,13 @@
                         <tr class="total-row">
                             <td class="td-left">Total, número de horas</td>
                             <td></td><td></td><td></td><td></td>
-                            <td>2.097</td><td>5.960</td><td>8.057</td>
+                            <td>2.724</td><td>5.215</td><td>7.939</td>
                             <td></td><td></td><td></td><td></td>
                         </tr>
                         <tr class="total-row">
                             <td class="td-left">Total, porcentaje horas (%)</td>
                             <td></td><td></td><td></td><td></td>
-                            <td>26%</td><td>74%</td><td>100%</td>
+                            <td>34%</td><td>66%</td><td>100%</td>
                             <td></td><td></td><td></td><td></td>
                         </tr>
                         <tr class="total-row">
@@ -983,7 +1255,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Diapositiva 9: Estructura Curricular -->
     <section class="slide" data-title="Estructura Curricular">
         <div class="glass-panel">
@@ -992,7 +1264,14 @@
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:pie-chart" data-width="30"></span>
                     Estructura Curricular y Campos de Formación
                 </h2>
-                <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Acuerdo 001 de 2013</span>
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="openMallaModal()"
+                            class="inline-flex items-center gap-2 bg-gradient-to-r from-unad-orange to-unad-teal text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+                        <span class="iconify" data-icon="lucide:grid-3x3" data-width="14"></span>
+                        Ver Malla Curricular
+                    </button>
+                    <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Acuerdo 001 de 2013</span>
+                </div>
             </div>
             <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col items-center justify-center gap-6">
 
@@ -1052,6 +1331,84 @@
             </div>
         </div>
     </section>
+
+    <!-- ===================== MODAL MALLA CURRICULAR ===================== -->
+    <div id="malla-modal"
+         class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-2 md:p-4"
+         onclick="if(event.target===this) closeMallaModal()">
+
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full h-full max-w-[95vw] max-h-[95vh] flex flex-col overflow-hidden border border-white/20">
+
+            <!-- Barra superior del modal -->
+            <div class="flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-unad-navy to-unad-teal text-white shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <span class="iconify" data-icon="lucide:grid-3x3" data-width="20"></span>
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/80 leading-tight">Malla Curricular</p>
+                        <p class="text-xs font-semibold leading-tight">Medicina Veterinaria · UNAD</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeMallaModal()"
+                        class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all">
+                    <span class="iconify" data-icon="lucide:x" data-width="14"></span>
+                    Cerrar y volver
+                </button>
+            </div>
+
+            <!-- Iframe con la malla -->
+            <div class="flex-1 min-h-0 bg-gray-100 dark:bg-gray-800 relative">
+                <iframe id="malla-iframe"
+                        src="about:blank"
+                        title="Malla Curricular"
+                        class="w-full h-full border-0"
+                        loading="lazy"></iframe>
+            </div>
+
+            <!-- Barra inferior de acciones -->
+            <div class="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shrink-0">
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 italic">
+                    Presiona <kbd class="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-gray-700 font-mono text-[10px]">ESC</kbd> para cerrar y regresar a la estructura curricular.
+                </p>
+                <a href="malla-academica.html" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 text-unad-teal dark:text-teal-300 hover:text-unad-orange text-xs font-bold transition-colors">
+                    <span class="iconify" data-icon="lucide:external-link" data-width="13"></span>
+                    Abrir en pestaña nueva
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===================== SCRIPT DEL MODAL ===================== -->
+    <script>
+        (function() {
+            const modal  = document.getElementById('malla-modal');
+            const iframe = document.getElementById('malla-iframe');
+
+            /* Abrir modal — ?embed=1 hace que la malla oculte su propia navbar */
+            window.openMallaModal = function() {
+                iframe.src = 'malla-academica.html?embed=1';   /* 👈 CLAVE */
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            };
+
+            /* Cerrar modal y volver a la Slide 9 */
+            window.closeMallaModal = function() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+                setTimeout(() => { iframe.src = 'about:blank'; }, 300);
+            };
+
+            /* Cerrar con ESC */
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    window.closeMallaModal();
+                }
+            });
+        })();
+    </script>
 
     <!-- Diapositiva 10: Ruta de la Electividad -->
     <section class="slide" data-title="Ruta de Electividad">
@@ -1114,115 +1471,594 @@
         </div>
     </section>
 
-    <!-- Diapositiva 11: Mecanismos de Evaluación -->
-    <section class="slide" data-title="Mecanismos de Evaluación">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:check-square" data-width="30"></span>
-                    Mecanismos de Evaluación y Evidencias (RAP)
-                </h2>
-                <span class="bg-unad-orange text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">4 RAPs evaluados</span>
-            </div>
+   <!-- Mecanismos · RAP 1 -->
+<section class="slide" data-title="Mecanismos · RAP 1">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 shrink-0">
+            <h2 class="text-lg md:text-xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-2">
+                <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:check-square" data-width="22"></span>
+                Mecanismos de Evaluación · RAP 1
+            </h2>
+            <span class="bg-unad-teal text-white px-3 py-1 text-[10px] rounded-full font-bold uppercase tracking-wider">NP 1 · Ciencias Básicas</span>
+        </div>
 
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto">
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+            <div class="min-h-full flex flex-col justify-center gap-2">
 
-                    <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover-card overflow-hidden flex flex-col">
-                        <div class="bg-unad-teal text-white px-5 py-4 flex items-start gap-3">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:microscope" data-width="26"></span>
-                            <div>
-                                <p class="text-xs font-bold uppercase tracking-wider text-white/85">RAP 1 y 2</p>
-                                <h3 class="font-display font-bold text-base leading-snug">Ciencias Básicas, Biomédicas y Diagnósticas</h3>
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col gap-4 flex-1">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-teal dark:text-unad-orange block mb-1.5">Mecanismos de evaluación</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Pruebas integradoras · OSCE básico · Análisis de casos (ABC) · Rúbricas de razonamiento fisiopatológico · Evaluación de prácticas.</p>
-                            </div>
-                            <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-green dark:text-emerald-400 block mb-1.5">Evidencias de logro</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Informes de laboratorio · Mapas conceptuales · Portafolio académico integrador · Análisis de resultados diagnósticos.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover-card overflow-hidden flex flex-col">
-                        <div class="bg-unad-navy text-white px-5 py-4 flex items-start gap-3">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:stethoscope" data-width="26"></span>
-                            <div>
-                                <p class="text-xs font-bold uppercase tracking-wider text-white/85">RAP 3 y 4</p>
-                                <h3 class="font-display font-bold text-base leading-snug">Clínica, Diagnóstico y Tratamiento</h3>
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col gap-4 flex-1">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-teal dark:text-unad-orange block mb-1.5">Mecanismos de evaluación</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">OSCE (Examen Clínico Objetivo) · Rúbricas clínicas · Sustentación oral de planes terapéuticos · Listas de cotejo en rotación.</p>
-                            </div>
-                            <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-green dark:text-emerald-400 block mb-1.5">Evidencias de logro</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Historias clínicas · Hipótesis diagnósticas argumentadas · Planes terapéuticos sustentados · Reportes de rotación clínica.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover-card overflow-hidden flex flex-col">
-                        <div class="bg-unad-green text-white px-5 py-4 flex items-start gap-3">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:globe" data-width="26"></span>
-                            <div>
-                                <p class="text-xs font-bold uppercase tracking-wider text-white/85">RAP 5</p>
-                                <h3 class="font-display font-bold text-base leading-snug">Epidemiología y One Health</h3>
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col gap-4 flex-1">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-teal dark:text-unad-orange block mb-1.5">Mecanismos de evaluación</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Evaluación del Proyecto Integrador de Vigilancia · Análisis de brotes · Construcción de mapas de riesgo · Sustentación de casos.</p>
-                            </div>
-                            <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-green dark:text-emerald-400 block mb-1.5">Evidencias de logro</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Diagnósticos sanitarios territoriales · Informes epidemiológicos · Mapas de riesgo sanitario · Propuestas de prevención.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/75 dark:bg-black/45 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover-card overflow-hidden flex flex-col">
-                        <div class="bg-unad-orange text-white px-5 py-4 flex items-start gap-3">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:leaf" data-width="26"></span>
-                            <div>
-                                <p class="text-xs font-bold uppercase tracking-wider text-white/85">RAP 6</p>
-                                <h3 class="font-display font-bold text-base leading-snug">Producción y Sostenibilidad</h3>
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col gap-4 flex-1">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-teal dark:text-unad-orange block mb-1.5">Mecanismos de evaluación</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Evaluación de indicadores productivos y bienestar · Rúbricas de sostenibilidad · Proyectos integradores pecuarios.</p>
-                            </div>
-                            <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <span class="text-xs font-bold uppercase tracking-wider text-unad-green dark:text-emerald-400 block mb-1.5">Evidencias de logro</span>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Planes de mejoramiento genético/reproductivo · Diagnósticos de sistemas de producción · Evaluaciones de bienestar animal.</p>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="bg-unad-navy text-white px-3 py-1.5 rounded-lg flex items-center gap-2 w-full shadow-sm">
+                    <span class="iconify shrink-0" data-icon="lucide:layers" data-width="15"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Núcleo Problémico:</span>
+                    <span class="text-[11.5px] font-semibold italic">Procesos de salud-enfermedad, diagnóstico y atención veterinaria</span>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Sistema de evaluación de RAPs demostrable, trazable y robusto.</p>
+                <div class="bg-gradient-to-r from-unad-teal to-blue-700 text-white px-4 py-2 rounded-xl shadow-md flex items-start gap-2.5 w-full">
+                    <span class="iconify shrink-0 mt-0.5" data-icon="lucide:microscope" data-width="20"></span>
+                    <div class="flex-1 text-left">
+                        <p class="text-[9.5px] font-bold uppercase tracking-widest text-white/85 mb-0.5">RAP 1 · Identificar</p>
+                        <p class="text-[11.5px] leading-snug">Identificar la organización estructural y funcional de los organismos animales para interpretar los procesos biológicos, fisiológicos e inmunológicos asociados al mantenimiento de la salud animal.</p>
+                    </div>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Puntos de control (OSCE, Portafolios, Proyectos Integradores).</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 w-full items-stretch">
+
+                    <!-- Red Curricular -->
+                    <div class="bg-gradient-to-br from-purple-500/8 to-white/70 dark:from-purple-500/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-purple-500 shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-600 dark:text-purple-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-purple-500/20">
+                            <span class="iconify" data-icon="lucide:library" data-width="13"></span> Red Curricular
+                        </span>
+                        <div class="flex flex-col gap-1.5 flex-1 justify-center">
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Introducción a la Medicina Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Anatomía Veterinaria Comparada</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Biología del Desarrollo y Fisiología Animal</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Inmunología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Genética y Genómica Aplicada a la Medicina Veterinaria</span>
+                        </div>
+                    </div>
+
+                    <!-- Acciones -->
+                    <div class="bg-gradient-to-br from-unad-navy/8 to-white/70 dark:from-unad-navy/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-navy shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-navy dark:text-white mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-navy/20">
+                            <span class="iconify" data-icon="lucide:route" data-width="13"></span> Acciones de Seguimiento
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento al desarrollo progresivo de competencias en ciencias básicas y biomédicas mediante actividades integradoras.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Acompañamiento a la articulación entre anatomía, fisiología, inmunología y genética para la comprensión de la salud animal.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Monitoreo de la capacidad de análisis de relaciones estructura-función en diferentes especies animales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Retroalimentación continua sobre la interpretación de procesos biológicos asociados al mantenimiento de la salud.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a la construcción de portafolios académicos y estudios integradores de salud animal.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mecanismos -->
+                    <div class="bg-gradient-to-br from-unad-teal/8 to-white/70 dark:from-unad-teal/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-teal shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-teal dark:text-teal-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-teal/20">
+                            <span class="iconify" data-icon="lucide:clipboard-check" data-width="13"></span> Mecanismos de Evaluación
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Pruebas integradoras de ciencias básicas y biomédicas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Estudios de caso orientados al análisis de relaciones estructura-función.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Talleres de análisis comparativo entre especies animales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluaciones teórico-prácticas de anatomía, fisiología e inmunología.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Informes de laboratorio y prácticas académicas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Sustentaciones orales de casos de integración biomédica.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Elaboración de mapas conceptuales y modelos explicativos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Rúbricas para valoración del razonamiento biológico y fisiológico.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Portafolio académico integrador con evidencias de aprendizaje progresivo.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Evidencias -->
+                    <div class="bg-gradient-to-br from-unad-green/8 to-white/70 dark:from-unad-green/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-green shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-green mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-green/20">
+                            <span class="iconify" data-icon="lucide:award" data-width="13"></span> Evidencias de Logro
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes de laboratorio de anatomía, fisiología e inmunología.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Estudios de caso relacionados con procesos fisiológicos normales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Mapas conceptuales y modelos explicativos de relaciones estructura-función.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Análisis comparativos entre especies animales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Portafolio académico de ciencias biomédicas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Sustentaciones orales de integración anatómica, fisiológica e inmunológica.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Productos de aprendizaje basados en problemas de salud animal.</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <div class="grid grid-cols-2 gap-2 mt-2 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:alert-circle" data-width="13"></span> Criterio del Par Académico</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">Sistema de evaluación de RAPs demostrable y trazable.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:check-circle-2" data-width="13"></span> Evidencia que Sustenta</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">Portafolios y pruebas integradoras de ciencias básicas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mecanismos · RAP 2 -->
+<section class="slide" data-title="Mecanismos · RAP 2">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 shrink-0">
+            <h2 class="text-lg md:text-xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-2">
+                <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:check-square" data-width="22"></span>
+                Mecanismos de Evaluación · RAP 2
+            </h2>
+            <span class="bg-unad-teal text-white px-3 py-1 text-[10px] rounded-full font-bold uppercase tracking-wider">NP 1 · Ciencias Biomédicas</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+            <div class="min-h-full flex flex-col justify-center gap-2">
+
+                <div class="bg-unad-navy text-white px-3 py-1.5 rounded-lg flex items-center gap-2 w-full shadow-sm">
+                    <span class="iconify shrink-0" data-icon="lucide:layers" data-width="15"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Núcleo Problémico:</span>
+                    <span class="text-[11.5px] font-semibold italic">Procesos de salud-enfermedad, diagnóstico y atención veterinaria</span>
+                </div>
+
+                <div class="bg-gradient-to-r from-unad-teal to-blue-700 text-white px-4 py-2 rounded-xl shadow-md flex items-start gap-2.5 w-full">
+                    <span class="iconify shrink-0 mt-0.5" data-icon="lucide:shield-alert" data-width="20"></span>
+                    <div class="flex-1 text-left">
+                        <p class="text-[9.5px] font-bold uppercase tracking-widest text-white/85 mb-0.5">RAP 2 · Clasificar</p>
+                        <p class="text-[11.5px] leading-snug">Clasificar los agentes etiológicos, mecanismos fisiopatológicos e inmunológicos involucrados en la presentación de enfermedades animales para interpretar sus manifestaciones clínicas, diagnósticas y epidemiológicas.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 w-full items-stretch">
+
+                    <!-- Red Curricular -->
+                    <div class="bg-gradient-to-br from-purple-500/8 to-white/70 dark:from-purple-500/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-purple-500 shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-600 dark:text-purple-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-purple-500/20">
+                            <span class="iconify" data-icon="lucide:library" data-width="13"></span> Red Curricular
+                        </span>
+                        <div class="flex flex-col gap-1.5 flex-1 justify-center">
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Microbiología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Virología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Parasitología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Patología General y Sistémica</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Patología Diagnóstica y de Laboratorio Clínico</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Toxicología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Epidemiología y Salud Pública Veterinaria</span>
+                        </div>
+                    </div>
+
+                    <!-- Acciones -->
+                    <div class="bg-gradient-to-br from-unad-navy/8 to-white/70 dark:from-unad-navy/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-navy shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-navy dark:text-white mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-navy/20">
+                            <span class="iconify" data-icon="lucide:route" data-width="13"></span> Acciones de Seguimiento
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a la integración progresiva de conocimientos microbiológicos, parasitológicos, virológicos y patológicos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Acompañamiento a la interpretación de casos relacionados con procesos de enfermedad.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Monitoreo de la capacidad para relacionar agentes etiológicos con manifestaciones clínicas y epidemiológicas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Retroalimentación sobre el análisis de mecanismos fisiopatológicos y respuesta inmunológica.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a ejercicios integradores de análisis de enfermedades animales.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mecanismos -->
+                    <div class="bg-gradient-to-br from-unad-teal/8 to-white/70 dark:from-unad-teal/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-teal shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-teal dark:text-teal-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-teal/20">
+                            <span class="iconify" data-icon="lucide:clipboard-check" data-width="13"></span> Mecanismos de Evaluación
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-0.5 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Estudios de caso de enfermedades infecciosas, parasitarias y tóxicas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Análisis e interpretación de resultados de laboratorio clínico y patología diagnóstica.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Pruebas integradoras de microbiología, virología, parasitología y patología.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Informes de prácticas de laboratorio y ejercicios diagnósticos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Rúbricas para la interpretación de procesos fisiopatológicos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Sustentación de casos clínicos y epidemiológicos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Análisis de problemas sanitarios mediante aprendizaje basado en casos (ABC).</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluaciones de integración disciplinar enfocadas en la relación agente-hospedero-ambiente.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Portafolio de evidencias con análisis de enfermedades y mecanismos de presentación.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Evidencias -->
+                    <div class="bg-gradient-to-br from-unad-green/8 to-white/70 dark:from-unad-green/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-green shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-green mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-green/20">
+                            <span class="iconify" data-icon="lucide:award" data-width="13"></span> Evidencias de Logro
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes de laboratorio de microbiología, virología, parasitología y patología.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Estudios de caso de enfermedades animales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Reportes de interpretación fisiopatológica.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Análisis de resultados diagnósticos y epidemiológicos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Sustentaciones de casos de enfermedad.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Portafolio de evidencias sobre salud y enfermedad animal.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes integradores de procesos etiológicos y fisiopatológicos.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-2 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:alert-circle" data-width="13"></span> Criterio del Par Académico</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">Trazabilidad de la evaluación en ciencias biomédicas.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:check-circle-2" data-width="13"></span> Evidencia que Sustenta</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">Informes de laboratorio y estudios de caso de enfermedad animal.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mecanismos · RAP 3 -->
+<section class="slide" data-title="Mecanismos · RAP 3">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 shrink-0">
+            <h2 class="text-lg md:text-xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-2">
+                <span class="iconify text-unad-navy animate-bounce" data-icon="lucide:check-square" data-width="22"></span>
+                Mecanismos de Evaluación · RAP 3
+            </h2>
+            <span class="bg-unad-navy text-white px-3 py-1 text-[10px] rounded-full font-bold uppercase tracking-wider">NP 1 · Clínica</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+            <div class="min-h-full flex flex-col justify-center gap-2">
+
+                <!-- Núcleo Problémico -->
+                <div class="bg-unad-navy text-white px-3 py-1.5 rounded-lg flex items-center gap-2 w-full shadow-sm">
+                    <span class="iconify shrink-0" data-icon="lucide:layers" data-width="15"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Núcleo Problémico:</span>
+                    <span class="text-[11.5px] font-semibold italic">Procesos de salud-enfermedad, diagnóstico y atención veterinaria</span>
+                </div>
+
+                <!-- RAP banner -->
+                <div class="bg-gradient-to-r from-unad-navy to-blue-900 text-white px-4 py-2 rounded-xl shadow-md flex items-start gap-2.5 w-full">
+                    <span class="iconify shrink-0 mt-0.5" data-icon="lucide:stethoscope" data-width="20"></span>
+                    <div class="flex-1 text-left">
+                        <p class="text-[9.5px] font-bold uppercase tracking-widest text-white/85 mb-0.5">RAP 3 · Analizar</p>
+                        <p class="text-[11.5px] leading-snug">Analizar información obtenida mediante la anamnesis, el examen clínico y las ayudas diagnósticas para fundamentar decisiones relacionadas con la salud y el bienestar animal en diferentes contextos de la práctica veterinaria.</p>
+                    </div>
+                </div>
+
+                <!-- Grid 4 columnas · items-stretch para igualar altura -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 w-full items-stretch">
+
+                    <!-- Red Curricular · chips GRANDES -->
+                    <div class="bg-gradient-to-br from-purple-500/8 to-white/70 dark:from-purple-500/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-purple-500 shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-600 dark:text-purple-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-purple-500/20">
+                            <span class="iconify" data-icon="lucide:library" data-width="13"></span> Red Curricular
+                        </span>
+                        <div class="flex flex-col gap-1.5 flex-1 justify-center">
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Semiología y Competencias Clínicas Veterinarias</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Imagenología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Patología Diagnóstica y de Laboratorio Clínico</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Farmacología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Toxicología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Medicina Interna de Pequeños Animales</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Medicina Interna en Equinos</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Medicina Interna de Rumiantes</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Medicina de Urgencias y Cuidados Intensivos</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Medicina de Fauna Silvestre y Exótica</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Cirugía, Anestesiología y Manejo del Dolor</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Rotación Clínica de Pequeños Animales</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Rotación Clínica en Medicina y Cirugía Equina</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Rotación de Profundización</span>
+                        </div>
+                    </div>
+
+                    <!-- Acciones -->
+                    <div class="bg-gradient-to-br from-unad-navy/8 to-white/70 dark:from-unad-navy/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-navy shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-navy dark:text-white mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-navy/20">
+                            <span class="iconify" data-icon="lucide:route" data-width="13"></span> Acciones de Seguimiento
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento al desarrollo progresivo de competencias clínicas básicas mediante simulación y práctica supervisada.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Acompañamiento a la construcción de historias clínicas y formulación de hipótesis diagnósticas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Monitoreo de la interpretación de resultados de laboratorio e imagenología.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Retroalimentación sistemática sobre la aplicación del método clínico veterinario.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento al desempeño en escenarios clínicos simulados y reales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a la construcción progresiva del portafolio clínico integrador desde las bases biomédicas hasta las rotaciones clínicas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Acompañamiento a la ruta formativa de análisis, diagnóstico y abordaje terapéutico de casos de complejidad creciente.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a la integración de resultados provenientes de laboratorios, prácticas clínicas y rotaciones.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Retroalimentación sobre la toma de decisiones clínicas fundamentadas en evidencia científica, criterios éticos y normativos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Monitoreo del desempeño profesional en escenarios clínicos mediante evidencias acumulativas.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mecanismos -->
+                    <div class="bg-gradient-to-br from-unad-teal/8 to-white/70 dark:from-unad-teal/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-teal shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-teal dark:text-teal-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-teal/20">
+                            <span class="iconify" data-icon="lucide:clipboard-check" data-width="13"></span> Mecanismos de Evaluación
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-0.5 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Examen Clínico Objetivo Estructurado (OSCE).</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación de habilidades de anamnesis y examen clínico mediante rúbricas y listas de chequeo.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Análisis y resolución de casos clínicos simulados y reales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Interpretación de resultados de laboratorio clínico e imagenología.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluaciones teórico-prácticas de razonamiento clínico.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Sustentación oral de hipótesis diagnósticas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación de historias clínicas elaboradas por el estudiante.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Portafolio clínico con evidencias de análisis diagnóstico progresivo.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación de casos clínicos integradores de complejidad creciente.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación del razonamiento clínico mediante rúbricas analíticas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Sustentación de planes diagnósticos, terapéuticos y de seguimiento.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación del desempeño en rotaciones clínicas y prácticas profesionales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Análisis crítico de literatura científica aplicada a casos clínicos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Simulaciones de toma de decisiones clínicas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Valoración de competencias profesionalizantes mediante listas de cotejo.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación del portafolio clínico integrador.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Evidencias -->
+                    <div class="bg-gradient-to-br from-unad-green/8 to-white/70 dark:from-unad-green/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-green shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-green mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-green/20">
+                            <span class="iconify" data-icon="lucide:award" data-width="13"></span> Evidencias de Logro
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-0.5 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Historias clínicas completas y documentadas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Hipótesis diagnósticas argumentadas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes de interpretación de resultados de laboratorio clínico.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Reportes de análisis de estudios imagenológicos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Registros de simulación clínica y OSCE.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Portafolio clínico de diagnóstico veterinario.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Resolución de casos clínicos básicos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Casos clínicos integradores resueltos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Planes diagnósticos y terapéuticos sustentados en evidencia.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Protocolos de seguimiento de pacientes.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes de rotaciones clínicas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Sustentación de decisiones clínicas complejas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Reportes de atención de casos en diferentes especies.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Portafolio clínico integrador consolidado.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Evaluaciones de desempeño en escenarios clínicos reales o simulados.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-2 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:alert-circle" data-width="13"></span> Criterio del Par Académico</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">El OSCE y el portafolio clínico demuestran el desarrollo del razonamiento clínico.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:check-circle-2" data-width="13"></span> Evidencia que Sustenta</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">OSCE, historias clínicas, planes terapéuticos y portafolio integrador.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mecanismos · RAP 4 -->
+<section class="slide" data-title="Mecanismos · RAP 4">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 shrink-0">
+            <h2 class="text-lg md:text-xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-2">
+                <span class="iconify text-unad-green animate-bounce" data-icon="lucide:check-square" data-width="22"></span>
+                Mecanismos de Evaluación · RAP 4
+            </h2>
+            <span class="bg-unad-green text-white px-3 py-1 text-[10px] rounded-full font-bold uppercase tracking-wider">NP 2 · Epidemiología</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+            <div class="min-h-full flex flex-col justify-center gap-2">
+
+                <div class="bg-unad-navy text-white px-3 py-1.5 rounded-lg flex items-center gap-2 w-full shadow-sm">
+                    <span class="iconify shrink-0" data-icon="lucide:layers" data-width="15"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Núcleo Problémico:</span>
+                    <span class="text-[11.5px] font-semibold italic">Salud poblacional, bienestar y sostenibilidad de los sistemas pecuarios</span>
+                </div>
+
+                <div class="bg-gradient-to-r from-unad-green to-emerald-700 text-white px-4 py-2 rounded-xl shadow-md flex items-start gap-2.5 w-full">
+                    <span class="iconify shrink-0 mt-0.5" data-icon="lucide:globe-2" data-width="20"></span>
+                    <div class="flex-1 text-left">
+                        <p class="text-[9.5px] font-bold uppercase tracking-widest text-white/85 mb-0.5">RAP 4 · Argumentar</p>
+                        <p class="text-[11.5px] leading-snug">Argumentar la relación entre factores epidemiológicos, sanitarios y ambientales y la ocurrencia y transmisión de enfermedades animales y zoonóticas, para sustentar acciones de prevención, vigilancia y control en salud pública veterinaria.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 w-full items-stretch">
+
+                    <!-- Red Curricular -->
+                    <div class="bg-gradient-to-br from-purple-500/8 to-white/70 dark:from-purple-500/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-purple-500 shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-600 dark:text-purple-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-purple-500/20">
+                            <span class="iconify" data-icon="lucide:library" data-width="13"></span> Red Curricular
+                        </span>
+                        <div class="flex flex-col gap-1.5 flex-1 justify-center">
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Epidemiología y Salud Pública Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Fundamentos del Enfoque One Health</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Microbiología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Virología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Parasitología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Inmunología Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Bioética y Legislación Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Rotación One Health y Vigilancia Sanitaria</span>
+                        </div>
+                    </div>
+
+                    <!-- Acciones -->
+                    <div class="bg-gradient-to-br from-unad-navy/8 to-white/70 dark:from-unad-navy/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-navy shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-navy dark:text-white mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-navy/20">
+                            <span class="iconify" data-icon="lucide:route" data-width="13"></span> Acciones de Seguimiento
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a la construcción progresiva del Proyecto Integrador de Vigilancia Epidemiológica y Gestión Sanitaria con Enfoque One Health, desarrollado a través de la red curricular.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Acompañamiento en la consolidación de diagnósticos sanitarios territoriales fundamentados en información epidemiológica, diagnóstica y normativa.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a la integración de las dimensiones de salud animal, salud humana y salud ambiental en el análisis de problemáticas sanitarias.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Retroalimentación periódica sobre la formulación de estrategias de vigilancia, prevención, control de enfermedades y gestión del riesgo sanitario.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Monitoreo de la incorporación de criterios de inocuidad alimentaria, normatividad sanitaria y sostenibilidad territorial en las propuestas de intervención.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a la maduración del proyecto integrador mediante entregables parciales y evidencias acumulativas del proceso formativo.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mecanismos -->
+                    <div class="bg-gradient-to-br from-unad-teal/8 to-white/70 dark:from-unad-teal/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-teal shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-teal dark:text-teal-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-teal/20">
+                            <span class="iconify" data-icon="lucide:clipboard-check" data-width="13"></span> Mecanismos de Evaluación
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-0.5 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Análisis e interpretación de indicadores epidemiológicos, sanitarios y ambientales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Estudios de caso sobre enfermedades animales, zoonosis y eventos de interés en salud pública veterinaria.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Elaboración y sustentación de diagnósticos sanitarios territoriales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación de informes técnicos de vigilancia epidemiológica y sanitaria.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Análisis de brotes y emergencias sanitarias mediante metodologías de investigación epidemiológica.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Desarrollo y evaluación del Proyecto Integrador de Vigilancia Epidemiológica y Gestión Sanitaria con Enfoque One Health.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Construcción y análisis de mapas de riesgo sanitario y rutas de transmisión de enfermedades.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Aplicación de rúbricas para la valoración de la interpretación de información epidemiológica y la identificación de factores de riesgo.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación de propuestas de prevención, vigilancia y control sustentadas en evidencia científica y normativa.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Valoración del desempeño en la Rotación One Health y Vigilancia Sanitaria mediante listas de chequeo y rúbricas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Sustentaciones orales y escritas de problemáticas sanitarias desde la perspectiva One Health.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Portafolio de evidencias con productos académicos desarrollados durante la red curricular.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Evidencias -->
+                    <div class="bg-gradient-to-br from-unad-green/8 to-white/70 dark:from-unad-green/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-green shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-green mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-green/20">
+                            <span class="iconify" data-icon="lucide:award" data-width="13"></span> Evidencias de Logro
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Diagnósticos sanitarios territoriales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes epidemiológicos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Análisis de brotes y eventos sanitarios.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Mapas de riesgo sanitario.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Reportes de vigilancia epidemiológica.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Estudios de caso de zoonosis y enfermedades de importancia sanitaria.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Propuestas de prevención y control basadas en evidencia.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes de la Rotación One Health y Vigilancia Sanitaria.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Productos del Proyecto Integrador de Vigilancia Epidemiológica y Gestión Sanitaria.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-2 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:alert-circle" data-width="13"></span> Criterio del Par Académico</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">El Proyecto Integrador de Vigilancia demuestra la aplicación del enfoque One Health.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:check-circle-2" data-width="13"></span> Evidencia que Sustenta</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">Diagnósticos territoriales, mapas de riesgo y proyecto integrador.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mecanismos · RAP 5 -->
+<section class="slide" data-title="Mecanismos · RAP 5">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 shrink-0">
+            <h2 class="text-lg md:text-xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-2">
+                <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:check-square" data-width="22"></span>
+                Mecanismos de Evaluación · RAP 5
+            </h2>
+            <span class="bg-unad-orange text-white px-3 py-1 text-[10px] rounded-full font-bold uppercase tracking-wider">NP 2 · Producción</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
+            <div class="min-h-full flex flex-col justify-center gap-2">
+
+                <div class="bg-unad-navy text-white px-3 py-1.5 rounded-lg flex items-center gap-2 w-full shadow-sm">
+                    <span class="iconify shrink-0" data-icon="lucide:layers" data-width="15"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Núcleo Problémico:</span>
+                    <span class="text-[11.5px] font-semibold italic">Salud poblacional, bienestar y sostenibilidad de los sistemas pecuarios</span>
+                </div>
+
+                <div class="bg-gradient-to-r from-unad-orange to-orange-600 text-white px-4 py-2 rounded-xl shadow-md flex items-start gap-2.5 w-full">
+                    <span class="iconify shrink-0 mt-0.5" data-icon="lucide:leaf" data-width="20"></span>
+                    <div class="flex-1 text-left">
+                        <p class="text-[9.5px] font-bold uppercase tracking-widest text-white/85 mb-0.5">RAP 5 · Evaluar</p>
+                        <p class="text-[11.5px] leading-snug">Evaluar condiciones de salud en poblaciones animales mediante la integración de factores sanitarios, nutricionales, genéticos, reproductivos y de bienestar animal para sustentar decisiones orientadas al bienestar, la prevención de riesgos y la sostenibilidad de los sistemas pecuarios.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 w-full items-stretch">
+
+                    <!-- Red Curricular -->
+                    <div class="bg-gradient-to-br from-purple-500/8 to-white/70 dark:from-purple-500/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-purple-500 shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-600 dark:text-purple-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-purple-500/20">
+                            <span class="iconify" data-icon="lucide:library" data-width="13"></span> Red Curricular
+                        </span>
+                        <div class="flex flex-col gap-1.5 flex-1 justify-center">
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Nutrición Clínica</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Genética y Genómica Aplicada a la Medicina Veterinaria</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Biotecnologías y Manejo Reproductivo</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Etología y Bienestar Animal</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Medicina y Producción Aviar</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Medicina y Producción Porcina</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Rotación Sistemas de Producción Animal</span>
+                            <span class="text-[10.5px] px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-semibold leading-tight">Rotación Reproducción y Biotecnología Veterinaria</span>
+                        </div>
+                    </div>
+
+                    <!-- Acciones -->
+                    <div class="bg-gradient-to-br from-unad-navy/8 to-white/70 dark:from-unad-navy/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-navy shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-navy dark:text-white mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-navy/20">
+                            <span class="iconify" data-icon="lucide:route" data-width="13"></span> Acciones de Seguimiento
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento al análisis progresivo de sistemas pecuarios desde la salud y el bienestar de las poblaciones animales.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Acompañamiento a la evaluación de factores sanitarios, nutricionales, reproductivos, genéticos y de bienestar animal.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Monitoreo de la capacidad para relacionar dichos factores con riesgos para la salud, el bienestar y la sostenibilidad de los sistemas pecuarios.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a la interpretación de registros sanitarios, nutricionales y reproductivos para sustentar decisiones veterinarias.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Retroalimentación sobre estrategias de medicina preventiva, bioseguridad y bienestar animal en contextos pecuarios.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Monitoreo del desempeño durante las rotaciones de sistemas de producción animal y reproducción veterinaria.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-navy shrink-0 mt-[5px]"></span><span>Seguimiento a productos integradores que articulen salud, bienestar, sostenibilidad y enfoque Una Salud.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mecanismos -->
+                    <div class="bg-gradient-to-br from-unad-teal/8 to-white/70 dark:from-unad-teal/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-teal shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-teal dark:text-teal-300 mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-teal/20">
+                            <span class="iconify" data-icon="lucide:clipboard-check" data-width="13"></span> Mecanismos de Evaluación
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-0.5 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Análisis de casos de salud y bienestar en sistemas pecuarios.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación de factores sanitarios, nutricionales, reproductivos, genéticos y de bienestar animal.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Estudios de caso relacionados con nutrición, reproducción, genética, sanidad y bienestar.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Informes técnicos de evaluación veterinaria de poblaciones animales y unidades productivas.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Rúbricas para valoración de bienestar, bioseguridad y sostenibilidad.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Sustentación de decisiones veterinarias de prevención y manejo sanitario.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Evaluación del desempeño en rotaciones de sistemas de producción animal y reproducción veterinaria.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Análisis e interpretación de registros sanitarios, nutricionales y reproductivos.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-teal shrink-0 mt-[5px]"></span><span>Portafolio de evidencias de aprendizaje aplicado.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Evidencias -->
+                    <div class="bg-gradient-to-br from-unad-green/8 to-white/70 dark:from-unad-green/20 dark:to-black/40 p-3 rounded-xl border-l-4 border-unad-green shadow-sm flex flex-col">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-unad-green mb-2 flex items-center gap-1.5 pb-1.5 border-b border-unad-green/20">
+                            <span class="iconify" data-icon="lucide:award" data-width="13"></span> Evidencias de Logro
+                        </span>
+                        <ul class="text-[10px] text-gray-800 dark:text-gray-200 space-y-1 leading-snug">
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Diagnósticos veterinarios integrales de poblaciones animales en sistemas pecuarios.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes de evaluación sanitaria y nutricional.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Análisis de indicadores sanitarios, reproductivos y de bienestar animal.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Evaluaciones de bienestar y bioseguridad.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Propuestas veterinarias de prevención, manejo sanitario y bienestar.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Informes de rotación en sistemas de producción animal y reproducción veterinaria.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Producto integrador de salud, bienestar y sostenibilidad.</span></li>
+                            <li class="flex items-start gap-1.5"><span class="w-1 h-1 rounded-full bg-unad-green shrink-0 mt-[5px]"></span><span>Portafolio de evidencias.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-2 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:alert-circle" data-width="13"></span> Criterio del Par Académico</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">Los productos integradores demuestran aplicación en sistemas pecuarios reales.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-2 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-0.5 flex items-center gap-1.5 text-[10px]"><span class="iconify" data-icon="lucide:check-circle-2" data-width="13"></span> Evidencia que Sustenta</h4>
+                <p class="text-[10px] text-gray-700 dark:text-gray-300 leading-snug">Informes de rotación, diagnósticos integrales y producto integrador.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
        <!-- Diapositiva 12: Internacionalización -->
     <section class="slide" data-title="Internacionalización">
