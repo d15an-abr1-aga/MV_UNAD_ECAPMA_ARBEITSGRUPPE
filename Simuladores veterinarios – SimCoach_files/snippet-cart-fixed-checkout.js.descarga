@@ -1,0 +1,32 @@
+(() => {
+  const cartCheckoutContainer = document.querySelector('#main-cart-checkout');
+  const container = cartCheckoutContainer.querySelector('.cart-fixed-checkout');
+  const checkoutButton = cartCheckoutContainer.querySelector('.cart__checkout .cart__checkout-button');
+  const fixedCheckout = cartCheckoutContainer.querySelector('.cart-footer__fixed-checkout');
+
+  function bindEventListener(event) {
+    const { target } = event;
+
+    if (
+      target.matches('.cart-fixed-checkout__dropdown-button') ||
+      target.closest('.cart-fixed-checkout__dropdown-button')
+    ) {
+      container.classList.toggle('collapsed');
+    }
+
+    if (target.matches('.cart-drawer__dropdown-toggle') || target.closest('.cart-drawer__dropdown-toggle')) {
+      container.classList.toggle('collapsed');
+    }
+  }
+
+  cartCheckoutContainer.addEventListener('click', bindEventListener);
+
+  if (cartCheckoutContainer) {
+    
+    observeElementVisible(checkoutButton, (isVisibled) => {
+      fixedCheckout.classList.toggle('invisible', isVisibled, {
+        root: cartCheckoutContainer,
+      });
+    });
+  }
+})();

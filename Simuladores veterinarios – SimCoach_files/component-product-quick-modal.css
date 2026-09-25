@@ -1,0 +1,163 @@
+.product-quick-modal .loading .loading-overlay__spinner {
+  display: inline-flex;
+}
+.product-quick-modal .quick-modal-show {
+  display: block !important;
+}
+.product-quick-modal__main {
+  --modal-animation-name: modalIn;
+  --containter-margin: 60px;
+
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  inset: var(--containter-margin);
+  background-color: rgb(var(--color-page-background));
+  cursor: auto;
+  padding: 40px;
+}
+@media (max-width: 959px) {
+  .product-quick-modal__main {
+    --modal-animation-name: modalSlideInBottom;
+    --containter-margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    inset-block-start: unset;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+.product-quick-modal__main
+  .product__modal-opener:not(.product__modal-opener--image) {
+  display: none !important;
+}
+.product-quick-modal__main .product__media-list .deferred-media {
+  display: block;
+  width: 100%;
+}
+.product-quick-modal__content {
+  max-height: 85vh;
+  max-width: var(--page-width);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgb(var(--color-page-background));
+}
+@media (max-width: 959px) {
+  .product-quick-modal__content {
+    width: 100%;
+    max-height: 90%;
+  }
+}
+.product-quick-modal__close-btn {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  transform: translate3d(50%, -50%, 0);
+  background-color: rgb(var(--color-button-secondary-background));
+  color: rgb(var(--color-button-secondary-text));
+  border: 1px solid rgba(var(--color-text), 0.05);
+  cursor: pointer;
+  z-index: 5;
+}
+@media (max-width: 959px) {
+  .product-quick-modal__close-btn {
+    position: relative;
+    transform: translate3d(0, 50%, 0);
+    margin-inline-end: 10px;
+  }
+}
+
+@media (min-width: 960px) {
+  product-quick-view-modal .product-quick-modal__main {
+    max-width: 1200px;
+    width: auto;
+  }
+
+  product-quick-view-modal .product__column-sticky {
+    inset-block-start: 0;
+  }
+}
+
+@media (max-width: 959px) {
+  product-quick-view-modal .product-quick-modal__content {
+    padding: 20px;
+  }
+}
+
+product-quick-view-modal
+  .product
+  .product__info-item:not(.quick-add-hidden)
+  .third-party-more-list {
+  inset-block-start: unset;
+  inset-block-end: calc(100% + 6px);
+}
+
+product-quick-view-modal .quick-add-hidden,
+product-quick-view-modal .product--mobile-breadcrumbs,
+product-quick-view-modal .product--pc-breadcrumbs {
+  display: none !important;
+}
+
+product-quick-add-modal .product {
+  margin: 0;
+}
+
+@media (min-width: 960px) {
+  product-quick-add-modal .product .product__info-wrapper {
+    max-width: unset;
+    width: 100%;
+    padding: 0;
+    margin-block-start: 0;
+  }
+
+  product-quick-add-modal .product-quick-modal__content {
+    width: 600px;
+  }
+}
+
+@media (max-width: 959px) {
+  product-quick-add-modal .product-quick-modal__content {
+    padding: 0 20px;
+  }
+  product-quick-add-modal .product .product__info-wrapper {
+    padding: 0;
+  }
+
+  product-quick-add-modal .product .product__buy-buttons:last-child {
+    position: sticky;
+    inset-block-end: 0;
+    padding: 20px 20px 10px;
+    background-color: rgba(var(--color-page-background));
+    border-block-start: 1px solid rgba(0, 0, 0, 0.08);
+    border-block-end: 1px solid transparent;
+    margin-inline: -20px;
+    margin-block-end: 0;
+  }
+
+  product-quick-add-modal .product--pc-breadcrumbs + .product__info-item {
+    margin-block-start: 0;
+  }
+}
+
+product-quick-add-modal .quick-add-modal-hidden {
+  display: none !important;
+}
+
+/* The ipad end responds to the mobile end in vertical screen */
+
+/* @custom-media --tablet (max-width: 959px); */
+
+/* @custom-media --gt-mobile (min-width: 751px); */
+
+/* detectingScreen need to consider the configuration of the tablet */

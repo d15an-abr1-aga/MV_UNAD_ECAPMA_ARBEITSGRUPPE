@@ -1,0 +1,1 @@
+.hidePrice .product__info-item[id*=price-],.hidePrice .product-detail__price,.product-card-wrapper.hidePrice .price,.block-product-card.hidePrice .block-product-card__price,.block-product-card.hidePrice .block-product-card__discount-tag{height:0;opacity:0;user-select:none;margin:0;transform:translate(-999999px)}

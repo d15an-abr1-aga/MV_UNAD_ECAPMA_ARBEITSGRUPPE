@@ -1,0 +1,201 @@
+
+defineCustomElement('product-quick-view-modal', () => {
+  const productResponseCache = new Map();
+
+  return class ProductQuickViewModal extends DetailsModal {
+    connectedCallback() {
+      super.connectedCallback();
+      this.modalContent = this.bodyContainer.querySelector('.product-quick-modal__content');
+
+      if (this.moved) return;
+      this.moved = true;
+      document.body.appendChild(this);
+    }
+
+    observeCssParsed(target) {
+      const onCssParsed = (event) => {
+        if (event.animationName === 'cssParsed') {
+          Promise.resolve(this.openModal()).finally(() => {
+            this.loading = false;
+            target.removeEventListener('animationstart', onCssParsed);
+          });
+        }
+      };
+
+      target.addEventListener('animationstart', onCssParsed);
+    }
+
+    get loading() {
+      return this.trigger?.classList.contains('loading');
+    }
+
+    set loading(flag) {
+      this.trigger?.classList[flag ? 'add' : 'remove']('loading');
+    }
+
+    open(trigger) {
+      if (trigger?.classList.contains('loading')) return;
+
+      this.trigger = trigger;
+      this.opener = this.trigger.closest('modal-opener');
+      this.observeCssParsed(this.opener);
+
+      const { productUrl } = this.dataset;
+      const cacheRes = productResponseCache.get(productUrl);
+
+      const initModalContent = (content) => {
+        this.setProductModalContent(content);
+      };
+
+      const action = cacheRes ? Promise.resolve(cacheRes) : fetch(productUrl).then((response) => response.text());
+
+      this.loading = true;
+      return action.then((responseText) => {
+        productResponseCache.set(productUrl, responseText);
+        return initModalContent(responseText);
+      });
+    }
+
+    close() {
+      return super.close().then(() => {
+        this.modalContent.innerHTML = '';
+      });
+    }
+
+    setProductModalContent(html) {
+      const dom = new DOMParser().parseFromString(html, 'text/html');
+      this.productElement = dom.querySelector('section[id^="MainProduct-"]');
+      this.productElement.querySelector('.product').setAttribute('mount', 'quick-modal');
+      this.productElement.querySelector('media-gallery').setAttribute('data-parent-container', `#${this.id}`);
+
+      this.preventDuplicatedIDs();
+      this.removeDOMElements();
+      this.updateProductElement();
+      this.preventVariantURLSwitching();
+
+      // To avoid flickering use animations as a sign that style parsing is complete
+      const flag = this.cssParsedFlag();
+
+      this.setInnerHTML(this.modalContent, this.productElement.innerHTML + flag);
+
+      if (window.Shopline && window.Shopline.PaymentButton) {
+        window.Shopline.PaymentButton.init();
+      }
+    }
+
+    cssParsedFlag() {
+      const html = `
+        <style>
+          @keyframes cssParsed {
+            0% {
+              opacity: 0.99;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+
+          [data-modal="#${this.id}"] {
+            animation: 0.1s cssParsed;
+          }
+
+        </style>
+      `;
+
+      return html;
+    }
+
+    updateProductElement() {}
+
+    openModal() {
+      return super.open();
+    }
+
+    setInnerHTML(element, html) {
+      element.innerHTML = html;
+
+      // Reinjects the script tags to allow execution. By default, scripts are disabled when using element.innerHTML.
+      element.querySelectorAll('script').forEach((oldScriptTag) => {
+        const newScriptTag = document.createElement('script');
+        Array.from(oldScriptTag.attributes).forEach((attribute) => {
+          newScriptTag.setAttribute(attribute.name, attribute.value);
+        });
+        newScriptTag.async = false;
+        newScriptTag.appendChild(document.createTextNode(oldScriptTag.innerHTML));
+        oldScriptTag.parentNode.replaceChild(newScriptTag, oldScriptTag);
+      });
+    }
+
+    preventVariantURLSwitching() {
+      const variantPicker = this.productElement.querySelector('variant-radios,variant-selects');
+      if (!variantPicker) return;
+
+      variantPicker.setAttribute('data-update-url', 'false');
+    }
+
+    removeDOMElements() {
+      const productModal = this.productElement.querySelector('product-modal');
+      if (productModal) productModal.remove();
+
+      const modalDialog = this.productElement.querySelectorAll('modal-dialog');
+      if (modalDialog) modalDialog.forEach((modal) => modal.remove());
+    }
+
+    preventDuplicatedIDs() {
+      const sectionId = this.productElement.dataset.section;
+      this.productElement.innerHTML = this.productElement.innerHTML.replace(
+        new RegExp(sectionId, 'g'),
+        `quick-modal-${sectionId}`,
+      );
+      this.productElement.querySelectorAll('variant-selects, variant-radios').forEach((variantSelect) => {
+        
+        variantSelect.dataset.originalSection = sectionId;
+      });
+    }
+  };
+});
+
+defineCustomElement(
+  'product-quick-add-modal',
+  () =>
+    class ProductQuickAddModal extends ProductQuickViewModal {
+      get isSimpleVariant() {
+        return this.dataset.variantSize === '1';
+      }
+
+      updateProductElement() {
+        super.updateProductElement();
+
+        Array.from(this.productElement.querySelectorAll('.product__info-item')).forEach((ele) => {
+          if (!ele.classList.contains('quick-add-modal-show')) {
+            ele.parentNode.removeChild(ele);
+          }
+        });
+
+        const buyButtons = this.productElement.querySelector('.product__buy-buttons');
+        if (buyButtons) buyButtons.parentNode.appendChild(buyButtons);
+
+        if (this.isSimpleVariant) {
+          this.productElement.querySelector('cart-add-remind')?.removeAttribute('data-remind-type');
+        }
+      }
+
+      openModal() {
+        if (!this.isSimpleVariant) return super.openModal();
+
+        const productForm = this.bodyContainer.querySelector('product-form');
+        const productFormButton = productForm.querySelector(`button[type="submit"]`);
+        const productFormID = productForm.querySelector(`input[name="id"]`);
+        productFormID.value = this.dataset.firstVariantId;
+        productForm.setAttribute('data-on-error-show-toast', true);
+        if (productForm.options) productForm.options.onErrorShowToast = true;
+        productFormButton.dispatchEvent(
+          new Event('click', {
+            bubbles: true,
+            cancelable: true,
+          }),
+        );
+        return productForm.fetchInstance;
+      }
+    },
+);
