@@ -971,12 +971,20 @@
             </div>
 
             <div class="flex-1 overflow-hidden custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <a href="RutaFormacionInvestigativa.png" target="_blank" rel="noopener"
-                   class="block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in"
-                   title="Abrir imagen en tamaño completo">
+                <button type="button"
+                        data-open-modal="modal-ruta-formativa"
+                        class="group relative block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-transparent p-0 text-left focus:outline-none focus:ring-2 focus:ring-unad-teal/60"
+                        title="Ver imagen en tamaño completo">
                     <img src="RutaFormacionInvestigativa.png" alt="Ruta de formación investigativa del estudiante de Medicina Veterinaria"
                          class="w-full h-full object-contain max-h-[58vh]">
-                </a>
+                    <!-- Overlay hover para indicar zoom -->
+                    <span class="pointer-events-none absolute inset-0 bg-unad-navy/0 group-hover:bg-unad-navy/20 transition-colors flex items-end justify-end p-3">
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider bg-white/90 text-unad-navy px-3 py-1.5 rounded-full shadow-md opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+                            <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span>
+                            Ampliar
+                        </span>
+                    </span>
+                </button>
             </div>
 
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
@@ -990,7 +998,174 @@
                 </div>
             </div>
         </div>
+
+        <!-- ══════════════════════════════════════════════
+             MODAL · POP-UP DE LA IMAGEN DENTRO DE LA MISMA PÁGINA
+             ══════════════════════════════════════════ -->
+        <div id="modal-ruta-formativa" class="slide-modal" role="dialog" aria-modal="true" aria-label="Ruta de formación investigativa del estudiante">
+            <div class="slide-modal__overlay" data-close-modal></div>
+            <div class="slide-modal__content slide-modal__content--image">
+                <div class="slide-modal__header" style="background: linear-gradient(to right, #0d9488, #1e3a5f);">
+                    <div class="flex items-center gap-2 min-w-0">
+                        <span class="iconify text-white shrink-0" data-icon="lucide:route" data-width="20"></span>
+                        <div class="min-w-0">
+                            <p class="text-[9px] font-bold uppercase tracking-widest text-white/80">Figura 1</p>
+                            <p class="font-display font-bold text-[13px] leading-tight truncate">Ruta de formación investigativa del estudiante</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <a href="RutaFormacionInvestigativa.png" target="_blank" rel="noopener"
+                           class="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-full transition-colors">
+                            <span class="iconify" data-icon="lucide:external-link" data-width="11"></span>
+                            Nueva pestaña
+                        </a>
+                        <button type="button" class="slide-modal__close" data-close-modal aria-label="Cerrar">×</button>
+                    </div>
+                </div>
+                <div class="slide-modal__body slide-modal__body--image">
+                    <img src="RutaFormacionInvestigativa.png"
+                         alt="Ruta de formación investigativa del estudiante de Medicina Veterinaria"
+                         class="w-full h-full object-contain">
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Estilos y lógica del modal (idempotentes, compartidos) -->
+    <style>
+        .slide-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2147483600;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .slide-modal.is-open { display: flex; }
+        .slide-modal__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            cursor: pointer;
+            animation: slideModalFadeIn 180ms ease-out;
+        }
+        .slide-modal__content {
+            position: relative;
+            z-index: 1;
+            width: min(1400px, 94vw);
+            height: min(880px, 90vh);
+            background: #ffffff;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            animation: slideModalZoomIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide-modal__content--image {
+            width: min(1600px, 96vw);
+            height: min(920px, 92vh);
+        }
+        .slide-modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 0.9rem;
+            color: #ffffff;
+            flex-shrink: 0;
+            gap: 0.75rem;
+        }
+        .slide-modal__close {
+            background: rgba(255, 255, 255, 0.15);
+            border: 0;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 150ms ease;
+            font-family: inherit;
+        }
+        .slide-modal__close:hover { background: rgba(255, 255, 255, 0.32); }
+        .slide-modal__body { flex: 1; min-height: 0; background: #ffffff; }
+        .slide-modal__body iframe { width: 100%; height: 100%; border: 0; display: block; }
+        .slide-modal__body--image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            padding: 1rem;
+        }
+        .slide-modal__body--image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.25rem;
+        }
+
+        @keyframes slideModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideModalZoomIn {
+            from { opacity: 0; transform: scale(0.96) translateY(8px); }
+            to   { opacity: 1; transform: scale(1)    translateY(0);   }
+        }
+
+        @media (max-width: 768px) {
+            .slide-modal { padding: 0.75rem; }
+            .slide-modal__content,
+            .slide-modal__content--image { width: 100%; height: 92vh; border-radius: 0.75rem; }
+        }
+    </style>
+
+    <script>
+        (function () {
+            if (window.__componentePracticoModalsInit__) return;
+            window.__componentePracticoModalsInit__ = true;
+
+            function closeAllModals() {
+                document.querySelectorAll('.slide-modal.is-open').forEach(function (m) {
+                    m.classList.remove('is-open');
+                });
+            }
+
+            document.addEventListener('click', function (e) {
+                var opener = e.target.closest('[data-open-modal]');
+                if (opener) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var id = opener.getAttribute('data-open-modal');
+                    var modal = document.getElementById(id);
+                    if (modal) {
+                        closeAllModals();
+                        modal.classList.add('is-open');
+                        var closeBtn = modal.querySelector('.slide-modal__close');
+                        if (closeBtn) closeBtn.focus();
+                    }
+                    return;
+                }
+                if (e.target.closest('[data-close-modal]')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeAllModals();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' || e.key === 'Esc') {
+                    closeAllModals();
+                }
+            });
+        })();
+    </script>
 
     <!-- ══════════════════════════════════════════════
          8 · SEMILLEROS Y GRUPOS DE INVESTIGACIÓN
@@ -1115,12 +1290,20 @@
             </div>
 
             <div class="flex-1 overflow-hidden custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <a href="GruposPorCategoria.png" target="_blank" rel="noopener"
-                   class="block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in"
-                   title="Abrir imagen en tamaño completo">
+                <button type="button"
+                        data-open-modal="modal-grupos-categoria"
+                        class="group relative block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-transparent p-0 text-left focus:outline-none focus:ring-2 focus:ring-unad-orange/60"
+                        title="Ver imagen en tamaño completo">
                     <img src="GruposPorCategoria.png" alt="Grupos de investigación ECAPMA con afinidad temática, según categoría reportada"
                          class="w-full h-full object-contain max-h-[58vh]">
-                </a>
+                    <!-- Overlay hover para indicar zoom -->
+                    <span class="pointer-events-none absolute inset-0 bg-unad-navy/0 group-hover:bg-unad-navy/20 transition-colors flex items-end justify-end p-3">
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider bg-white/90 text-unad-navy px-3 py-1.5 rounded-full shadow-md opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+                            <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span>
+                            Ampliar
+                        </span>
+                    </span>
+                </button>
             </div>
 
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
@@ -1134,7 +1317,174 @@
                 </div>
             </div>
         </div>
+
+        <!-- ══════════════════════════════════════════════
+             MODAL · POP-UP DE LA IMAGEN DENTRO DE LA MISMA PÁGINA
+             ══════════════════════════════════════════ -->
+        <div id="modal-grupos-categoria" class="slide-modal" role="dialog" aria-modal="true" aria-label="Grupos de investigación ECAPMA por categoría">
+            <div class="slide-modal__overlay" data-close-modal></div>
+            <div class="slide-modal__content slide-modal__content--image">
+                <div class="slide-modal__header" style="background: linear-gradient(to right, #ea580c, #1e3a5f);">
+                    <div class="flex items-center gap-2 min-w-0">
+                        <span class="iconify text-white shrink-0" data-icon="lucide:bar-chart-3" data-width="20"></span>
+                        <div class="min-w-0">
+                            <p class="text-[9px] font-bold uppercase tracking-widest text-white/80">Figura 3</p>
+                            <p class="font-display font-bold text-[13px] leading-tight truncate">Grupos de investigación ECAPMA por categoría</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <a href="GruposPorCategoria.png" target="_blank" rel="noopener"
+                           class="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-full transition-colors">
+                            <span class="iconify" data-icon="lucide:external-link" data-width="11"></span>
+                            Nueva pestaña
+                        </a>
+                        <button type="button" class="slide-modal__close" data-close-modal aria-label="Cerrar">×</button>
+                    </div>
+                </div>
+                <div class="slide-modal__body slide-modal__body--image">
+                    <img src="GruposPorCategoria.png"
+                         alt="Grupos de investigación ECAPMA con afinidad temática, según categoría reportada"
+                         class="w-full h-full object-contain">
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Estilos y lógica del modal (idempotentes, compartidos) -->
+    <style>
+        .slide-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2147483600;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .slide-modal.is-open { display: flex; }
+        .slide-modal__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            cursor: pointer;
+            animation: slideModalFadeIn 180ms ease-out;
+        }
+        .slide-modal__content {
+            position: relative;
+            z-index: 1;
+            width: min(1400px, 94vw);
+            height: min(880px, 90vh);
+            background: #ffffff;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            animation: slideModalZoomIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide-modal__content--image {
+            width: min(1600px, 96vw);
+            height: min(920px, 92vh);
+        }
+        .slide-modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 0.9rem;
+            color: #ffffff;
+            flex-shrink: 0;
+            gap: 0.75rem;
+        }
+        .slide-modal__close {
+            background: rgba(255, 255, 255, 0.15);
+            border: 0;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 150ms ease;
+            font-family: inherit;
+        }
+        .slide-modal__close:hover { background: rgba(255, 255, 255, 0.32); }
+        .slide-modal__body { flex: 1; min-height: 0; background: #ffffff; }
+        .slide-modal__body iframe { width: 100%; height: 100%; border: 0; display: block; }
+        .slide-modal__body--image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            padding: 1rem;
+        }
+        .slide-modal__body--image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.25rem;
+        }
+
+        @keyframes slideModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideModalZoomIn {
+            from { opacity: 0; transform: scale(0.96) translateY(8px); }
+            to   { opacity: 1; transform: scale(1)    translateY(0);   }
+        }
+
+        @media (max-width: 768px) {
+            .slide-modal { padding: 0.75rem; }
+            .slide-modal__content,
+            .slide-modal__content--image { width: 100%; height: 92vh; border-radius: 0.75rem; }
+        }
+    </style>
+
+    <script>
+        (function () {
+            if (window.__componentePracticoModalsInit__) return;
+            window.__componentePracticoModalsInit__ = true;
+
+            function closeAllModals() {
+                document.querySelectorAll('.slide-modal.is-open').forEach(function (m) {
+                    m.classList.remove('is-open');
+                });
+            }
+
+            document.addEventListener('click', function (e) {
+                var opener = e.target.closest('[data-open-modal]');
+                if (opener) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var id = opener.getAttribute('data-open-modal');
+                    var modal = document.getElementById(id);
+                    if (modal) {
+                        closeAllModals();
+                        modal.classList.add('is-open');
+                        var closeBtn = modal.querySelector('.slide-modal__close');
+                        if (closeBtn) closeBtn.focus();
+                    }
+                    return;
+                }
+                if (e.target.closest('[data-close-modal]')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeAllModals();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' || e.key === 'Esc') {
+                    closeAllModals();
+                }
+            });
+        })();
+    </script>
 
     <!-- ══════════════════════════════════════════════
          11 · VINCULACIÓN DE PROFESORES Y DEDICACIÓN
@@ -1501,7 +1851,7 @@
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
+   <!-- ══════════════════════════════════════════════
          17 · IMPACTO TERRITORIAL (IMAGEN)
     ══════════════════════════════════════════════ -->
     <section class="slide" data-title="Impacto territorial (Figura 6)">
@@ -1515,12 +1865,20 @@
             </div>
 
             <div class="flex-1 overflow-hidden custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <a href="ImpactoTerritorial.png" target="_blank" rel="noopener"
-                   class="block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in"
-                   title="Abrir imagen en tamaño completo">
+                <button type="button"
+                        data-open-modal="modal-impacto-territorial"
+                        class="group relative block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-transparent p-0 text-left focus:outline-none focus:ring-2 focus:ring-unad-teal/60"
+                        title="Ver imagen en tamaño completo">
                     <img src="ImpactoTerritorial.png" alt="De la investigación al impacto territorial verificable"
                          class="w-full h-full object-contain max-h-[58vh]">
-                </a>
+                    <!-- Overlay hover para indicar zoom -->
+                    <span class="pointer-events-none absolute inset-0 bg-unad-navy/0 group-hover:bg-unad-navy/20 transition-colors flex items-end justify-end p-3">
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider bg-white/90 text-unad-navy px-3 py-1.5 rounded-full shadow-md opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+                            <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span>
+                            Ampliar
+                        </span>
+                    </span>
+                </button>
             </div>
 
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
@@ -1534,7 +1892,342 @@
                 </div>
             </div>
         </div>
+
+        <!-- ══════════════════════════════════════════════
+             MODAL · POP-UP DE LA IMAGEN DENTRO DE LA MISMA PÁGINA
+             ══════════════════════════════════════════ -->
+        <div id="modal-impacto-territorial" class="slide-modal" role="dialog" aria-modal="true" aria-label="De la investigación al impacto territorial verificable">
+            <div class="slide-modal__overlay" data-close-modal></div>
+            <div class="slide-modal__content slide-modal__content--image">
+                <div class="slide-modal__header" style="background: linear-gradient(to right, #0d9488, #1e3a5f);">
+                    <div class="flex items-center gap-2 min-w-0">
+                        <span class="iconify text-white shrink-0" data-icon="lucide:map-pin" data-width="20"></span>
+                        <div class="min-w-0">
+                            <p class="text-[9px] font-bold uppercase tracking-widest text-white/80">Figura 6</p>
+                            <p class="font-display font-bold text-[13px] leading-tight truncate">De la investigación al impacto territorial verificable</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <a href="ImpactoTerritorial.png" target="_blank" rel="noopener"
+                           class="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-full transition-colors">
+                            <span class="iconify" data-icon="lucide:external-link" data-width="11"></span>
+                            Nueva pestaña
+                        </a>
+                        <button type="button" class="slide-modal__close" data-close-modal aria-label="Cerrar">×</button>
+                    </div>
+                </div>
+                <div class="slide-modal__body slide-modal__body--image">
+                    <img src="ImpactoTerritorial.png"
+                         alt="De la investigación al impacto territorial verificable"
+                         class="w-full h-full object-contain">
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Estilos y lógica del modal (idempotentes, compartidos) -->
+    <style>
+        .slide-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2147483600;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .slide-modal.is-open { display: flex; }
+        .slide-modal__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            cursor: pointer;
+            animation: slideModalFadeIn 180ms ease-out;
+        }
+        .slide-modal__content {
+            position: relative;
+            z-index: 1;
+            width: min(1400px, 94vw);
+            height: min(880px, 90vh);
+            background: #ffffff;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            animation: slideModalZoomIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide-modal__content--image {
+            width: min(1600px, 96vw);
+            height: min(920px, 92vh);
+        }
+        .slide-modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 0.9rem;
+            color: #ffffff;
+            flex-shrink: 0;
+            gap: 0.75rem;
+        }
+        .slide-modal__close {
+            background: rgba(255, 255, 255, 0.15);
+            border: 0;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 150ms ease;
+            font-family: inherit;
+        }
+        .slide-modal__close:hover { background: rgba(255, 255, 255, 0.32); }
+        .slide-modal__body { flex: 1; min-height: 0; background: #ffffff; }
+        .slide-modal__body iframe { width: 100%; height: 100%; border: 0; display: block; }
+        .slide-modal__body--image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            padding: 1rem;
+        }
+        .slide-modal__body--image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.25rem;
+        }
+
+        @keyframes slideModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideModalZoomIn {
+            from { opacity: 0; transform: scale(0.96) translateY(8px); }
+            to   { opacity: 1; transform: scale(1)    translateY(0);   }
+        }
+
+        @media (max-width: 768px) {
+            .slide-modal { padding: 0.75rem; }
+            .slide-modal__content,
+            .slide-modal__content--image { width: 100%; height: 92vh; border-radius: 0.75rem; }
+        }
+    </style>
+
+    <script>
+        (function () {
+            if (window.__componentePracticoModalsInit__) return;
+            window.__componentePracticoModalsInit__ = true;
+
+            function closeAllModals() {
+                document.querySelectorAll('.slide-modal.is-open').forEach(function (m) {
+                    m.classList.remove('is-open');
+                });
+            }
+
+            document.addEventListener('click', function (e) {
+                var opener = e.target.closest('[data-open-modal]');
+                if (opener) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var id = opener.getAttribute('data-open-modal');
+                    var modal = document.getElementById(id);
+                    if (modal) {
+                        closeAllModals();
+                        modal.classList.add('is-open');
+                        var closeBtn = modal.querySelector('.slide-modal__close');
+                        if (closeBtn) closeBtn.focus();
+                    }
+                    return;
+                }
+                if (e.target.closest('[data-close-modal]')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeAllModals();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' || e.key === 'Esc') {
+                    closeAllModals();
+                }
+            });
+        })();
+    </script>
+
+        <!-- ══════════════════════════════════════════════
+             MODAL · POP-UP DE LA IMAGEN DENTRO DE LA MISMA PÁGINA
+             ══════════════════════════════════════════ -->
+        <div id="modal-impacto-territorial" class="slide-modal" role="dialog" aria-modal="true" aria-label="De la investigación al impacto territorial verificable">
+            <div class="slide-modal__overlay" data-close-modal></div>
+            <div class="slide-modal__content slide-modal__content--image">
+                <div class="slide-modal__header" style="background: linear-gradient(to right, #0d9488, #1e3a5f);">
+                    <div class="flex items-center gap-2 min-w-0">
+                        <span class="iconify text-white shrink-0" data-icon="lucide:map-pin" data-width="20"></span>
+                        <div class="min-w-0">
+                            <p class="text-[9px] font-bold uppercase tracking-widest text-white/80">Figura 6</p>
+                            <p class="font-display font-bold text-[13px] leading-tight truncate">De la investigación al impacto territorial verificable</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <a href="ImpactoTerritorial.png" target="_blank" rel="noopener"
+                           class="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-full transition-colors">
+                            <span class="iconify" data-icon="lucide:external-link" data-width="11"></span>
+                            Nueva pestaña
+                        </a>
+                        <button type="button" class="slide-modal__close" data-close-modal aria-label="Cerrar">×</button>
+                    </div>
+                </div>
+                <div class="slide-modal__body slide-modal__body--image">
+                    <img src="ImpactoTerritorial.png"
+                         alt="De la investigación al impacto territorial verificable"
+                         class="w-full h-full object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estilos y lógica del modal (idempotentes, compartidos) -->
+    <style>
+        .slide-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2147483600;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .slide-modal.is-open { display: flex; }
+        .slide-modal__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            cursor: pointer;
+            animation: slideModalFadeIn 180ms ease-out;
+        }
+        .slide-modal__content {
+            position: relative;
+            z-index: 1;
+            width: min(1400px, 94vw);
+            height: min(880px, 90vh);
+            background: #ffffff;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            animation: slideModalZoomIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide-modal__content--image {
+            width: min(1600px, 96vw);
+            height: min(920px, 92vh);
+        }
+        .slide-modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 0.9rem;
+            color: #ffffff;
+            flex-shrink: 0;
+            gap: 0.75rem;
+        }
+        .slide-modal__close {
+            background: rgba(255, 255, 255, 0.15);
+            border: 0;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 150ms ease;
+            font-family: inherit;
+        }
+        .slide-modal__close:hover { background: rgba(255, 255, 255, 0.32); }
+        .slide-modal__body { flex: 1; min-height: 0; background: #ffffff; }
+        .slide-modal__body iframe { width: 100%; height: 100%; border: 0; display: block; }
+        .slide-modal__body--image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            padding: 1rem;
+        }
+        .slide-modal__body--image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.25rem;
+        }
+
+        @keyframes slideModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideModalZoomIn {
+            from { opacity: 0; transform: scale(0.96) translateY(8px); }
+            to   { opacity: 1; transform: scale(1)    translateY(0);   }
+        }
+
+        @media (max-width: 768px) {
+            .slide-modal { padding: 0.75rem; }
+            .slide-modal__content,
+            .slide-modal__content--image { width: 100%; height: 92vh; border-radius: 0.75rem; }
+        }
+    </style>
+
+    <script>
+        (function () {
+            if (window.__componentePracticoModalsInit__) return;
+            window.__componentePracticoModalsInit__ = true;
+
+            function closeAllModals() {
+                document.querySelectorAll('.slide-modal.is-open').forEach(function (m) {
+                    m.classList.remove('is-open');
+                });
+            }
+
+            document.addEventListener('click', function (e) {
+                var opener = e.target.closest('[data-open-modal]');
+                if (opener) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var id = opener.getAttribute('data-open-modal');
+                    var modal = document.getElementById(id);
+                    if (modal) {
+                        closeAllModals();
+                        modal.classList.add('is-open');
+                        var closeBtn = modal.querySelector('.slide-modal__close');
+                        if (closeBtn) closeBtn.focus();
+                    }
+                    return;
+                }
+                if (e.target.closest('[data-close-modal]')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeAllModals();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' || e.key === 'Esc') {
+                    closeAllModals();
+                }
+            });
+        })();
+    </script>
 
     <!-- ══════════════════════════════════════════════
          18 · MATRIZ DE TRAZABILIDAD DE EVIDENCIAS
@@ -1599,7 +2292,7 @@
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:scale" data-width="32"></span>
-                    12. Referentes normativos y documentales
+                    Referentes normativos y documentales
                 </h2>
             </div>
 
