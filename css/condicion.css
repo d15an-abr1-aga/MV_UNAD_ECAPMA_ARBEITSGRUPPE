@@ -141,3 +141,235 @@ button, input, select, textarea, optgroup { font-family: inherit; }
 .t-wide   { letter-spacing: 0.025em; }
 .t-wider  { letter-spacing: 0.05em; }
 .t-widest { letter-spacing: 0.1em; }
+
+/* ===== Pestañas: Propósito y Perfiles ===== */
+.tabs-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+}
+@media (max-width: 640px) {
+  .tabs-nav { grid-template-columns: repeat(2, 1fr); }
+}
+
+.tab-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  padding: .9rem .5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, .55);
+  border: 1.5px solid rgba(0, 0, 0, .06);
+  cursor: pointer;
+  color: #334155;
+  font-family: inherit;
+  transition: transform .25s ease, box-shadow .25s ease,
+              background .25s ease, border-color .25s ease;
+}
+.dark .tab-card {
+  background: rgba(30, 41, 59, .5);
+  border-color: rgba(255, 255, 255, .08);
+  color: #cbd5e1;
+}
+.tab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0, 0, 0, .08); }
+
+.tab-card .iconify {
+  color: var(--tab-color);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+.tab-card:hover .iconify { transform: scale(1.18) rotate(-8deg); }
+
+.tab-card__label {
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.tab-card.is-active {
+  background: color-mix(in srgb, var(--tab-color) 12%, white);
+  border-color: var(--tab-color);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--tab-color) 28%, transparent);
+  transform: translateY(-2px);
+}
+.dark .tab-card.is-active {
+  background: color-mix(in srgb, var(--tab-color) 22%, rgba(15, 23, 42, .9));
+}
+.tab-card.is-active .iconify { animation: tab-pop .5s cubic-bezier(.34, 1.56, .64, 1); }
+@keyframes tab-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.3) rotate(10deg); }
+  100% { transform: scale(1); }
+}
+.tab-card.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: -.6rem; left: 50%;
+  transform: translateX(-50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--tab-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--tab-color) 25%, transparent);
+}
+
+/* Acentos por pestaña (fallback si el proyecto no expone las variables) */
+.tab-card[data-accent="teal"]   { --tab-color: var(--unad-teal,   #0f766e); }
+.tab-card[data-accent="orange"] { --tab-color: var(--unad-orange, #d9691e); }
+.tab-card[data-accent="navy"]   { --tab-color: var(--unad-navy,   #0b3a53); }
+.tab-card[data-accent="green"]  { --tab-color: var(--unad-green,  #166534); }
+
+/* Paneles */
+.tab-panel { display: none; }
+.tab-panel.is-active { display: block; animation: panel-in .42s ease both; }
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-card, .tab-card .iconify, .tab-panel.is-active {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   FOTOS CON SUBTÍTULO (Perfil Ocupacional y similares)
+   Sin lightbox · sin zoom · sin cursor de lupa
+   ══════════════════════════════════════════════ */
+.slide .slide-photo {
+    display: block;
+    position: relative;
+    line-height: 0;
+}
+.slide .slide-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: default !important;
+    pointer-events: none;   /* la imagen no responde a clic */
+    transition: transform .4s ease;
+}
+.slide .slide-photo:hover img {
+    transform: scale(1.03);  /* solo un zoom decorativo suave dentro del marco */
+}
+
+/* Cabecera de la slide con altura elástica (evita que el título role-title se corte) */
+.slide-header {
+    min-height: 3.5rem;
+}
+
+/* Red de seguridad: si algún script intenta inyectar un botón de ampliar, se oculta */
+.slide .expand-btn,
+.slide .zoom-btn,
+.slide .fullscreen-btn,
+.slide [data-zoom],
+.slide [data-lightbox],
+.slide [aria-label*="mpliar" i],
+.slide [aria-label*="xpand" i],
+.slide [aria-label*="ullscreen" i] {
+    display: none !important;
+}
+
+/* En móvil, las imágenes no crecen más de lo necesario */
+@media (max-width: 768px) {
+    .slide .slide-photo img { height: 11rem; }
+}
+
+/* ══════════════════════════════════════════════
+   Matriz de Alineación · Competencias / RAPs / Cursos
+   ══════════════════════════════════════════════ */
+
+/* Cabecera con altura elástica para el role-title (26–38px) */
+.slide-header {
+    min-height: 3.5rem;
+}
+
+/* Iconos veterinarios: reaccionan al hover de la tarjeta */
+.slide .hover-card .iconify {
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.slide .hover-card:hover .iconify {
+    transform: rotate(8deg) scale(1.12);
+}
+/* Excepción: el icono decorativo grande del fondo NO rota */
+.slide .hover-card > .iconify[aria-hidden="true"] {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Los chips de cursos no deben romperse a mitad de palabra */
+.slide .t-micro {
+    line-height: 1.3;
+    white-space: normal;
+    word-break: keep-all;
+}
+
+/* En pantallas bajas, comprimir la matriz para que quepa completa */
+@media (max-height: 900px) {
+    .slide-header { min-height: 3rem; }
+    .slide .custom-scroll { padding-right: 6px; }
+}
+
+/* ══════════════════════════════════════════════
+   Resaltado de filas al pasar el mouse
+   Aplica a la tabla del Plan de Estudios
+   ══════════════════════════════════════════════ */
+
+/* Modo claro */
+.styled-table-dense tbody tr:not(.period-row):not(.total-row):hover td {
+    background-color: rgba(0, 68, 91, 0.10);
+    transition: background-color .15s ease;
+}
+
+/* Modo oscuro */
+.dark .styled-table-dense tbody tr:not(.period-row):not(.total-row):hover td {
+    background-color: rgba(210, 103, 20, 0.14);
+}
+
+/* Primera celda (nombre del curso) más marcada — guía visual del ojo */
+.styled-table-dense tbody tr:not(.period-row):not(.total-row):hover td.td-left {
+    color: #00445B;
+    font-weight: 600;
+}
+.dark .styled-table-dense tbody tr:not(.period-row):not(.total-row):hover td.td-left {
+    color: #D26714;
+}
+.styled-table-dense tbody tr:not(.period-row):not(.total-row) {
+    position: relative;
+    transition: background-color .18s ease;
+}
+.styled-table-dense tbody tr:not(.period-row):not(.total-row):hover {
+    background-color: rgba(0, 68, 91, 0.08);
+}
+.dark .styled-table-dense tbody tr:not(.period-row):not(.total-row):hover {
+    background-color: rgba(210, 103, 20, 0.12);
+}
+
+/* Barra lateral izquierda con acento teal (o naranja en oscuro) */
+.styled-table-dense tbody tr:not(.period-row):not(.total-row) td:first-child {
+    position: relative;
+}
+.styled-table-dense tbody tr:not(.period-row):not(.total-row) td:first-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #00445B;
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform .18s ease;
+}
+.styled-table-dense tbody tr:not(.period-row):not(.total-row):hover td:first-child::before {
+    transform: scaleY(1);
+}
+.dark .styled-table-dense tbody tr:not(.period-row):not(.total-row) td:first-child::before {
+    background: #D26714;
+}

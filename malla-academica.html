@@ -50,7 +50,6 @@
   @keyframes float1 { 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(5vw,5vh) scale(1.1);} }
   @keyframes float2 { 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-5vw,-5vh) scale(1.1);} }
 
-  /* Navegación */
   .sitenav {
     position:fixed; top:1rem; left:50%; transform:translateX(-50%);
     width:92%; max-width:1500px; z-index:50;
@@ -76,40 +75,24 @@
   .theme-toggle { background:none; border:none; cursor:pointer; font-size:1.25rem; display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background-color:rgba(0,0,0,.05); transition:background-color .2s; }
   html.dark .theme-toggle { background-color:rgba(255,255,255,.1); }
 
-  /* Layout general — ahora scrollable vertical */
   .malla-wrap {
     position:relative; z-index:10;
-    padding: 6.5rem 1.25rem 3rem;
+    padding: 8rem 1.25rem 3rem;
     display:flex; flex-direction:column;
     gap: 1.25rem;
     max-width: 1600px; margin: 0 auto;
   }
 
-  .hero {
-    text-align:center; flex-shrink: 0;
-    max-width: 900px; margin: 0 auto;
-  }
-  .hero__eyebrow {
-    font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700;
-    letter-spacing:.18em; text-transform:uppercase; color:#D26714;
-    margin: 0 0 .3rem;
-  }
-  .hero h1 {
-    font-family:'Montserrat',sans-serif; font-weight:700;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    color:#01333F; margin:.1rem 0 .35rem; line-height:1.15;
-  }
+  .hero { text-align:center; flex-shrink: 0; max-width: 900px; margin: 0 auto; }
+  .hero__eyebrow { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:#D26714; margin: 0 0 .3rem; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-weight:700; font-size: clamp(1.4rem, 3vw, 2rem); color:#01333F; margin:.1rem 0 .35rem; line-height:1.15; }
   html.dark .hero h1 { color:#fff; }
-  .hero p {
-    color: color-mix(in srgb, currentColor 70%, transparent);
-    font-size: .82rem; line-height:1.5; max-width: 62ch; margin: 0 auto .7rem;
-  }
+  .hero p { color: color-mix(in srgb, currentColor 70%, transparent); font-size: .82rem; line-height:1.5; max-width: 62ch; margin: 0 auto .7rem; }
 
   .legend {
     display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:center;
     font-size:.75rem; padding:.55rem .9rem; border-radius: 999px;
-    background: rgba(255,255,255,.55);
-    border: 1px solid rgba(0,68,91,.10);
+    background: rgba(255,255,255,.55); border: 1px solid rgba(0,68,91,.10);
     max-width: fit-content; margin: 0 auto;
   }
   html.dark .legend { background: rgba(0,0,0,.35); border-color: rgba(255,255,255,.10); }
@@ -121,9 +104,6 @@
   .legend__dot { display:inline-block; width:8px; height:8px; border-radius:50%; }
   .legend__hint { color:#D26714; font-weight:600; }
 
-  /* ============================================================
-     GRID PRINCIPAL: malla (1fr) + panel detalle (340px)
-     ============================================================ */
   .malla-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 340px;
@@ -146,7 +126,6 @@
   }
   html.dark .malla-panel { background: rgba(1,51,63,.65); border-color: rgba(255,255,255,.12); box-shadow: 0 10px 40px rgba(0,0,0,.5); }
 
-  /* Malla horizontal */
   .malla {
     display: flex;
     gap: .8rem;
@@ -157,6 +136,7 @@
     padding-bottom: .5rem;
     align-items: stretch;
     scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
   }
   .malla::-webkit-scrollbar { height: 8px; }
   .malla::-webkit-scrollbar-track { background: rgba(0,68,91,.05); border-radius: 10px; }
@@ -164,7 +144,6 @@
   html.dark .malla::-webkit-scrollbar-track { background: rgba(255,255,255,.05); }
   html.dark .malla::-webkit-scrollbar-thumb { background: rgba(255,255,255,.2); }
 
-  /* Columna de periodo — grid: header auto / body 1fr / footer auto */
   .periodo {
     flex: 0 0 220px;
     display: grid;
@@ -190,10 +169,7 @@
     display: flex; align-items: center; justify-content: space-between;
     gap: .5rem;
   }
-  .periodo__header::after {
-    content: ""; width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(255,255,255,.55);
-  }
+  .periodo__header::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.55); }
 
   .periodo__body {
     min-height: 0;
@@ -215,23 +191,12 @@
     border-top: 1px solid rgba(0,68,91,.08);
     font-size: .62rem; color: #64748b; font-weight: 700;
     text-transform: uppercase; letter-spacing: .1em;
-    gap: .5rem;
-    line-height: 1;
+    gap: .5rem; line-height: 1;
   }
-  html.dark .periodo__footer {
-    background: rgba(255,255,255,.05);
-    border-top-color: rgba(255,255,255,.08);
-    color: #94a3b8;
-  }
-  .periodo__footer strong {
-    font-family:'Montserrat',sans-serif; font-weight: 800;
-    font-size: .95rem; color: #00445B;
-    letter-spacing: 0;
-    line-height: 1;
-  }
+  html.dark .periodo__footer { background: rgba(255,255,255,.05); border-top-color: rgba(255,255,255,.08); color: #94a3b8; }
+  .periodo__footer strong { font-family:'Montserrat',sans-serif; font-weight: 800; font-size: .95rem; color: #00445B; letter-spacing: 0; line-height: 1; }
   html.dark .periodo__footer strong { color: #D26714; }
 
-  /* Curso */
   .curso {
     display: flex; flex-direction: column;
     gap: .2rem;
@@ -242,8 +207,7 @@
     border: 1px solid rgba(0,68,91,.08);
     border-left: 4px solid var(--tipo-color, #00445B);
     cursor: pointer;
-    transition: transform .22s cubic-bezier(.4,0,.2,1),
-                box-shadow .22s, border-color .22s, background .22s, opacity .3s;
+    transition: transform .22s cubic-bezier(.4,0,.2,1), box-shadow .22s, border-color .22s, background .22s, opacity .3s;
     position: relative;
     outline: none;
   }
@@ -251,14 +215,12 @@
   .curso:last-child { margin-bottom: .1rem; }
   html.dark .curso { background: rgba(0,0,0,.45); border-color: rgba(255,255,255,.08); }
 
-  .curso:hover,
-  .curso:focus-visible {
+  .curso:hover, .curso:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px -6px rgba(0,68,91,.25);
     border-color: var(--card-color, #00445B);
   }
-  .curso:hover .curso__name,
-  .curso:focus-visible .curso__name { color: var(--card-color, #01333F); }
+  .curso:hover .curso__name, .curso:focus-visible .curso__name { color: var(--card-color, #01333F); }
   html.dark .curso:hover .curso__name { color: #fff; }
 
   .curso__type {
@@ -270,81 +232,46 @@
     background: color-mix(in srgb, var(--tipo-color, #00445B) 12%, transparent);
     width: fit-content;
   }
-  .curso__name {
-    font-size: .72rem; font-weight: 600; line-height: 1.25;
-    color: #01333F;
-    transition: color .2s;
-  }
+  .curso__name { font-size: .72rem; font-weight: 600; line-height: 1.25; color: #01333F; transition: color .2s; }
   html.dark .curso__name { color: #e2e8f0; }
-  .curso__code {
-    font-family: 'Montserrat', monospace;
-    font-size: .56rem; color: #64748b; letter-spacing: .02em;
-  }
+  .curso__code { font-family: 'Montserrat', monospace; font-size: .56rem; color: #64748b; letter-spacing: .02em; }
   html.dark .curso__code { color: #94a3b8; }
-  .curso__note {
-    font-size: .58rem; color: #D26714;
-    font-style: italic; font-weight: 500;
-  }
+  .curso__note { font-size: .58rem; color: #D26714; font-style: italic; font-weight: 500; }
 
-  /* Estados */
   .malla.has-focus .curso { opacity: .25; filter: grayscale(.35); }
-  .malla.has-focus .curso.is-active,
-  .malla.has-focus .curso.is-prereq { opacity: 1; filter: none; }
+  .malla.has-focus .curso.is-active, .malla.has-focus .curso.is-prereq { opacity: 1; filter: none; }
 
   .curso.is-active {
     border-color: var(--card-color, #00445B);
-    box-shadow: 0 0 0 2px var(--card-color, #00445B),
-                0 10px 24px -8px rgba(0,68,91,.35);
+    box-shadow: 0 0 0 2px var(--card-color, #00445B), 0 10px 24px -8px rgba(0,68,91,.35);
     transform: translateY(-3px);
     background: color-mix(in srgb, var(--card-color, #00445B) 8%, #ffffff);
   }
-  html.dark .curso.is-active {
-    background: color-mix(in srgb, var(--card-color, #00445B) 25%, #000);
-  }
+  html.dark .curso.is-active { background: color-mix(in srgb, var(--card-color, #00445B) 25%, #000); }
 
   .curso.is-prereq {
-    border-color: #D26714;
-    border-left-color: #D26714;
+    border-color: #D26714; border-left-color: #D26714;
     box-shadow: 0 4px 14px -6px rgba(210,103,20,.45);
     background: color-mix(in srgb, #D26714 7%, #ffffff);
   }
-  html.dark .curso.is-prereq {
-    background: color-mix(in srgb, #D26714 18%, #000);
-  }
+  html.dark .curso.is-prereq { background: color-mix(in srgb, #D26714 18%, #000); }
   .curso.is-prereq::before {
     content: ""; position: absolute; top: -3px; right: -3px;
     width: 10px; height: 10px; border-radius: 50%;
-    background: #D26714;
-    box-shadow: 0 0 0 3px rgba(210,103,20,.25);
+    background: #D26714; box-shadow: 0 0 0 3px rgba(210,103,20,.25);
   }
 
-  .curso.is-pinned {
-    box-shadow: 0 0 0 3px #D26714,
-                0 10px 24px -8px rgba(210,103,20,.5);
-    z-index: 2;
-  }
+  .curso.is-pinned { box-shadow: 0 0 0 3px #D26714, 0 10px 24px -8px rgba(210,103,20,.5); z-index: 2; }
   .curso.is-pinned::after {
-    content: "";
-    position: absolute;
-    top: -4px; left: -4px;
-    width: 12px; height: 12px;
-    border-radius: 50%;
-    background: #D26714;
-    border: 2px solid #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,.15);
+    content: ""; position: absolute; top: -4px; left: -4px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: #D26714; border: 2px solid #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,.15);
   }
   html.dark .curso.is-pinned::after { border-color: #01242e; }
 
-  /* ============================================================
-     PANEL DE DETALLE — INCRUSTADO (no flotante)
-     ============================================================ */
   .detalle {
-    min-height: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: .35rem;
-
+    min-height: 0; height: 100%;
+    display: flex; flex-direction: column; gap: .35rem;
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     background: rgba(255,255,255,.97);
     border: 1px solid rgba(0,68,91,.12);
@@ -355,79 +282,43 @@
     overflow: hidden;
     transition: border-color .3s ease;
   }
-  html.dark .detalle {
-    background: rgba(1,51,63,.85);
-    border-color: rgba(255,255,255,.12);
-    border-left-color: #D26714;
-    box-shadow: 0 10px 40px rgba(0,0,0,.5);
-  }
+  html.dark .detalle { background: rgba(1,51,63,.85); border-color: rgba(255,255,255,.12); border-left-color: #D26714; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
 
   .detalle__head {
     display: flex; align-items: flex-start; justify-content: space-between;
-    gap: .5rem;
-    padding-bottom: .55rem;
+    gap: .5rem; padding-bottom: .55rem;
     border-bottom: 1px solid rgba(0,68,91,.10);
   }
   html.dark .detalle__head { border-bottom-color: rgba(255,255,255,.10); }
 
-  .detalle h3 {
-    font-family:'Montserrat',sans-serif; font-weight:700;
-    font-size: .92rem; color:#01333F; margin: 0;
-    line-height: 1.25;
-  }
+  .detalle h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size: .92rem; color:#01333F; margin: 0; line-height: 1.25; }
   html.dark .detalle h3 { color:#fff; }
 
-  .detalle > p {
-    font-size: .72rem; color:#475569; margin: 0 0 .35rem; line-height:1.4;
-  }
+  .detalle > p { font-size: .72rem; color:#475569; margin: 0 0 .35rem; line-height:1.4; }
   html.dark .detalle > p { color:#cbd5e1; }
   .detalle > p strong { color:#D26714; }
 
-  /* Placeholder cuando no hay curso seleccionado */
   .detalle__placeholder {
-    flex: 1;
-    display: flex; flex-direction: column;
+    flex: 1; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    text-align: center;
-    gap: .55rem;
-    padding: 1rem;
-    color: #64748b;
+    text-align: center; gap: .55rem; padding: 1rem; color: #64748b;
   }
   html.dark .detalle__placeholder { color:#94a3b8; }
-  .detalle__placeholder .iconify {
-    color: #D26714; opacity: .85;
-  }
-  .detalle__placeholder h3 {
-    font-size: .95rem; color:#01333F;
-  }
+  .detalle__placeholder .iconify { color: #D26714; opacity: .85; }
+  .detalle__placeholder h3 { font-size: .95rem; color:#01333F; }
   html.dark .detalle__placeholder h3 { color:#fff; }
-  .detalle__placeholder p {
-    font-size: .76rem; line-height:1.45; max-width: 24ch;
-    margin: 0;
-  }
+  .detalle__placeholder p { font-size: .76rem; line-height:1.45; max-width: 24ch; margin: 0; }
   .detalle__hint {
-    margin-top: .35rem;
-    font-size: .68rem;
-    color: #D26714;
-    font-weight: 600;
-    background: rgba(210,103,20,.10);
-    border-left: 3px solid #D26714;
-    padding: .35rem .55rem;
-    border-radius: .35rem;
-    text-align: left;
-    max-width: 26ch;
+    margin-top: .35rem; font-size: .68rem; color: #D26714; font-weight: 600;
+    background: rgba(210,103,20,.10); border-left: 3px solid #D26714;
+    padding: .35rem .55rem; border-radius: .35rem; text-align: left; max-width: 26ch;
   }
 
-  /* Lista de prerrequisitos con scroll */
   .detalle__list {
     list-style: none; padding: 0; margin: 0;
     display: flex; flex-direction: column; gap: .3rem;
-    overflow-y: auto;
-    flex: 1;
-    min-height: 0;
-    padding-right: 4px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(210,103,20,.4) transparent;
+    overflow-y: auto; flex: 1; min-height: 0; padding-right: 4px;
+    scrollbar-width: thin; scrollbar-color: rgba(210,103,20,.4) transparent;
   }
   .detalle__list::-webkit-scrollbar { width: 5px; }
   .detalle__list::-webkit-scrollbar-thumb { background: rgba(210,103,20,.4); border-radius: 6px; }
@@ -436,37 +327,28 @@
     background: rgba(210,103,20,.10);
     border-left: 3px solid #D26714;
     border-radius: .35rem;
-    color: #01333F;
-    line-height: 1.3;
+    color: #01333F; line-height: 1.3;
   }
   html.dark .detalle__list li { color:#e2e8f0; background: rgba(210,103,20,.18); }
-  .detalle__list li strong {
-    font-family:'Montserrat',sans-serif;
-    color:#D26714; font-weight: 700;
-    margin-right: .15rem;
-  }
+  .detalle__list li strong { font-family:'Montserrat',sans-serif; color:#D26714; font-weight: 700; margin-right: .15rem; }
 
   .detalle__close {
     background: rgba(0,68,91,.08); border: none; cursor: pointer;
     width: 24px; height: 24px; border-radius: 50%;
     font-size: .95rem; line-height:1;
     color: #01333F; display:flex; align-items:center; justify-content:center;
-    transition: background .2s, transform .2s;
-    flex-shrink: 0;
+    transition: background .2s, transform .2s; flex-shrink: 0;
   }
   html.dark .detalle__close { background: rgba(255,255,255,.10); color:#EAEAEA; }
   .detalle__close:hover { background: #D26714; color:#fff; transform: rotate(90deg); }
 
-  /* ============================================================
-     SECCIONES INFERIORES: ELECTIVIDAD + ELECTIVOS
-     ============================================================ */
   .glass-section {
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     background: rgba(255,255,255,.78);
     border: 1px solid rgba(255,255,255,.6);
     box-shadow: 0 10px 40px rgba(1,51,63,.08);
     border-radius: 1.5rem;
-    padding: 1.5rem 1.5rem 1.5rem;
+    padding: 1.5rem;
     transition: all .3s ease;
   }
   html.dark .glass-section { background: rgba(1,51,63,.65); border-color: rgba(255,255,255,.12); box-shadow: 0 10px 40px rgba(0,0,0,.5); }
@@ -478,47 +360,16 @@
   }
   html.dark .section-head { border-bottom-color: rgba(255,255,255,.10); }
   .section-head .iconify { color: #D26714; flex-shrink: 0; }
-  .section-head h2 {
-    font-family:'Montserrat',sans-serif; font-weight:700;
-    font-size: 1.05rem; letter-spacing: .04em;
-    color: #01333F; margin: 0;
-    text-transform: uppercase;
-  }
+  .section-head h2 { font-family:'Montserrat',sans-serif; font-weight:700; font-size: 1.05rem; letter-spacing: .04em; color: #01333F; margin: 0; text-transform: uppercase; }
   html.dark .section-head h2 { color:#fff; }
 
-  /* RUTA DE LA ELECTIVIDAD */
-  .electividad-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: .85rem;
-  }
-  .linea {
-    border-radius: 1rem;
-    overflow: hidden;
-    border: 1px solid rgba(0,68,91,.10);
-    background: rgba(255,255,255,.65);
-    display: flex; flex-direction: column;
-  }
+  .electividad-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; }
+  .linea { border-radius: 1rem; overflow: hidden; border: 1px solid rgba(0,68,91,.10); background: rgba(255,255,255,.65); display: flex; flex-direction: column; }
   html.dark .linea { background: rgba(0,0,0,.35); border-color: rgba(255,255,255,.10); }
-
-  .linea__head {
-    padding: .7rem .85rem;
-    color: #01333F;
-    border-bottom: 1px solid rgba(0,68,91,.10);
-  }
+  .linea__head { padding: .7rem .85rem; color: #01333F; border-bottom: 1px solid rgba(0,68,91,.10); }
   html.dark .linea__head { color:#fff; border-bottom-color: rgba(255,255,255,.10); }
-  .linea__head span {
-    display: block;
-    font-size: .62rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .1em;
-    margin-bottom: .2rem;
-    opacity: .85;
-  }
-  .linea__head h3 {
-    font-family:'Montserrat',sans-serif;
-    font-size: .85rem; font-weight: 700;
-    line-height: 1.25; margin: 0;
-  }
+  .linea__head span { display: block; font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: .2rem; opacity: .85; }
+  .linea__head h3 { font-family:'Montserrat',sans-serif; font-size: .85rem; font-weight: 700; line-height: 1.25; margin: 0; }
   .linea--1 .linea__head { background: linear-gradient(135deg, #cbe8cf, #a8d6b0); }
   html.dark .linea--1 .linea__head { background: linear-gradient(135deg, #0c3820, #14512e); color: #fff; }
   .linea--2 .linea__head { background: linear-gradient(135deg, #fbd7b5, #f5b982); }
@@ -527,223 +378,167 @@
   html.dark .linea--3 .linea__head { background: linear-gradient(135deg, #0b2f42, #103f5c); color: #fff; }
 
   .linea table { width: 100%; border-collapse: collapse; }
-  .linea th {
-    font-size: .58rem; text-transform: uppercase; letter-spacing: .08em;
-    font-weight: 700; padding: .35rem .6rem;
-    text-align: left;
-    background: rgba(0,68,91,.05);
-    color: #475569;
-  }
+  .linea th { font-size: .58rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; padding: .35rem .6rem; text-align: left; background: rgba(0,68,91,.05); color: #475569; }
   html.dark .linea th { background: rgba(255,255,255,.05); color:#94a3b8; }
   .linea th:first-child { width: 48px; text-align: center; }
-  .linea td {
-    padding: .5rem .6rem;
-    font-size: .72rem; line-height: 1.3;
-    border-bottom: 1px solid rgba(0,68,91,.06);
-    color: #01333F;
-  }
+  .linea td { padding: .5rem .6rem; font-size: .72rem; line-height: 1.3; border-bottom: 1px solid rgba(0,68,91,.06); color: #01333F; }
   html.dark .linea td { color:#e2e8f0; border-bottom-color: rgba(255,255,255,.06); }
-  .linea td:first-child {
-    text-align: center;
-    font-family:'Montserrat',sans-serif;
-    font-weight: 800; color: #D26714;
-  }
+  .linea td:first-child { text-align: center; font-family:'Montserrat',sans-serif; font-weight: 800; color: #D26714; }
   .linea tr:last-child td { border-bottom: none; }
 
-  .section-note {
-    margin: .9rem 0 0;
-    padding: .65rem .9rem;
-    background: rgba(0,68,91,.05);
-    border-left: 3px solid #00445B;
-    border-radius: .5rem;
-    font-size: .74rem;
-    line-height: 1.5;
-    color: #334155;
-  }
+  .section-note { margin: .9rem 0 0; padding: .65rem .9rem; background: rgba(0,68,91,.05); border-left: 3px solid #00445B; border-radius: .5rem; font-size: .74rem; line-height: 1.5; color: #334155; }
   html.dark .section-note { background: rgba(255,255,255,.05); color:#cbd5e1; border-left-color: #D26714; }
 
-  /* ELECTIVOS MALLA CURRICULAR */
-  .electivos-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 240px;
-    gap: 1rem;
-  }
+  .electivos-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 1rem; }
   .electivos-main { display: flex; flex-direction: column; gap: 1rem; }
   .electivos-block { display: flex; flex-direction: column; gap: .5rem; }
-
-  .block-title {
-    font-family:'Montserrat',sans-serif; font-weight: 700;
-    font-size: .72rem; letter-spacing: .1em;
-    text-transform: uppercase;
-    color: #fff; background: #035B3B;
-    padding: .45rem .8rem;
-    border-radius: .5rem;
-    margin: 0;
-  }
+  .block-title { font-family:'Montserrat',sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: #035B3B; padding: .45rem .8rem; border-radius: .5rem; margin: 0; }
   html.dark .block-title { background: #024a30; }
-
-  .electivos-cols {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: .65rem;
-  }
-  .e-col {
-    border: 1px solid rgba(0,68,91,.10);
-    border-radius: .65rem;
-    background: rgba(255,255,255,.65);
-    overflow: hidden;
-    display: flex; flex-direction: column;
-  }
+  .electivos-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
+  .e-col { border: 1px solid rgba(0,68,91,.10); border-radius: .65rem; background: rgba(255,255,255,.65); overflow: hidden; display: flex; flex-direction: column; }
   html.dark .e-col { background: rgba(0,0,0,.30); border-color: rgba(255,255,255,.10); }
-  .e-col__head {
-    font-size: .62rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .07em;
-    padding: .45rem .6rem;
-    background: rgba(0,68,91,.06);
-    color: #00445B;
-    border-bottom: 1px solid rgba(0,68,91,.10);
-    text-align: center;
-    line-height: 1.25;
-  }
+  .e-col__head { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; padding: .45rem .6rem; background: rgba(0,68,91,.06); color: #00445B; border-bottom: 1px solid rgba(0,68,91,.10); text-align: center; line-height: 1.25; }
   html.dark .e-col__head { background: rgba(255,255,255,.05); color:#e2e8f0; border-bottom-color: rgba(255,255,255,.10); }
-
   .e-list { display: flex; flex-direction: column; }
-  .e-item {
-    display: flex; align-items: center; gap: .45rem;
-    padding: .45rem .55rem;
-    border-bottom: 1px solid rgba(0,68,91,.06);
-    font-size: .7rem; line-height: 1.25;
-    color: #01333F;
-  }
+  .e-item { display: flex; align-items: center; gap: .45rem; padding: .45rem .55rem; border-bottom: 1px solid rgba(0,68,91,.06); font-size: .7rem; line-height: 1.25; color: #01333F; }
   html.dark .e-item { color:#e2e8f0; border-bottom-color: rgba(255,255,255,.06); }
   .e-item:last-child { border-bottom: none; }
-  .e-item__tag {
-    display: inline-flex; align-items: center; justify-content: center;
-    gap: 2px; flex-shrink: 0;
-    font-family:'Montserrat',sans-serif;
-    font-size: .58rem; font-weight: 800;
-    padding: 2px 5px; border-radius: .3rem;
-    color: #fff;
-    min-width: 44px;
-  }
-  .e-item__tag--m { background: #035B3B; }   /* metodológico */
-  .e-item__tag--t { background: #D26714; }   /* teórico */
-  .e-item__tag--p { background: #C9930C; }   /* práctico */
+  .e-item__tag { display: inline-flex; align-items: center; justify-content: center; gap: 2px; flex-shrink: 0; font-family:'Montserrat',sans-serif; font-size: .58rem; font-weight: 800; padding: 2px 5px; border-radius: .3rem; color: #fff; min-width: 44px; }
+  .e-item__tag--m { background: #035B3B; }
+  .e-item__tag--t { background: #D26714; }
+  .e-item__tag--p { background: #C9930C; }
   .e-item__name { flex: 1; }
-  .e-item__code {
-    font-family:'Montserrat',monospace;
-    font-size: .58rem; color: #64748b;
-    white-space: nowrap;
-  }
+  .e-item__code { font-family:'Montserrat',monospace; font-size: .58rem; color: #64748b; white-space: nowrap; }
   html.dark .e-item__code { color:#94a3b8; }
 
-  /* Columna lateral: Opciones de Grado + Electivos */
   .electivos-side { display: flex; flex-direction: column; gap: .85rem; }
-  .side-block {
-    border: 1px solid rgba(0,68,91,.10);
-    border-radius: .75rem;
-    background: rgba(255,255,255,.65);
-    overflow: hidden;
-  }
+  .side-block { border: 1px solid rgba(0,68,91,.10); border-radius: .75rem; background: rgba(255,255,255,.65); overflow: hidden; }
   html.dark .side-block { background: rgba(0,0,0,.30); border-color: rgba(255,255,255,.10); }
-  .side-title {
-    font-family:'Montserrat',sans-serif; font-weight: 700;
-    font-size: .68rem; letter-spacing: .1em;
-    text-transform: uppercase;
-    color: #fff; background: #035B3B;
-    padding: .45rem .7rem;
-    margin: 0;
-    text-align: center;
-  }
-  .side-title--green { background: #035B3B; }
-  .side-block ul {
-    list-style: none; margin: 0; padding: 0;
-    display: flex; flex-direction: column;
-  }
-  .side-block li {
-    font-size: .72rem;
-    padding: .45rem .7rem;
-    border-bottom: 1px solid rgba(0,68,91,.06);
-    color: #01333F;
-    display: flex; align-items: center; gap: .4rem;
-  }
+  .side-title { font-family:'Montserrat',sans-serif; font-weight: 700; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: #035B3B; padding: .45rem .7rem; margin: 0; text-align: center; }
+  .side-block ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .side-block li { font-size: .72rem; padding: .45rem .7rem; border-bottom: 1px solid rgba(0,68,91,.06); color: #01333F; display: flex; align-items: center; gap: .4rem; }
   html.dark .side-block li { color:#e2e8f0; border-bottom-color: rgba(255,255,255,.06); }
   .side-block li:last-child { border-bottom: none; }
-  .side-block li::before {
-    content: ""; width: 5px; height: 5px;
-    border-radius: 50%; background: #D26714;
-    flex-shrink: 0;
+  .side-block li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #D26714; flex-shrink: 0; }
+
+  /* ══════════ BARRA DE RUTAS ══════════ */
+  .rutas-panel {
+    display: flex; flex-direction: column; gap: .55rem;
+    padding: .85rem 1rem;
+    border-radius: 1.25rem;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    background: rgba(255,255,255,.78);
+    border: 1px solid rgba(255,255,255,.6);
+    box-shadow: 0 6px 20px rgba(1,51,63,.06);
+  }
+  html.dark .rutas-panel { background: rgba(1,51,63,.65); border-color: rgba(255,255,255,.12); }
+
+  .rutas-group { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+  .rutas-group + .rutas-group { padding-top: .55rem; border-top: 1px dashed rgba(0,68,91,.12); }
+  html.dark .rutas-group + .rutas-group { border-top-color: rgba(255,255,255,.10); }
+
+  .rutas-group__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: .62rem; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: #00445B; flex-shrink: 0;
+    min-width: 8.5rem;
+  }
+  html.dark .rutas-group__label { color: #D26714; }
+
+  .rutas-group__btns { display: flex; flex-wrap: wrap; gap: .4rem; flex: 1; }
+
+  .ruta-btn {
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .38rem .8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .68rem; font-weight: 700; letter-spacing: .02em;
+    border-radius: 999px;
+    border: 1.5px solid var(--ruta-color, #00445B);
+    background: color-mix(in srgb, var(--ruta-color, #00445B) 8%, white);
+    color: var(--ruta-color, #00445B);
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    user-select: none;
+  }
+  html.dark .ruta-btn {
+    background: color-mix(in srgb, var(--ruta-color, #D26714) 18%, #0a1922);
+    color: color-mix(in srgb, var(--ruta-color, #D26714) 75%, white);
+  }
+  .ruta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px -4px color-mix(in srgb, var(--ruta-color, #00445B) 45%, transparent); }
+  .ruta-btn:focus-visible { outline: 2px solid var(--ruta-color); outline-offset: 2px; }
+  .ruta-btn.is-active {
+    background: var(--ruta-color, #00445B);
+    color: #fff;
+    box-shadow: 0 8px 20px -6px color-mix(in srgb, var(--ruta-color, #00445B) 60%, transparent);
+  }
+  .ruta-btn__clear { --ruta-color: #64748b; font-style: italic; }
+  .ruta-btn__dot { width: .55rem; height: .55rem; border-radius: 50%; background: var(--ruta-color, #00445B); flex-shrink: 0; }
+  .ruta-btn.is-active .ruta-btn__dot { background: #fff; }
+
+  /* Resaltado de rutas — reforzado para ganarle a .has-focus de malla.js */
+  .malla.has-ruta .curso:not(.is-ruta) { opacity: .15; filter: grayscale(.6); }
+  .malla.has-ruta .curso.is-ruta,
+  .malla.has-ruta.has-focus .curso.is-ruta {
+    opacity: 1 !important;
+    filter: none !important;
+    border-color: var(--ruta-color);
+    border-left-color: var(--ruta-color);
+    box-shadow: 0 0 0 2.5px var(--ruta-color),
+                0 8px 20px -8px color-mix(in srgb, var(--ruta-color) 55%, transparent);
+  }
+  html.dark .malla.has-ruta .curso.is-ruta,
+  html.dark .malla.has-ruta.has-focus .curso.is-ruta {
+    background: color-mix(in srgb, var(--ruta-color) 28%, #000);
   }
 
-  /* Responsive */
+  .rutas-note { margin: 0; font-size: .68rem; color: #64748b; font-style: italic; line-height: 1.4; }
+  html.dark .rutas-note { color: #94a3b8; }
+  .rutas-note strong { color: #D26714; font-style: normal; }
+
   @media (max-width: 1100px) {
     .electivos-layout { grid-template-columns: 1fr; }
     .electivos-cols { grid-template-columns: 1fr; }
     .electividad-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 900px) {
-    .malla-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr auto;
-      height: auto;
-      max-height: none;
-      min-height: 0;
-    }
+    .malla-grid { grid-template-columns: 1fr; grid-template-rows: 1fr auto; height: auto; max-height: none; min-height: 0; }
     .malla-panel { min-height: 380px; height: 60vh; }
     .detalle { min-height: 220px; height: auto; }
     .detalle__list { max-height: 40vh; }
+    .rutas-group { flex-direction: column; align-items: flex-start; gap: .4rem; }
+    .rutas-group__label { min-width: 0; }
   }
   @media (max-width: 640px) {
-    .malla-wrap { padding: 6rem .75rem 2rem; }
+    .malla-wrap { padding: 7rem .75rem 2rem; }
     .periodo { flex: 0 0 82vw; }
     .hero p { font-size:.78rem; }
   }
-  
 </style>
 
-<!-- ===== Auto-ocultar navbar en modo embed ===== -->
 <script>
     (function() {
         const params = new URLSearchParams(window.location.search);
         if (!params.has('embed')) return;
-
         function hideNavbar() {
             const style = document.createElement('style');
             style.id = '__embed-style__';
             style.textContent = `
-                body > nav,
-                body > header,
-                .navbar,
-                .top-bar,
-                .topnav,
-                [class*="navbar"],
-                [id*="navbar"] {
-                    display: none !important;
-                    height: 0 !important;
-                    overflow: hidden !important;
-                    padding: 0 !important;
-                    margin: 0 !important;
+                body > nav, body > header, .navbar, .top-bar, .topnav,
+                [class*="navbar"], [id*="navbar"] {
+                    display: none !important; height: 0 !important;
+                    overflow: hidden !important; padding: 0 !important; margin: 0 !important;
                 }
-                body {
-                    padding-top: 0 !important;
-                    margin-top: 0 !important;
-                }
-                main, .main-content {
-                    padding-top: 1rem !important;
-                }
+                body { padding-top: 0 !important; margin-top: 0 !important; }
+                main, .main-content { padding-top: 1rem !important; }
             `;
             document.head.appendChild(style);
-
-            // Respaldo por JS
             const nav = document.querySelector('body > nav, body > header, .navbar');
             if (nav) nav.style.display = 'none';
         }
-
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', hideNavbar);
-        } else {
-            hideNavbar();
-        }
+        } else { hideNavbar(); }
     })();
 </script>
 
@@ -763,16 +558,12 @@
     </div>
   </a>
   <div class="sitenav__right">
-    <button class="sitenav__burger" id="nav-burger"
-            aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <button class="sitenav__burger" id="nav-burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <ul class="sitenav__links" id="nav-links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="malla-academica.html">Malla académica</a></li>
       <li class="sitenav__dropdown">
-        <button class="sitenav__link" type="button"
-                aria-haspopup="true" aria-expanded="false">
-          Condiciones
-        </button>
+        <button class="sitenav__link" type="button" aria-haspopup="true" aria-expanded="false">Condiciones</button>
         <ul class="sitenav__dropdown-menu">
           <li><a href="condicion-1.html">Condición 1 · Denominación</a></li>
           <li><a href="condicion-2.html">Condición 2</a></li>
@@ -785,8 +576,7 @@
         </ul>
       </li>
     </ul>
-    <button class="theme-toggle" id="theme-btn" type="button"
-            aria-label="Cambiar tema">🌙</button>
+    <button class="theme-toggle" id="theme-btn" type="button" aria-label="Cambiar tema">🌙</button>
   </div>
 </nav>
 
@@ -795,12 +585,7 @@
   <header class="hero">
     <p class="hero__eyebrow">Plan de estudios · 10 periodos</p>
     <h1>Malla académica interactiva</h1>
-    <p>
-      Pasa el cursor (o toca en móvil) sobre cualquier curso para ver la ruta completa
-      de prerrequisitos que debes cursar antes de llegar a él. Cada periodo tiene su
-      propio color y cada curso indica si es Teórico, Práctico o Metodológico.
-    </p>
-
+    <p>Pasa el cursor (o toca en móvil) sobre cualquier curso para ver la ruta completa de prerrequisitos que debes cursar antes de llegar a él. Cada periodo tiene su propio color y cada curso indica si es Teórico, Práctico o Metodológico.</p>
     <div class="legend">
       <div class="legend__group">
         <span class="legend__label">Tipo</span>
@@ -812,7 +597,31 @@
     </div>
   </header>
 
-  <!-- GRID: malla + panel detalle incrustado -->
+  <div class="rutas-panel" role="group" aria-label="Rutas curriculares">
+    <div class="rutas-group">
+      <span class="rutas-group__label">Rutas de prerrequisitos</span>
+      <div class="rutas-group__btns">
+        <button type="button" class="ruta-btn" data-ruta="verde" style="--ruta-color:#035B3B"><span class="ruta-btn__dot"></span>Ruta Verde</button>
+        <button type="button" class="ruta-btn" data-ruta="amarilla" style="--ruta-color:#C9930C"><span class="ruta-btn__dot"></span>Ruta Amarilla</button>
+        <button type="button" class="ruta-btn" data-ruta="roja" style="--ruta-color:#B91C1C"><span class="ruta-btn__dot"></span>Ruta Roja</button>
+        <button type="button" class="ruta-btn" data-ruta="azul" style="--ruta-color:#1D4ED8"><span class="ruta-btn__dot"></span>Ruta Azul</button>
+        <button type="button" class="ruta-btn" data-ruta="negra" style="--ruta-color:#1e293b"><span class="ruta-btn__dot"></span>Ruta Negra</button>
+      </div>
+    </div>
+    <div class="rutas-group">
+      <span class="rutas-group__label">Rutas por competencia (C3)</span>
+      <div class="rutas-group__btns">
+        <button type="button" class="ruta-btn" data-ruta="idioma" style="--ruta-color:#7C3AED"><span class="ruta-btn__dot"></span>RUTA IDIOMA</button>
+        <button type="button" class="ruta-btn" data-ruta="np1" style="--ruta-color:#00445B"><span class="ruta-btn__dot"></span>RUTA NP1</button>
+        <button type="button" class="ruta-btn" data-ruta="np2" style="--ruta-color:#035B3B"><span class="ruta-btn__dot"></span>RUTA NP2</button>
+        <button type="button" class="ruta-btn" data-ruta="saberpro" style="--ruta-color:#D26714"><span class="ruta-btn__dot"></span>SABER PRO</button>
+        <button type="button" class="ruta-btn" data-ruta="sissu" style="--ruta-color:#0891B2"><span class="ruta-btn__dot"></span>RUTA SISSU</button>
+        <button type="button" class="ruta-btn ruta-btn__clear" data-ruta="__clear"><span class="ruta-btn__dot"></span>Limpiar rutas</button>
+      </div>
+    </div>
+    <p class="rutas-note"><strong>Cursos de rotación:</strong> para matricular una rotación se debe haber cursado al menos el <strong>80% de los créditos académicos</strong> del programa.</p>
+  </div>
+
   <div class="malla-grid">
     <div class="malla-panel">
       <div class="malla" id="malla" aria-label="Malla académica por periodos"></div>
@@ -820,131 +629,80 @@
     <aside class="detalle" id="detalle" role="status" aria-live="polite"></aside>
   </div>
 
-  <!-- ══════════════════════════════════════════════
-       RUTA DE LA ELECTIVIDAD
-  ══════════════════════════════════════════ -->
   <section class="glass-section">
     <div class="section-head">
       <span class="iconify" data-icon="lucide:route" data-width="26"></span>
       <h2>Ruta de la Electividad</h2>
     </div>
-
     <div class="electividad-grid">
-
       <div class="linea linea--1">
-        <div class="linea__head">
-          <span>Línea de Profundización I</span>
-          <h3>Conservación, manejo y bienestar de la fauna silvestre</h3>
-        </div>
-        <table>
-          <thead>
-            <tr><th>Créd.</th><th>Nombre del curso</th></tr>
-          </thead>
+        <div class="linea__head"><span>Línea de Profundización I</span><h3>Conservación, manejo y bienestar de la fauna silvestre</h3></div>
+        <table><thead><tr><th>Créd.</th><th>Nombre del curso</th></tr></thead>
           <tbody>
             <tr><td>3</td><td>Conservación y Gestión de Fauna Silvestre y Exótica</td></tr>
             <tr><td>3</td><td>Bienestar y Manejo Sostenible de Fauna Silvestre</td></tr>
             <tr><td>3</td><td>Rehabilitación y Restablecimiento de Fauna en Ecosistemas</td></tr>
-          </tbody>
-        </table>
+          </tbody></table>
       </div>
-
       <div class="linea linea--2">
-        <div class="linea__head">
-          <span>Línea de Profundización II</span>
-          <h3>Salud pública veterinaria y enfoque One Health</h3>
-        </div>
-        <table>
-          <thead>
-            <tr><th>Créd.</th><th>Nombre del curso</th></tr>
-          </thead>
+        <div class="linea__head"><span>Línea de Profundización II</span><h3>Salud pública veterinaria y enfoque One Health</h3></div>
+        <table><thead><tr><th>Créd.</th><th>Nombre del curso</th></tr></thead>
           <tbody>
             <tr><td>3</td><td>Inocuidad alimentaria</td></tr>
             <tr><td>3</td><td>Salud de hato y gestión sanitaria</td></tr>
             <tr><td>3</td><td>Prevención, Vigilancia y Control de Zoonosis</td></tr>
-          </tbody>
-        </table>
+          </tbody></table>
       </div>
-
       <div class="linea linea--3">
-        <div class="linea__head">
-          <span>Línea de Profundización III</span>
-          <h3>Gestión Integral de la Medicina Veterinaria</h3>
-        </div>
-        <table>
-          <thead>
-            <tr><th>Créd.</th><th>Nombre del curso</th></tr>
-          </thead>
+        <div class="linea__head"><span>Línea de Profundización III</span><h3>Gestión Integral de la Medicina Veterinaria</h3></div>
+        <table><thead><tr><th>Créd.</th><th>Nombre del curso</th></tr></thead>
           <tbody>
             <tr><td>3</td><td>Especies menores y no convencionales</td></tr>
             <tr><td>3</td><td>Gestión y Administración de Servicios Veterinarios</td></tr>
             <tr><td>3</td><td>Geriatría veterinaria</td></tr>
-          </tbody>
-        </table>
+          </tbody></table>
       </div>
-
     </div>
-
-    <p class="section-note">
-      Los estudiantes del programa Medicina Veterinaria deben optar por <strong>solo una línea de profundización</strong>
-      (según el plan de estudios) por lo cual no se permite ver dos cursos (uno de cada línea) para el cumplimiento del plan.
-    </p>
+    <p class="section-note">Los estudiantes del programa Medicina Veterinaria deben optar por <strong>solo una línea de profundización</strong> (según el plan de estudios) por lo cual no se permite ver dos cursos (uno de cada línea) para el cumplimiento del plan.</p>
   </section>
 
-  <!-- ══════════════════════════════════════════════
-       ELECTIVOS MALLA CURRICULAR
-  ══════════════════════════════════════════ -->
   <section class="glass-section">
     <div class="section-head">
       <span class="iconify" data-icon="lucide:list-checks" data-width="26"></span>
       <h2>Electivos Malla Curricular Programa de Medicina Veterinaria</h2>
     </div>
-
     <div class="electivos-layout">
-
       <div class="electivos-main">
-
-        <!-- Bloque 1 -->
         <div class="electivos-block">
           <h3 class="block-title">Cursos electivos del componente disciplinar específico*</h3>
           <div class="electivos-cols">
-
-            <div class="e-col">
-              <div class="e-col__head">Línea 1: Conservación, manejo y bienestar de la fauna silvestre</div>
+            <div class="e-col"><div class="e-col__head">Línea 1: Conservación, manejo y bienestar de la fauna silvestre</div>
               <div class="e-list">
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Conservación y Gestión de Fauna Silvestre y Exótica</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Bienestar y Manejo Sostenible de Fauna Silvestre</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Rehabilitación y Restablecimiento de Fauna en Ecosistemas</span></div>
               </div>
             </div>
-
-            <div class="e-col">
-              <div class="e-col__head">Línea 2: Salud pública veterinaria y enfoque One Health</div>
+            <div class="e-col"><div class="e-col__head">Línea 2: Salud pública veterinaria y enfoque One Health</div>
               <div class="e-list">
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Inocuidad alimentaria</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Salud de hato y gestión sanitaria</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Prevención, Vigilancia y Control de Zoonosis</span></div>
               </div>
             </div>
-
-            <div class="e-col">
-              <div class="e-col__head">Línea 3: Gestión Integral de la Medicina Veterinaria para Animales de Compañía</div>
+            <div class="e-col"><div class="e-col__head">Línea 3: Gestión Integral de la Medicina Veterinaria para Animales de Compañía</div>
               <div class="e-list">
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Especies menores y no convencionales</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Gestión y Administración de Servicios Veterinarios</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Geriatría veterinaria</span></div>
               </div>
             </div>
-
           </div>
         </div>
-
-        <!-- Bloque 2 -->
         <div class="electivos-block">
           <h3 class="block-title">Cursos electivos por campo de formación</h3>
           <div class="electivos-cols">
-
-            <div class="e-col">
-              <div class="e-col__head">Interdisciplinar Básico Común (IBC)</div>
+            <div class="e-col"><div class="e-col__head">Interdisciplinar Básico Común (IBC)</div>
               <div class="e-list">
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Educación ambiental</span><span class="e-item__code">358028</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Inclusión Social</span><span class="e-item__code">40004</span></div>
@@ -953,9 +711,7 @@
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Sostenibilidad, desarrollo y calidad de vida</span><span class="e-item__code">40006</span></div>
               </div>
             </div>
-
-            <div class="e-col">
-              <div class="e-col__head">Disciplinar Común (DC)</div>
+            <div class="e-col"><div class="e-col__head">Disciplinar Común (DC)</div>
               <div class="e-list">
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Animales de compañía</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Topografía</span></div>
@@ -963,9 +719,7 @@
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 2 · T</span><span class="e-item__name">Gestión ambiental</span></div>
               </div>
             </div>
-
-            <div class="e-col">
-              <div class="e-col__head">Complementario</div>
+            <div class="e-col"><div class="e-col__head">Complementario</div>
               <div class="e-list">
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Alimentación saludable y Bienestar humano</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Estrategias participativas para el trabajo comunitario</span><span class="e-item__code">502369520</span></div>
@@ -975,12 +729,9 @@
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Guitarra</span><span class="e-item__code">80010</span></div>
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
-
       <aside class="electivos-side">
         <div class="side-block">
           <h3 class="side-title">Opciones de Grado</h3>
@@ -1003,7 +754,6 @@
           </ul>
         </div>
       </aside>
-
     </div>
   </section>
 
@@ -1013,5 +763,210 @@
 <script src="js/theme.js"></script>
 <script src="js/malla-data.js"></script>
 <script src="js/malla.js"></script>
+
+<script>
+/* Rutas curriculares — resaltado por ID + panel derecho + scroll */
+(function () {
+  'use strict';
+
+  var RUTAS = {
+    verde:    { nombre: 'Ruta Verde',    ids: ['p1c2','p2c2','p2c5','p3c3'] },
+    amarilla: { nombre: 'Ruta Amarilla', ids: ['p1c2','p2c2','p2c1','p3c1','p3c5','p4c2','p4c7','p6c2','p7c2'] },
+    roja:     { nombre: 'Ruta Roja',     ids: ['p2c6','p3c6','p4c4','p5c2','p5c4'] },
+    azul:     { nombre: 'Ruta Azul',     ids: ['p1c3','p2c3','p3c2'] },
+    negra:    { nombre: 'Ruta Negra',    ids: ['p2c3','p3c2','p5c1','p8c5','p9c5','p10c4'] },
+    idioma:   { nombre: 'Ruta Idioma (Inglés A1→B2)', ids: ['p6c4','p7c4','p8c4','p9c4'] },
+    np1:      { nombre: 'Ruta NP1 — Procesos de salud-enfermedad, diagnóstico y atención veterinaria',
+                ids: ['p1c1','p2c1','p2c2','p3c1','p3c3','p3c5','p3c7','p4c1','p4c2','p4c3','p4c7',
+                      'p5c1','p5c3','p5c6','p6c1','p6c2','p6c3','p7c1','p7c2','p7c3','p8c1','p8c2','p8c6','p10c2'] },
+    np2:      { nombre: 'Ruta NP2 — Salud poblacional, bienestar y sostenibilidad de los sistemas pecuarios',
+                ids: ['p1c4','p2c4','p3c1','p3c2','p3c3','p4c2','p4c3','p4c5','p4c7',
+                      'p5c5','p5c6','p7c6','p7c7','p9c1','p9c2','p10c1'] },
+    saberpro: { nombre: 'Ruta Saber Pro',
+                ids: ['p1c4','p1c6','p2c1','p2c2','p2c4','p2c6','p3c1','p3c2','p3c4','p3c5','p3c7',
+                      'p4c1','p4c2','p4c3','p4c4','p4c5','p5c1','p5c4','p5c6','p6c3','p6c4',
+                      'p7c2','p7c4','p7c5','p8c4','p9c4','p9c6'] },
+    sissu:    { nombre: 'Ruta SISSU',
+                ids: ['p1c4','p1c5','p1c7','p3c8','p4c5','p5c6','p9c6','p10c1'] }
+  };
+
+  var malla   = document.getElementById('malla');
+  var detalle = document.getElementById('detalle');
+  if (!malla || !detalle) return;
+
+  var btns = document.querySelectorAll('.ruta-btn');
+  var rutaActiva = null;
+
+  function buildRoutePanel(key, ids, color) {
+    var cursos = [];
+    ids.forEach(function (id) {
+      var el = malla.querySelector('.curso[data-id="' + id + '"]');
+      if (!el) return;
+      var nombre = (el.querySelector('.curso__name') || {}).textContent || '—';
+      var periodo = (el.closest('.periodo').querySelector('.periodo__header') || {}).textContent || '';
+      cursos.push({ id: id, nombre: nombre.trim(), periodo: periodo.trim() });
+    });
+    return '' +
+      '<div class="detalle__head">' +
+        '<h3 style="color:' + color + '">' + RUTAS[key].nombre + '</h3>' +
+      '</div>' +
+      '<p><strong>' + cursos.length + '</strong> cursos en esta ruta</p>' +
+      '<p><strong>Recorrido de la ruta:</strong></p>' +
+      '<ul class="detalle__list">' +
+        cursos.map(function (c) {
+          return '<li><strong>' + c.periodo + ':</strong> ' + c.nombre + '</li>';
+        }).join('') +
+      '</ul>';
+  }
+
+  function renderRoutePanel() {
+    if (!rutaActiva) return;
+    detalle.innerHTML = rutaActiva.html;
+  }
+
+  function limpiar() {
+    rutaActiva = null;
+    malla.classList.remove('has-ruta');
+    malla.style.removeProperty('--ruta-color');
+    malla.querySelectorAll('.curso.is-ruta').forEach(function (c) {
+      c.classList.remove('is-ruta');
+      c.style.removeProperty('--ruta-color');
+    });
+    btns.forEach(function (b) { b.classList.remove('is-active'); });
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+  }
+
+  function aplicarRuta(key) {
+    if (rutaActiva && rutaActiva.key === key) { limpiar(); return; }
+    var ruta = RUTAS[key];
+    if (!ruta) return;
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+
+    rutaActiva = null;
+    malla.classList.remove('has-ruta');
+    malla.querySelectorAll('.curso.is-ruta').forEach(function (c) {
+      c.classList.remove('is-ruta');
+      c.style.removeProperty('--ruta-color');
+    });
+    btns.forEach(function (b) { b.classList.remove('is-active'); });
+
+    var btnOrigen = document.querySelector('.ruta-btn[data-ruta="' + key + '"]');
+    var color = btnOrigen
+      ? getComputedStyle(btnOrigen).getPropertyValue('--ruta-color').trim()
+      : '#00445B';
+
+    var idSet = new Set(ruta.ids);
+    var marcados = 0;
+    malla.querySelectorAll('.curso').forEach(function (el) {
+      if (idSet.has(el.dataset.id)) {
+        el.classList.add('is-ruta');
+        el.style.setProperty('--ruta-color', color);
+        marcados++;
+      }
+    });
+
+    if (!marcados) return;
+
+    malla.classList.add('has-ruta');
+    malla.style.setProperty('--ruta-color', color);
+    if (btnOrigen) btnOrigen.classList.add('is-active');
+
+    rutaActiva = { key: key, color: color, nombre: ruta.nombre, html: buildRoutePanel(key, ruta.ids, color) };
+    renderRoutePanel();
+
+    /* Auto-scroll horizontal + vertical:
+       1) Centra el span completo de la ruta en la malla.
+       2) Hace scroll dentro de cada .periodo__body para que
+          cada curso de la ruta quede visible en su columna. */
+    (function centrarRuta() {
+      var cursos = malla.querySelectorAll('.curso.is-ruta');
+      if (!cursos.length) return;
+
+      /* ── 1) Scroll vertical interno por cada periodo ── */
+      var periodosConRuta = new Set();
+      cursos.forEach(function (c) {
+        var periodo = c.closest('.periodo');
+        if (periodo) periodosConRuta.add(periodo);
+      });
+
+      periodosConRuta.forEach(function (periodo) {
+        var body = periodo.querySelector('.periodo__body');
+        if (!body) return;
+
+        var cursosRuta = periodo.querySelectorAll('.curso.is-ruta');
+        if (!cursosRuta.length) return;
+
+        var bodyRect  = body.getBoundingClientRect();
+        var firstRect = cursosRuta[0].getBoundingClientRect();
+        var lastRect  = cursosRuta[cursosRuta.length - 1].getBoundingClientRect();
+
+        var offsetFirst = firstRect.top - bodyRect.top + body.scrollTop;
+        var offsetLast  = lastRect.bottom - bodyRect.top + body.scrollTop;
+        var centroSpan  = (offsetFirst + offsetLast) / 2;
+        var target      = centroSpan - body.clientHeight / 2;
+
+        var altoSpan = offsetLast - offsetFirst;
+        if (altoSpan > body.clientHeight - 20) {
+          target = offsetFirst - 12;
+        }
+
+        body.scrollTo({
+          top: Math.max(0, target),
+          behavior: 'smooth'
+        });
+      });
+
+      /* ── 2) Scroll horizontal de la malla ── */
+      requestAnimationFrame(function () {
+        var rectMalla = malla.getBoundingClientRect();
+        var first     = cursos[0].getBoundingClientRect();
+        var last      = cursos[cursos.length - 1].getBoundingClientRect();
+
+        var centroSpan = (first.left + last.right) / 2 - rectMalla.left + malla.scrollLeft;
+        var target     = centroSpan - malla.clientWidth / 2;
+
+        var anchoSpan = last.right - first.left;
+        if (anchoSpan > malla.clientWidth - 40) {
+          target = first.left - rectMalla.left + malla.scrollLeft - 20;
+        }
+
+        malla.scrollTo({
+          left: Math.max(0, target),
+          behavior: 'smooth'
+        });
+      });
+    })();
+  }
+
+  /* Mantener el panel de ruta cuando malla.js intente mostrar placeholder */
+  var mo = new MutationObserver(function () {
+    if (!rutaActiva) return;
+    if (detalle.querySelector('.detalle__placeholder')) renderRoutePanel();
+  });
+  mo.observe(detalle, { childList: true, subtree: false });
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.dataset.ruta;
+      if (key === '__clear') { limpiar(); return; }
+      aplicarRuta(key);
+    });
+  });
+
+  /* Diagnóstico visible: si tras 800 ms la malla sigue vacía, mostramos aviso */
+  setTimeout(function () {
+    if (!malla.querySelector('.curso')) {
+      detalle.innerHTML = '' +
+        '<div class="detalle__placeholder">' +
+          '<span class="iconify" data-icon="lucide:triangle-alert" data-width="34"></span>' +
+          '<h3>La malla no cargó</h3>' +
+          '<p>Abre la consola (F12 → Console) y revisa el error en rojo. Los scripts cargados son <code>malla-data.js</code> y <code>malla.js</code>.</p>' +
+        '</div>';
+    }
+  }, 800);
+})();
+</script>
+
 </body>
 </html>
