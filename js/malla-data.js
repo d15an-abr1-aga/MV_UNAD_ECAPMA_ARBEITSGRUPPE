@@ -89,7 +89,7 @@
       { id: "p8c2", tipo: "P", creditos: 4, nombre: "Rotación Clínica en Medicina y cirugía equina" },
       { id: "p8c3", tipo: "T", creditos: 2, nombre: "Mercadeo Agropecuario", codigo: "300005" },
       { id: "p8c4", tipo: "M", creditos: 3, nombre: "Inglés B1", codigo: "900003" },
-      { id: "p8c5", tipo: "P", creditos: 3, nombre: "Electivo Disciplinar Específico Línea 1" },
+      { id: "p8c5", tipo: "P", creditos: 3, nombre: "Electivo Línea 1 · Conservación, manejo y bienestar de la fauna silvestre" },
       { id: "p8c6", tipo: "P", creditos: 2, nombre: "Medicina de fauna silvestre y exótica" }
     ]},
     { id: "p9", numero: "IX", creditos: 17, cursos: [
@@ -97,14 +97,14 @@
       { id: "p9c2", tipo: "P", creditos: 4, nombre: "Rotación Reproducción y biotecnología veterinaria" },
       { id: "p9c3", tipo: "M", creditos: 1, nombre: "Electivo de formación complementaria" },
       { id: "p9c4", tipo: "M", creditos: 3, nombre: "Inglés B2", codigo: "900004" },
-      { id: "p9c5", tipo: "P", creditos: 3, nombre: "Electivo Disciplinar Específico Línea 2" },
+      { id: "p9c5", tipo: "P", creditos: 3, nombre: "Electivo Línea 2 · Salud pública veterinaria y enfoque One Health" },
       { id: "p9c6", tipo: "T", creditos: 2, nombre: "Sociología rural", codigo: "30174" }
     ]},
     { id: "p10", numero: "X", creditos: 14, cursos: [
       { id: "p10c1", tipo: "P", creditos: 4, nombre: "Rotación One Health y Vigilancia Sanitaria" },
       { id: "p10c2", tipo: "P", creditos: 4, nombre: "Rotación de profundización" },
       { id: "p10c3", tipo: "M", creditos: 3, nombre: "Electivo IBC" },
-      { id: "p10c4", tipo: "P", creditos: 3, nombre: "Electivo Disciplinar Específico Línea 3" }
+      { id: "p10c4", tipo: "P", creditos: 3, nombre: "Electivo Línea 3 · Gestión Integral de la Medicina Veterinaria para Animales de Compañía" }
     ]}
   ];
 
