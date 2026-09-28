@@ -41,7 +41,7 @@
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 <link rel="stylesheet" href="css/nav.css" />
-<script src="js/nav.js"></script>
+<link rel="stylesheet" href="css/condicion.css" />   <!-- ← AÑADIR -->
 
 <style>
     body {
@@ -450,83 +450,86 @@
     <!-- ══════════════════════════════════════════════
          2 · CRITERIO DE EVALUACIÓN Y ALCANCE
     ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Criterio y alcance">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:clipboard-check" data-width="32"></span>
-                    Criterio de evaluación y alcance de la condición
-                </h2>
-                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Condición 5</span>
-            </div>
+<section class="slide" data-title="Criterio y alcance">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:clipboard-check" data-width="32"></span>
+                Criterio de evaluación y alcance de la condición
+            </h2>
+            <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Condición 5</span>
+        </div>
 
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-5 pr-2 text-gray-800 dark:text-gray-200">
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto text-center">
-                    La Condición 5 exige demostrar que el Programa de Medicina Veterinaria incorpora de manera coherente la
-                    <strong class="text-unad-teal dark:text-unad-orange">investigación, la innovación y la creación</strong>, en relación con su nivel de formación,
-                    la naturaleza institucional, el currículo y las necesidades del contexto. Para un programa nuevo, la evaluación se concentra
-                    en la solidez de la declaración investigativa, la capacidad institucional, la formación prevista, la articulación con líneas
-                    y grupos, la disponibilidad de recursos y la proyección de la agenda para los siguientes siete años.
-                </p>
+        <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-5 pr-2 text-gray-800 dark:text-gray-200">
 
-                <p class="text-sm font-bold text-unad-navy dark:text-white text-center">Ejes que orientan la evaluación:</p>
+            <p class="text-sm font-bold text-unad-navy dark:text-white text-center">Ejes que orientan la evaluación:</p>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:file-check" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Declaración investigativa</h3>
-                            <p class="text-xs">Coherencia con el nivel profesional, el objeto de estudio, el perfil de egreso y la identidad institucional.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:users" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Proceso formativo</h3>
-                            <p class="text-xs">Estrategias, cursos, experiencias y productos que desarrollan competencias investigativas en los estudiantes.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:network" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Articulación académica</h3>
-                            <p class="text-xs">Correspondencia entre currículo, núcleos problémicos, líneas, grupos, semilleros y actividades de investigación.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:building-2" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Capacidad institucional</h3>
-                            <p class="text-xs">Estructuras de gobierno, profesores, grupos, recursos físicos, tecnológicos, bibliográficos y financieros.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3 md:col-span-2">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:calendar-clock" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Proyección a siete años</h3>
-                            <p class="text-xs">Agenda con actividades, recursos, posibles fuentes de financiación, resultados esperados e indicadores verificables.</p>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                <!-- ─── Protagonista: Proyección a 7 años ─── -->
+                <div class="md:col-span-3 bg-gradient-to-br from-unad-teal to-unad-navy dark:from-unad-teal dark:to-black/60 p-6 md:p-7 rounded-2xl shadow-lg hover-card flex items-start gap-5">
+                    <span class="iconify text-white shrink-0 mt-1" data-icon="lucide:calendar-clock" data-width="52"></span>
+                    <div>
+                        <h3 class="font-display font-bold text-white text-xl md:text-2xl mb-2">Proyección a siete años</h3>
+                        <p class="text-sm md:text-base text-white/90 leading-relaxed max-w-3xl">
+                            Agenda con actividades, recursos, posibles fuentes de financiación, resultados esperados e indicadores verificables.
+                        </p>
                     </div>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Comprensión del alcance de la condición y de la naturaleza de programa nuevo.</p>
+                <!-- ─── Ejes secundarios ─── -->
+                <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
+                    <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:file-check" data-width="24"></span>
+                    <div>
+                        <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Declaración investigativa</h3>
+                        <p class="text-xs">Coherencia con el nivel profesional, el objeto de estudio, el perfil de egreso y la identidad institucional.</p>
+                    </div>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Resolución 021795 de 2020 (arts. 25-31); Nota Orientadora MEN; Documento de Condición 5.</p>
+
+                <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
+                    <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:users" data-width="24"></span>
+                    <div>
+                        <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Proceso formativo</h3>
+                        <p class="text-xs">Estrategias, cursos, experiencias y productos que desarrollan competencias investigativas en los estudiantes.</p>
+                    </div>
                 </div>
+
+                <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
+                    <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:network" data-width="24"></span>
+                    <div>
+                        <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Articulación académica</h3>
+                        <p class="text-xs">Correspondencia entre currículo, núcleos problémicos, líneas, grupos, semilleros y actividades de investigación.</p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
+                    <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:building-2" data-width="24"></span>
+                    <div>
+                        <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Capacidad institucional</h3>
+                        <p class="text-xs">Estructuras de gobierno, profesores, grupos, recursos físicos, tecnológicos, bibliográficos y financieros.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
 
-    <!-- ══════════════════════════════════════════════
+        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Comprensión del alcance de la condición y de la naturaleza de programa nuevo.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Resolución 021795 de 2020 (arts. 25-31); Nota Orientadora MEN; Documento de Condición 5.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <!-- ══════════════════════════════════════════════
          3 · DECLARACIÓN INVESTIGATIVA DEL PROGRAMA
     ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Declaración investigativa">
+    <section class="slide" data-title="Declaración investigativa" data-accent="teal">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -536,24 +539,37 @@
             </div>
 
             <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-5 pr-2 text-gray-800 dark:text-gray-200">
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto">
-                    La investigación se concibe como un <strong class="text-unad-teal dark:text-unad-orange">eje transversal</strong> de la formación del médico veterinario.
-                    Su propósito es desarrollar la capacidad de formular y resolver problemas mediante evidencia científica, integrar innovación
-                    y transferencia de conocimiento y aportar soluciones a necesidades sanitarias, productivas, ambientales y sociales.
-                </p>
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto">
-                    El enfoque de <strong class="text-unad-teal dark:text-unad-orange">Una Salud (One Health)</strong> actúa como referente articulador, porque integra salud animal,
-                    salud humana y salud de los ecosistemas, y permite abordar de manera interdisciplinaria problemas como zoonosis, inocuidad
-                    alimentaria, resistencia antimicrobiana, vigilancia epidemiológica, bienestar animal y sostenibilidad.
-                </p>
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto">
-                    La declaración se materializa a través de una <strong>ruta formativa</strong>, la vinculación progresiva de estudiantes a semilleros y grupos,
-                    la participación de profesores en proyectos y convocatorias, el uso de escenarios presenciales y virtuales, y una agenda de
-                    investigación que organiza el desarrollo del programa durante siete años. Esta estructura evita que la investigación sea una
-                    actividad aislada y la integra con docencia, innovación, proyección social y apropiación social del conocimiento.
+
+                <!-- Eje transversal (declaración corta) -->
+                <p class="text-base md:text-lg font-display font-bold text-unad-navy dark:text-white text-center max-w-3xl mx-auto leading-snug">
+                    La investigación es un <span class="text-unad-teal dark:text-unad-orange">eje transversal</span> de la formación del médico veterinario.
                 </p>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- One Health: bloque protagonista -->
+                <div class="max-w-4xl mx-auto w-full bg-white/60 dark:bg-black/40 p-5 md:p-6 rounded-2xl border-l-4 border-unad-teal hover-card">
+                    <div class="flex items-start gap-4">
+                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:globe-2" data-width="32"></span>
+                        <div>
+                            <h3 class="font-display font-bold text-unad-teal dark:text-unad-orange text-base md:text-lg mb-2">
+                                Enfoque Una Salud (One Health) como referente articulador
+                            </h3>
+                            <p class="text-sm leading-relaxed mb-3">
+                                Integra <strong>salud animal</strong>, <strong>salud humana</strong> y <strong>salud de los ecosistemas</strong>, y permite abordar de manera interdisciplinaria problemas como:
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-unad-teal/10 text-unad-teal dark:bg-unad-teal/20 dark:text-unad-orange">Zoonosis</span>
+                                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-unad-teal/10 text-unad-teal dark:bg-unad-teal/20 dark:text-unad-orange">Inocuidad alimentaria</span>
+                                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-unad-teal/10 text-unad-teal dark:bg-unad-teal/20 dark:text-unad-orange">Resistencia antimicrobiana</span>
+                                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-unad-teal/10 text-unad-teal dark:bg-unad-teal/20 dark:text-unad-orange">Vigilancia epidemiológica</span>
+                                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-unad-teal/10 text-unad-teal dark:bg-unad-teal/20 dark:text-unad-orange">Bienestar animal</span>
+                                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-unad-teal/10 text-unad-teal dark:bg-unad-teal/20 dark:text-unad-orange">Sostenibilidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjetas: 2 (One Health ya es bloque principal) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto w-full">
                     <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
                         <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:search" data-width="24"></span>
                         <div>
@@ -568,15 +584,9 @@
                             <p class="text-xs">Integrar innovación y transferencia de conocimiento al territorio.</p>
                         </div>
                     </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:globe-2" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">One Health como referente</h3>
-                            <p class="text-xs">Articula salud animal, humana y de los ecosistemas.</p>
-                        </div>
-                    </div>
                 </div>
 
+                <!-- Idea clave -->
                 <div class="bg-gradient-to-r from-unad-navy to-unad-teal text-white p-5 rounded-2xl shadow-lg border border-white/20 max-w-4xl mx-auto w-full">
                     <p class="text-xs font-bold uppercase tracking-widest text-unad-orange mb-2 flex items-center gap-2">
                         <span class="iconify animate-pulse" data-icon="lucide:star" data-width="16"></span> Idea clave
@@ -594,6 +604,232 @@
                     <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
                     <p class="text-xs text-gray-700 dark:text-gray-300">Apartado 5.3.1; Figura 5.10; PAPS y MHUS 5.0.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ══════════════════════════════════════════════
+         5 · ARTICULACIÓN CON CURRÍCULO, NP Y LÍNEAS
+    ══════════════════════════════════════════════ -->
+    <section class="slide" data-title="Articulación con NP">
+        <div class="glass-panel">
+
+            <!-- ENCABEZADO -->
+            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:git-branch" data-width="30"></span>
+                    Articulación con currículo, NP y líneas
+                </h2>
+                <p class="hidden md:block role-label text-gray-500">Toca cada NP para ver el detalle</p>
+            </div>
+
+            <!-- INTRO -->
+            <p class="role-body max-w-3xl mx-auto text-center shrink-0 mb-4">
+                La arquitectura investigativa se organiza alrededor de los <strong class="text-unad-teal dark:text-unad-orange">dos núcleos problémicos</strong> del currículo. Cada NP articula una línea con sus competencias de egreso.
+            </p>
+
+            <!-- TABS NAV -->
+            <div class="tabs-nav gsap-reveal shrink-0">
+                <button class="tab-card is-active" data-tab="np1" data-accent="teal" type="button">
+                    <span class="iconify" data-icon="lucide:stethoscope" data-width="26"></span>
+                    <span class="tab-card__label text-unad-navy dark:text-white">NP1 · Salud-enfermedad</span>
+                </button>
+                <button class="tab-card" data-tab="np2" data-accent="green" type="button">
+                    <span class="iconify" data-icon="lucide:globe-2" data-width="26"></span>
+                    <span class="tab-card__label text-unad-navy dark:text-white">NP2 · Salud poblacional</span>
+                </button>
+            </div>
+
+            <!-- PANELES -->
+            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal mt-4">
+
+                <!-- ══════════ PANEL NP1 ══════════ -->
+                <div class="tab-panel is-active" data-panel="np1">
+                    <div class="bg-white/90 dark:bg-gray-900/70 rounded-2xl border border-unad-teal/20 shadow-lg backdrop-blur-md overflow-hidden">
+                        <div class="bg-unad-teal text-white px-5 py-3 flex items-center gap-3">
+                            <span class="iconify shrink-0" data-icon="lucide:stethoscope" data-width="22"></span>
+                            <h3 class="role-card-title text-white leading-tight">
+                                <span class="text-white/80 w-semibold">NP1.</span> Procesos de salud-enfermedad, diagnóstico y atención veterinaria
+                            </h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-gray-200 dark:divide-gray-700">
+
+                            <div class="lg:col-span-7 p-5 flex flex-col gap-4">
+                                <div>
+                                    <span class="role-label text-unad-orange block mb-1">Línea de investigación</span>
+                                    <p class="t-h3 w-bold f-display text-unad-teal dark:text-unad-orange leading-snug">
+                                        Biodiversidad y Servicios Ecosistémicos
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="role-label text-unad-teal dark:text-unad-orange flex items-center gap-1.5 mb-2">
+                                        <span class="iconify" data-icon="lucide:list-tree" data-width="12"></span>
+                                        Sublíneas pertinentes
+                                    </span>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 t-caption w-semibold text-unad-teal dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
+                                            Biodiversidad y recursos genéticos
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 t-caption w-semibold text-unad-teal dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
+                                            Reproducción y mejoramiento genético
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 t-caption w-semibold text-unad-teal dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
+                                            Epidemiología y zoonosis
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 t-caption w-semibold text-unad-teal dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
+                                            Inocuidad y resistencia antimicrobiana
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 t-caption w-semibold text-unad-teal dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
+                                            Medicina preventiva
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 t-caption w-semibold text-unad-teal dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
+                                            Bienestar y fauna silvestre
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 p-5">
+                                <span class="role-label text-unad-navy dark:text-white block mb-3 border-b border-unad-navy/20 pb-1">
+                                    Competencias del egresado
+                                </span>
+                                <ul class="space-y-3 role-body">
+                                    <li class="flex items-start gap-3">
+                                        <span class="num-badge bg-unad-teal text-white mt-0.5">C1</span>
+                                        <span><strong class="text-unad-teal dark:text-unad-orange">Comprende</strong> los procesos biológicos, fisiológicos, inmunológicos y patológicos que intervienen en la salud y la enfermedad animal, interpretando sus manifestaciones y sustentando la toma de decisiones en la práctica veterinaria.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="num-badge bg-unad-teal text-white mt-0.5">C2</span>
+                                        <span><strong class="text-unad-teal dark:text-unad-orange">Interpreta</strong> el estado de salud animal mediante la aplicación del método clínico veterinario, integrando información de anamnesis, examen clínico, ayudas diagnósticas y evidencia científica, en concordancia con principios éticos, normativos y de bienestar animal.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                        <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                            <h4 class="t-small w-bold f-display text-unad-orange mb-1 flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span>
+                                Criterio del Par Académico
+                            </h4>
+                            <p class="role-note text-gray-700 dark:text-gray-300">Verificar correspondencia entre el NP, sus líneas/sublíneas y las competencias asociadas.</p>
+                        </div>
+                        <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                            <h4 class="t-small w-bold f-display text-unad-green mb-1 flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span>
+                                Evidencia que Sustenta
+                            </h4>
+                            <p class="role-note text-gray-700 dark:text-gray-300">Condición 5, Tabla 5.3; Figura 5.11.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════ PANEL NP2 ══════════ -->
+                <div class="tab-panel" data-panel="np2">
+                    <div class="bg-white/90 dark:bg-gray-900/70 rounded-2xl border border-unad-green/20 shadow-lg backdrop-blur-md overflow-hidden">
+                        <div class="bg-unad-green text-white px-5 py-3 flex items-center gap-3">
+                            <span class="iconify shrink-0" data-icon="lucide:globe-2" data-width="22"></span>
+                            <h3 class="role-card-title text-white leading-tight">
+                                <span class="text-white/80 w-semibold">NP2.</span> Salud poblacional, bienestar y sostenibilidad de los sistemas pecuarios
+                            </h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-gray-200 dark:divide-gray-700">
+
+                            <div class="lg:col-span-7 p-5 flex flex-col gap-4">
+                                <div>
+                                    <span class="role-label text-unad-orange block mb-1">Líneas de investigación</span>
+                                    <ul class="t-h3 w-bold f-display text-unad-teal dark:text-unad-orange leading-snug space-y-1">
+                                        <li class="flex items-start gap-2">
+                                            <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:leaf" data-width="14"></span>
+                                            Sistemas Sostenibles de Producción Agrarios
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:users" data-width="14"></span>
+                                            Desarrollo rural
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <span class="role-label text-unad-teal dark:text-unad-orange flex items-center gap-1.5 mb-2">
+                                        <span class="iconify" data-icon="lucide:list-tree" data-width="12"></span>
+                                        Sublíneas pertinentes
+                                    </span>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 t-caption w-semibold text-unad-green dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
+                                            Metabolismo, nutrición y alimentación animal
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 t-caption w-semibold text-unad-green dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
+                                            Competitividad en sistemas de producción animal
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 t-caption w-semibold text-unad-green dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
+                                            Biotecnología aplicada a sistemas de producción animal
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 t-caption w-semibold text-unad-green dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
+                                            Proyección social
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 t-caption w-semibold text-unad-green dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
+                                            Sistemas alternativos de producción y gestión de agronegocios
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 t-caption w-semibold text-unad-green dark:text-unad-orange">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
+                                            Salud-producción y transferencia de conocimiento
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 p-5">
+                                <span class="role-label text-unad-navy dark:text-white block mb-3 border-b border-unad-navy/20 pb-1">
+                                    Competencias del egresado
+                                </span>
+                                <ul class="space-y-3 role-body">
+                                    <li class="flex items-start gap-3">
+                                        <span class="num-badge bg-unad-green text-white mt-0.5">C3</span>
+                                        <span><strong class="text-unad-green">Establece</strong> los factores epidemiológicos, sanitarios y ambientales asociados a la ocurrencia y transmisión de enfermedades animales y zoonóticas, para sustentar acciones de prevención, vigilancia y control orientadas al fortalecimiento de la sanidad animal y la protección de la salud pública.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="num-badge bg-unad-green text-white mt-0.5">C4</span>
+                                        <span><strong class="text-unad-green">Integra</strong> factores sanitarios, nutricionales, genéticos, reproductivos y de bienestar animal para evaluar condiciones de salud en poblaciones animales y sustentar decisiones veterinarias orientadas al bienestar, la prevención de riesgos y la sostenibilidad de los sistemas pecuarios, en articulación con el enfoque Una Salud (One Health).</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                        <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                            <h4 class="t-small w-bold f-display text-unad-orange mb-1 flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span>
+                                Criterio del Par Académico
+                            </h4>
+                            <p class="role-note text-gray-700 dark:text-gray-300">Verificar correspondencia entre el NP, sus líneas/sublíneas y las competencias asociadas.</p>
+                        </div>
+                        <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                            <h4 class="t-small w-bold f-display text-unad-green mb-1 flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span>
+                                Evidencia que Sustenta
+                            </h4>
+                            <p class="role-note text-gray-700 dark:text-gray-300">Condición 5, Tabla 5.6; Figura 5.11.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -682,834 +918,449 @@
         </div>
     </section>
 
-   <!-- ══════════════════════════════════════════════
-         5 · ARTICULACIÓN CON CURRÍCULO, NP Y LÍNEAS
-    ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Articulación con NP">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:git-branch" data-width="32"></span>
-                    Articulación con currículo, NP y líneas
-                </h2>
-            </div>
+      <!-- ══════════════════════════════════════════════
+     8 · SEMILLEROS Y GRUPOS DE INVESTIGACIÓN
+══════════════════════════════════════════════ -->
+<section class="slide" data-title="Semilleros y grupos">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:users" data-width="32"></span>
+                Semilleros y grupos de investigación
+            </h2>
+        </div>
 
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-4 pr-2 text-gray-800 dark:text-gray-200">
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto text-center">
-                    La arquitectura investigativa se organiza alrededor de los <strong class="text-unad-teal dark:text-unad-orange">dos núcleos problémicos</strong> definidos
-                    curricularmente. Cada NP articula una línea de investigación con sus respectivas competencias del egresado, garantizando que las líneas no sean
-                    genéricas sino que respondan a los problemas que estructuran el currículo y al campo profesional veterinario.
-                </p>
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal flex flex-col gap-2 pr-2 text-gray-800 dark:text-gray-200">
 
-                <!-- ══════════════════════════════════════════════
-                     NP1 · Procesos de salud-enfermedad, diagnóstico y atención veterinaria
-                     ══════════════════════════════════════════ -->
-                <div class="bg-white/80 dark:bg-black/50 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover-card">
-                    <div class="bg-unad-teal text-white px-5 py-3 flex items-center gap-2">
-                        <span class="iconify shrink-0" data-icon="lucide:stethoscope" data-width="20"></span>
-                        <h3 class="font-bold text-sm md:text-base leading-snug">
-                            <span class="text-white/80 font-semibold">NP1.</span> Procesos de salud-enfermedad, diagnóstico y atención veterinaria
-                        </h3>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-gray-200 dark:divide-gray-700">
-
-                        <!-- Col 1 · Línea + Sublíneas (mayor peso visual) -->
-                        <div class="lg:col-span-7 p-5 flex flex-col gap-4">
-                            <div>
-                                <span class="block text-[10px] font-bold text-unad-orange uppercase tracking-widest mb-1">Línea de investigación</span>
-                                <p class="text-sm md:text-base font-bold text-unad-teal dark:text-unad-orange leading-snug">
-                                    Biodiversidad y Servicios Ecosistémicos
-                                </p>
-                            </div>
-                            <div>
-                                <span class="flex items-center gap-1.5 text-[10px] font-bold text-unad-teal dark:text-unad-orange uppercase tracking-widest mb-2">
-                                    <span class="iconify" data-icon="lucide:list-tree" data-width="12"></span>
-                                    Sublíneas pertinentes
-                                </span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 text-[11.5px] font-semibold text-unad-teal dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
-                                        Biodiversidad y recursos genéticos
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 text-[11.5px] font-semibold text-unad-teal dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
-                                        Reproducción y mejoramiento genético
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 text-[11.5px] font-semibold text-unad-teal dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
-                                        Epidemiología y zoonosis
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 text-[11.5px] font-semibold text-unad-teal dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
-                                        Inocuidad y resistencia antimicrobiana
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 text-[11.5px] font-semibold text-unad-teal dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
-                                        Medicina preventiva
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-teal/10 dark:bg-unad-teal/20 border border-unad-teal/30 text-[11.5px] font-semibold text-unad-teal dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-teal shrink-0"></span>
-                                        Bienestar y fauna silvestre
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Col 2 · Competencias -->
-                        <div class="lg:col-span-5 p-5">
-                            <span class="block text-[10px] font-bold text-unad-navy dark:text-white uppercase tracking-widest mb-2 border-b border-unad-navy/20 pb-1">
-                                Competencias del egresado
-                            </span>
-                            <ul class="space-y-3 text-[11.5px] leading-snug">
-                                <li class="flex items-start gap-2">
-                                    <span class="shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-unad-teal text-white text-[9.5px] font-bold mt-0.5">C1</span>
-                                    <span><strong class="text-unad-teal dark:text-unad-orange">Comprende</strong> los procesos biológicos, fisiológicos, inmunológicos y patológicos que intervienen en la salud y la enfermedad animal, interpretando sus manifestaciones y sustentando la toma de decisiones en la práctica veterinaria.</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-unad-teal text-white text-[9.5px] font-bold mt-0.5">C2</span>
-                                    <span><strong class="text-unad-teal dark:text-unad-orange">Interpreta</strong> el estado de salud animal mediante la aplicación del método clínico veterinario, integrando información de anamnesis, examen clínico, ayudas diagnósticas y evidencia científica, en concordancia con principios éticos, normativos y de bienestar animal.</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
+            <!-- Métricas -->
+            <div class="grid grid-cols-2 gap-3 max-w-2xl mx-auto w-full shrink-0">
+                <div class="stat-metric bg-gradient-to-br from-unad-teal to-unad-navy text-white rounded-2xl shadow-md text-center">
+                    <span class="metric-num font-display font-extrabold block">+15</span>
+                    <span class="metric-label uppercase tracking-widest text-unad-orange font-bold block">Semilleros</span>
                 </div>
-
-                <!-- ══════════════════════════════════════════════
-                     NP2 · Salud poblacional, bienestar y sostenibilidad de los sistemas pecuarios
-                     ══════════════════════════════════════════ -->
-                <div class="bg-white/80 dark:bg-black/50 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover-card">
-                    <div class="bg-unad-green text-white px-5 py-3 flex items-center gap-2">
-                        <span class="iconify shrink-0" data-icon="lucide:globe-2" data-width="20"></span>
-                        <h3 class="font-bold text-sm md:text-base leading-snug">
-                            <span class="text-white/80 font-semibold">NP2.</span> Salud poblacional, bienestar y sostenibilidad de los sistemas pecuarios
-                        </h3>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-gray-200 dark:divide-gray-700">
-
-                        <!-- Col 1 · Líneas + Sublíneas (mayor peso visual) -->
-                        <div class="lg:col-span-7 p-5 flex flex-col gap-4">
-                            <div>
-                                <span class="block text-[10px] font-bold text-unad-orange uppercase tracking-widest mb-1">Líneas de investigación</span>
-                                <ul class="text-sm md:text-base font-bold text-unad-teal dark:text-unad-orange leading-snug space-y-1">
-                                    <li class="flex items-start gap-2">
-                                        <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:leaf" data-width="14"></span>
-                                        Sistemas Sostenibles de Producción Agrarios
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:users" data-width="14"></span>
-                                        Desarrollo rural
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <span class="flex items-center gap-1.5 text-[10px] font-bold text-unad-teal dark:text-unad-orange uppercase tracking-widest mb-2">
-                                    <span class="iconify" data-icon="lucide:list-tree" data-width="12"></span>
-                                    Sublíneas pertinentes
-                                </span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 text-[11.5px] font-semibold text-unad-green dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
-                                        Metabolismo, nutrición y alimentación animal
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 text-[11.5px] font-semibold text-unad-green dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
-                                        Competitividad en sistemas de producción animal
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 text-[11.5px] font-semibold text-unad-green dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
-                                        Biotecnología aplicada a sistemas de producción animal
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 text-[11.5px] font-semibold text-unad-green dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
-                                        Proyección social
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 text-[11.5px] font-semibold text-unad-green dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
-                                        Sistemas alternativos de producción y gestión de agronegocios
-                                    </span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-unad-green/10 dark:bg-unad-green/20 border border-unad-green/30 text-[11.5px] font-semibold text-unad-green dark:text-unad-orange shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-unad-green shrink-0"></span>
-                                        Salud-producción y transferencia de conocimiento
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Col 2 · Competencias -->
-                        <div class="lg:col-span-5 p-5">
-                            <span class="block text-[10px] font-bold text-unad-navy dark:text-white uppercase tracking-widest mb-2 border-b border-unad-navy/20 pb-1">
-                                Competencias del egresado
-                            </span>
-                            <ul class="space-y-3 text-[11.5px] leading-snug">
-                                <li class="flex items-start gap-2">
-                                    <span class="shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-unad-green text-white text-[9.5px] font-bold mt-0.5">C3</span>
-                                    <span><strong class="text-unad-green">Establece</strong> los factores epidemiológicos, sanitarios y ambientales asociados a la ocurrencia y transmisión de enfermedades animales y zoonóticas, para sustentar acciones de prevención, vigilancia y control orientadas al fortalecimiento de la sanidad animal y la protección de la salud pública.</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-unad-green text-white text-[9.5px] font-bold mt-0.5">C4</span>
-                                    <span><strong class="text-unad-green">Integra</strong> factores sanitarios, nutricionales, genéticos, reproductivos y de bienestar animal para evaluar condiciones de salud en poblaciones animales y sustentar decisiones veterinarias orientadas al bienestar, la prevención de riesgos y la sostenibilidad de los sistemas pecuarios, en articulación con el enfoque Una Salud (One Health).</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
+                <div class="stat-metric bg-gradient-to-br from-unad-orange to-unad-navy text-white rounded-2xl shadow-md text-center">
+                    <span class="metric-num font-display font-extrabold block">8</span>
+                    <span class="metric-label uppercase tracking-widest text-unad-orange font-bold block">Grupos</span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Verificar correspondencia entre los dos NP del currículo, sus líneas/sublíneas y las competencias asociadas.</p>
+            <p class="text-xs font-bold text-unad-navy dark:text-white text-center shrink-0">Grupos de investigación ECAPMA por categoría</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+                <!-- CATEGORÍA A -->
+                <div class="bg-white/90 dark:bg-black/50 rounded-2xl border-2 border-unad-teal/30 shadow-md overflow-hidden">
+                    <div class="bg-unad-teal text-white px-4 py-2.5 flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="iconify shrink-0" data-icon="lucide:trophy" data-width="20"></span>
+                            <h3 class="font-bold text-sm uppercase tracking-wider">Categoría A</h3>
+                        </div>
+                        <span class="text-[11px] font-extrabold bg-white/25 px-2.5 py-0.5 rounded-full">5</span>
+                    </div>
+                    <ul class="checklist text-[13px]">
+                        <li><span class="iconify text-unad-teal" data-icon="lucide:badge-check" data-width="18"></span><span>Tecnogenesis</span></li>
+                        <li><span class="iconify text-unad-teal" data-icon="lucide:badge-check" data-width="18"></span><span>Ciab</span></li>
+                        <li><span class="iconify text-unad-teal" data-icon="lucide:badge-check" data-width="18"></span><span>Gicafat</span></li>
+                        <li><span class="iconify text-unad-teal" data-icon="lucide:badge-check" data-width="18"></span><span>Geaa</span></li>
+                        <li><span class="iconify text-unad-teal" data-icon="lucide:badge-check" data-width="18"></span><span>Produccion Sostenible</span></li>
+                    </ul>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Condición 5, Tablas 5.3 y 5.6; Figura 5.11.</p>
+
+                <!-- CATEGORÍA B -->
+                <div class="bg-white/90 dark:bg-black/50 rounded-2xl border-2 border-unad-orange/30 shadow-md overflow-hidden">
+                    <div class="bg-unad-orange text-white px-4 py-2.5 flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="iconify shrink-0" data-icon="lucide:medal" data-width="20"></span>
+                            <h3 class="font-bold text-sm uppercase tracking-wider">Categoría B</h3>
+                        </div>
+                        <span class="text-[11px] font-extrabold bg-white/25 px-2.5 py-0.5 rounded-full">3</span>
+                    </div>
+                    <ul class="checklist text-[13px]">
+                        <li><span class="iconify text-unad-orange" data-icon="lucide:badge-check" data-width="18"></span><span>Cazao</span></li>
+                        <li><span class="iconify text-unad-orange" data-icon="lucide:badge-check" data-width="18"></span><span>Zoobios</span></li>
+                        <li><span class="iconify text-unad-orange" data-icon="lucide:badge-check" data-width="18"></span><span>Gies</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- ══════════════════════════════════════════════
-         6 · FORMACIÓN INVESTIGATIVA DE ESTUDIANTES
-    ══════════════════════════════════════════════ -->
-    <!-- <section class="slide" data-title="Formación investigativa">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:users" data-width="32"></span>
-                    5. Formación investigativa de los estudiantes
-                </h2>
+        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Verificar correspondencia temática y categoría de los grupos de ECAPMA.</p>
             </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
+                <p class="text-xs text-gray-700 dark:text-gray-300">Condición 5, Tablas 5.4 y 5.7; registros GrupLAC.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-4 pr-2 text-gray-800 dark:text-gray-200">
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto text-center">
-                    El proceso formativo se estructura como una <strong class="text-unad-teal dark:text-unad-orange">trayectoria progresiva</strong>. Inicia con el dominio del diseño
-                    experimental, continúa con la gestión rigurosa de información científica y culmina con la posibilidad de ejecutar y
-                    socializar un proyecto de investigación aplicado.
-                </p>
+<!-- ══════════════════════════════════════════════
+     8B · SEMILLEROS DE INVESTIGACIÓN (CATÁLOGO)
+══════════════════════════════════════════════ -->
+<section class="slide" data-title="Semilleros de investigación" data-accent="teal">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:flask-conical" data-width="30"></span>
+                Semilleros de investigación ECAPMA
+            </h2>
+            <span class="role-label text-gray-500"> +15 semilleros</span>
+        </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:flask-conical" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Diseño Experimental</h3>
-                            <p class="text-xs">Formulación del problema, hipótesis, variables, diseño metodológico y análisis experimental.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:monitor" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Herramientas Digitales</h3>
-                            <p class="text-xs">Alfabetización informacional, búsqueda, evaluación crítica, gestión bibliográfica y uso ético de la información.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:graduation-cap" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Opción de grado</h3>
-                            <p class="text-xs">Ejecución de investigación aplicada, innovación, transferencia y solución de problemas territoriales.</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 text-gray-800 dark:text-gray-200">
+            <div class="flex flex-col gap-4">
 
-                <p class="text-sm font-bold text-unad-navy dark:text-white text-center">Productos verificables por espacio formativo</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-orange hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:file-text" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-orange text-sm mb-1">Protocolo experimental</h3>
-                            <p class="text-xs">Diseño metodológico y propuesta de investigación aplicada.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-orange hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:search" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-orange text-sm mb-1">Estado del arte</h3>
-                            <p class="text-xs">Revisión bibliográfica y matriz de información científica.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-orange hover-card flex items-start gap-3">
-                        <span class="iconify text-unad-orange shrink-0 mt-1" data-icon="lucide:award" data-width="24"></span>
-                        <div>
-                            <h3 class="font-bold text-unad-orange text-sm mb-1">Trabajo de grado</h3>
-                            <p class="text-xs">Artículo, ponencia u otros productos derivados, según la opción desarrollada.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-r from-unad-navy to-unad-teal text-white p-5 rounded-2xl shadow-lg border border-white/20 max-w-4xl mx-auto w-full">
-                    <p class="text-xs font-bold uppercase tracking-widest text-unad-orange mb-2 flex items-center gap-2">
-                        <span class="iconify" data-icon="lucide:star" data-width="16"></span> Trayectoria transversal
+                <!-- Bloque destacado (reemplaza el stat) -->
+                <div class="bg-gradient-to-r from-unad-teal via-unad-navy to-unad-teal text-white rounded-2xl shadow-lg px-6 py-4 max-w-2xl mx-auto w-full text-center border border-white/20">
+                    <p class="t-caption s-upper tr-widest text-unad-orange w-bold mb-1">Semilleros de investigación ECAPMA</p>
+                    <p class="t-body w-semibold leading-snug">
+                        Con afinidad al campo veterinario y pecuario.
                     </p>
-                    <p class="font-medium text-sm md:text-base text-center">Semilleros · Grupos · Eventos · Redes · Movilidad</p>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Verificar progresión y productos verificables por espacio formativo.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Condición 5, Tabla 5.5 y apartado 5.3.4; productos de aprendizaje.</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
+                <!-- Catálogo 28 semilleros -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5">
 
-    <!-- ══════════════════════════════════════════════
-         7 · RUTA DE FORMACIÓN INVESTIGATIVA (IMAGEN)
-    ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Ruta formativa (Figura 1)">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:route" data-width="32"></span>
-                    Ruta de formación investigativa del estudiante
-                </h2>
-                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Figura 1</span>
-            </div>
-
-            <div class="flex-1 overflow-hidden custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <button type="button"
-                        data-open-modal="modal-ruta-formativa"
-                        class="group relative block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-transparent p-0 text-left focus:outline-none focus:ring-2 focus:ring-unad-teal/60"
-                        title="Ver imagen en tamaño completo">
-                    <img src="RutaFormacionInvestigativa.png" alt="Ruta de formación investigativa del estudiante de Medicina Veterinaria"
-                         class="w-full h-full object-contain max-h-[58vh]">
-                    <!-- Overlay hover para indicar zoom -->
-                    <span class="pointer-events-none absolute inset-0 bg-unad-navy/0 group-hover:bg-unad-navy/20 transition-colors flex items-end justify-end p-3">
-                        <span class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider bg-white/90 text-unad-navy px-3 py-1.5 rounded-full shadow-md opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
-                            <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span>
-                            Ampliar
-                        </span>
-                    </span>
-                </button>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Verificar la coherencia y progresión de la ruta formativa.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Condición 5, Figura 5.10 y apartado 5.3.4.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════════
-             MODAL · POP-UP DE LA IMAGEN DENTRO DE LA MISMA PÁGINA
-             ══════════════════════════════════════════ -->
-        <div id="modal-ruta-formativa" class="slide-modal" role="dialog" aria-modal="true" aria-label="Ruta de formación investigativa del estudiante">
-            <div class="slide-modal__overlay" data-close-modal></div>
-            <div class="slide-modal__content slide-modal__content--image">
-                <div class="slide-modal__header" style="background: linear-gradient(to right, #0d9488, #1e3a5f);">
-                    <div class="flex items-center gap-2 min-w-0">
-                        <span class="iconify text-white shrink-0" data-icon="lucide:route" data-width="20"></span>
-                        <div class="min-w-0">
-                            <p class="text-[9px] font-bold uppercase tracking-widest text-white/80">Figura 1</p>
-                            <p class="font-display font-bold text-[13px] leading-tight truncate">Ruta de formación investigativa del estudiante</p>
+                    <!-- ══ Categoría: SALUD / PRODUCCIÓN ANIMAL (teal) ══ -->
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:paw-print" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">BIOPEC</h3>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-2 shrink-0">
-                        <a href="RutaFormacionInvestigativa.png" target="_blank" rel="noopener"
-                           class="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-full transition-colors">
-                            <span class="iconify" data-icon="lucide:external-link" data-width="11"></span>
-                            Nueva pestaña
-                        </a>
-                        <button type="button" class="slide-modal__close" data-close-modal aria-label="Cerrar">×</button>
-                    </div>
-                </div>
-                <div class="slide-modal__body slide-modal__body--image">
-                    <img src="RutaFormacionInvestigativa.png"
-                         alt="Ruta de formación investigativa del estudiante de Medicina Veterinaria"
-                         class="w-full h-full object-contain">
-                </div>
-            </div>
-        </div>
-    </section>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Formación investigativa en bienestar animal y sostenibilidad pecuaria.</p>
+                    </article>
 
-    <!-- Estilos y lógica del modal (idempotentes, compartidos) -->
-    <style>
-        .slide-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 2147483600;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        .slide-modal.is-open { display: flex; }
-        .slide-modal__overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.78);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            cursor: pointer;
-            animation: slideModalFadeIn 180ms ease-out;
-        }
-        .slide-modal__content {
-            position: relative;
-            z-index: 1;
-            width: min(1400px, 94vw);
-            height: min(880px, 90vh);
-            background: #ffffff;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
-            display: flex;
-            flex-direction: column;
-            animation: slideModalZoomIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .slide-modal__content--image {
-            width: min(1600px, 96vw);
-            height: min(920px, 92vh);
-        }
-        .slide-modal__header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.6rem 0.9rem;
-            color: #ffffff;
-            flex-shrink: 0;
-            gap: 0.75rem;
-        }
-        .slide-modal__close {
-            background: rgba(255, 255, 255, 0.15);
-            border: 0;
-            color: #ffffff;
-            width: 32px;
-            height: 32px;
-            border-radius: 9999px;
-            cursor: pointer;
-            font-size: 20px;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 150ms ease;
-            font-family: inherit;
-        }
-        .slide-modal__close:hover { background: rgba(255, 255, 255, 0.32); }
-        .slide-modal__body { flex: 1; min-height: 0; background: #ffffff; }
-        .slide-modal__body iframe { width: 100%; height: 100%; border: 0; display: block; }
-        .slide-modal__body--image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            padding: 1rem;
-        }
-        .slide-modal__body--image img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 0.25rem;
-        }
-
-        @keyframes slideModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideModalZoomIn {
-            from { opacity: 0; transform: scale(0.96) translateY(8px); }
-            to   { opacity: 1; transform: scale(1)    translateY(0);   }
-        }
-
-        @media (max-width: 768px) {
-            .slide-modal { padding: 0.75rem; }
-            .slide-modal__content,
-            .slide-modal__content--image { width: 100%; height: 92vh; border-radius: 0.75rem; }
-        }
-    </style>
-
-    <script>
-        (function () {
-            if (window.__componentePracticoModalsInit__) return;
-            window.__componentePracticoModalsInit__ = true;
-
-            function closeAllModals() {
-                document.querySelectorAll('.slide-modal.is-open').forEach(function (m) {
-                    m.classList.remove('is-open');
-                });
-            }
-
-            document.addEventListener('click', function (e) {
-                var opener = e.target.closest('[data-open-modal]');
-                if (opener) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    var id = opener.getAttribute('data-open-modal');
-                    var modal = document.getElementById(id);
-                    if (modal) {
-                        closeAllModals();
-                        modal.classList.add('is-open');
-                        var closeBtn = modal.querySelector('.slide-modal__close');
-                        if (closeBtn) closeBtn.focus();
-                    }
-                    return;
-                }
-                if (e.target.closest('[data-close-modal]')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    closeAllModals();
-                }
-            }, true);
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' || e.key === 'Esc') {
-                    closeAllModals();
-                }
-            });
-        })();
-    </script>
-
-    <!-- ══════════════════════════════════════════════
-         8 · SEMILLEROS Y GRUPOS DE INVESTIGACIÓN
-    ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Semilleros y grupos">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:users" data-width="32"></span>
-                    6. Semilleros y grupos de investigación
-                </h2>
-            </div>
-
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-4 pr-2 text-gray-800 dark:text-gray-200">
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto">
-                    La capacidad de participación estudiantil se apoya en <strong class="text-unad-teal dark:text-unad-orange">semilleros de ECAPMA</strong> afines a la cadena pecuaria.
-                    El documento identifica <strong>15 semilleros</strong> distribuidos en cinco zonas, con temáticas que incluyen biotecnología y
-                    reproducción animal, bienestar, ganadería, producción pecuaria, nutrición, mejoramiento, sistemas productivos y desarrollo
-                    rural. Esta distribución es relevante para un programa híbrido porque muestra una base territorial para la participación
-                    progresiva de estudiantes.
-                </p>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
-                    <div class="bg-gradient-to-br from-unad-teal to-unad-navy text-white p-5 rounded-2xl shadow-md text-center">
-                        <span class="font-display font-extrabold text-4xl md:text-5xl block leading-none">15</span>
-                        <span class="text-xs uppercase tracking-widest text-unad-orange font-bold block mt-2">Semilleros</span>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex flex-col justify-center">
-                        <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Zonas</h3>
-                        <p class="text-xs">5 zonas de cobertura territorial en el país.</p>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex flex-col justify-center">
-                        <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Temáticas</h3>
-                        <p class="text-xs">Biotecnología, reproducción, bienestar, ganadería, nutrición, mejoramiento y desarrollo rural.</p>
-                    </div>
-                    <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex flex-col justify-center">
-                        <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Relevancia</h3>
-                        <p class="text-xs">Base territorial para participación progresiva del estudiante en modalidad híbrida.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-                    <table class="styled-table w-full text-xs">
-                        <thead>
-                            <tr>
-                                <th style="width:40%">Grupo</th>
-                                <th style="width:12%">Cat.</th>
-                                <th>Afinidad principal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="font-bold">TECNOGENESIS</td><td>A</td><td>Biodiversidad y recursos genéticos; desarrollo rural.</td></tr>
-                            <tr><td class="font-bold">CIABA</td><td>A</td><td>Biodiversidad y servicios ecosistémicos.</td></tr>
-                            <tr><td class="font-bold">GICAFATA</td><td>A</td><td>Mejoramiento y nutrición animal; desarrollo rural.</td></tr>
-                            <tr><td class="font-bold">GEAAA</td><td>A</td><td>Biodiversidad y servicios ecosistémicos; desarrollo rural.</td></tr>
-                            <tr><td class="font-bold">Producción Sostenible</td><td>A</td><td>Biodiversidad, conservación y biotecnología.</td></tr>
-                            <tr><td class="font-bold">ZOOBIOS</td><td>B</td><td>Nutrición animal; epidemiología y enfermedades infecciosas; reproducción y mejoramiento animal.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Verificar cobertura territorial y correspondencia temática de los grupos.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Condición 5, Tablas 5.4 y 5.7; registros GrupLAC.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         9 · DISTRIBUCIÓN DE SEMILLEROS (FIGURA 2)
-    ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Semilleros por zona (Figura 2)">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-spin" style="animation-duration:12s;" data-icon="lucide:map" data-width="32"></span>
-                    Distribución de semilleros ECAPMA por zona
-                </h2>
-                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Figura 2</span>
-            </div>
-
-            <div class="flex-1 overflow-hidden custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <a href="SemillerosPorZona.png" target="_blank" rel="noopener"
-                   class="block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in"
-                   title="Abrir imagen en tamaño completo">
-                    <img src="SemillerosPorZona.png" alt="Distribución de semilleros ECAPMA afines al área pecuaria por zona"
-                         class="w-full h-full object-contain max-h-[58vh]">
-                </a>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Verificar la distribución territorial de los semilleros.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Condición 5, Tabla 5.4. Total identificado: 15 semilleros.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         10 · GRUPOS POR CATEGORÍA (FIGURA 3)
-    ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Grupos por categoría (Figura 3)">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:bar-chart-3" data-width="32"></span>
-                    Grupos de investigación ECAPMA por categoría
-                </h2>
-                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Figura 3</span>
-            </div>
-
-            <div class="flex-1 overflow-hidden custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <button type="button"
-                        data-open-modal="modal-grupos-categoria"
-                        class="group relative block w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-transparent p-0 text-left focus:outline-none focus:ring-2 focus:ring-unad-orange/60"
-                        title="Ver imagen en tamaño completo">
-                    <img src="GruposPorCategoria.png" alt="Grupos de investigación ECAPMA con afinidad temática, según categoría reportada"
-                         class="w-full h-full object-contain max-h-[58vh]">
-                    <!-- Overlay hover para indicar zoom -->
-                    <span class="pointer-events-none absolute inset-0 bg-unad-navy/0 group-hover:bg-unad-navy/20 transition-colors flex items-end justify-end p-3">
-                        <span class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider bg-white/90 text-unad-navy px-3 py-1.5 rounded-full shadow-md opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
-                            <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span>
-                            Ampliar
-                        </span>
-                    </span>
-                </button>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Verificar categorías y afinidad temática de los grupos de ECAPMA.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                    <p class="text-xs text-gray-700 dark:text-gray-300">Condición 5, Tabla 5.7.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════════
-             MODAL · POP-UP DE LA IMAGEN DENTRO DE LA MISMA PÁGINA
-             ══════════════════════════════════════════ -->
-        <div id="modal-grupos-categoria" class="slide-modal" role="dialog" aria-modal="true" aria-label="Grupos de investigación ECAPMA por categoría">
-            <div class="slide-modal__overlay" data-close-modal></div>
-            <div class="slide-modal__content slide-modal__content--image">
-                <div class="slide-modal__header" style="background: linear-gradient(to right, #ea580c, #1e3a5f);">
-                    <div class="flex items-center gap-2 min-w-0">
-                        <span class="iconify text-white shrink-0" data-icon="lucide:bar-chart-3" data-width="20"></span>
-                        <div class="min-w-0">
-                            <p class="text-[9px] font-bold uppercase tracking-widest text-white/80">Figura 3</p>
-                            <p class="font-display font-bold text-[13px] leading-tight truncate">Grupos de investigación ECAPMA por categoría</p>
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:dna" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">SIBRA</h3>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-2 shrink-0">
-                        <a href="GruposPorCategoria.png" target="_blank" rel="noopener"
-                           class="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-full transition-colors">
-                            <span class="iconify" data-icon="lucide:external-link" data-width="11"></span>
-                            Nueva pestaña
-                        </a>
-                        <button type="button" class="slide-modal__close" data-close-modal aria-label="Cerrar">×</button>
-                    </div>
-                </div>
-                <div class="slide-modal__body slide-modal__body--image">
-                    <img src="GruposPorCategoria.png"
-                         alt="Grupos de investigación ECAPMA con afinidad temática, según categoría reportada"
-                         class="w-full h-full object-contain">
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Investigación pecuaria en sostenibilidad, producción, salud, reproducción y biotecnología animal.</p>
+                    </article>
+
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:heart-pulse" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">SUSTENZOO</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Bienestar animal y sustentabilidad en proyectos agropecuarios y veterinarios.</p>
+                    </article>
+
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:apple" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">SENABA</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Nutrición, alimentación y bienestar animal mediante formación investigativa.</p>
+                    </article>
+
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:test-tube" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">SIAGUN</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Mejoramiento genético y nutrición animal.</p>
+                    </article>
+
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:activity" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">SIRAMA</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Investigación en manejo productivo, nutrición y reproducción animal.</p>
+                    </article>
+
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:beef" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">ZOOPRODUCCION</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Producción pecuaria sostenible y desarrollo regional.</p>
+                    </article>
+
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:beaker" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">P&amp;A</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Investigación aplicada y básica en salud y producción agropecuaria.</p>
+                    </article>
+
+                    <article class="bg-unad-teal/8 dark:bg-unad-teal/15 border-l-4 border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-teal shrink-0" data-icon="lucide:sprout" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-teal dark:text-unad-orange">RAIZ</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Investigación e innovación en zootecnia y producción animal sostenible.</p>
+                    </article>
+
+                    <!-- ══ Categoría: AGROECOLOGÍA / AMBIENTE (verde) ══ -->
+                    <article class="bg-unad-green/8 dark:bg-unad-green/15 border-l-4 border-unad-green rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-green shrink-0" data-icon="lucide:leaf" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-green dark:text-unad-orange">SCIAC</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Conocimiento científico agrícola, sostenibilidad y liderazgo ético.</p>
+                    </article>
+
+                    <article class="bg-unad-green/8 dark:bg-unad-green/15 border-l-4 border-unad-green rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-green shrink-0" data-icon="lucide:trees" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-green dark:text-unad-orange">SICAA</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Capacidad investigativa agropecuaria y agroforestal en la Amazonía.</p>
+                    </article>
+
+                    <article class="bg-unad-green/8 dark:bg-unad-green/15 border-l-4 border-unad-green rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-green shrink-0" data-icon="lucide:mountain" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-green dark:text-unad-orange">SICAM</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Producción animal sostenible, agroecología, desarrollo rural y ambiental.</p>
+                    </article>
+
+                    <article class="bg-unad-green/8 dark:bg-unad-green/15 border-l-4 border-unad-green rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-green shrink-0" data-icon="lucide:globe-2" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-green dark:text-unad-orange">SIPASS</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Investigación interdisciplinaria para conciencia ecológica y sostenibilidad.</p>
+                    </article>
+
+                    <article class="bg-unad-green/8 dark:bg-unad-green/15 border-l-4 border-unad-green rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-green shrink-0" data-icon="lucide:wheat" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-green dark:text-unad-orange">SISOBEAPROG</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Soberanía alimentaria y producción autosostenible en Gachetá y el Guavio.</p>
+                    </article>
+
+                    <article class="bg-unad-green/8 dark:bg-unad-green/15 border-l-4 border-unad-green rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-green shrink-0" data-icon="lucide:flower-2" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-green dark:text-unad-orange">SEMITAGROS</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Formación investigativa y alternativas agroecológicas en territorios rurales del Valle del Cauca.</p>
+                    </article>
+
+                    <article class="bg-unad-green/8 dark:bg-unad-green/15 border-l-4 border-unad-green rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-green shrink-0" data-icon="lucide:sparkles" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-green dark:text-unad-orange">ZRA</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Espacio colaborativo en producción animal y vegetal sostenible, conservación y bienestar.</p>
+                    </article>
+
+                    <!-- ══ Categoría: RURAL / TERRITORIO (naranja) ══ -->
+                    <article class="bg-unad-orange/8 dark:bg-unad-orange/15 border-l-4 border-unad-orange rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-orange shrink-0" data-icon="lucide:map-pin" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-orange">RAS</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Competencias investigativas e impacto rural en el Tolima.</p>
+                    </article>
+
+                    <article class="bg-unad-orange/8 dark:bg-unad-orange/15 border-l-4 border-unad-orange rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-orange shrink-0" data-icon="lucide:handshake" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-orange">ARPECOM-ZCSUR</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Extensión rural, manejo productivo y nutrición animal en comunidades campesinas.</p>
+                    </article>
+
+                    <article class="bg-unad-orange/8 dark:bg-unad-orange/15 border-l-4 border-unad-orange rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-orange shrink-0" data-icon="lucide:users" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-orange">SIIRA</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Investigación interdisciplinaria en desarrollo rural y sistemas agroalimentarios.</p>
+                    </article>
+
+                    <article class="bg-unad-orange/8 dark:bg-unad-orange/15 border-l-4 border-unad-orange rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-orange shrink-0" data-icon="lucide:heart-handshake" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-orange">SIDEAS</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Capacitación investigativa y proyectos en producción pecuaria con compromiso social y ambiental.</p>
+                    </article>
+
+                    <article class="bg-unad-orange/8 dark:bg-unad-orange/15 border-l-4 border-unad-orange rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-orange shrink-0" data-icon="lucide:link" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-orange">LM</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Integra investigación institucional y regional con el grupo INYUMACIZO.</p>
+                    </article>
+
+                    <!-- ══ Categoría: INVESTIGACIÓN / FORMACIÓN (navy) ══ -->
+                    <article class="bg-unad-navy/8 dark:bg-unad-navy/20 border-l-4 border-unad-navy dark:border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-navy dark:text-unad-teal shrink-0" data-icon="lucide:lightbulb" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-navy dark:text-unad-teal">CEVEL</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Cultura de investigación, desarrollo tecnológico e innovación en el CEAD Vélez.</p>
+                    </article>
+
+                    <article class="bg-unad-navy/8 dark:bg-unad-navy/20 border-l-4 border-unad-navy dark:border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-navy dark:text-unad-teal shrink-0" data-icon="lucide:rocket" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-navy dark:text-unad-teal">EYZA</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Fomenta investigación, innovación y competitividad en la UNAD.</p>
+                    </article>
+
+                    <article class="bg-unad-navy/8 dark:bg-unad-navy/20 border-l-4 border-unad-navy dark:border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-navy dark:text-unad-teal shrink-0" data-icon="lucide:book-open" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-navy dark:text-unad-teal">SIPA</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Formación investigativa participativa en áreas pecuaria y forestal.</p>
+                    </article>
+
+                    <article class="bg-unad-navy/8 dark:bg-unad-navy/20 border-l-4 border-unad-navy dark:border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-navy dark:text-unad-teal shrink-0" data-icon="lucide:shield-check" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-navy dark:text-unad-teal">SINPROP</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Promueve investigación responsable en producción pecuaria.</p>
+                    </article>
+
+                    <article class="bg-unad-navy/8 dark:bg-unad-navy/20 border-l-4 border-unad-navy dark:border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-navy dark:text-unad-teal shrink-0" data-icon="lucide:wrench" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-navy dark:text-unad-teal">SISPRO</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Soluciones a problemas reales del sector agrícola, pecuario y ambiental.</p>
+                    </article>
+
+                    <article class="bg-unad-navy/8 dark:bg-unad-navy/20 border-l-4 border-unad-navy dark:border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-navy dark:text-unad-teal shrink-0" data-icon="lucide:graduation-cap" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-navy dark:text-unad-teal">SION</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Investigación formativa en producción pecuaria, agrícola y agroforestal.</p>
+                    </article>
+
+                    <article class="bg-unad-navy/8 dark:bg-unad-navy/20 border-l-4 border-unad-navy dark:border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-navy dark:text-unad-teal shrink-0" data-icon="lucide:cog" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-navy dark:text-unad-teal">SITPA</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Innovación y modelos piloto para producción agropecuaria y desarrollo tecnológico.</p>
+                    </article>
+
+                    <article class="bg-unad-navy/8 dark:bg-unad-navy/20 border-l-4 border-unad-navy dark:border-unad-teal rounded-xl p-3 hover-card">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="iconify text-unad-navy dark:text-unad-teal shrink-0" data-icon="lucide:microscope" data-width="16"></span>
+                            <h3 class="t-caption w-bold f-display text-unad-navy dark:text-unad-teal">SICAM-2</h3>
+                        </div>
+                        <p class="t-micro text-gray-700 dark:text-gray-300">Investigación formativa aplicada al sector pecuario y ambiental.</p>
+                    </article>
+
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Estilos y lógica del modal (idempotentes, compartidos) -->
-    <style>
-        .slide-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 2147483600;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        .slide-modal.is-open { display: flex; }
-        .slide-modal__overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.78);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            cursor: pointer;
-            animation: slideModalFadeIn 180ms ease-out;
-        }
-        .slide-modal__content {
-            position: relative;
-            z-index: 1;
-            width: min(1400px, 94vw);
-            height: min(880px, 90vh);
-            background: #ffffff;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
-            display: flex;
-            flex-direction: column;
-            animation: slideModalZoomIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .slide-modal__content--image {
-            width: min(1600px, 96vw);
-            height: min(920px, 92vh);
-        }
-        .slide-modal__header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.6rem 0.9rem;
-            color: #ffffff;
-            flex-shrink: 0;
-            gap: 0.75rem;
-        }
-        .slide-modal__close {
-            background: rgba(255, 255, 255, 0.15);
-            border: 0;
-            color: #ffffff;
-            width: 32px;
-            height: 32px;
-            border-radius: 9999px;
-            cursor: pointer;
-            font-size: 20px;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 150ms ease;
-            font-family: inherit;
-        }
-        .slide-modal__close:hover { background: rgba(255, 255, 255, 0.32); }
-        .slide-modal__body { flex: 1; min-height: 0; background: #ffffff; }
-        .slide-modal__body iframe { width: 100%; height: 100%; border: 0; display: block; }
-        .slide-modal__body--image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            padding: 1rem;
-        }
-        .slide-modal__body--image img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 0.25rem;
-        }
+        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                <h4 class="t-small w-bold f-display text-unad-orange mb-1 flex items-center gap-2">
+                    <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span>
+                    Criterio del Par Académico
+                </h4>
+                <p class="role-note text-gray-700 dark:text-gray-300">Verificar afinidad temática de los semilleros con el campo veterinario y pecuario.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                <h4 class="t-small w-bold f-display text-unad-green mb-1 flex items-center gap-2">
+                    <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span>
+                    Evidencia que Sustenta
+                </h4>
+                <p class="role-note text-gray-700 dark:text-gray-300">Condición 5, Tabla 5.4; registros institucionales de semilleros.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        @keyframes slideModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideModalZoomIn {
-            from { opacity: 0; transform: scale(0.96) translateY(8px); }
-            to   { opacity: 1; transform: scale(1)    translateY(0);   }
-        }
-
-        @media (max-width: 768px) {
-            .slide-modal { padding: 0.75rem; }
-            .slide-modal__content,
-            .slide-modal__content--image { width: 100%; height: 92vh; border-radius: 0.75rem; }
-        }
-    </style>
-
-    <script>
-        (function () {
-            if (window.__componentePracticoModalsInit__) return;
-            window.__componentePracticoModalsInit__ = true;
-
-            function closeAllModals() {
-                document.querySelectorAll('.slide-modal.is-open').forEach(function (m) {
-                    m.classList.remove('is-open');
-                });
-            }
-
-            document.addEventListener('click', function (e) {
-                var opener = e.target.closest('[data-open-modal]');
-                if (opener) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    var id = opener.getAttribute('data-open-modal');
-                    var modal = document.getElementById(id);
-                    if (modal) {
-                        closeAllModals();
-                        modal.classList.add('is-open');
-                        var closeBtn = modal.querySelector('.slide-modal__close');
-                        if (closeBtn) closeBtn.focus();
-                    }
-                    return;
-                }
-                if (e.target.closest('[data-close-modal]')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    closeAllModals();
-                }
-            }, true);
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' || e.key === 'Esc') {
-                    closeAllModals();
-                }
-            });
-        })();
-    </script>
-
-    <!-- ══════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
          11 · VINCULACIÓN DE PROFESORES Y DEDICACIÓN
     ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Vinculación de profesores">
+    <section class="slide" data-title="Vinculación de profesores" data-accent="teal">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:user-check" data-width="32"></span>
-                    7. Vinculación de profesores y dedicación investigativa
+                    Vinculación de profesores y dedicación investigativa
                 </h2>
             </div>
 
             <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-4 pr-2 text-gray-800 dark:text-gray-200">
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto">
-                    La vinculación de profesores a grupos y proyectos sigue procedimientos institucionales. Se exige
-                    <strong class="text-unad-teal dark:text-unad-orange">vinculación vigente, perfil investigativo coherente con las líneas, evaluación de trayectoria y pertinencia</strong>,
-                    y un plan de trabajo con actividades y productos. La trazabilidad se apoya en perfiles CvLAC, ORCID, Google Scholar y
-                    registros institucionales del SIGI. La asignación de tiempo se realiza en proyectos con financiación institucional y aval correspondiente.
-                </p>
+
+                <!-- Requisitos + Trazabilidad -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-4xl mx-auto w-full">
+
+                    <!-- Requisitos de vinculación -->
+                    <div>
+                        <p class="role-label font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-unad-teal dark:text-unad-orange">
+                            <span class="iconify" data-icon="lucide:clipboard-list" data-width="16"></span>
+                            Requisitos de vinculación
+                        </p>
+                        <ul class="checklist">
+                            <li>
+                                <span class="iconify" data-icon="lucide:badge-check" data-width="18"></span>
+                                <span class="role-body">Vinculación vigente</span>
+                            </li>
+                            <li>
+                                <span class="iconify" data-icon="lucide:target" data-width="18"></span>
+                                <span class="role-body">Perfil investigativo coherente con las líneas</span>
+                            </li>
+                            <li>
+                                <span class="iconify" data-icon="lucide:user-check" data-width="18"></span>
+                                <span class="role-body">Evaluación de trayectoria y pertinencia</span>
+                            </li>
+                            <li>
+                                <span class="iconify" data-icon="lucide:list-checks" data-width="18"></span>
+                                <span class="role-body">Plan de trabajo con actividades y productos</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Trazabilidad -->
+                    <div>
+                        <p class="role-label font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-unad-teal dark:text-unad-orange">
+                            <span class="iconify" data-icon="lucide:network" data-width="16"></span>
+                            Trazabilidad
+                        </p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="mini-card">
+                                <span class="iconify" data-icon="lucide:user-circle-2" data-width="18"></span>
+                                <span class="role-note font-semibold">CvLAC</span>
+                            </div>
+                            <div class="mini-card">
+                                <span class="iconify" data-icon="lucide:fingerprint" data-width="18"></span>
+                                <span class="role-note font-semibold">ORCID</span>
+                            </div>
+                            <div class="mini-card">
+                                <span class="iconify" data-icon="lucide:graduation-cap" data-width="18"></span>
+                                <span class="role-note font-semibold">Google Scholar</span>
+                            </div>
+                            <div class="mini-card">
+                                <span class="iconify" data-icon="lucide:database" data-width="18"></span>
+                                <span class="role-note font-semibold">SIGI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Asignación de tiempo -->
+                <div class="tiempo-badge max-w-4xl mx-auto w-full">
+                    <span class="iconify" data-icon="lucide:clock-4" data-width="20"></span>
+                    <p class="role-note">
+                        <strong>Asignación de tiempo:</strong> se realiza en proyectos con financiación institucional y aval correspondiente.
+                    </p>
+                </div>
 
                 <p class="text-sm font-bold text-unad-navy dark:text-white text-center">Dedicación semanal reportada para profesores investigadores</p>
 
@@ -1613,14 +1464,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                <div class="bg-gradient-to-r from-unad-navy to-unad-teal text-white p-5 rounded-2xl shadow-lg border border-white/20 max-w-4xl mx-auto w-full">
-                    <p class="text-xs font-bold uppercase tracking-widest text-unad-orange mb-2 flex items-center gap-2">
-                        <span class="iconify" data-icon="lucide:star" data-width="16"></span> Idea clave
-                    </p>
-                    <p class="font-medium text-sm md:text-base text-center">Cada escenario debe contar con soporte formal (infraestructura, protocolos o convenio) para ser verificable.</p>
-                </div>
-            </div>
 
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
@@ -1792,25 +1635,62 @@
         </div>
     </section> -->
 
-    <!-- ══════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
          16 · PRODUCCIÓN, VISIBILIDAD E IMPACTO
     ══════════════════════════════════════════════ -->
-    <section class="slide" data-title="Producción e impacto">
+    <section class="slide" data-title="Producción e impacto" data-accent="teal">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
                     <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:megaphone" data-width="32"></span>
-                    10. Producción, visibilidad, cooperación e impacto social
+                    Producción, visibilidad, cooperación e impacto social
                 </h2>
             </div>
 
             <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center gap-4 pr-2 text-gray-800 dark:text-gray-200">
-                <p class="text-sm md:text-base leading-relaxed max-w-4xl mx-auto text-center">
-                    La estrategia de producción y visibilidad se apoya en mecanismos institucionales de divulgación, eventos académicos
-                    y científicos, Sistema de Publicaciones, redes de investigación y movilidad. La ECAPMA participa en escenarios como el
-                    <strong class="text-unad-teal dark:text-unad-orange">Congreso Internacional de Ciencias Agrarias</strong> y en otras instancias de apropiación social del conocimiento.
-                </p>
 
+                <!-- Mecanismos + Escenario destacado -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-4xl mx-auto w-full">
+
+                    <!-- Mecanismos institucionales -->
+                    <div>
+                        <p class="role-label font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-unad-teal dark:text-unad-orange">
+                            <span class="iconify" data-icon="lucide:workflow" data-width="16"></span>
+                            Mecanismos institucionales
+                        </p>
+                        <ul class="checklist">
+                            <li>
+                                <span class="iconify" data-icon="lucide:book-open" data-width="18"></span>
+                                <span class="role-body">Sistema de Publicaciones</span>
+                            </li>
+                            <li>
+                                <span class="iconify" data-icon="lucide:plane" data-width="18"></span>
+                                <span class="role-body">Movilidad académica</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Escenario destacado -->
+                    <div class="flex flex-col gap-3">
+                        <p class="role-label font-bold uppercase tracking-widest flex items-center gap-2 text-unad-teal dark:text-unad-orange">
+                            <span class="iconify" data-icon="lucide:star" data-width="16"></span>
+                            Escenario destacado
+                        </p>
+                        <div class="tiempo-badge">
+                            <span class="iconify" data-icon="lucide:presentation" data-width="20"></span>
+                            <p class="role-note">
+                                <strong>Congreso Internacional de Ciencias Agrarias</strong>, como espacio de referencia de la ECAPMA.
+                            </p>
+                        </div>
+                        <div class="mini-card">
+                            <span class="iconify" data-icon="lucide:handshake" data-width="18"></span>
+                            <span class="role-note font-semibold">Apropiación social del conocimiento</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tarjetas de líneas de acción -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
                         <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:book-open" data-width="24"></span>
@@ -1839,7 +1719,7 @@
                     <p class="text-xs font-bold uppercase tracking-widest text-unad-orange mb-2 flex items-center gap-2">
                         <span class="iconify" data-icon="lucide:star" data-width="16"></span> Idea clave
                     </p>
-                    <p class="font-medium text-sm md:text-base text-center">De la investigación al impacto territorial verificable.</p>
+                    <p class="font-medium text-sm md:text-base text-center">De la investigación al impacto territorial</p>
                 </div>
             </div>
 
@@ -2328,7 +2208,7 @@
                     <div class="bg-white/60 dark:bg-black/40 p-5 rounded-2xl border-l-4 border-unad-teal hover-card flex items-start gap-3">
                         <span class="iconify text-unad-teal shrink-0 mt-1" data-icon="lucide:book-marked" data-width="24"></span>
                         <div>
-                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">UNAD · Acuerdo 026 del 24 de junio de 2026</h3>
+                            <h3 class="font-bold text-unad-teal dark:text-unad-orange text-sm mb-1">Acuerdo 026 del 24 de junio de 2026</h3>
                             <p class="text-xs">Política de investigación y creación sostenible - sustentable de la UNAD.</p>
                         </div>
                     </div>
@@ -2375,11 +2255,11 @@
 
                 <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] uppercase text-unad-orange">
                     <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
-                    Fin de la Condición 5
+                    Fin de la
                 </span>
 
                 <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
-                    Ha finalizado la revisión de la <span class="text-unad-orange">Condición 5</span>
+                   <span class="text-unad-orange">Condición 5</span>
                 </h2>
 
                 <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
@@ -2574,5 +2454,23 @@
         if (btnDown) btnDown.addEventListener('click', () => gotoSlide(currentIndex + 1, 1));
     }
 </script>
+
+<script>
+document.querySelectorAll('.slide').forEach(slide => {
+    const cards = slide.querySelectorAll('.tab-card');
+    const panels = slide.querySelectorAll('.tab-panel');
+    if (!cards.length) return;
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const target = card.dataset.tab;
+
+            cards.forEach(c => c.classList.toggle('is-active', c === card));
+            panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === target));
+        });
+    });
+});
+</script>
+
 </body>
 </html>

@@ -381,3 +381,482 @@ button, input, select, textarea, optgroup { font-family: inherit; }
 .tabs-nav--5 .tab-card { padding: .7rem .35rem; gap: .3rem; }
 .tabs-nav--5 .tab-card__label { font-size: .68rem; letter-spacing: .03em; }
 .tabs-nav--5 .tab-card .iconify { width: 20px; height: 20px; }
+
+/* ══════════════════════════════════════════════
+   SLIDE 6 · Imagen a la izquierda (sin recorte) + tarjetas
+   ══════════════════════════════════════════════ */
+.slide-header { min-height: 4.5rem; }
+
+.slide-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);  /* 50 / 50 */
+    gap: clamp(1rem, 2vw, 1.75rem);
+    align-items: center;    /* imagen centrada vertical respecto a las tarjetas */
+    justify-content: center;
+}
+
+.slide-photo {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background: rgb(255 255 255 / .35);
+    border: 1px solid rgb(255 255 255 / .45);
+    box-shadow: 0 6px 20px rgb(0 0 0 / .08);
+}
+.slide-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 22rem;      /* techo de altura, sin recortar */
+    object-fit: contain;    /* muestra la imagen completa */
+    object-position: center;
+    border-radius: .75rem;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .slide-grid { grid-template-columns: 1fr; }
+    .slide-photo img { max-height: none; }
+}
+
+/* Micro-interacciones */
+.mini-card .iconify {
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, .61);
+}
+.mini-card:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+.lift { transition: transform .25s ease, box-shadow .25s ease; }
+.lift:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgb(0 0 0 / .12); }
+
+.slide-footer .note { min-height: 100%; }
+
+/* Sin botón de ampliar ni lightbox */
+.slide .expand-btn,
+.slide .zoom-btn,
+.slide .fullscreen-btn,
+.slide [data-zoom],
+.slide [data-lightbox],
+.slide [aria-label*="mpliar" i],
+.slide [aria-label*="xpand" i],
+.slide [aria-label*="ullscreen" i] { display: none !important; }
+
+.slide figure img,
+.slide .figure img {
+    cursor: default !important;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mini-card:hover .iconify { transform: none; }
+    .lift:hover { transform: none; box-shadow: none; }
+}
+/* ══════════════════════════════════════════════
+   SLIDE 6 · Resultado del modelo
+   (scoped: solo afecta esta slide)
+   ══════════════════════════════════════════════ */
+
+/* Marco de la imagen, mismo estilo que la slide 2 */
+[data-title="Resultado del modelo"] figure {
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: rgb(255 255 255 / 0.70);
+    border: 2px solid rgb(15 118 110 / 0.25);   /* unad-teal al 25 % */
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.10),
+                0 8px 10px -6px rgb(0 0 0 / 0.10);
+    overflow: hidden;
+}
+[data-title="Resultado del modelo"] figure img {
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+/* Modo oscuro del marco */
+.dark [data-title="Resultado del modelo"] figure {
+    background: rgb(0 0 0 / 0.40);
+}
+
+/* Sin lightbox ni zoom en la imagen */
+[data-title="Resultado del modelo"] [data-zoom],
+[data-title="Resultado del modelo"] [data-lightbox],
+[data-title="Resultado del modelo"] [aria-label*="mpliar" i],
+[data-title="Resultado del modelo"] [aria-label*="xpand" i] {
+    display: none !important;
+}
+[data-title="Resultado del modelo"] figure img {
+    cursor: default !important;
+    pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════
+   SLIDE 9 · Ecosistema de aprendizaje híbrido
+   (scoped: solo esta slide)
+   ══════════════════════════════════════════════ */
+
+/* Marco de la imagen, mismo estilo que la slide 2 */
+[data-title="Ecosistema"] figure {
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: rgb(255 255 255 / 0.70);
+    border: 2px solid rgb(15 118 110 / 0.25);   /* unad-teal al 25 % */
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.10),
+                0 8px 10px -6px rgb(0 0 0 / 0.10);
+    overflow: hidden;
+}
+[data-title="Ecosistema"] figure img {
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+/* Modo oscuro del marco */
+.dark [data-title="Ecosistema"] figure {
+    background: rgb(0 0 0 / 0.40);
+}
+
+/* Sin lightbox ni zoom */
+[data-title="Ecosistema"] [data-zoom],
+[data-title="Ecosistema"] [data-lightbox],
+[data-title="Ecosistema"] [aria-label*="mpliar" i],
+[data-title="Ecosistema"] [aria-label*="xpand" i] {
+    display: none !important;
+}
+[data-title="Ecosistema"] figure img {
+    cursor: default !important;
+    pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════
+   TABS · navegación por tarjetas (Propósito, NP…)
+   ══════════════════════════════════════════════ */
+.tabs-nav {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.tab-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid transparent;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.04);
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+}
+.dark .tab-card {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.tab-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.10);
+}
+
+.tab-card__label {
+    font-family: var(--font-display);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-small);
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* Estados activos por color institucional */
+.tab-card.is-active[data-accent="teal"]   { border-color: #0f766e; background: rgba(15, 118, 110, 0.08); }
+.tab-card.is-active[data-accent="green"]  { border-color: #166534; background: rgba(22, 101, 52, 0.08); }
+.tab-card.is-active[data-accent="orange"] { border-color: #d9691e; background: rgba(217, 105, 30, 0.08); }
+.tab-card.is-active[data-accent="navy"]   { border-color: #0b3a53; background: rgba(11, 58, 83, 0.08); }
+
+.tab-card.is-active[data-accent="teal"]   .iconify { color: #0f766e; }
+.tab-card.is-active[data-accent="green"]  .iconify { color: #166534; }
+.tab-card.is-active[data-accent="orange"] .iconify { color: #d9691e; }
+.tab-card.is-active[data-accent="navy"]   .iconify { color: #0b3a53; }
+
+/* Paneles */
+.tab-panel { display: none; }
+.tab-panel.is-active {
+    display: block;
+    animation: tab-fade-in .35s ease-out;
+}
+
+@keyframes tab-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Responsive: en móvil los tabs pasan a 2 columnas o fila */
+@media (max-width: 640px) {
+    .tabs-nav { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr 1fr; }
+    .tab-card { padding: 0.7rem 0.6rem; gap: 0.4rem; }
+    .tab-card__label { font-size: var(--fs-caption); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tab-card { transition: none; }
+    .tab-card:hover { transform: none; }
+    .tab-panel.is-active { animation: none; }
+}
+
+/* ─── Badge numérico de competencias (C1, C2, C3, C4…) ─── */
+.num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    line-height: 1;
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-micro);
+    letter-spacing: 0;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ══════════════════════════════════════════════
+   Checklist de grupos por categoría
+   (1.10 del catálogo + hover 3.6) — v2 con contraste
+   ══════════════════════════════════════════════ */
+.checklist {
+    list-style: none;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    display: grid;
+    gap: 0.15rem;
+}
+.checklist li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: #01333F;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transition: background-color .2s ease, transform .2s ease, color .2s ease;
+}
+.dark .checklist li { color: #E5E7EB; }
+
+.checklist li:hover {
+    background: rgba(0, 68, 91, 0.08);
+    transform: translateX(4px);
+    font-weight: 800;
+    color: #00445B;
+}
+.dark .checklist li:hover {
+    background: rgba(210, 103, 20, 0.14);
+    color: #D26714;
+}
+
+.checklist li .iconify {
+    flex: none;
+    margin-top: 0.05em;
+    font-size: 1.05rem;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.checklist li:hover .iconify {
+    transform: scale(1.2) rotate(-8deg);
+}
+.checklist li > span:last-child {
+    line-height: 1.35;
+    word-break: keep-all;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .checklist li, .checklist li .iconify { transition: none; }
+    .checklist li:hover { transform: none; }
+    .checklist li:hover .iconify { transform: none; }
+}
+/* Fila del checklist: menos padding vertical para que quepan 9 items */
+.checklist li {
+    padding: 0.25rem 0.5rem;
+}
+.checklist {
+    padding: 0.4rem 0.6rem;
+    gap: 0.1rem;
+}
+
+/* Tarjetas de métricas (15 / 18) más compactas */
+.stat-metric {
+    padding: 0.9rem 1rem !important;
+}
+.stat-metric .metric-num {
+    font-size: 2.4rem !important;
+    line-height: 1 !important;
+}
+.stat-metric .metric-label {
+    font-size: 0.68rem !important;
+    margin-top: 0.35rem !important;
+}
+/* ── Checklist de requisitos ───────────────────────── */
+.checklist { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.checklist li { display: flex; gap: .55rem; align-items: flex-start; }
+.checklist li .iconify {
+    color: var(--accent, #0f766e);
+    flex: none;
+    margin-top: .15em;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.checklist li:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+/* ── Mini-cards de trazabilidad ────────────────────── */
+.mini-card {
+    display: flex; align-items: center; gap: .55rem;
+    padding: .55rem .7rem;
+    border-radius: .75rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--accent, #0f766e) 22%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.mini-card .iconify {
+    color: var(--accent, #0f766e);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.mini-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgb(0 0 0 / .10); }
+.mini-card:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+/* Modo oscuro */
+.dark .mini-card { background: color-mix(in srgb, var(--accent, #0f766e) 22%, #0b1220); }
+
+/* ── Badge de asignación de tiempo ─────────────────── */
+.tiempo-badge {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .8rem 1rem;
+    border-radius: .9rem;
+    border-left: 4px solid var(--accent, #0f766e);
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--accent, #0f766e) 14%, white),
+        transparent);
+}
+.tiempo-badge .iconify { color: var(--accent, #0f766e); flex: none; }
+
+/* ── Accesibilidad: sin movimiento si el usuario lo pide ── */
+@media (prefers-reduced-motion: reduce) {
+    .checklist li .iconify,
+    .mini-card,
+    .mini-card .iconify { transition: none !important; }
+    .checklist li:hover .iconify,
+    .mini-card:hover,
+    .mini-card:hover .iconify { transform: none !important; }
+}
+
+/* ── Checklist de requisitos ───────────────────────── */
+.checklist { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.checklist li { display: flex; gap: .55rem; align-items: flex-start; }
+.checklist li .iconify {
+    color: var(--accent, #0f766e);
+    flex: none;
+    margin-top: .15em;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.checklist li:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+/* ── Mini-cards de trazabilidad ────────────────────── */
+.mini-card {
+    display: flex; align-items: center; gap: .55rem;
+    padding: .55rem .7rem;
+    border-radius: .75rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--accent, #0f766e) 22%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.mini-card .iconify {
+    color: var(--accent, #0f766e);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.mini-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgb(0 0 0 / .10); }
+.mini-card:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+.dark .mini-card { background: color-mix(in srgb, var(--accent, #0f766e) 22%, #0b1220); }
+
+/* ── Badge de asignación de tiempo ─────────────────── */
+.tiempo-badge {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .8rem 1rem;
+    border-radius: .9rem;
+    border-left: 4px solid var(--accent, #0f766e);
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--accent, #0f766e) 14%, white),
+        transparent);
+}
+.tiempo-badge .iconify { color: var(--accent, #0f766e); flex: none; }
+
+/* ── Accesibilidad ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .checklist li .iconify,
+    .mini-card,
+    .mini-card .iconify { transition: none !important; }
+    .checklist li:hover .iconify,
+    .mini-card:hover,
+    .mini-card:hover .iconify { transform: none !important; }
+}
+/* ── Checklist ─────────────────────────────────────── */
+.checklist { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.checklist li { display: flex; gap: .55rem; align-items: flex-start; }
+.checklist li .iconify {
+    color: var(--accent, #0f766e);
+    flex: none;
+    margin-top: .15em;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.checklist li:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+/* ── Mini-cards ────────────────────────────────────── */
+.mini-card {
+    display: flex; align-items: center; gap: .55rem;
+    padding: .55rem .7rem;
+    border-radius: .75rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--accent, #0f766e) 22%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.mini-card .iconify {
+    color: var(--accent, #0f766e);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.mini-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgb(0 0 0 / .10); }
+.mini-card:hover .iconify { transform: rotate(8deg) scale(1.15); }
+.dark .mini-card { background: color-mix(in srgb, var(--accent, #0f766e) 22%, #0b1220); }
+
+/* ── Badge destacado ───────────────────────────────── */
+.tiempo-badge {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .8rem 1rem;
+    border-radius: .9rem;
+    border-left: 4px solid var(--accent, #0f766e);
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--accent, #0f766e) 14%, white),
+        transparent);
+}
+.tiempo-badge .iconify { color: var(--accent, #0f766e); flex: none; }
+
+/* ── Accesibilidad ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .checklist li .iconify,
+    .mini-card,
+    .mini-card .iconify { transition: none !important; }
+    .checklist li:hover .iconify,
+    .mini-card:hover,
+    .mini-card:hover .iconify { transform: none !important; }
+}
