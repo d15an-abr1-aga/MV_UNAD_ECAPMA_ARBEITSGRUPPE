@@ -958,3 +958,135 @@ button, input, select, textarea, optgroup { font-family: inherit; }
     .bento__cell:hover,
     .bento__cell:hover .iconify { transform: none !important; }
 }
+/* ── Columnas numeradas (slide 15) ─────────────────── */
+.ind-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    max-width: 84rem;
+    margin-inline: auto;
+    align-items: start;
+}
+
+.ind-col {
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+    padding-top: .85rem;
+    border-top: 4px solid var(--col-accent, var(--accent, #0f766e));
+    transition: transform .25s ease;
+}
+.ind-col:hover { transform: translateY(-3px); }
+
+/* Número grande protagonista */
+.ind-col__num {
+    font-family: var(--font-display, inherit);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 1.1rem + 1.8vw, 2.5rem);
+    line-height: 1;
+    color: var(--col-accent, var(--accent, #0f766e));
+    letter-spacing: -.02em;
+}
+
+/* Icono */
+.ind-col__icon {
+    color: var(--col-accent, var(--accent, #0f766e));
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.ind-col:hover .ind-col__icon { transform: rotate(8deg) scale(1.15); }
+
+/* Labels internos más discretos */
+.ind-col .role-label {
+    margin-top: .35rem;
+    opacity: .6;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+/* Colores por columna (paleta institucional, no cambia el accent de la slide) */
+.ind-col--1 { --col-accent: var(--brand-teal,   #0f766e); }
+.ind-col--2 { --col-accent: var(--brand-orange, #d9691e); }
+.ind-col--3 { --col-accent: var(--brand-green,  #166534); }
+.ind-col--4 { --col-accent: var(--brand-navy,   #0b3a53); }
+
+/* Modo oscuro: aclarar el número y el icono para contraste */
+.dark .ind-col__num,
+.dark .ind-col__icon { color: color-mix(in srgb, var(--col-accent, #0f766e) 70%, white); }
+
+/* Subrayado animado en palabras clave del párrafo superior */
+.slide p strong {
+    background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat;
+    transition: background-size .35s ease;
+    padding-bottom: 1px;
+}
+.slide p:hover strong { background-size: 100% 2px; }
+
+/* Decoración de fondo */
+.bg-deco-icon {
+    position: absolute;
+    right: -3%;
+    bottom: -6%;
+    color: var(--accent, #0f766e);
+    opacity: .06;
+    pointer-events: none;
+    z-index: 0;
+    transform: rotate(-8deg);
+}
+@media (max-width: 768px) {
+    .bg-deco-icon { right: -14%; bottom: -10%; opacity: .05; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .ind-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; }
+}
+@media (max-width: 520px) {
+    .ind-cols { grid-template-columns: 1fr; }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .ind-col,
+    .ind-col__icon { transition: none !important; }
+    .ind-col:hover,
+    .ind-col:hover .ind-col__icon { transform: none !important; }
+    .slide p strong { background: none; }
+}
+
+/* ── Bento con solo 2 celdas + 1 full-width ────────── */
+.bento--duo { grid-template-columns: repeat(2, 1fr); }
+.bento--duo .bento__cell--full { grid-column: 1 / -1; }
+
+@media (max-width: 768px) {
+    .bento--duo { grid-template-columns: 1fr; }
+    .bento--duo .bento__cell--full { grid-column: 1 / -1; }
+}
+/* ── Sección Perfil de formación (slide 4) ─────────── */
+.perfil-formacion {
+    padding: 1rem 1.1rem;
+    border-radius: 1.1rem;
+    background: color-mix(in srgb, var(--accent, #0b3a53) 6%, transparent);
+    border: 1px dashed color-mix(in srgb, var(--accent, #0b3a53) 35%, transparent);
+}
+
+/* Mini-cards en formato columna (icono arriba, texto debajo) */
+.mini-card.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .45rem;
+    padding: .85rem .9rem;
+    text-align: left;
+}
+.mini-card.flex-col .iconify { color: var(--accent, #0b3a53); }
+.mini-card.flex-col .role-card-title { margin: 0; }
+
+/* Modo oscuro */
+.dark .perfil-formacion {
+    background: color-mix(in srgb, var(--accent, #0b3a53) 22%, #0b1220);
+    border-color: color-mix(in srgb, var(--accent, #0b3a53) 45%, transparent);
+}
+
+/* Ajuste fino del checklist reutilizado */
+.checklist .role-body { line-height: 1.45; }

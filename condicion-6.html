@@ -965,30 +965,18 @@
             </p>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="bento max-w-5xl mx-auto w-full">
+                <div class="bento bento--duo max-w-5xl mx-auto w-full">
 
                     <article class="bento__cell">
                         <span class="iconify" data-icon="lucide:clipboard-check" data-width="24"></span>
                         <h3 class="role-card-title">Seguimiento institucional</h3>
-                        <p class="role-note">Articulado con el procedimiento <strong>P-7-8</strong> y el sistema institucional de graduados.</p>
-                    </article>
-
-                    <article class="bento__cell">
-                        <span class="iconify" data-icon="lucide:repeat" data-width="24"></span>
-                        <h3 class="role-card-title">Retroalimentación futura</h3>
-                        <p class="role-note">Con cohortes, servirá para revisar pertinencia curricular y educación continua.</p>
+                        <p class="role-note">Articulado con el procedimiento <strong>P-7-8</strong> y el sistema institucional de graduados. Con cohortes, la retroalimentación de egresados y empleadores alimentará la revisión curricular y la educación continua.</p>
                     </article>
 
                     <article class="bento__cell">
                         <span class="iconify" data-icon="lucide:database" data-width="24"></span>
                         <h3 class="role-card-title">Fuentes externas como contexto</h3>
                         <p class="role-note"><strong>OLE</strong> y <strong>OCUPACOL</strong> contextualizan tendencias; no son línea base del programa.</p>
-                    </article>
-
-                    <article class="bento__cell bento__cell--accent">
-                        <span class="iconify" data-icon="lucide:alert-triangle" data-width="24"></span>
-                        <h3 class="role-card-title">No atribuir resultados inexistentes</h3>
-                        <p class="role-note">Sin porcentajes de empleabilidad ni distribución laboral sin metodología y fuente propias.</p>
                     </article>
 
                     <article class="bento__cell bento__cell--full bento__cell--navy">
@@ -1073,8 +1061,12 @@
         </div>
     </section>
 
-    <!-- 15. Indicadores por línea (grid 4 cards) -->
-    <section class="slide" data-title="Indicadores por Línea">
+<!-- 15. Indicadores por línea (columnas numeradas) -->
+    <section class="slide" data-title="Indicadores por Línea" data-accent="teal">
+
+        <!-- Decoración: ícono grande de fondo -->
+        <span class="iconify bg-deco-icon" data-icon="lucide:list-ordered" data-width="360" aria-hidden="true"></span>
+
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
@@ -1082,53 +1074,61 @@
                     Indicadores por línea del plan
                 </h2>
             </div>
-            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Los indicadores permiten seguir operación, pertinencia, participación y retroalimentación <strong>sin confundir actividad con impacto</strong>.</p>
+            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-4">
+                Los indicadores permiten seguir operación, pertinencia, participación y retroalimentación <strong>sin confundir actividad con impacto</strong>.
+            </p>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch w-full">
-                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-teal" data-icon="lucide:building-2" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">1. Sector productivo y sanitario</h3>
-                        </div>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">Prácticas/pasantías, alianzas, proyectos con sector</p>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Convenios vigentes/operativos; cobertura y evaluación de escenarios; proyectos colaborativos.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-orange" data-icon="lucide:heart-handshake" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">2. Proyección social y trabajo comunitario</h3>
-                        </div>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">SISSU, SIDER, OIR, redes y proyectos comunitarios</p>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Participación, resultados comunitarios, continuidad y seguimiento.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-green" data-icon="lucide:globe" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">3. Internacionalización y cooperación</h3>
-                        </div>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">UNAD Global, clases espejo, movilidad, expertos y redes</p>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Actividades, alianzas, productos de cooperación y movilidad.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-navy dark:border-l-gray-400 flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-navy dark:text-white" data-icon="lucide:graduation-cap" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">4. Graduados y educación continua</h3>
-                        </div>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">SINEC, graduados y empleadores</p>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Oferta basada en necesidades, participación y retroalimentación.</p>
-                    </div>
+                <div class="ind-cols">
+
+                    <!-- 01 -->
+                    <article class="ind-col ind-col--1">
+                        <span class="ind-col__num">01</span>
+                        <span class="iconify ind-col__icon" data-icon="lucide:building-2" data-width="26"></span>
+                        <h3 class="role-card-title">Sector productivo y sanitario</h3>
+                        <p class="role-label">Mecanismos</p>
+                        <p class="role-note">Prácticas / pasantías, alianzas, proyectos con sector.</p>
+                        <p class="role-label">Indicadores</p>
+                        <p class="role-note">Convenios vigentes u operativos; cobertura y evaluación de escenarios; proyectos colaborativos.</p>
+                    </article>
+
+                    <!-- 02 -->
+                    <article class="ind-col ind-col--2">
+                        <span class="ind-col__num">02</span>
+                        <span class="iconify ind-col__icon" data-icon="lucide:heart-handshake" data-width="26"></span>
+                        <h3 class="role-card-title">Proyección social y trabajo comunitario</h3>
+                        <p class="role-label">Mecanismos</p>
+                        <p class="role-note">SISSU, SIDER, OIR, redes y proyectos comunitarios.</p>
+                        <p class="role-label">Indicadores</p>
+                        <p class="role-note">Participación, resultados comunitarios, continuidad y seguimiento.</p>
+                    </article>
+
+                    <!-- 03 -->
+                    <article class="ind-col ind-col--3">
+                        <span class="ind-col__num">03</span>
+                        <span class="iconify ind-col__icon" data-icon="lucide:globe" data-width="26"></span>
+                        <h3 class="role-card-title">Internacionalización y cooperación</h3>
+                        <p class="role-label">Mecanismos</p>
+                        <p class="role-note">UNAD Global, clases espejo, movilidad, expertos y redes.</p>
+                        <p class="role-label">Indicadores</p>
+                        <p class="role-note">Actividades, alianzas, productos de cooperación y movilidad.</p>
+                    </article>
+
+                    <!-- 04 -->
+                    <article class="ind-col ind-col--4">
+                        <span class="ind-col__num">04</span>
+                        <span class="iconify ind-col__icon" data-icon="lucide:graduation-cap" data-width="26"></span>
+                        <h3 class="role-card-title">Graduados y educación continua</h3>
+                        <p class="role-label">Mecanismos</p>
+                        <p class="role-note">SINEC, graduados y empleadores.</p>
+                        <p class="role-label">Indicadores</p>
+                        <p class="role-note">Oferta basada en necesidades, participación y retroalimentación.</p>
+                    </article>
+
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+
+            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
                     <p class="text-xs text-gray-700 dark:text-gray-300">Seguimiento efectivo y trazable de las cuatro líneas del plan a siete años.</p>
@@ -1268,10 +1268,10 @@
                 </span>
                 <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
                     <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
-                    Fin de la Condición 6
+                    Fin de la
                 </span>
                 <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
-                    Ha finalizado la revisión de la <span class="text-unad-orange">Condición 6</span>
+                    <span class="text-unad-orange">Condición 6</span>
                 </h2>
                 <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed italic">
                     "La fortaleza de la Condición 6 está en demostrar una cadena verificable: <strong>política → mecanismo → participantes → actor externo → resultado → evidencia → seguimiento y mejora</strong>."
