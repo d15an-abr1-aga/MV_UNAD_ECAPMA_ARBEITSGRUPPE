@@ -373,3 +373,11 @@ button, input, select, textarea, optgroup { font-family: inherit; }
 .dark .styled-table-dense tbody tr:not(.period-row):not(.total-row) td:first-child::before {
     background: #D26714;
 }
+/* ══════════ Tabs de 5 columnas (Mecanismos RAP) ══════════ */
+.tabs-nav--5 { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 900px) { .tabs-nav--5 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .tabs-nav--5 { grid-template-columns: repeat(2, 1fr); } }
+
+.tabs-nav--5 .tab-card { padding: .7rem .35rem; gap: .3rem; }
+.tabs-nav--5 .tab-card__label { font-size: .68rem; letter-spacing: .03em; }
+.tabs-nav--5 .tab-card .iconify { width: 20px; height: 20px; }
