@@ -381,7 +381,7 @@
     <section class="slide" data-title="Portada">
         <div class="glass-panel items-center justify-center text-center">
             <span class="gsap-reveal px-4 py-1.5 rounded-full bg-unad-orange text-white text-xs font-bold uppercase tracking-wider mb-6 flex items-center gap-2 shadow-sm">
-                <span class="iconify animate-pulse" data-icon="lucide:users" data-width="16"></span> Sección independiente
+                <span class="iconify animate-pulse" data-icon="lucide:users" data-width="16"></span> C7
             </span>
             <h1 class="gsap-reveal text-4xl md:text-6xl font-display font-bold text-unad-teal dark:text-white mb-8">Condición 7. Profesores</h1>
 
@@ -706,48 +706,66 @@
     </section>
 
 
-    <!-- Diapositiva 8: Plan de Cualificación -->
-    <section class="slide" data-title="Plan de Cualificación">
+    <!-- Diapositiva 8: Plan de Cualificación (escalera de 3 niveles) -->
+    <section class="slide" data-title="Plan de Cualificación" data-accent="teal">
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:target" data-width="32"></span>
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
+                    <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:target" data-width="30"></span>
                     Plan de Cualificación Profesoral
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <div class="w-full max-w-4xl mx-auto">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-teal hover-card flex flex-col items-start gap-4 justify-center">
-                            <span class="iconify text-unad-teal" data-icon="lucide:compass" data-width="32"></span>
-                            <div>
-                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-1">Objetivo Central</h3>
-                                <p class="text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300">Fortalecer de forma equilibrada las competencias disciplinares, pedagógicas e investigativas del cuerpo docente del programa.</p>
+
+            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal pr-2">
+                <div class="ladder max-w-4xl mx-auto w-full">
+
+                    <!-- Nivel 1 · Base: objetivo -->
+                    <div class="ladder__level ladder__level--1">
+                        <p class="role-label">01 · Objetivo</p>
+                        <span class="iconify" data-icon="lucide:compass" data-width="26"></span>
+                        <p class="role-body">
+                            Fortalecer de forma equilibrada las competencias
+                            <strong>disciplinares, pedagógicas e investigativas</strong>
+                            del cuerpo docente del programa.
+                        </p>
+                    </div>
+
+                    <!-- Nivel 2 · Medio: estrategias (3 en fila) -->
+                    <div class="ladder__level ladder__level--2">
+                        <p class="role-label">02 · Estrategias</p>
+                        <div class="ladder__row">
+                            <div class="ladder__item">
+                                <span class="iconify" data-icon="lucide:graduation-cap" data-width="22"></span>
+                                <h3 class="role-card-title">Maestría y doctorado</h3>
+                                <p class="role-note">Participación activa en programas de posgrado.</p>
                             </div>
-                        </div>
-                        <div class="bg-white/60 dark:bg-black/40 p-6 rounded-2xl border-l-4 border-unad-orange hover-card flex flex-col items-start gap-4 justify-center">
-                            <span class="iconify text-unad-orange" data-icon="lucide:git-merge" data-width="32"></span>
-                            <div>
-                                <h3 class="font-bold text-base text-unad-navy dark:text-white mb-1">Estrategias y Acciones</h3>
-                                <ul class="text-sm md:text-base text-gray-700 dark:text-gray-300 space-y-1 list-disc pl-4">
-                                    <li>Participación activa en programas de Maestría y Doctorado.</li>
-                                    <li>Ejecución de diplomados institucionales.</li>
-                                    <li>Curso MOOC de inducción docente.</li>
-                                </ul>
+                            <div class="ladder__item">
+                                <span class="iconify" data-icon="lucide:book-open" data-width="22"></span>
+                                <h3 class="role-card-title">Diplomados</h3>
+                                <p class="role-note">Formación docente institucional.</p>
                             </div>
-                        </div>
-                        <div class="bg-unad-teal text-white p-6 rounded-2xl border border-white/20 shadow-md hover-card flex flex-col items-start gap-3 justify-center md:col-span-2">
-                            <span class="iconify text-unad-orange" data-icon="lucide:calendar-check" data-width="32"></span>
-                            <div>
-                                <h3 class="font-bold text-base text-unad-orange mb-1 uppercase tracking-wide">Proyección y Articulación Institucional</h3>
-                                <p class="text-sm md:text-base leading-relaxed">
-                                    La UNAD ha consolidado un plan de cualificación estructurado y proyectado a <strong>7 años</strong> específico para los docentes de Medicina Veterinaria. Este plan se fundamenta en las seis dimensiones del <strong>Modelo Heutagógico Unadista (MHU) 5.0</strong> y se articula directamente con la Gerencia de Talento Humano.
-                                </p>
+                            <div class="ladder__item">
+                                <span class="iconify" data-icon="lucide:laptop" data-width="22"></span>
+                                <h3 class="role-card-title">MOOC de inducción</h3>
+                                <p class="role-note">Inducción al modelo UNAD.</p>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Nivel 3 · Cima: proyección -->
+                    <div class="ladder__level ladder__level--3">
+                        <p class="role-label">03 · Proyección</p>
+                        <span class="iconify" data-icon="lucide:calendar-check" data-width="22"></span>
+                        <p class="role-body">
+                            Plan específico para Medicina Veterinaria a <strong>7 años</strong>,
+                            basado en las seis dimensiones del <strong>MHU 5.0</strong>
+                            y articulado con <strong>Gerencia de Talento Humano</strong>.
+                        </p>
+                    </div>
+
                 </div>
             </div>
+
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -944,11 +962,11 @@
 
                 <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
                     <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
-                    Fin de la Condición 7
+                    Fin de la
                 </span>
 
                 <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
-                    Ha finalizado la revisión de la <span class="text-unad-orange">Condición 7</span>
+                    <span class="text-unad-orange">Condición 7</span>
                 </h2>
 
                 <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
